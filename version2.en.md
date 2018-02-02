@@ -101,7 +101,7 @@ Please let us know if we need to set the specific Port.
 
 Serialize format: one among Google Protobuf, JSON, MessagePack.
 
-(* Althought we have some integration experiences using non-text-based MessagePack, we strongly recommand not to use it, non-text-based MessagePack will not be supported in the future)
+(* Although we have some integration experiences using non-text-based MessagePack, we strongly recommand not to use it, non-text-based MessagePack will not be supported in the future)
 
 Please inform SSP which serialize format should be used. (DSP reponsibility)
 
