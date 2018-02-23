@@ -1,4 +1,4 @@
-# fluct RTB 仕様2.1.4
+# fluct RTB 仕様2.1.5
 
 OpenRTB2.3に準拠しています。詳細は[IABのOpenRTB API Specification Version 2.3](https://www.iab.com/wp-content/uploads/2015/06/OpenRTB-API-Specification-Version-2-3.pdf)をご確認ください
 
@@ -261,6 +261,12 @@ string</td>
     <td>広告が掲載されたページのURL
 string</td>
   </tr>
+  </tr>
+  <tr>
+    <td>publisher</td>
+    <td>optional</td>
+    <td>パブリッシャーに関する情報</td>
+  </tr>
 </table>
 
 
@@ -305,6 +311,12 @@ string</td>
     <td>Appstoreurlに含まれるID（iOSのみ）
 例：Angry Birds (iOS)  "343200656"
 string</td>
+  </tr>
+  </tr>
+  <tr>
+    <td>publisher</td>
+    <td>optional</td>
+    <td>パブリッシャーに関する情報</td>
   </tr>
 </table>
 
@@ -813,6 +825,22 @@ BidResponseに含まれない場合はRTBで落札できた場合でも広告表
 
 imgを保持するassetオブジェクトが複数あるケースもあります。
 
+#### b-18. Publisher Object
+
+<table>
+  <tr>
+    <th>Field</th>
+    <th>scope</th>
+    <th>description</th>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>required</td>
+    <td>SSP側で管理してるパブリッシャーに関してのID
+string</td>
+  </tr>
+</table>
+
 ## 3.レスポンス仕様
 
 ###  a.レスポンスパラメタ
@@ -1213,7 +1241,10 @@ imgを保持するassetオブジェクトが複数あるケースもあります
     "id": "1000012671",
     "cat": [ "IAB1-1", "IAB2" ],
     "domain": "fluct.jp",
-    "page": "http://fluct.jp/hoge.html"
+    "page": "http://fluct.jp/hoge.html",
+    "publisher": {
+      "id": "461"
+    }
   },
   "user": {
     "id": "j98790jjh767yjnijhoou9707c321j313cdag234g",
@@ -1253,7 +1284,10 @@ imgを保持するassetオブジェクトが複数あるケースもあります
     "id": "1000012671",
     "cat": [ "IAB1-1", "IAB2" ],
     "bundle": "com.example.fluct",
-    "storeurl": "https://itunes.apple.com/id123456789"
+    "storeurl": "https://itunes.apple.com/id123456789",
+    "publisher": {
+      "id": "461"
+    }
   },
   "user": {
     "id": "2fac1234-31f8-11b4-a222-08002b34c003"
@@ -1291,7 +1325,10 @@ imgを保持するassetオブジェクトが複数あるケースもあります
     "id": "1000012671",
     "cat": [ "IAB1-1", "IAB2" ],
     "domain": "fluct.jp",
-    "page": "http://fluct.jp/hoge.html"
+    "page": "http://fluct.jp/hoge.html",
+    "publisher": {
+      "id": "461"
+    }
   },
   "user": {
     "id": "j98790jjh767yjnijhoou9707c321j313cdag234g",
@@ -1328,7 +1365,10 @@ imgを保持するassetオブジェクトが複数あるケースもあります
     "id": "1000012671",
     "cat": [ "IAB1-1", "IAB2" ],
     "domain": "fluct.jp",
-    "page": "http://fluct.jp/hoge.html"
+    "page": "http://fluct.jp/hoge.html",
+    "publisher": {
+      "id": "461"
+    }
   },
   "user": {
     "id": "j98790jjh767yjnijhoou9707c321j313cdag234g",
@@ -1372,7 +1412,10 @@ imgを保持するassetオブジェクトが複数あるケースもあります
     "id": "1000012671",
     "cat": [ "IAB1-1", "IAB2" ],
     "domain": "fluct.jp",
-    "page": "http://fluct.jp/hoge.html"
+    "page": "http://fluct.jp/hoge.html",
+    "publisher": {
+      "id": "461"
+    }
   },
   "user": {
     "id": "j98790jjh767yjnijhoou9707c321j313cdag234g",
@@ -1418,7 +1461,10 @@ imgを保持するassetオブジェクトが複数あるケースもあります
     "id": "1000012671",
     "cat": [ "IAB1-1", "IAB2" ],
     "domain": "fluct.jp",
-    "page": "http://fluct.jp/hoge.html"
+    "page": "http://fluct.jp/hoge.html",
+    "publisher": {
+      "id": "461"
+    }
   },
   "user": {
     "id": "j98790jjh767yjnijhoou9707c321j313cdag234g",

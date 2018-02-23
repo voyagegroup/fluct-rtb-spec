@@ -1,4 +1,4 @@
-# fluct RTB Specification ver2.1.4
+# fluct RTB Specification ver2.1.5
 
 This specification is based on OpenRTB2.3.
 
@@ -244,6 +244,11 @@ The following is a JSON example:
     <td>required</td>
     <td></td>
   </tr>
+  <tr>
+    <td>publisher</td>
+    <td>optional</td>
+    <td></td>
+  </tr>
 </table>
 
 
@@ -282,6 +287,11 @@ ex) com.foo.mygame</td>
     <td>optional</td>
     <td>AppstoreID
 ex) "343200656" for Angry Birds (iOS)</td>
+  </tr>
+  <tr>
+    <td>publisher</td>
+    <td>optional</td>
+    <td></td>
   </tr>
 </table>
 
@@ -675,6 +685,21 @@ integer</td>
 Impressions will not be generated for responses which do not also contain the corresponding items.
 
 Multiple asset objects containing img items may exist.
+
+#### b-18. publisher Object
+
+<table>
+  <tr>
+    <th>Field</th>
+    <th>scope</th>
+    <th>description</th>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>required</td>
+    <td>string</td>
+  </tr>
+</table>
 
 ## 3.Response specification
 
@@ -1171,7 +1196,10 @@ Multiple asset objects containing img items may exist.
     "id": "1000012671",
     "cat": [ "IAB1-1", "IAB2" ],
     "domain": "fluct.jp",
-    "page": "http://fluct.jp/hoge.html"
+    "page": "http://fluct.jp/hoge.html",
+    "publisher": {
+      "id": "461"
+    }
   },
   "user": {
     "id": "j98790jjh767yjnijhoou9707c321j313cdag234g",
@@ -1211,7 +1239,10 @@ in case ifa is set by fluct
     "id": "1000012671",
     "cat": [ "IAB1-1", "IAB2" ],
     "bundle": "com.example.fluct",
-    "storeurl": "https://itunes.apple.com/id123456789"
+    "storeurl": "https://itunes.apple.com/id123456789",
+    "publisher": {
+      "id": "461"
+    }
   },
   "user": {
     "id": "2fac1234-31f8-11b4-a222-08002b34c003"
@@ -1249,7 +1280,10 @@ in case ifa is set by fluct
     "id": "1000012671",
     "cat": [ "IAB1-1", "IAB2" ],
     "domain": "fluct.jp",
-    "page": "http://fluct.jp/hoge.html"
+    "page": "http://fluct.jp/hoge.html",
+    "publisher": {
+      "id": "461"
+    }
   },
   "user": {
     "id": "j98790jjh767yjnijhoou9707c321j313cdag234g",
@@ -1286,7 +1320,10 @@ in case ifa is set by fluct
     "id": "1000012671",
     "cat": [ "IAB1-1", "IAB2" ],
     "domain": "fluct.jp",
-    "page": "http://fluct.jp/hoge.html"
+    "page": "http://fluct.jp/hoge.html",
+    "publisher": {
+      "id": "461"
+    }
   },
   "user": {
     "id": "j98790jjh767yjnijhoou9707c321j313cdag234g",
@@ -1330,7 +1367,10 @@ in case ifa is set by fluct
     "id": "1000012671",
     "cat": [ "IAB1-1", "IAB2" ],
     "domain": "fluct.jp",
-    "page": "http://fluct.jp/hoge.html"
+    "page": "http://fluct.jp/hoge.html",
+    "publisher": {
+      "id": "461"
+    }
   },
   "user": {
     "id": "j98790jjh767yjnijhoou9707c321j313cdag234g",
@@ -1374,7 +1414,10 @@ in case ifa is set by fluct
     "id": "1000012671",
     "cat": [ "IAB1-1", "IAB2" ],
     "domain": "fluct.jp",
-    "page": "http://fluct.jp/hoge.html"
+    "page": "http://fluct.jp/hoge.html",
+    "publisher": {
+      "id": "461"
+    }
   },
   "user": {
     "id": "j98790jjh767yjnijhoou9707c321j313cdag234g",
