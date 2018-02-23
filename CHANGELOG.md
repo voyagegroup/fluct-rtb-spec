@@ -1,7 +1,7 @@
 # 変更履歴
 
 * 2.1.5
-    * 2017/10/23 publisher objectを追加
+    * 2018/02/23 publisher objectを追加
 * 2.1.4
     * 2017/10/18 native objectに関して、openRTB2.3仕様に準拠しました。(旧仕様でも接続可)
 * 2.1.3
