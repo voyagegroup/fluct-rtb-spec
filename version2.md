@@ -600,6 +600,7 @@ openRTBの仕様上、NativeObjectにrequestが含まれるのが正しいです
 旧から新への変更の必要はありませんが、変更したいケースはお申し出ください
 弊社から、とあるタイミングで新仕様の方に変更する旨の依頼を行う可能性もございます。
 
+
 #### b-11. Native Markup Request Object
 
 <table>
@@ -607,43 +608,82 @@ openRTBの仕様上、NativeObjectにrequestが含まれるのが正しいです
     <th>Field</th>
     <th>scope</th>
     <th>description</th>
+    <th>etc</th>
   </tr>
   <tr>
     <td>ver</td>
-    <td>optional</td>
+    <td>optional(1.2の場合はrequired)</td>
     <td>string</td>
+    <td></td>
   </tr>
   <tr>
     <td>layout</td>
-    <td>recommended</td>
+    <td>recommended(1.2ではoptional)</td>
     <td>対応してるレイアウト
 integer</td>
+    <td></td>
   </tr>
   <tr>
     <td>adunit</td>
-    <td>recommended</td>
+    <td>recommended(1.2ではoptional)</td>
     <td>integer</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>context</td>
+    <td>optional(1.2ではrecommended)</td>
+    <td>対応してるレイアウト
+integer</td>
+    <td>1.2 only</td>　　
+  </tr>
+  <tr>
+    <td>contextsubtype</td>
+    <td>optional</td>
+    <td>integer</td>
+    <td>1.2 only</td>　　
+  </tr>
+  <tr>
+    <td>plcmttype</td>
+    <td>optional(1.2ではrecommended)</td>
+    <td>integer</td>
+    <td>1.2 only</td>　　
   </tr>
   <tr>
     <td>plcmtcnt</td>
     <td>optional</td>
     <td>広告表示数
 integer</td>
+    <td></td>
   </tr>
   <tr>
     <td>seq</td>
     <td>optional</td>
     <td>integer</td>
+    <td></td>
   </tr>
   <tr>
     <td>assets</td>
     <td>required</td>
     <td>array of Object</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>urlsupport</td>
+    <td>optional</td>
+    <td>integer 0: default(none) / 1:assetUrlあり </td>
+    <td>1.2 only</td>　　
+  </tr>
+  <tr>
+    <td>eventtrackers</td>
+    <td>optional</td>
+    <td>integer  </td>
+    <td>1.2 only</td>　　
   </tr>
   <tr>
     <td>ext</td>
     <td>optional</td>
     <td>object</td>
+    <td></td>
   </tr>
 </table>
 
@@ -1146,7 +1186,7 @@ SSPは広告HTML(adm)内の以下の文字列を置換したうえで配信し�
 
 ## 4.コード表
 
-ネイティブアドレイアウトIDコード
+### ネイティブアドレイアウトIDコード
 
 <table>
   <tr>
@@ -1208,6 +1248,154 @@ SSPは広告HTML(adm)内の以下の文字列を置換したうえで配信し�
     <td></td>
     <td>他</td>
     <td></td>
+  </tr>
+</table>
+
+### ネイティブアドユニットコード
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>description</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>リスティング広告</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>レコメンドウィジェット</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>成果報酬型広告</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>通常インフィード</td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>カスタム</td>
+  </tr>
+  <tr>
+    <td>+500</td>
+    <td>他、追加時は要相談</td>
+  </tr>
+</table>
+
+### コンテキストID
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>description</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>+500</td>
+    <td>他、追加時は要相談</td>
+  </tr>
+</table>
+
+### コンテキストサブタイプID
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>description</th>
+  </tr>
+  <tr>
+    <td>10</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>11</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>12</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>13</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>14</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>15</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>20</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>21</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>22</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>30</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>31</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>32</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>+500</td>
+    <td>他、追加時は要相談</td>
+  </tr>
+</table>
+
+### プレイスメントタイプID
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>description</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>+500</td>
+    <td>他、追加時は要相談</td>
   </tr>
 </table>
 
