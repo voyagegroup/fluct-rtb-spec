@@ -1,6 +1,6 @@
-# fluct RTB 仕様2.1.5
+# fluct RTB 仕様2.1.6
 
-OpenRTB2.3に準拠しています。詳細は[IABのOpenRTB API Specification Version 2.3](https://www.iab.com/wp-content/uploads/2015/06/OpenRTB-API-Specification-Version-2-3.pdf)をご確認ください
+OpenRTB2.5に準拠しています。詳細は[IABのOpenRTB API Specification Version 2.5](https://www.iab.com/wp-content/uploads/2016/03/OpenRTB-API-Specification-Version-2-5-FINAL.pdf)をご確認ください
 
 注意
 
