@@ -1231,7 +1231,7 @@ in case ifa is set by fluct
   "app": {
     "id": "1000012671",
     "cat": [ "IAB1-1", "IAB2" ],
-    "bundle": "com.example.fluct",
+    "bundle": "123456789",
     "storeurl": "https://itunes.apple.com/id123456789",
     "publisher": {
       "id": "461"
