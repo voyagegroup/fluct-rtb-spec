@@ -1,7 +1,12 @@
 # 変更履歴
 
+* 2.2
+    * 2018/11/xx
+        * app object を修正しました
+            * `bundle` を OpenRTB に準拠
+            * `appid` を削除
 * 2.1.6
-    * 2018/11/08 OpenRTB2.5に準拠しました。
+    * 2018/11/08 OpenRTB2.5に準拠しました
 * 2.1.5
     * 2018/02/23 publisher objectを追加
 * 2.1.4

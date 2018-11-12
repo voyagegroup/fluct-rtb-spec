@@ -301,17 +301,10 @@ string</td>
   <tr>
     <td>bundle</td>
     <td>optional</td>
-    <td>Application bundle（iOS）あるいはpackage name （And）
-(例） com.foo.mygame
+    <td>プラットフォーム上でのアプリケーション識別子
+Android ではパッケージ名で、 iOS では数字の ID。
+(例) Android: `"com.foo.mygame"`, iOS: `"1234567890"`
 string</td>
-  </tr>
-  <tr>
-    <td>appid</td>
-    <td>optional</td>
-    <td>Appstoreurlに含まれるID（iOSのみ）
-例：Angry Birds (iOS)  "343200656"
-string</td>
-  </tr>
   </tr>
   <tr>
     <td>publisher</td>

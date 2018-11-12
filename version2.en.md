@@ -278,15 +278,8 @@ The following is a JSON example:
   <tr>
     <td>bundle</td>
     <td>optional</td>
-    <td>iOS=Application bundle
-And=package name
-ex) com.foo.mygame</td>
-  </tr>
-  <tr>
-    <td>appid</td>
-    <td>optional</td>
-    <td>AppstoreID
-ex) "343200656" for Angry Birds (iOS)</td>
+    <td>Platform-specific application identifier
+ex) Android: `"com.foo.mygame"`, iOS: `"1234567890"`</td>
   </tr>
   <tr>
     <td>publisher</td>
