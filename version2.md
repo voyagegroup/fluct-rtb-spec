@@ -374,6 +374,12 @@ string</td>
     <td>Limit Ad Tracking のステータス
 integer</td>
   </tr>
+  <tr>
+    <td>dnt</td>
+    <td>optional</td>
+    <td>Do Not Track ヘッダのステータス
+integer</td>
+  </tr>
 </table>
 
 

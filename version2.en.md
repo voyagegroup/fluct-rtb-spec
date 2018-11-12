@@ -340,6 +340,11 @@ ex) Android: `"com.foo.mygame"`, iOS: `"1234567890"`</td>
     <td>optional</td>
     <td></td>
   </tr>
+  <tr>
+    <td>dnt</td>
+    <td>optional</td>
+    <td></td>
+  </tr>
 </table>
 
 
