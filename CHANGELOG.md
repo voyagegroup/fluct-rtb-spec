@@ -5,6 +5,8 @@
         * app object を修正しました
             * `bundle` を OpenRTB に準拠
             * `appid` を削除
+        * device object を修正しました
+            * `ifa`, `lmt` が追加される条件を削除
 * 2.1.6
     * 2018/11/08 OpenRTB2.5に準拠しました
 * 2.1.5

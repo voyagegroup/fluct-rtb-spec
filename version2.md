@@ -366,15 +366,12 @@ string</td>
     <td>ifa</td>
     <td>optional</td>
     <td>広告識別子情報（IDFA/ADID）
-アプリかつSSP側でifaが取得できる場合に、ifaがセットされます
-(取得できない場合、パラメタ自体がなくなります)
 string</td>
   </tr>
   <tr>
     <td>lmt</td>
     <td>optional</td>
-    <td>LimitAdTracking のステータス
-(取得できない場合、パラメタ自体がなくなります)
+    <td>Limit Ad Tracking のステータス
 integer</td>
   </tr>
 </table>
