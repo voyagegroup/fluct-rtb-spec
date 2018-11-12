@@ -1201,7 +1201,7 @@ Multiple asset objects containing img items may exist.
   },
   "user": {
     "id": "j98790jjh767yjnijhoou9707c321j313cdag234g",
-    "buyeruid": "undefined"
+    "buyeruid": ""
   },
   "bcat": [ "IAB5-1", "IAB5-2" ],
   "badv": [ "blockdomain.com", "blockdomain2.jp" ],
@@ -1419,7 +1419,7 @@ in case ifa is set by fluct
   },
   "user": {
     "id": "j98790jjh767yjnijhoou9707c321j313cdag234g",
-    "buyeruid": "undefined"
+    "buyeruid": ""
   },
   "bcat": [ "IAB5-1", "IAB5-2" ],
   "badv": [ "blockdomain.com", "blockdomain2.jp" ],

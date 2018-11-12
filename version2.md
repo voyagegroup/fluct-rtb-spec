@@ -333,8 +333,6 @@ string</td>
     <td>optional</td>
     <td>cookie sync したことで得た、
 DSPで管理しているユーザID
-値がcookieから取得できない場合、
-"buyeruid": "undefined"
 string</td>
   </tr>
 </table>
@@ -1244,7 +1242,7 @@ imgを保持するassetオブジェクトが複数あるケースもあります
   },
   "user": {
     "id": "j98790jjh767yjnijhoou9707c321j313cdag234g",
-    "buyeruid": "undefined"
+    "buyeruid": ""
   },
   "bcat": [ "IAB5-1", "IAB5-2" ],
   "badv": [ "blockdomain.com", "blockdomain2.jp" ],
@@ -1464,7 +1462,7 @@ imgを保持するassetオブジェクトが複数あるケースもあります
   },
   "user": {
     "id": "j98790jjh767yjnijhoou9707c321j313cdag234g",
-    "buyeruid": "undefined"
+    "buyeruid": ""
   },
   "bcat": [ "IAB5-1", "IAB5-2" ],
   "badv": [ "blockdomain.com", "blockdomain2.jp" ],

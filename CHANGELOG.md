@@ -2,12 +2,14 @@
 
 * 2.2
     * 2018/11/xx
-        * app object を修正しました
+        * app object を変更しました
             * `bundle` を OpenRTB に準拠
             * `appid` を削除
-        * device object を修正しました
+        * device object を変更しました
             * `ifa`, `lmt` が追加される条件を削除
             * `dnt` を追加
+        * user object を変更しました
+            * `buyeruid` が `"undefined"` になる条件を削除
 * 2.1.6
     * 2018/11/08 OpenRTB2.5に準拠しました
 * 2.1.5
