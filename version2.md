@@ -303,7 +303,7 @@ string</td>
     <td>optional</td>
     <td>プラットフォーム上でのアプリケーション識別子
 Android ではパッケージ名で、 iOS では数字の ID。
-(例) Android: `"com.foo.mygame"`, iOS: `"1234567890"`
+(例) Android: "com.foo.mygame", iOS: "1234567890"
 string</td>
   </tr>
   <tr>

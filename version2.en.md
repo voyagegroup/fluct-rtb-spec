@@ -284,7 +284,7 @@ The following is a JSON example:
     <td>bundle</td>
     <td>optional</td>
     <td>Platform-specific application identifier
-ex) Android: `"com.foo.mygame"`, iOS: `"1234567890"`</td>
+ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
   </tr>
   <tr>
     <td>publisher</td>
