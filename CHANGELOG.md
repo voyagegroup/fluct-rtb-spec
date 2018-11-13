@@ -2,17 +2,17 @@
 
 * 2.2
     * 2018/11/xx
-        * imp object を変更しました
-            * [en] `instl` を追加
-        * app object を変更しました
+        * app object を変更
             * [en/ja] `bundle` を OpenRTB に準拠
             * [en/ja] `appid` を削除
-        * device object を変更しました
-            * [ja] `ifa`, `lmt` が追加される条件を削除
+        * device object を変更
+            * [ja] `ifa`, `lmt` が追加されない条件を削除
             * [en/ja] `dnt` を追加
-        * user object を変更しました
+        * user object を変更
             * [ja] `buyeruid` が `"undefined"` になる条件を削除
-        * video object を変更しました
+        * imp object を変更
+            * [en] `instl` を追加
+        * video object を変更
             * [en] `protocols`, `h`, `w`, `startdelay`, `linearity`, `minbitrate`, `maxbitrate`, `skip`, `api`, `placement` を追加
 * 2.1.6
     * 2018/11/08 OpenRTB2.5に準拠しました
