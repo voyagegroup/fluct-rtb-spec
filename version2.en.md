@@ -385,22 +385,86 @@ ex) Android: `"com.foo.mygame"`, iOS: `"1234567890"`</td>
   <tr>
     <td>mimes</td>
     <td>required</td>
-    <td>mp4</td>
+    <td>
+      "video/mp4",
+      string array
+    </td>
   </tr>
   <tr>
     <td>pos</td>
     <td>optional</td>
-    <td>overlay ad = 9</td>
+    <td>overlay ad = 9, integer</td>
   </tr>
   <tr>
     <td>minduration</td>
     <td>optional</td>
-    <td>5</td>
+    <td>integer</td>
   </tr>
   <tr>
     <td>maxduration</td>
     <td>optional</td>
-    <td>60</td>
+    <td>integer</td>
+  </tr>
+  <tr>
+    <td>protocols</td>
+    <td>optional</td>
+    <td>integer array</td>
+  </tr>
+  <tr>
+    <td>h</td>
+    <td>optional</td>
+    <td>integer</td>
+  </tr>
+  <tr>
+    <td>w</td>
+    <td>optional</td>
+    <td>integer</td>
+  </tr>
+  <tr>
+    <td>startdelay</td>
+    <td>optional</td>
+    <td>
+      0=pre-roll,
+      &gt;0=mid-roll,
+      -1=mid-roll,
+      -2=post-roll,
+      integer
+    </td>
+  </tr>
+  <tr>
+    <td>linearity</td>
+    <td>optional</td>
+    <td>
+      1=in-stream
+      2=overlay
+    </td>
+  </tr>
+  <tr>
+    <td>minbitrate</td>
+    <td>optional</td>
+    <td>integer</td>
+  </tr>
+  <tr>
+    <td>maxbitrate</td>
+    <td>optional</td>
+    <td>integer</td>
+  </tr>
+  <tr>
+    <td>skip</td>
+    <td>optional</td>
+    <td>
+      0=no, 1=yes, integer
+    </td>
+  </tr>
+  <tr>
+    <td>api</td>
+    <td>optional</td>
+    <td>integer array</td>
+  </tr>
+  <tr>
+    <td>placement</td>
+    <td>optional</td>
+    <td>integer</td>
   </tr>
 </table>
 

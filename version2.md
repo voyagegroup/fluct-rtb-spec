@@ -478,7 +478,7 @@ integer</td>
     <td>optional</td>
     <td>再生開始までの時間 (秒)
 0=pre-roll
->0=mid-roll (指定される秒数後に再生される)
+&gt;0=mid-roll (指定される秒数後に再生される)
 -1=一般的な mid-roll
 -2=post-roll
 integer</td>
