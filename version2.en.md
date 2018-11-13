@@ -1,6 +1,6 @@
-# fluct RTB Specification ver2.1.6
+# fluct RTB Specification ver 2.2
 
-This specification is based on OpenRTB2.5.
+This specification is based on OpenRTB 2.5.
 
 See [IAB OpenRTB API Specification Version 2.5](https://www.iab.com/wp-content/uploads/2016/03/OpenRTB-API-Specification-Version-2-5-FINAL.pdf) for details.
 
@@ -213,6 +213,11 @@ The following is a JSON example:
     <td>optional</td>
     <td></td>
   </tr>
+  <tr>
+    <td>instl</td>
+    <td>optional</td>
+    <td>0=no, 1=yes, integer</td>
+  </tr>
 </table>
 
 
@@ -278,15 +283,8 @@ The following is a JSON example:
   <tr>
     <td>bundle</td>
     <td>optional</td>
-    <td>iOS=Application bundle
-And=package name
-ex) com.foo.mygame</td>
-  </tr>
-  <tr>
-    <td>appid</td>
-    <td>optional</td>
-    <td>AppstoreID
-ex) "343200656" for Angry Birds (iOS)</td>
+    <td>Platform-specific application identifier
+ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
   </tr>
   <tr>
     <td>publisher</td>
@@ -347,6 +345,11 @@ ex) "343200656" for Angry Birds (iOS)</td>
     <td>optional</td>
     <td></td>
   </tr>
+  <tr>
+    <td>dnt</td>
+    <td>optional</td>
+    <td></td>
+  </tr>
 </table>
 
 
@@ -387,22 +390,86 @@ ex) "343200656" for Angry Birds (iOS)</td>
   <tr>
     <td>mimes</td>
     <td>required</td>
-    <td>mp4</td>
+    <td>
+      "video/mp4",
+      string array
+    </td>
   </tr>
   <tr>
     <td>pos</td>
     <td>optional</td>
-    <td>overlay ad = 9</td>
+    <td>overlay ad = 9, integer</td>
   </tr>
   <tr>
     <td>minduration</td>
     <td>optional</td>
-    <td>5</td>
+    <td>integer</td>
   </tr>
   <tr>
     <td>maxduration</td>
     <td>optional</td>
-    <td>60</td>
+    <td>integer</td>
+  </tr>
+  <tr>
+    <td>protocols</td>
+    <td>optional</td>
+    <td>integer array</td>
+  </tr>
+  <tr>
+    <td>h</td>
+    <td>optional</td>
+    <td>integer</td>
+  </tr>
+  <tr>
+    <td>w</td>
+    <td>optional</td>
+    <td>integer</td>
+  </tr>
+  <tr>
+    <td>startdelay</td>
+    <td>optional</td>
+    <td>
+      0=pre-roll,
+      &gt;0=mid-roll,
+      -1=mid-roll,
+      -2=post-roll,
+      integer
+    </td>
+  </tr>
+  <tr>
+    <td>linearity</td>
+    <td>optional</td>
+    <td>
+      1=in-stream
+      2=overlay
+    </td>
+  </tr>
+  <tr>
+    <td>minbitrate</td>
+    <td>optional</td>
+    <td>integer</td>
+  </tr>
+  <tr>
+    <td>maxbitrate</td>
+    <td>optional</td>
+    <td>integer</td>
+  </tr>
+  <tr>
+    <td>skip</td>
+    <td>optional</td>
+    <td>
+      0=no, 1=yes, integer
+    </td>
+  </tr>
+  <tr>
+    <td>api</td>
+    <td>optional</td>
+    <td>integer array</td>
+  </tr>
+  <tr>
+    <td>placement</td>
+    <td>optional</td>
+    <td>integer</td>
   </tr>
 </table>
 
@@ -1203,7 +1270,7 @@ Multiple asset objects containing img items may exist.
   },
   "user": {
     "id": "j98790jjh767yjnijhoou9707c321j313cdag234g",
-    "buyeruid": "undefined"
+    "buyeruid": ""
   },
   "bcat": [ "IAB5-1", "IAB5-2" ],
   "badv": [ "blockdomain.com", "blockdomain2.jp" ],
@@ -1238,7 +1305,7 @@ in case ifa is set by fluct
   "app": {
     "id": "1000012671",
     "cat": [ "IAB1-1", "IAB2" ],
-    "bundle": "com.example.fluct",
+    "bundle": "123456789",
     "storeurl": "https://itunes.apple.com/id123456789",
     "publisher": {
       "id": "461"
@@ -1421,7 +1488,7 @@ in case ifa is set by fluct
   },
   "user": {
     "id": "j98790jjh767yjnijhoou9707c321j313cdag234g",
-    "buyeruid": "undefined"
+    "buyeruid": ""
   },
   "bcat": [ "IAB5-1", "IAB5-2" ],
   "badv": [ "blockdomain.com", "blockdomain2.jp" ],

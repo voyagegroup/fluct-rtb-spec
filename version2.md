@@ -1,6 +1,6 @@
-# fluct RTB 仕様2.1.6
+# fluct RTB 仕様 2.2
 
-OpenRTB2.5に準拠しています。詳細は[IABのOpenRTB API Specification Version 2.5](https://www.iab.com/wp-content/uploads/2016/03/OpenRTB-API-Specification-Version-2-5-FINAL.pdf)をご確認ください
+OpenRTB 2.5 に準拠しています。詳細は[IABのOpenRTB API Specification Version 2.5](https://www.iab.com/wp-content/uploads/2016/03/OpenRTB-API-Specification-Version-2-5-FINAL.pdf)をご確認ください
 
 注意
 
@@ -301,17 +301,10 @@ string</td>
   <tr>
     <td>bundle</td>
     <td>optional</td>
-    <td>Application bundle（iOS）あるいはpackage name （And）
-(例） com.foo.mygame
+    <td>プラットフォーム上でのアプリケーション識別子
+Android ではパッケージ名で、 iOS では数字の ID。
+(例) Android: "com.foo.mygame", iOS: "1234567890"
 string</td>
-  </tr>
-  <tr>
-    <td>appid</td>
-    <td>optional</td>
-    <td>Appstoreurlに含まれるID（iOSのみ）
-例：Angry Birds (iOS)  "343200656"
-string</td>
-  </tr>
   </tr>
   <tr>
     <td>publisher</td>
@@ -340,8 +333,6 @@ string</td>
     <td>optional</td>
     <td>cookie sync したことで得た、
 DSPで管理しているユーザID
-値がcookieから取得できない場合、
-"buyeruid": "undefined"
 string</td>
   </tr>
 </table>
@@ -373,15 +364,18 @@ string</td>
     <td>ifa</td>
     <td>optional</td>
     <td>広告識別子情報（IDFA/ADID）
-アプリかつSSP側でifaが取得できる場合に、ifaがセットされます
-(取得できない場合、パラメタ自体がなくなります)
 string</td>
   </tr>
   <tr>
     <td>lmt</td>
     <td>optional</td>
-    <td>LimitAdTracking のステータス
-(取得できない場合、パラメタ自体がなくなります)
+    <td>Limit Ad Tracking のステータス
+integer</td>
+  </tr>
+  <tr>
+    <td>dnt</td>
+    <td>optional</td>
+    <td>Do Not Track ヘッダのステータス
 integer</td>
   </tr>
 </table>
@@ -484,7 +478,7 @@ integer</td>
     <td>optional</td>
     <td>再生開始までの時間 (秒)
 0=pre-roll
->0=mid-roll (指定される秒数後に再生される)
+&gt;0=mid-roll (指定される秒数後に再生される)
 -1=一般的な mid-roll
 -2=post-roll
 integer</td>
@@ -1248,7 +1242,7 @@ imgを保持するassetオブジェクトが複数あるケースもあります
   },
   "user": {
     "id": "j98790jjh767yjnijhoou9707c321j313cdag234g",
-    "buyeruid": "undefined"
+    "buyeruid": ""
   },
   "bcat": [ "IAB5-1", "IAB5-2" ],
   "badv": [ "blockdomain.com", "blockdomain2.jp" ],
@@ -1283,7 +1277,7 @@ imgを保持するassetオブジェクトが複数あるケースもあります
   "app": {
     "id": "1000012671",
     "cat": [ "IAB1-1", "IAB2" ],
-    "bundle": "com.example.fluct",
+    "bundle": "123456789",
     "storeurl": "https://itunes.apple.com/id123456789",
     "publisher": {
       "id": "461"
@@ -1468,7 +1462,7 @@ imgを保持するassetオブジェクトが複数あるケースもあります
   },
   "user": {
     "id": "j98790jjh767yjnijhoou9707c321j313cdag234g",
-    "buyeruid": "undefined"
+    "buyeruid": ""
   },
   "bcat": [ "IAB5-1", "IAB5-2" ],
   "badv": [ "blockdomain.com", "blockdomain2.jp" ],
