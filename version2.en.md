@@ -213,6 +213,11 @@ The following is a JSON example:
     <td>optional</td>
     <td></td>
   </tr>
+  <tr>
+    <td>instl</td>
+    <td>optional</td>
+    <td>0=no, 1=yes, integer</td>
+  </tr>
 </table>
 
 
