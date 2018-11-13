@@ -1,7 +1,7 @@
 # 変更履歴
 
 * 2.2
-    * 2018/11/xx
+    * 2018/11/13
         * app object を変更
             * [en/ja] `bundle` を OpenRTB に準拠
             * [en/ja] `appid` を削除
