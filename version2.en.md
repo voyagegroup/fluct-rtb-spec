@@ -1,6 +1,6 @@
-# fluct RTB Specification ver2.1.6
+# fluct RTB Specification ver 2.2
 
-This specification is based on OpenRTB2.5.
+This specification is based on OpenRTB 2.5.
 
 See [IAB OpenRTB API Specification Version 2.5](https://www.iab.com/wp-content/uploads/2016/03/OpenRTB-API-Specification-Version-2-5-FINAL.pdf) for details.
 
