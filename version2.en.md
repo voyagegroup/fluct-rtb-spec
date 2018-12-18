@@ -35,31 +35,23 @@ Moreover, this specification does not contain description of general RTB protoco
       * [b-17. Native Object (old)](#b-17-native-object-old)
 * [3.Response specification](#3response-specification)
    * [a.Bid response parameters](#abid-response-parameters)
+      * [a-1. BidResponse Object (TopLevel)](#a-1-bidresponse-object-toplevel)
+      * [a-2. Bid Object](#a-2-bid-object)
+      * [a-3. Seatbid Object](#a-3-seatbid-object)
+      * [a-4. native response adm (serialized JSON object)](#a-4-native-response-adm-serialized-json-object)
    * [b.imptrackers, jstracker, clicktrackers](#bimptrackers-jstracker-clicktrackers)
-   * [c. impression/click beacon](#c-impressionclick-beacon)
+      * [imptrackers](#imptrackers)
+      * [jstracker](#jstracker)
+      * [clicktrackers](#clicktrackers)
+      * [impression/click beacon](#c-impressionclick-beacon)
       * [endpoint for impression beacon](#endpoint-for-impression-beacon)
       * [fluct transmits according to the following conditions (imp beacon):](#fluct-transmits-according-to-the-following-conditions-imp-beacon)
       * [endpoint for click beacon](#endpoint-for-click-beacon)
       * [fluct transmits according to the following conditions (click beacon):](#fluct-transmits-according-to-the-following-conditions-click-beacon)
-   * [d. Macro substitution](#d-macro-substitution)
-   * [e.Click Measuring](#eclick-measuring)
-      * [Method A: embedding the landing page URL into fluct redirector URL in the creative html of bid response.](#method-a-embedding-the-landing-page-url-into-fluct-redirector-url-in-the-creative-html-of-bid-response)
-      * [Method B: Company prepares the landing page URL when redirecting to fluct redirector](#method-b-company-prepares-the-landing-page-url-when-redirecting-to-fluct-redirector)
+   * [c. Macro substitution](#d-macro-substitution)
+   * [d.Click Measuring](#eclick-measuring)
 * [4.Code table](#4code-table)
-   * [Category ID code:](#category-id-code)
-   * [Native Ads layout ID code:](#native-ads-layout-id-code)
 * [5.Bid Request/Response Samples](#5bid-requestresponse-samples)
-   * [【bid Request web】](#bid-request-web)
-   * [【bid request app】](#bid-request-app)
-   * [【bid request native(icon)】](#bid-request-nativeicon)
-   * [【bid request native(main)】](#bid-request-nativemain)
-   * [【bid request pmp】](#bid-request-pmp)
-   * [【bid request video】](#bid-request-video)
-   * [【bid response web,app】](#bid-response-webapp)
-   * [【bid response native(icon/main)】](#bid-response-nativeiconmain)
-   * [【bid response pmp】](#bid-response-pmp)
-   * [【bid response video】](#bid-response-video)
-   * [【jstracker spec / sample code】](#jstracker-spec--sample-code)
 
 ## 1.cookie sync
 
@@ -770,131 +762,254 @@ Multiple asset objects containing img items may exist.
 
 ## 3.Response specification
 
-###  a.Bid response parameters
+### a. Bid response parameters
 
 DSP should serialize bid information with the same format used in request serialization. 
 
 HTTP 204 No Content is expected for no bid
 
-(The following is a JSON example)
+#### BidResponse Object (TopLevel) 
 
 <table>
   <tr>
-    <th>format</th>
-    <th>required</th>
-    <th>recommended</th>
+    <th>Field</th>
+    <th>scope</th>
+    <th>type</th>
+    <th>description</th>
   </tr>
   <tr>
-    <td>banner
-app
-video</td>
-    <td>cur
-seatbid.bid.impid
-seatbid.bid.price
-seatbid.bid.adm</td>
-    <td>seatbid.bid.adomain</td>
+    <td>id</td>
+    <td>required</td>
+    <td>string</td>
+    <td>ID of bid response</td>
   </tr>
   <tr>
-    <td>pmp</td>
-    <td>cur
-seatbid.bid.impid
-seatbid.bid.price
-seatbid.bid.adm
-seatbid.bid.dealid</td>
+    <td>cur</td>
+    <td>required</td>
+    <td>string</td>
+    <td>Bid price currency using ISO-4217 code</td>
+  </tr>
+  <tr>
+    <td>seatbid</td>
+    <td>required</td>
+    <td>array of seatbid object</td>
     <td></td>
-  </tr>
-  <tr>
-    <td>native</td>
-    <td>cur
-seatbid.bid.impid
-seatbid.bid.price
-seatbid.bid.adm
-seatbid.bid.adm.native.link.url
-seatbid.bid.adm.native.imptracker
-seatbid.bid.adm.native.assets.id
-seatbid.bid.adm.native.assets.title.text
-seatbid.bid.adm.native.assets.img.url
-seatbid.bid.adm.native.assets.img.w
-seatbid.bid.adm.native.assets.img.h
-seatbid.bid.adm.native.assets.data.value
-seatbid.bid.adm.native.optouturl</td>
-    <td>seatbid.bid.adm.native.jstracker
-seatbid.bid.adm.native.link.clicktracker</td>
   </tr>
 </table>
 
-
-* Each element of "seatbid.bid.adm.native.assets" must include one of "title", "img", or "data". The fields in the response are expected to match those of the bid request, see 5.Bid Request/Response Samples "bid response native(icon/main)".
-
-### b.imptrackers, jstracker, clicktrackers
+#### seatbid Object
 
 <table>
   <tr>
-    <td>imptrackers</td>
-    <td>URL of the impression beacon
+    <th>Field</th>
+    <th>scope</th>
+    <th>type</th>
+    <th>description</th>
+  </tr>
+  <tr>
+    <td>bid</td>
+    <td>required</td>
+    <td>array of bid object</td>
+    <td></td>
+  </tr>
+</table>
+
+#### bid Object
+
+<table>
+  <tr>
+    <th>Field</th>
+    <th>scope</th>
+    <th>type</th>
+    <th>description</th>
+  </tr>
+  <tr>
+    <td>impid</td>
+    <td>required</td>
+    <td>string</td>
+    <td>Bid target BidRequest.imp.id</td>
+  </tr>
+  <tr>
+    <td>price</td>
+    <td>required</td>
+    <td>float</td>
+    <td>Bid price</td>
+  </tr>
+  <tr>
+    <td>adm</td>
+    <td>required</td>
+    <td>string</td>
+    <td>Ad data. 広告フォーマットにより内容の形式は異なります。レスポンスサンプルを参照してください。</td>
+  </tr>
+  <tr>
+    <td>adomain</td>
+    <td>optional (recommended)</td>
+    <td>array of string</td>
+    <td>広告遷移先のドメインのリスト</td>
+  </tr>
+  <tr>
+    <td>crid</td>
+    <td>optional</td>
+    <td>string</td>
+    <td>広告クリエイティブID</td>
+  </tr>
+  <tr>
+    <td>dealid</td>
+    <td>optional</td>
+    <td>string</td>
+    <td>pmp入札の場合必須項目. 入札対象のBidRequest.imp.pmp.dealid</td>
+  </tr>
+</table>
+
+#### a-4. native response adm (serialized JSON object)
+
+<table>
+  <tr>
+    <th>Field</th>
+    <th>scope</th>
+    <td>detail</td>
+  </tr>
+  <tr>
+    <td>native.optouturl</td>
+    <td>required</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>native.link.url</td>
+    <td>required</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>native.imptrackers</td>
+    <td>required</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>native.assets</td>
+    <td>required</td>
+    <td>Each element of "native.assets" must include one of "title", "img", or "data". The fields in the response are expected to match those of the bid request, see Bid Response Samples below.</td>
+  </tr>
+  <tr>
+    <td>native.assets.id</td>
+    <td>required</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>native.assets.title.text</td>
+    <td>required</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>native.assets.img.url</td>
+    <td>required</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>native.assets.img.w</td>
+    <td>required</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>native.assets.img.h</td>
+    <td>required</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>native.assets.data.value</td>
+    <td>required</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>native.jstracker</td>
+    <td>optional</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>native.link.clicktrackers</td>
+    <td>optional</td>
+    <td></td>
+  </tr>
+</table>
+
+### b. imptrackers, jstracker, clicktrackers
+
+#### imptrackers
+
+URL of the impression beacon
 Macros (${AUCTION_PRICE}, etc.) must be included in the URL.
 Protocol will be determined separate from this document.
 In the case of multiple values only the first will be used.
 
 The imptracker URL will be called when the advertisement is displayed in the page/"canvas"(*1).  (as opposed to in the "viewport"(*2))
 
-*1: http://www.w3.org/TR/CSS21/intro.html#canvas
-*2: http://www.w3.org/TR/CSS21/visuren.html#viewport
+* *1: http://www.w3.org/TR/CSS21/intro.html#canvas
+* *2: http://www.w3.org/TR/CSS21/visuren.html#viewport
 
-also refer to section 4-c below</td>
-  </tr>
-  <tr>
-    <td>jstracker</td>
-    <td>Optional JavaScript(*1) to be executed
+also refer to section below information
+
+#### jstracker
+
+Optional JavaScript(*1) to be executed.
 In the case of multiple values only the first will be used.
 
- Uses
+Uses
+
 for measurement of viewable impressions, click position, or other ad properties
 not for 3rd party delivery, dynamic display, etc.
+
 Custom advertisement elements
+
 NOTE: The specification for this functionality is for future use and not yet implemented. Contact fluct if you require custom functionality.
 Advertisement elements are accessed from within the page via the fluct-native-rtb-container-XXXX element (relative to the DOM root).
 "XXXX" is replaced on the DSP side by an optional suffix.
+
+```
 example: var element = document.getElementById('fluct-native-rtb-container-123456');
+```
+
 Restrictions
-Script must be wrapped with (function(){...})();
+
+Script must be wrapped with `(function(){...})();` 
 Script must be executable in strict mode.
 Content Security Policy(*2) may prevent certain media from being displayed.
 This document does not specify web browsers or JavaScript engines needed to execute the script.
 fluct is not responsible for errors in the script which prevent proper functioning of the impression and click beacons.
+
 Execution timing
+
 Begins when the element is inserted into the page.
 NOTE: In certain cases this may be prior to the advertisement being shown.
-*1: www.ecma-international.org/ecma-262/5.1/
-*2: http://www.w3.org/TR/CSP/</td>
-  </tr>
-  <tr>
-    <td>clicktrackers</td>
-    <td>URL of the click beacon
+
+* *1: www.ecma-international.org/ecma-262/5.1/
+* *2: http://www.w3.org/TR/CSP/
+
+#### clicktrackers
+
+URL of the click beacon
 Protocol will be determined separate from this document.
 In the case of multiple values only the first will be used.
- Execution timing
+
+Execution timing
+
 - Occurs when the link in the advertisement is clicked..
+
 Restrictions
- - There may be browsers for which redirection occurs before the beacon request is completed.
- - Method of resolution of discrepancies between SSP and DSP will be determined separate from this document.
- - also refer to section 4-c below
-</td>
-  </tr>
-</table>
 
+- There may be browsers for which redirection occurs before the beacon request is completed.
+- Method of resolution of discrepancies between SSP and DSP will be determined separate from this document.
+- also refer to section below information
 
-### c. impression/click beacon
+#### impression/click beacon
 
 The following assumptions are made about URLs which serve beacons:
 
-#### endpoint for impression beacon
+##### endpoint for impression beacon
 
 * GET method support
 
 * sent by setting URL in src field on img tag (XMLHttpRequest not supported)
 
-#### fluct transmits according to the following conditions (imp beacon):
+##### fluct transmits according to the following conditions (imp beacon):
 
 <table>
   <tr>
@@ -908,7 +1023,7 @@ The following assumptions are made about URLs which serve beacons:
 </table>
 
 
-#### endpoint for click beacon
+##### endpoint for click beacon
 
 * HTTPS (TLS version 1.2 or above) support
 
@@ -916,7 +1031,7 @@ The following assumptions are made about URLs which serve beacons:
 
 * Cross-Origin XMLHttpRequest support (see definition at http://www.w3.org/TR/cors/)
 
-#### fluct transmits according to the following conditions (click beacon):
+##### fluct transmits according to the following conditions (click beacon):
 
 <table>
   <tr>
@@ -946,7 +1061,7 @@ The following assumptions are made about URLs which serve beacons:
 
 * For some environments navigator.sendBeacon() (as defined at http://www.w3.org/TR/beacon/) is also transmitted.
 
-### d. Macro substitution
+### c. Macro substitution
 
 SSP will substitute the following strings in ad HTML (adm) before delivering.
 
@@ -955,33 +1070,19 @@ SSP will substitute the following strings in ad HTML (adm) before delivering.
 <table>
   <tr>
     <th>macro</th>
-  </tr>
-  <tr>
-    <td>${AUCTION_ID}</td>
-  </tr>
-  <tr>
-    <td>${AUCTION_BID_ID}</td>
-  </tr>
-  <tr>
-    <td>${AUCTION_IMP_ID}</td>
-  </tr>
-  <tr>
-    <td>${AUCTION_SEAT_ID}</td>
-  </tr>
-  <tr>
-    <td>${AUCTION_AD_ID}</td>
+    <th>description</th>
   </tr>
   <tr>
     <td>${AUCTION_PRICE} </td>
-  </tr>
-  <tr>
-    <td>${AUCTION_PRICE_IV}</td>
-  </tr>
-  <tr>
-    <td>${AUCTION_CURRENCY}</td>
+    <td>The encoded winning price. In the creative review process, it is substituted to the string <code>AUDIT</code>.</td>
   </tr>
   <tr>
     <td>${CLICK_URL_ENC} </td>
+    <td>The url-encoded redirector URL. </td>
+  </tr>
+  <tr>
+    <td>${IS_PREVIEW}</td>
+    <td>Normally substituted to 0. In the creative review process, it is substituted to 1.</td>
   </tr>
 </table>
 
@@ -990,7 +1091,7 @@ Cipher system (algorithm, key length, block cipher modes of operation) should be
 
 SSP issues the encryption key after cipher system has been determined. (SSP responsibility)
 
-### e.Click Measuring
+### d. Click Measuring
 
 Basically, fluct provides a redirector URL for click measuring. The redirector URL is somthing like the following:
 
@@ -1242,7 +1343,7 @@ Multiple asset objects containing img items may exist.
 
 ## 5.Bid Request/Response Samples
 
-### 【bid Request web】
+### Bid request web
 
 ```js
 {
@@ -1251,41 +1352,39 @@ Multiple asset objects containing img items may exist.
     {
       "id": "1",
       "tagid": "14444:1000075047",
-      "secure": 0,
+      "secure": 1,
       "banner": {
-        "h": 50,
-        "w": 320,
+        "h": 250,
+        "w": 300,
         "pos": 9
       }
     }
   ],
   "site": {
     "id": "1000012671",
-    "cat": [ "IAB1-1", "IAB2" ],
-    "domain": "fluct.jp",
-    "page": "http://fluct.jp/hoge.html",
+    "cat": [ "IAB19" ],
+    "domain": "magazine.fluct.jp",
+    "page": "https://magazine.fluct.jp/category/news",
     "publisher": {
       "id": "461"
     }
   },
   "user": {
     "id": "j98790jjh767yjnijhoou9707c321j313cdag234g",
-    "buyeruid": ""
+    "buyeruid": "AABBCCDD12345"
   },
-  "bcat": [ "IAB5-1", "IAB5-2" ],
+  "bcat": [ "IAB25", "IAB26" ],
   "badv": [ "blockdomain.com", "blockdomain2.jp" ],
   "tmax": 120,
   "device": {
     "ua": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1",
-    "ip": "220.110.139.200"
+    "ip": "203.0.113.123"
   },
   "at": 2
 }
 ```
 
-### 【bid request app】
-
-in case ifa is set by fluct
+### Bid request app
 
 ```js
 {
@@ -1294,7 +1393,7 @@ in case ifa is set by fluct
     {
       "id": "1",
       "tagid": "14444:1000075047",
-      "secure": 0,
+      "secure": 1,
       "banner": {
         "h": 50,
         "w": 320,
@@ -1304,7 +1403,7 @@ in case ifa is set by fluct
   ],
   "app": {
     "id": "1000012671",
-    "cat": [ "IAB1-1", "IAB2" ],
+    "cat": [ "IAB1" ],
     "bundle": "123456789",
     "storeurl": "https://itunes.apple.com/id123456789",
     "publisher": {
@@ -1314,12 +1413,12 @@ in case ifa is set by fluct
   "user": {
     "id": "2fac1234-31f8-11b4-a222-08002b34c003"
   },
-  "bcat": [ "IAB5-1", "IAB5-2" ],
+  "bcat": [ "IAB25", "IAB26" ],
   "badv": [ "blockdomain.com", "blockdomain2.jp" ],
   "tmax": 120,
   "device": {
     "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 9_3_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile/13E238",
-    "ip": "220.110.139.200",
+    "ip": "203.0.113.123",
     "ifa": "2fac1234-31f8-11b4-a222-08002b34c003",
     "lmt": 0
   },
@@ -1327,7 +1426,7 @@ in case ifa is set by fluct
 }
 ```
 
-### 【bid request native(icon)】
+### Bid request native (icon)
 
 ```js
 {
@@ -1336,7 +1435,7 @@ in case ifa is set by fluct
     {
       "id": "1",
       "tagid": "14444:1000075047",
-      "secure": 0,
+      "secure": 1,
       "native": {
         "ver": "1",
         "request":"{\"native\":{\"assets\": [{\"id\": 1,\"title\": {\"len\": 20}},{\"id\": 2,\"img\": {\"hmin\": 160,\"type\": 1,\"wmin\": 160}},{\"id\": 3,\"data\": {\"len\": 30,\"type\": 1}},{\"data\": {\"len\": 50,\"type\": 2},\"id\": 4}],\"layout\": 3}}"
@@ -1345,7 +1444,7 @@ in case ifa is set by fluct
   ],
   "site": {
     "id": "1000012671",
-    "cat": [ "IAB1-1", "IAB2" ],
+    "cat": [ "IAB11" ],
     "domain": "fluct.jp",
     "page": "http://fluct.jp/hoge.html",
     "publisher": {
@@ -1354,20 +1453,20 @@ in case ifa is set by fluct
   },
   "user": {
     "id": "j98790jjh767yjnijhoou9707c321j313cdag234g",
-    "buyeruid": "8hekfu378f90dkjdkjl998jkl3jndf98d98732old"
+    "buyeruid": "AABBCCDD12345"
   },
-  "bcat": [ "IAB5-1", "IAB5-2" ],
+  "bcat": [ "IAB25", "IAB26" ],
   "badv": [ "blockdomain.com", "blockdomain2.jp" ],
   "tmax": 120,
   "device": {
     "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 9_3_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile/13E238",
-    "ip": "220.110.139.200"
+    "ip": "203.0.113.123"
   },
   "at": 2
 }
 ```
 
-### 【bid request native(main)】
+### Bid request native (main)
 
 ```js
 {
@@ -1376,7 +1475,7 @@ in case ifa is set by fluct
     {
       "id": "1",
       "tagid": "14444:1000075047",
-      "secure": 0,
+      "secure": 1,
       "native": {
         "ver": "1",
         "request":"{\"native\":{\"assets\": [{\"id\": 1,\"title\": {\"len\": 20}},{\"id\": 2,\"img\": {\"hmin\": 320,\"type\": 3,\"wmin\":640}},{\"id\": 3,\"data\": {\"len\": 30,\"type\": 1}},{\"data\": {\"len\": 50,\"type\": 2},\"id\": 4}],\"layout\": 3}}"
@@ -1385,29 +1484,29 @@ in case ifa is set by fluct
   ],
   "site": {
     "id": "1000012671",
-    "cat": [ "IAB1-1", "IAB2" ],
-    "domain": "fluct.jp",
-    "page": "http://fluct.jp/hoge.html",
+    "cat": [ "IAB19" ],
+    "domain": "magazine.fluct.jp",
+    "page": "https://magazine.fluct.jp/category/news",
     "publisher": {
       "id": "461"
     }
   },
   "user": {
     "id": "j98790jjh767yjnijhoou9707c321j313cdag234g",
-    "buyeruid": "8hekfu378f90dkjdkjl998jkl3jndf98d98732old"
+    "buyeruid": "AABBCCDD12345"
   },
-  "bcat": [ "IAB5-1", "IAB5-2" ],
+  "bcat": [ "IAB25", "IAB26" ],
   "badv": [ "blockdomain.com", "blockdomain2.jp" ],
   "tmax": 120,
   "device": {
     "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 9_3_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile/13E238",
-    "ip": "220.110.139.200"
+    "ip": "203.0.113.123"
   },
   "at": 2
 }
 ```
 
-### 【bid request pmp】
+### Bid request pmp
 
 ```js
 {
@@ -1416,7 +1515,7 @@ in case ifa is set by fluct
     {
       "id": "1",
       "tagid": "14444:1000075047",
-      "secure": 0,
+      "secure": 1,
       "banner": {
         "h": 50,
         "w": 320,
@@ -1424,31 +1523,31 @@ in case ifa is set by fluct
       },
       "pmp":{
         "private_auction": 1,
-        "deals":{
+        "deals": [{
           "id":"AAAA-jndf98d9-dalda"
-        }
+        }]
       }
     }
   ],
   "site": {
     "id": "1000012671",
-    "cat": [ "IAB1-1", "IAB2" ],
-    "domain": "fluct.jp",
-    "page": "http://fluct.jp/hoge.html",
+    "cat": [ "IAB19" ],
+    "domain": "magazine.fluct.jp",
+    "page": "https://magazine.fluct.jp/category/news",
     "publisher": {
       "id": "461"
     }
   },
   "user": {
     "id": "j98790jjh767yjnijhoou9707c321j313cdag234g",
-    "buyeruid": "8hekfu378f90dkjdkjl998jkl3jndf98d98732old"
+    "buyeruid": "AABBCCDD12345"
   },
-  "bcat": [ "IAB5-1", "IAB5-2" ],
+  "bcat": [ "IAB25", "IAB26" ],
   "badv": [ "blockdomain.com", "blockdomain2.jp" ],
   "tmax": 120,
   "device": {
     "ua": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1",
-    "ip": "220.110.139.200",
+    "ip": "203.0.113.123",
     "ifa": "2fac1234-31f8-11b4-a222-08002b34c003",
     "lmt": 0
   },
@@ -1456,7 +1555,7 @@ in case ifa is set by fluct
 }
 ```
 
-### 【bid request video】
+### Bid request video
 
 ```js
 {
@@ -1465,7 +1564,7 @@ in case ifa is set by fluct
     {
       "id": "1",
       "tagid": "14444:1000075047",
-      "secure": 0,
+      "secure": 1,
       "video": {
         "mimes": [ "video/mp4" ],
         "minduration": 5,
@@ -1473,35 +1572,37 @@ in case ifa is set by fluct
         "protocols": [ 2, 3 ],
         "h": 640,
         "w": 480,
-        "pos": 1
+        "pos": 1,
+        "linearity": 1,
+        "placement": 2
       }
     }
   ],
   "site": {
     "id": "1000012671",
-    "cat": [ "IAB1-1", "IAB2" ],
-    "domain": "fluct.jp",
-    "page": "http://fluct.jp/hoge.html",
+    "cat": [ "IAB19" ],
+    "domain": "magazine.fluct.jp",
+    "page": "https://magazine.fluct.jp/category/news",
     "publisher": {
       "id": "461"
     }
   },
   "user": {
     "id": "j98790jjh767yjnijhoou9707c321j313cdag234g",
-    "buyeruid": ""
+    "buyeruid": "AABBCCDD12345"
   },
-  "bcat": [ "IAB5-1", "IAB5-2" ],
+  "bcat": [ "IAB25", "IAB26" ],
   "badv": [ "blockdomain.com", "blockdomain2.jp" ],
   "tmax": 120,
   "device": {
     "ua": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1",
-    "ip": "220.110.139.200"
+    "ip": "203.0.113.123"
   },
   "at": 2
 }
 ```
 
-### 【bid response web,app】
+### Bid response web/app
 
 ```js
 {
@@ -1511,14 +1612,15 @@ in case ifa is set by fluct
         "bid": [{
             "impid": "aud384920dieksjvpowlek231f9d8umxnd87ytgs",
             "price": 50,
-            "adm": "<iframe width=\"468\" height=\"60\" marginwidth=\"0\" marginheight=\"0\" hspace=\"0\" vspace=\"0\" frameborder=\"0\" scrolling=\"no\" allowTransparency=\"true\" src=\"http://xxx.net/imp/{{{ENC_PRICE}}}/{{{CLICK_URL}}}\"></iframe>",
+            "crid": "12345",
+            "adm": "<iframe width=\"468\" height=\"60\" marginwidth=\"0\" marginheight=\"0\" hspace=\"0\" vspace=\"0\" frameborder=\"0\" scrolling=\"no\" allowTransparency=\"true\" src=\"http://xxx.net/imp/${AUCTION_PRICE}/${CLICK_URL_ENC}\"></iframe>",
             "adomain": ["adomain.com"]
         }]
     }]
 }
 ```
 
-### 【bid response native(icon/main)】
+### Bid response native (icon/main)
 
 ```js
 {
@@ -1528,13 +1630,14 @@ in case ifa is set by fluct
     "bid": [{
       "impid": "aud384920dieksjvpowlek231f9d8umxnd87ytgs",
       "price": 50,
-      "adm": "{\"native\":{\"optouturl\":\"https://dsp.com/optout/\",\"link\":{\"url\":\"http:example.com/click\"},\"imptrackers\":[\"http:example.com/imp/a\",\"http:example.com/imp/b\"],\"assets\":[{\"id\": 1,\"title\":{\"text\":\"text for title\"}},{\"img\":{\"url\":\"https://example.com/nativeImage.jpg\",\"w\": 160,\"h\": 160},\"id\": 2},{\"id\": 3,\"data\":{\"value\":\"fluct\"}},{\"id\": 4,\"data\":{\"value\":\"description for advertisement: fluct is one of the biggest SSP etc etc\"}}]}}"
+      "crid": "12345",
+      "adm": "{\"native\":{\"optouturl\":\"https://dsp.com/optout/\",\"link\":{\"url\":\"http:example.com/click\"},\"imptrackers\":[\"http:example.com/imp/a\",\"http:example.com/imp/b\"],\"assets\":[{\"id\": 1,\"title\":{\"text\":\"タイトルテキスト\"}},{\"img\":{\"url\":\"https://example.com/nativeImage.jpg\",\"w\": 160,\"h\": 160},\"id\": 2},{\"id\": 3,\"data\":{\"value\":\"株式会社fluct\"}},{\"id\": 4,\"data\":{\"value\":\"広告の説明文、fluctは日本で最大手のSSPです。\"}}]}}"
     }]
   }]
 }
 ```
 
-### 【bid response pmp】
+### Bid response pmp
 
 ```js
 {
@@ -1544,14 +1647,15 @@ in case ifa is set by fluct
         "bid": [{
             "impid": "aud384920dieksjvpowlek231f9d8umxnd87ytgs",
             "price": 50,
-            "adm": "<iframe width=\"468\" height=\"60\" marginwidth=\"0\" marginheight=\"0\" hspace=\"0\" vspace=\"0\" frameborder=\"0\" scrolling=\"no\" allowTransparency=\"true\" src=\"http://xxx.net/imp/{{{ENC_PRICE}}}/{{{CLICK_URL}}}\"></iframe>",
-            "dealid": "83921das"
+            "crid": "12345",
+            "adm": "<iframe width=\"468\" height=\"60\" marginwidth=\"0\" marginheight=\"0\" hspace=\"0\" vspace=\"0\" frameborder=\"0\" scrolling=\"no\" allowTransparency=\"true\" src=\"http://xxx.net/imp/${AUCTION_PRICE}/${CLICK_URL_ENC}\"></iframe>",
+            "dealid": "AAAA-jndf98d9-dalda"
         }]
     }]
 }
 ```
 
-### 【bid response video】
+### Bid response video
 
 ```js
 {
@@ -1561,14 +1665,15 @@ in case ifa is set by fluct
     "bid": [{
         "impid": "1",
         "price": 5000,
-        "adm": "",
+        "crid": "12345",
+        "adm": "http://xxx.net/vast/${AUCTION_PRICE}/${CLICK_URL_ENC}",
         "adomain": ["adomain.com"]
     }]
   }]
 }
 ```
 
-### 【jstracker spec / sample code】
+### Native jstracker example
 
 ```js
 /**
@@ -1744,4 +1849,3 @@ window.addEventListener(IMP_EVENT_BY_FLUCT, function onImpression(event) {
   impByXHR();
 }, false);
 ```
-

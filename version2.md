@@ -13,7 +13,7 @@ OpenRTB 2.5 に準拠しています。詳細は[IABのOpenRTB API Specification
 * [1.cookie sync](#1cookie-sync)
 * [2.リクエスト仕様](#2リクエスト仕様)
    * [a.エンドポイントURL](#aエンドポイントurl)
-   * [b.bid リクエストパラメタ](#bbid-リクエストパラメタ)
+   * [b. bidリクエストパラメタ](#bbid-リクエストパラメタ)
       * [b-1. BidRequest Object (TopLevel)](#b-1-bidrequest-object-toplevel)
       * [b-2. imp Object](#b-2-imp-object)
       * [b-3. site Object](#b-3-site-object)
@@ -32,32 +32,25 @@ OpenRTB 2.5 に準拠しています。詳細は[IABのOpenRTB API Specification
       * [b-16. data Object](#b-16-data-object)
       * [b-17. Native Object (旧)](#b-17-native-object-旧)
 * [3.レスポンス仕様](#3レスポンス仕様)
-   * [a.レスポンスパラメタ](#aレスポンスパラメタ)
-   * [b.imptrackers, jstracker, clicktrackersの取り扱い](#bimptrackers-jstracker-clicktrackersの取り扱い)
-   * [c. impressionまたは/clickビーコンの送信](#c-impressionまたはclickビーコンの送信)
+   * [a. bidレスポンスパラメタ](#aレスポンスパラメタ)
+      * [a-1. BidResponse Object (TopLevel)](#a-1-bidresponse-object-toplevel)
+      * [a-2. Bid Object](#a-2-bid-object)
+      * [a-3. Seatbid Object](#a-3-seatbid-object)
+      * [a-4. native response adm (serialized JSON object)](#a-4-native-response-adm-serialized-json-object)
+   * [b. imptrackers, jstracker, clicktrackersの取り扱い](#bimptrackers-jstracker-clicktrackersの取り扱い)
+      * [imptrackers](#imptrackers)
+      * [jstracker](#jstracker)
+      * [clicktrackers](#clicktrackers)
+      * [impressionまたは/clickビーコンの送信](#c-impressionまたはclickビーコンの送信)
       * [impressionビーコンを受けるエンドポイント](#impressionビーコンを受けるエンドポイント)
       * [impressionビーコンを送信するfluctのクライアント側](#impressionビーコンを送信するfluctのクライアント側)
       * [clickビーコンを受けるエンドポイント](#clickビーコンを受けるエンドポイント)
       * [clickビーコンを送信するfluctのクライアント側](#clickビーコンを送信するfluctのクライアント側)
       * [clickビーコン送信に用いられる手法について](#clickビーコン送信に用いられる手法について)
-   * [d. マクロ置換](#d-マクロ置換)
-   * [e.リダイレクタ仕様](#eリダイレクタ仕様)
-      * [■方法A)](#方法a)
-      * [■方法B)](#方法b)
+   * [c. マクロ置換](#d-マクロ置換)
+   * [d.リダイレクタ仕様](#eリダイレクタ仕様)
 * [4.コード表](#4コード表)
 * [5.リクエスト／レスポンスサンプル](#5リクエストレスポンスサンプル)
-   * [【bid Request web】](#bid-request-web)
-   * [【bid request app】](#bid-request-app)
-   * [【bid request native(icon)】](#bid-request-nativeicon)
-   * [【bid request native(main)】](#bid-request-nativemain)
-   * [【bid request pmp】](#bid-request-pmp)
-   * [【bid request video】](#bid-request-video)
-   * [【bid response web,app】](#bid-response-webapp)
-   * [【bid response native(icon/main)】](#bid-response-nativeiconmain)
-   * [【bid response pmp】](#bid-response-pmp)
-   * [【bid response video】](#bid-response-video)
-   * [【jstracker 仕様/サンプルコード】](#jstracker-仕様サンプルコード)
-
 
 ## 0. 変更履歴
 
@@ -87,7 +80,7 @@ bid リクエストを送信すべきエンドポイントURLをSSPに通知し�
 
 SSPは指定されたエンドポイントURLにbidリクエストをPOSTします。高速化のため、可能であれば HTTP keep aliveをサポートしてください。なお、httpsにも対応しております。また、個別のportの指定がある場合は、事前にご連絡ください。
 
-### b.bid リクエストパラメタ
+### b. bidリクエストパラメタ
 
 シリアライズフォーマット：Google Protobuf、JSONのいずれか。
 
@@ -837,137 +830,258 @@ string</td>
 
 ## 3.レスポンス仕様
 
-###  a.レスポンスパラメタ
+### a. bidレスポンスパラメタ
 
 DSPはリクエストに採用したのと同じシリアライズフォーマットで入札情報をシリアライズします。
 
 入札しない場合はHTTP 204 No Contentとしてください。
 
-（以下はJSONの場合の例）
+#### BidResponse Object (TopLevel) 
 
 <table>
   <tr>
-    <th>format</th>
-    <th>必須項目</th>
-    <th>推奨項目</th>
+    <th>Field</th>
+    <th>scope</th>
+    <th>type</th>
+    <th>description</th>
   </tr>
   <tr>
-    <td>banner
-app
-video</td>
-    <td>id
-cur
-seatbid.bid.impid
-seatbid.bid.price
-seatbid.bid.adm</td>
-    <td>seatbid.bid.adomain</td>
+    <td>id</td>
+    <td>required</td>
+    <td>string</td>
+    <td>レスポンスのID</td>
   </tr>
   <tr>
-    <td>pmp</td>
-    <td>id
-cur
-seatbid.bid.impid
-seatbid.bid.price
-seatbid.bid.adm
-seatbid.bid.dealid</td>
+    <td>cur</td>
+    <td>required</td>
+    <td>string</td>
+    <td>入札金額の通貨コード ISO-4217</td>
+  </tr>
+  <tr>
+    <td>seatbid</td>
+    <td>required</td>
+    <td>array of seatbid object</td>
     <td></td>
-  </tr>
-  <tr>
-    <td>native</td>
-    <td>id
-cur
-seatbid.bid.impid
-seatbid.bid.price
-seatbid.bid.adm
-seatbid.bid.adm.native.optouturl
-seatbid.bid.adm.native.link.url
-seatbid.bid.adm.native.imptrackers
-seatbid.bid.adm.native.assets.id
-seatbid.bid.adm.native.assets.title.text
-seatbid.bid.adm.native.assets.img.url
-seatbid.bid.adm.native.assets.img.w
-seatbid.bid.adm.native.assets.img.h
-seatbid.bid.adm.native.assets.data.value</td>
-    <td>seatbid.bid.adm.native.jstracker
-seatbid.bid.adm.native.link.clicktrackers</td>
   </tr>
 </table>
 
-
-※seatbid.bid.adm.native.assets の各要素は title, img, data のいずれかをひとつ含んでいます。 5.Bid Request/Response Samples bid response native(icon/main) を参考にしてください。
-
-(同一impidのBidRequestのassetと同じものが返却されてくることを想定しています)
-
-### b.imptrackers, jstracker, clicktrackersの取り扱い
+#### seatbid Object
 
 <table>
   <tr>
-    <td>imptrackers</td>
-    <td>impressionビーコンのリクエストの送信先のURLエンドポイント
-${AUCTION_PRICE}などのマクロ文字列を必要に応じて組み込んでください
+    <th>Field</th>
+    <th>scope</th>
+    <th>type</th>
+    <th>description</th>
+  </tr>
+  <tr>
+    <td>bid</td>
+    <td>required</td>
+    <td>array of bid object</td>
+    <td></td>
+  </tr>
+</table>
+
+#### bid Object
+
+<table>
+  <tr>
+    <th>Field</th>
+    <th>scope</th>
+    <th>type</th>
+    <th>description</th>
+  </tr>
+  <tr>
+    <td>impid</td>
+    <td>required</td>
+    <td>string</td>
+    <td>入札対象のBidRequest.imp.id</td>
+  </tr>
+  <tr>
+    <td>price</td>
+    <td>required</td>
+    <td>float</td>
+    <td>入札金額</td>
+  </tr>
+  <tr>
+    <td>adm</td>
+    <td>required</td>
+    <td>string</td>
+    <td>広告表示データ. 広告フォーマットにより内容の形式は異なります。レスポンスサンプルを参照してください。</td>
+  </tr>
+  <tr>
+    <td>adomain</td>
+    <td>optional (recommended)</td>
+    <td>array of string</td>
+    <td>広告遷移先のドメインのリスト</td>
+  </tr>
+  <tr>
+    <td>crid</td>
+    <td>optional</td>
+    <td>string</td>
+    <td>広告クリエイティブID</td>
+  </tr>
+  <tr>
+    <td>dealid</td>
+    <td>optional</td>
+    <td>string</td>
+    <td>pmp入札の場合必須項目. 入札対象のBidRequest.imp.pmp.dealid</td>
+  </tr>
+</table>
+
+#### a-4. native response adm (serialized JSON object)
+
+<table>
+  <tr>
+    <th>Field</th>
+    <th>scope</th>
+    <td>detail</td>
+  </tr>
+  <tr>
+    <td>native.optouturl</td>
+    <td>required</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>native.link.url</td>
+    <td>required</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>native.imptrackers</td>
+    <td>required</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>native.assets</td>
+    <td>required</td>
+    <td>native.assets の各要素は title, img, data のいずれかをひとつ含んでいます。 後述のレスポンスサンプルを参考にしてください。 (同一impidのBidRequestのassetと同じものが返却されてくることを想定しています)</td>
+  </tr>
+  <tr>
+    <td>native.assets.id</td>
+    <td>required</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>native.assets.title.text</td>
+    <td>required</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>native.assets.img.url</td>
+    <td>required</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>native.assets.img.w</td>
+    <td>required</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>native.assets.img.h</td>
+    <td>required</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>native.assets.data.value</td>
+    <td>required</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>native.jstracker</td>
+    <td>optional</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>native.link.clicktrackers</td>
+    <td>optional</td>
+    <td></td>
+  </tr>
+</table>
+
+### b. imptrackers, jstracker, clicktrackersの取り扱い
+
+#### imptrackers
+
+impressionビーコンのリクエストの送信先のURLエンドポイント.
+${AUCTION_PRICE}などのマクロ文字列を必要に応じて組み込んでください.
 用いるプロトコルについて別途定義します.
 複数項目が格納されている場合でも, 配列の一番目のみ使用します.
 
- 実行タイミングについて
+実行タイミングについて
+
 実際に広告がページ中に表示されたタイミングでリクエストを発行します.
 viewport(*1)中に表示されたか否かではなく,
 ページ中すなわちcanvas(*2)において表示されているか否かのタイミングでのリクエストの発行となります.
 
-*1: http://www.w3.org/TR/CSS21/visuren.html#viewport
-*2: http://www.w3.org/TR/CSS21/intro.html#canvas 
+* *1: http://www.w3.org/TR/CSS21/visuren.html#viewport
+* *2: http://www.w3.org/TR/CSS21/intro.html#canvas 
 
 制約事項
-- エンドポイントの仕様は, 後述の「 impressionまたはclickビーコンの送信について」に準拠しているものとします</td>
-  </tr>
-  <tr>
-    <td>jstracker</td>
-    <td>DSP側で任意のスクリプトを実行したい場合に, JavaScript(*1)として実行可能な文字列.
+
+- エンドポイントの仕様は, 後述の「 impressionまたはclickビーコンの送信について」に準拠しているものとします
+
+### jstracker
+
+DSP側で任意のスクリプトを実行したい場合に, JavaScript(*1)として実行可能な文字列.
 複数項目が格納されている場合でも, 配列の一番目のみ使用します.
 
- 利用用途
+利用用途
+
 viewable impressionの測定, クリック位置の計測など, 表示された広告に関する情報の計測目的の利用を想定しています.
 上述の目的以外（第三者配信, 表示された広告要素の見た目の動的な書き換え）などには用いないでください.
+
 各レスポンスに対応する広告要素の特定について
+
 NOTE: 本機能（各レスポンスに対応する広告要素の特定）に関しては, 現時点のfluctではサポートされていません（併記されている内容は, 現在検討中の手法の例となります）.
- 本項の機能が必要な場合はfluct担当者までお問い合わせください.
+本項の機能が必要な場合はfluct担当者までお問い合わせください.
+
 ページ中から当該の広告要素にアクセスしたい場合, 広告要素をあわらすDOMのサブツリーのrootとなる要素に対して, fluct-native-rtb-container--XXXXの形式で表現される`id`属性を指定しているので, それを用いてアクセスしてください.
 XXXXはDSP側でオークション時に算出の可能な任意の識別子文字列に置換されます.
+
+```
 例: var element = document.getElementById('fluct-native-rtb-container-123456');
- 制約事項
- スクリプト文字列は(function(){...})();`で囲ってください(...がスクリプト本体を表します）
-スクリプト文字列はstrict modeとして実行可能なコードである必要があります
+```
+
+制約事項
+
+スクリプト文字列は `(function(){...})();` で囲ってください(...がスクリプト本体を表します）
+スクリプト文字列はstrict modeとして実行可能なコードである必要があります.
 Content Security Policy(*2)の制約などにより, 広告が掲載されるメディアによっては実行されない場合があります.
 スクリプトが実行される可能性のあるWebブラウザまたはJavaScriptエンジンの環境に関しては本仕様の範囲では定義しません.
 このスクリプトの実行に伴い, なんらかのエラーが発生しのimpビーコンまたはclickビーコンの発行を保証できない場合があります.
+
 実行されるタイミング
+
 ページ中に要素が挿入された時点で実行を開始します.
 NOTE: 広告要素が表示されたタイミング（impビーコンの発行タイミング）の以前に実行される場合があります.
-*1: www.ecma-international.org/ecma-262/5.1/ で定義された言語仕様とする.
-*2: http://www.w3.org/TR/CSP/
-</td>
-  </tr>
-  <tr>
-    <td>clicktrackers</td>
-    <td>clickビーコンのリクエストの送信先のURLエンドポイント.
+
+* *1: www.ecma-international.org/ecma-262/5.1/ で定義された言語仕様とする.
+* *2: http://www.w3.org/TR/CSP/
+
+### clicktrackers
+
+clickビーコンのリクエストの送信先のURLエンドポイント.
 用いるプロトコルについては別途定義します.
 複数項目が格納されている場合でも, 配列の一番目のみ使用します.
- 実行タイミングについて
+
+実行タイミングについて
+
 - 広告要素のリンクがクリックされた時点でビーコンへのリクエスト発行処理を開始します.
+
 制約事項
- - Webブラウザによってはページ遷移時に, 遷移前のページで発行されたリクエストの完了を待たずに
+
+- Webブラウザによってはページ遷移時に, 遷移前のページで発行されたリクエストの完了を待たずに
    遷移前のページで発行されたリクエスト全てを中断処理する挙動をするものがあります.
    そのため, タイミングによってはclickビーコンのリクエストが行われない場合があります.
- - SSPおよびDSP間での乖離率に関しては, impビーコン同様に別途約定を締結するものとします.
-- エンドポイントの仕様は, 後述の「 impressionまたはclickビーコンの送信について」に準拠しているものとします</td>
-  </tr>
-</table>
+- SSPおよびDSP間での乖離率に関しては, impビーコン同様に別途約定を締結するものとします.
+- エンドポイントの仕様は, 後述の「 impressionまたはclickビーコンの送信について」に準拠しているものとします
 
-
-### c. impressionまたは/clickビーコンの送信
+#### impressionまたは/clickビーコンの送信
 
 fluctのクライアント制御スクリプトからビーコンを送信に関して, 各エンドポイントは以下の仕様に準拠しているという前提で送信を行います.
 
-#### impressionビーコンを受けるエンドポイント
+##### impressionビーコンを受けるエンドポイント
 
 * HTTPS (TLS1.2以降)での受信に対応している
 
@@ -975,7 +1089,7 @@ fluctのクライアント制御スクリプトからビーコンを送信に関
 
 * XMLHttpRequestではなくimgタグのsrc属性にURLを設定することでリクエストを行います。
 
-#### impressionビーコンを送信するfluctのクライアント側
+##### impressionビーコンを送信するfluctのクライアント側
 
 以下の条件で送信を行います.
 
@@ -991,7 +1105,7 @@ fluctのクライアント制御スクリプトからビーコンを送信に関
 </table>
 
 
-#### clickビーコンを受けるエンドポイント
+##### clickビーコンを受けるエンドポイント
 
 * HTTPS (TLS1.2以降)での受信に対応している
 
@@ -1001,7 +1115,7 @@ fluctのクライアント制御スクリプトからビーコンを送信に関
 
     * Cross-Origin Resource Sharingに関しては [http://www.w3.org/TR/cors/](http://www.w3.org/TR/cors/)[ にて定義されている仕様に基づく](http://www.w3.org/TR/cors/)
 
-#### clickビーコンを送信するfluctのクライアント側
+##### clickビーコンを送信するfluctのクライアント側
 
 以下の条件で送信を行います.
 
@@ -1029,45 +1143,31 @@ fluctのクライアント制御スクリプトからビーコンを送信に関
 </table>
 
 
-#### clickビーコン送信に用いられる手法について
+##### clickビーコン送信に用いられる手法について
 
 * 実際に広告が表示されるブラウザ側から送信する前提となっているため, XMLHttpRequestによるCross-Origin Requestが用いられます.
 * 一部の対応環境では, より確実なビーコン送信のため, [http://www.w3.org/TR/beacon/](http://www.w3.org/TR/beacon/) にて定義された navigator.sendBeacon()による送信が行われる場合があります.
 
-### d. マクロ置換
+### c. マクロ置換
 
 SSPは広告HTML(adm)内の以下の文字列を置換したうえで配信します。iab定義の必要な項目をお申し付けください。（他にも必要な項目があれば対応致します）
 
 <table>
   <tr>
     <th>マクロ</th>
-  </tr>
-  <tr>
-    <td>${AUCTION_ID}</td>
-  </tr>
-  <tr>
-    <td>${AUCTION_BID_ID}</td>
-  </tr>
-  <tr>
-    <td>${AUCTION_IMP_ID}</td>
-  </tr>
-  <tr>
-    <td>${AUCTION_SEAT_ID}</td>
-  </tr>
-  <tr>
-    <td>${AUCTION_AD_ID}</td>
+    <th>詳細</th>
   </tr>
   <tr>
     <td>${AUCTION_PRICE} </td>
-  </tr>
-  <tr>
-    <td>${AUCTION_PRICE_IV}</td>
-  </tr>
-  <tr>
-    <td>${AUCTION_CURRENCY}</td>
+    <td>暗号化された約定金額。クリエイティブ審査プロセスによる描画の場合、<code>AUDIT</code> という文字列に置換されます。 </td>
   </tr>
   <tr>
     <td>${CLICK_URL_ENC} </td>
+    <td>URLエンコードされたリダイレクタURL </td>
+  </tr>
+  <tr>
+    <td>${IS_PREVIEW} </td>
+    <td>クリエイティブ審査プロセスによる描画の場合 <code>1</code> に、通常は <code>0</code> に置換されます。 </td>
   </tr>
 </table>
 
@@ -1076,7 +1176,7 @@ SSPは広告HTML(adm)内の以下の文字列を置換したうえで配信し�
 
 暗号鍵は決定した方式に基づいて、SSPが発行します。（SSP作業）
 
-### e.リダイレクタ仕様
+### d.リダイレクタ仕様
 
 弊社リダイレクタ仕様
 
@@ -1214,7 +1314,7 @@ imgを保持するassetオブジェクトが複数あるケースもあります
 
 ## 5.リクエスト／レスポンスサンプル
 
-### 【bid Request web】
+### Bid request web
 
 ```js
 {
@@ -1223,41 +1323,39 @@ imgを保持するassetオブジェクトが複数あるケースもあります
     {
       "id": "1",
       "tagid": "14444:1000075047",
-      "secure": 0,
+      "secure": 1,
       "banner": {
-        "h": 50,
-        "w": 320,
+        "h": 250,
+        "w": 300,
         "pos": 9
       }
     }
   ],
   "site": {
     "id": "1000012671",
-    "cat": [ "IAB1-1", "IAB2" ],
-    "domain": "fluct.jp",
-    "page": "http://fluct.jp/hoge.html",
+    "cat": [ "IAB19" ],
+    "domain": "magazine.fluct.jp",
+    "page": "https://magazine.fluct.jp/category/news",
     "publisher": {
       "id": "461"
     }
   },
   "user": {
     "id": "j98790jjh767yjnijhoou9707c321j313cdag234g",
-    "buyeruid": ""
+    "buyeruid": "AABBCCDD12345"
   },
-  "bcat": [ "IAB5-1", "IAB5-2" ],
+  "bcat": [ "IAB25", "IAB26" ],
   "badv": [ "blockdomain.com", "blockdomain2.jp" ],
   "tmax": 120,
   "device": {
     "ua": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1",
-    "ip": "220.110.139.200"
+    "ip": "203.0.113.123"
   },
   "at": 2
 }
 ```
 
-### 【bid request app】
-
-※SSP側で ifa が取得できた場合
+### Bid request app
 
 ```js
 {
@@ -1266,7 +1364,7 @@ imgを保持するassetオブジェクトが複数あるケースもあります
     {
       "id": "1",
       "tagid": "14444:1000075047",
-      "secure": 0,
+      "secure": 1,
       "banner": {
         "h": 50,
         "w": 320,
@@ -1276,7 +1374,7 @@ imgを保持するassetオブジェクトが複数あるケースもあります
   ],
   "app": {
     "id": "1000012671",
-    "cat": [ "IAB1-1", "IAB2" ],
+    "cat": [ "IAB1" ],
     "bundle": "123456789",
     "storeurl": "https://itunes.apple.com/id123456789",
     "publisher": {
@@ -1286,12 +1384,12 @@ imgを保持するassetオブジェクトが複数あるケースもあります
   "user": {
     "id": "2fac1234-31f8-11b4-a222-08002b34c003"
   },
-  "bcat": [ "IAB5-1", "IAB5-2" ],
+  "bcat": [ "IAB25", "IAB26" ],
   "badv": [ "blockdomain.com", "blockdomain2.jp" ],
   "tmax": 120,
   "device": {
     "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 9_3_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile/13E238",
-    "ip": "220.110.139.200",
+    "ip": "203.0.113.123",
     "ifa": "2fac1234-31f8-11b4-a222-08002b34c003",
     "lmt": 0
   },
@@ -1299,7 +1397,7 @@ imgを保持するassetオブジェクトが複数あるケースもあります
 }
 ```
 
-### 【bid request native(icon)】
+### Bid request native (icon)
 
 ```js
 {
@@ -1308,7 +1406,7 @@ imgを保持するassetオブジェクトが複数あるケースもあります
     {
       "id": "1",
       "tagid": "14444:1000075047",
-      "secure": 0,
+      "secure": 1,
       "native": {
         "ver": "1",
         "request":"{\"native\":{\"assets\": [{\"id\": 1,\"title\": {\"len\": 20}},{\"id\": 2,\"img\": {\"hmin\": 160,\"type\": 1,\"wmin\": 160}},{\"id\": 3,\"data\": {\"len\": 30,\"type\": 1}},{\"data\": {\"len\": 50,\"type\": 2},\"id\": 4}],\"layout\": 3}}"
@@ -1317,7 +1415,7 @@ imgを保持するassetオブジェクトが複数あるケースもあります
   ],
   "site": {
     "id": "1000012671",
-    "cat": [ "IAB1-1", "IAB2" ],
+    "cat": [ "IAB11" ],
     "domain": "fluct.jp",
     "page": "http://fluct.jp/hoge.html",
     "publisher": {
@@ -1326,20 +1424,20 @@ imgを保持するassetオブジェクトが複数あるケースもあります
   },
   "user": {
     "id": "j98790jjh767yjnijhoou9707c321j313cdag234g",
-    "buyeruid": "8hekfu378f90dkjdkjl998jkl3jndf98d98732old"
+    "buyeruid": "AABBCCDD12345"
   },
-  "bcat": [ "IAB5-1", "IAB5-2" ],
+  "bcat": [ "IAB25", "IAB26" ],
   "badv": [ "blockdomain.com", "blockdomain2.jp" ],
   "tmax": 120,
   "device": {
     "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 9_3_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile/13E238",
-    "ip": "220.110.139.200"
+    "ip": "203.0.113.123"
   },
   "at": 2
 }
 ```
 
-### 【bid request native(main)】
+### Bid request native (main)
 
 ```js
 {
@@ -1348,7 +1446,7 @@ imgを保持するassetオブジェクトが複数あるケースもあります
     {
       "id": "1",
       "tagid": "14444:1000075047",
-      "secure": 0,
+      "secure": 1,
       "native": {
         "ver": "1",
         "request":"{\"native\":{\"assets\": [{\"id\": 1,\"title\": {\"len\": 20}},{\"id\": 2,\"img\": {\"hmin\": 320,\"type\": 3,\"wmin\":640}},{\"id\": 3,\"data\": {\"len\": 30,\"type\": 1}},{\"data\": {\"len\": 50,\"type\": 2},\"id\": 4}],\"layout\": 3}}"
@@ -1357,29 +1455,29 @@ imgを保持するassetオブジェクトが複数あるケースもあります
   ],
   "site": {
     "id": "1000012671",
-    "cat": [ "IAB1-1", "IAB2" ],
-    "domain": "fluct.jp",
-    "page": "http://fluct.jp/hoge.html",
+    "cat": [ "IAB19" ],
+    "domain": "magazine.fluct.jp",
+    "page": "https://magazine.fluct.jp/category/news",
     "publisher": {
       "id": "461"
     }
   },
   "user": {
     "id": "j98790jjh767yjnijhoou9707c321j313cdag234g",
-    "buyeruid": "8hekfu378f90dkjdkjl998jkl3jndf98d98732old"
+    "buyeruid": "AABBCCDD12345"
   },
-  "bcat": [ "IAB5-1", "IAB5-2" ],
+  "bcat": [ "IAB25", "IAB26" ],
   "badv": [ "blockdomain.com", "blockdomain2.jp" ],
   "tmax": 120,
   "device": {
     "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 9_3_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile/13E238",
-    "ip": "220.110.139.200"
+    "ip": "203.0.113.123"
   },
   "at": 2
 }
 ```
 
-### 【bid request pmp】
+### Bid request pmp
 
 ```js
 {
@@ -1388,7 +1486,7 @@ imgを保持するassetオブジェクトが複数あるケースもあります
     {
       "id": "1",
       "tagid": "14444:1000075047",
-      "secure": 0,
+      "secure": 1,
       "banner": {
         "h": 50,
         "w": 320,
@@ -1396,31 +1494,31 @@ imgを保持するassetオブジェクトが複数あるケースもあります
       },
       "pmp":{
         "private_auction": 1,
-        "deals":{
+        "deals": [{
           "id":"AAAA-jndf98d9-dalda"
-        }
+        }]
       }
     }
   ],
   "site": {
     "id": "1000012671",
-    "cat": [ "IAB1-1", "IAB2" ],
-    "domain": "fluct.jp",
-    "page": "http://fluct.jp/hoge.html",
+    "cat": [ "IAB19" ],
+    "domain": "magazine.fluct.jp",
+    "page": "https://magazine.fluct.jp/category/news",
     "publisher": {
       "id": "461"
     }
   },
   "user": {
     "id": "j98790jjh767yjnijhoou9707c321j313cdag234g",
-    "buyeruid": "8hekfu378f90dkjdkjl998jkl3jndf98d98732old"
+    "buyeruid": "AABBCCDD12345"
   },
-  "bcat": [ "IAB5-1", "IAB5-2" ],
+  "bcat": [ "IAB25", "IAB26" ],
   "badv": [ "blockdomain.com", "blockdomain2.jp" ],
   "tmax": 120,
   "device": {
     "ua": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1",
-    "ip": "220.110.139.200",
+    "ip": "203.0.113.123",
     "ifa": "2fac1234-31f8-11b4-a222-08002b34c003",
     "lmt": 0
   },
@@ -1428,7 +1526,7 @@ imgを保持するassetオブジェクトが複数あるケースもあります
 }
 ```
 
-### 【bid request video】
+### Bid request video
 
 ```js
 {
@@ -1437,7 +1535,7 @@ imgを保持するassetオブジェクトが複数あるケースもあります
     {
       "id": "1",
       "tagid": "14444:1000075047",
-      "secure": 0,
+      "secure": 1,
       "video": {
         "mimes": [ "video/mp4" ],
         "minduration": 5,
@@ -1453,29 +1551,29 @@ imgを保持するassetオブジェクトが複数あるケースもあります
   ],
   "site": {
     "id": "1000012671",
-    "cat": [ "IAB1-1", "IAB2" ],
-    "domain": "fluct.jp",
-    "page": "http://fluct.jp/hoge.html",
+    "cat": [ "IAB19" ],
+    "domain": "magazine.fluct.jp",
+    "page": "https://magazine.fluct.jp/category/news",
     "publisher": {
       "id": "461"
     }
   },
   "user": {
     "id": "j98790jjh767yjnijhoou9707c321j313cdag234g",
-    "buyeruid": ""
+    "buyeruid": "AABBCCDD12345"
   },
-  "bcat": [ "IAB5-1", "IAB5-2" ],
+  "bcat": [ "IAB25", "IAB26" ],
   "badv": [ "blockdomain.com", "blockdomain2.jp" ],
   "tmax": 120,
   "device": {
     "ua": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1",
-    "ip": "220.110.139.200"
+    "ip": "203.0.113.123"
   },
   "at": 2
 }
 ```
 
-### 【bid response web,app】
+### Bid response web/app
 
 ```js
 {
@@ -1485,6 +1583,7 @@ imgを保持するassetオブジェクトが複数あるケースもあります
         "bid": [{
             "impid": "aud384920dieksjvpowlek231f9d8umxnd87ytgs",
             "price": 50,
+            "crid": "12345",
             "adm": "<iframe width=\"468\" height=\"60\" marginwidth=\"0\" marginheight=\"0\" hspace=\"0\" vspace=\"0\" frameborder=\"0\" scrolling=\"no\" allowTransparency=\"true\" src=\"http://xxx.net/imp/${AUCTION_PRICE}/${CLICK_URL_ENC}\"></iframe>",
             "adomain": ["adomain.com"]
         }]
@@ -1492,7 +1591,7 @@ imgを保持するassetオブジェクトが複数あるケースもあります
 }
 ```
 
-### 【bid response native(icon/main)】
+### Bid response native (icon/main)
 
 ```js
 {
@@ -1502,13 +1601,14 @@ imgを保持するassetオブジェクトが複数あるケースもあります
     "bid": [{
       "impid": "aud384920dieksjvpowlek231f9d8umxnd87ytgs",
       "price": 50,
+      "crid": "12345",
       "adm": "{\"native\":{\"optouturl\":\"https://dsp.com/optout/\",\"link\":{\"url\":\"http:example.com/click\"},\"imptrackers\":[\"http:example.com/imp/a\",\"http:example.com/imp/b\"],\"assets\":[{\"id\": 1,\"title\":{\"text\":\"タイトルテキスト\"}},{\"img\":{\"url\":\"https://example.com/nativeImage.jpg\",\"w\": 160,\"h\": 160},\"id\": 2},{\"id\": 3,\"data\":{\"value\":\"株式会社fluct\"}},{\"id\": 4,\"data\":{\"value\":\"広告の説明文、fluctは日本で最大手のSSPです。\"}}]}}"
     }]
   }]
 }
 ```
 
-### 【bid response pmp】
+### Bid response pmp
 
 ```js
 {
@@ -1518,14 +1618,15 @@ imgを保持するassetオブジェクトが複数あるケースもあります
         "bid": [{
             "impid": "aud384920dieksjvpowlek231f9d8umxnd87ytgs",
             "price": 50,
+            "crid": "12345",
             "adm": "<iframe width=\"468\" height=\"60\" marginwidth=\"0\" marginheight=\"0\" hspace=\"0\" vspace=\"0\" frameborder=\"0\" scrolling=\"no\" allowTransparency=\"true\" src=\"http://xxx.net/imp/${AUCTION_PRICE}/${CLICK_URL_ENC}\"></iframe>",
-            "dealid": "83921das"
+            "dealid": "AAAA-jndf98d9-dalda"
         }]
     }]
 }
 ```
 
-### 【bid response video】
+### Bid response video
 
 ```js
 {
@@ -1535,6 +1636,7 @@ imgを保持するassetオブジェクトが複数あるケースもあります
     "bid": [{
         "impid": "1",
         "price": 5000,
+        "crid": "12345",
         "adm": "http://xxx.net/vast/${AUCTION_PRICE}/${CLICK_URL_ENC}",
         "adomain": ["adomain.com"]
     }]
@@ -1542,7 +1644,7 @@ imgを保持するassetオブジェクトが複数あるケースもあります
 }
 ```
 
-### 【jstracker 仕様/サンプルコード】
+### Native jstracker example
 
 ```js
 /**
@@ -1718,4 +1820,3 @@ window.addEventListener(IMP_EVENT_BY_FLUCT, function onImpression(event) {
   impByXHR();
 }, false);
 ```
-
