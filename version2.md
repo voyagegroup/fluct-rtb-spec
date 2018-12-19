@@ -10,53 +10,65 @@ OpenRTB 2.5 に準拠しています。詳細は[IABのOpenRTB API Specification
 ## Table of Contents
 
 * [0. 変更履歴](#0-変更履歴)
-* [1.cookie sync](#1cookie-sync)
-* [2.リクエスト仕様](#2リクエスト仕様)
-   * [a.エンドポイントURL](#aエンドポイントurl)
-   * [b. bidリクエストパラメタ](#bbid-リクエストパラメタ)
-      * [b-1. BidRequest Object (TopLevel)](#b-1-bidrequest-object-toplevel)
-      * [b-2. imp Object](#b-2-imp-object)
-      * [b-3. site Object](#b-3-site-object)
-      * [b-4. app Object](#b-4-app-object)
-      * [b-5. user Object](#b-5-user-object)
-      * [b-6. device Object](#b-6-device-object)
-      * [b-7. banner Object](#b-7-banner-object)
-      * [b-8. video Object](#b-8-video-object)
-      * [b-9. pmp Object](#b-9-pmp-object)
-      * [b-10. Native Object (新)](#b-10-native-object-新)
-      * [b-11. Native Markup Request Object](#b-11-native-markup-request-object)
-      * [b-12. deals Object](#b-12-deals-object)
-      * [b-13. assets Object](#b-13-assets-object)
-      * [b-14. title Object](#b-14-title-object)
-      * [b-15. img Object](#b-15-img-object)
-      * [b-16. data Object](#b-16-data-object)
-      * [b-17. Native Object (旧)](#b-17-native-object-旧)
-* [3.レスポンス仕様](#3レスポンス仕様)
-   * [a. bidレスポンスパラメタ](#aレスポンスパラメタ)
-      * [a-1. BidResponse Object (TopLevel)](#a-1-bidresponse-object-toplevel)
-      * [a-2. Bid Object](#a-2-bid-object)
-      * [a-3. Seatbid Object](#a-3-seatbid-object)
-      * [a-4. native response adm (serialized JSON object)](#a-4-native-response-adm-serialized-json-object)
-   * [b. imptrackers, jstracker, clicktrackersの取り扱い](#bimptrackers-jstracker-clicktrackersの取り扱い)
+* [1. cookie sync](#1-cookie-sync)
+* [2. リクエスト仕様](#2-リクエスト仕様)
+   * [a. エンドポイントURL](#a-エンドポイントurl)
+   * [b. bidリクエストパラメタ](#b-bidリクエストパラメタ)
+      * [BidRequest Object (TopLevel)](#bidrequest-object-toplevel)
+      * [imp Object](#imp-object)
+      * [site Object](#site-object)
+      * [app Object](#app-object)
+      * [user Object](#user-object)
+      * [device Object](#device-object)
+      * [banner Object](#banner-object)
+      * [video Object](#video-object)
+      * [pmp Object](#pmp-object)
+      * [Native Object (新)](#native-object-新)
+      * [Native Markup Request Object](#native-markup-request-object)
+      * [deals Object](#deals-object)
+      * [assets Object](#assets-object)
+      * [title Object](#title-object)
+      * [img Object](#img-object)
+      * [data Object](#data-object)
+      * [Native Object (旧)](#native-object-旧)
+* [3. レスポンス仕様](#3-レスポンス仕様)
+   * [a. bidレスポンスパラメタ](#a-bidレスポンスパラメタ)
+      * [BidResponse Object (TopLevel)](#bidresponse-object-toplevel)
+      * [Bid Object](#bid-object)
+      * [Seatbid Object](#seatbid-object)
+      * [native response adm (serialized JSON object)](#native-response-adm-serialized-json-object)
+   * [b. imptrackers, jstracker, clicktrackersの取り扱い](#b-imptrackers-jstracker-clicktrackersの取り扱い)
       * [imptrackers](#imptrackers)
       * [jstracker](#jstracker)
       * [clicktrackers](#clicktrackers)
-      * [impressionまたは/clickビーコンの送信](#c-impressionまたはclickビーコンの送信)
+      * [impressionまたは/clickビーコンの送信](#impressionまたはclickビーコンの送信)
       * [impressionビーコンを受けるエンドポイント](#impressionビーコンを受けるエンドポイント)
       * [impressionビーコンを送信するfluctのクライアント側](#impressionビーコンを送信するfluctのクライアント側)
       * [clickビーコンを受けるエンドポイント](#clickビーコンを受けるエンドポイント)
       * [clickビーコンを送信するfluctのクライアント側](#clickビーコンを送信するfluctのクライアント側)
       * [clickビーコン送信に用いられる手法について](#clickビーコン送信に用いられる手法について)
-   * [c. マクロ置換](#d-マクロ置換)
-   * [d.リダイレクタ仕様](#eリダイレクタ仕様)
-* [4.コード表](#4コード表)
-* [5.リクエスト／レスポンスサンプル](#5リクエストレスポンスサンプル)
+   * [c. マクロ置換](#c-マクロ置換)
+   * [d. リダイレクタ仕様](#d-リダイレクタ仕様)
+* [4. コード表](#4-コード表)
+* [5. リクエスト／レスポンスサンプル](#5-リクエストレスポンスサンプル)
+   * [Bid Request web](#bid-request-web)
+   * [Bid request app](#bid-request-app)
+   * [Bid request native(icon)](#bid-request-native-icon)
+   * [Bid request native(main)](#bid-request-native-main)
+   * [Bid request pmp](#bid-request-pmp)
+   * [Bid request video](#bid-request-video)
+   * [Bid response web,app](#bid-response-webapp)
+   * [Bid response native(icon/main)](#bid-response-native-iconmain)
+   * [Bid response pmp](#bid-response-pmp)
+   * [Bid response video](#bid-response-video)
+   * [Native jstracker example](#native-jstracker-example)
+
 
 ## 0. 変更履歴
 
 [CHANGELOG.md](CHANGELOG.md)
 
-## 1.cookie sync
+## 1. cookie sync
 
 通常は以下のようなsyncを行なっていますが、他のフローも個別に対応可能です。（※オフラインのsyncは行なっていません。）
 
@@ -72,9 +84,9 @@ DSP_NAMEはつなぎ込みに先立ってSSPが発行します（SSP作業）。
 
     https://cs.adingo.jp/sync/?from=your_dsp&id=XXXXXX&expire=90
 
-## 2.リクエスト仕様
+## 2. リクエスト仕様
 
-### a.エンドポイントURL
+### a. エンドポイントURL
 
 bid リクエストを送信すべきエンドポイントURLをSSPに通知して下さい。（DSP作業）
 
@@ -88,7 +100,7 @@ SSPは指定されたエンドポイントURLにbidリクエストをPOSTしま�
 
 DSPは使用するシリアライズフォーマットをSSPに通知してください。（DSP作業）
 
-#### b-1. BidRequest Object (TopLevel)
+#### BidRequest Object (TopLevel)
 
 <table>
   <tr>
@@ -159,7 +171,7 @@ integer</td>
 
 ※ site、app いずれかは必須
 
-#### b-2. imp Object
+#### imp Object
 
 <table>
   <tr>
@@ -220,7 +232,7 @@ integer</td>
 </table>
 
 
-#### b-3. site Object
+#### site Object
 
 <table>
   <tr>
@@ -263,7 +275,7 @@ string</td>
 </table>
 
 
-#### b-4. app Object
+#### app Object
 
 <table>
   <tr>
@@ -307,7 +319,7 @@ string</td>
 </table>
 
 
-#### b-5. user Object
+#### user Object
 
 <table>
   <tr>
@@ -333,7 +345,7 @@ string</td>
 
 ※ device.ifaを送る場合は、user.buyeruidは送らず、user.idにはdevice.ifaの値と同様の値が入ります
 
-#### b-6. device Object
+#### device Object
 
 <table>
   <tr>
@@ -374,7 +386,7 @@ integer</td>
 </table>
 
 
-#### b-7. banner Object
+#### banner Object
 
 <table>
   <tr>
@@ -405,7 +417,7 @@ integer</td>
 </table>
 
 
-#### b-8. video Object
+#### video Object
 
 <table>
   <tr>
@@ -527,7 +539,7 @@ integer</td>
 </table>
 
 
-#### b-9. pmp Object
+#### pmp Object
 
 <table>
   <tr>
@@ -547,7 +559,7 @@ integer</td>
   </tr>
 </table>
 
-#### b-10. Native Object (新)
+#### Native Object (新)
 
 <table>
   <tr>
@@ -587,7 +599,7 @@ openRTBの仕様上、NativeObjectにrequestが含まれるのが正しいです
 旧から新への変更の必要はありませんが、変更したいケースはお申し出ください
 弊社から、とあるタイミングで新仕様の方に変更する旨の依頼を行う可能性もございます。
 
-#### b-11. Native Markup Request Object
+#### Native Markup Request Object
 
 <table>
   <tr>
@@ -640,7 +652,7 @@ assetsに設定されている項目でも、メディア側の設定によっ�
 ※layoutについては末尾に補足がございます
 
 
-#### b-12. deals Object
+#### deals Object
 
 <table>
   <tr>
@@ -657,7 +669,7 @@ string</td>
 </table>
 
 
-#### b-13. assets Object
+#### assets Object
 
 <table>
   <tr>
@@ -690,7 +702,7 @@ string</td>
 
 ※ bidrequestとしてtitle,img,data.type=1(sponsord),data.type=2(desc) のみを送信します。
 
-#### b-14. title Object
+#### title Object
 
 <table>
   <tr>
@@ -707,7 +719,7 @@ string</td>
 </table>
 
 
-#### b-15. img Object
+#### img Object
 
 <table>
   <tr>
@@ -736,7 +748,7 @@ string</td>
 ※imgのwmin/hminに関しては事前の取り決めに応じて送信します
 (NewsFeedのdefault : type:1 の場合 160x160 / type3の場合デザインに依存します)
 
-#### b-16. data Object
+#### data Object
 
 <table>
   <tr>
@@ -756,7 +768,7 @@ string</td>
   </tr>
 </table>
 
-#### b-17. Native Object (旧)
+#### Native Object (旧)
 
 <table>
   <tr>
@@ -812,7 +824,7 @@ BidResponseに含まれない場合はRTBで落札できた場合でも広告表
 
 imgを保持するassetオブジェクトが複数あるケースもあります。
 
-#### b-18. Publisher Object
+#### Publisher Object
 
 <table>
   <tr>
@@ -828,7 +840,7 @@ string</td>
   </tr>
 </table>
 
-## 3.レスポンス仕様
+## 3. レスポンス仕様
 
 ### a. bidレスポンスパラメタ
 
@@ -929,7 +941,7 @@ DSPはリクエストに採用したのと同じシリアライズフォーマ�
   </tr>
 </table>
 
-#### a-4. native response adm (serialized JSON object)
+#### native response adm (serialized JSON object)
 
 <table>
   <tr>
@@ -1176,7 +1188,7 @@ SSPは広告HTML(adm)内の以下の文字列を置換したうえで配信し�
 
 暗号鍵は決定した方式に基づいて、SSPが発行します。（SSP作業）
 
-### d.リダイレクタ仕様
+### d. リダイレクタ仕様
 
 弊社リダイレクタ仕様
 
@@ -1238,7 +1250,7 @@ SSPは広告HTML(adm)内の以下の文字列を置換したうえで配信し�
 
     http://rd.adingo.jp/?p=rKRSvXZZsc3qXP7DfGyYd0ws220dxHwHVnICTDmTbaPn9JttXH6yinKvASt4mmHHZT_N6DHJbFvL44b27QhnsfTMmeY36Lj6T03cVm4N_OW6d3ukpfMh1cjUOuCcWL7hthiQK9quf-Uv83V7xFV3Z7Z8GptcRjhegT-aXliZsvMS7lLoxkXTHRO64iFKk8Ds&v=e0e8nlDL6O0.&k=1&guid=ON&u=http%3A%2F%2Flp.example.net
 
-## 4.コード表
+## 4. コード表
 
 ネイティブアドレイアウトIDコード
 
@@ -1312,7 +1324,7 @@ BidResponseに含まれない場合はRTBで落札できた場合でも広告表
 
 imgを保持するassetオブジェクトが複数あるケースもあります。
 
-## 5.リクエスト／レスポンスサンプル
+## 5. リクエスト／レスポンスサンプル
 
 ### Bid request web
 

@@ -12,48 +12,59 @@ Moreover, this specification does not contain description of general RTB protoco
 
 ## Table of Contents
 
-* [1.cookie sync](#1cookie-sync)
+* [1. cookie sync](#1-cookie-sync)
 * [2. Request specification](#2-request-specification)
    * [a. Endpoint URL](#a-endpoint-url)
-   * [b.Bid request parameters](#bbid-request-parameters)
-      * [b-1. BidRequest Object (TopLevel)](#b-1-bidrequest-object-toplevel)
-      * [b-2. imp Object](#b-2-imp-object)
-      * [b-3. site Object](#b-3-site-object)
-      * [b-4. app Object](#b-4-app-object)
-      * [b-5. user Object](#b-5-user-object)
-      * [b-6. device Object](#b-6-device-object)
-      * [b-7. banner Object](#b-7-banner-object)
-      * [b-8. video Object](#b-8-video-object)
-      * [b-9. pmp Object](#b-9-pmp-object)
-      * [b-10. Native Object (new)](#b-10-native-object-new)
-      * [b-11. Native Markup Request Object](#b-11-native-markup-request-object)
-      * [b-12. deals Object](#b-12-deals-object)
-      * [b-13. assets Object](#b-13-assets-object)
-      * [b-14. title Object](#b-14-title-object)
-      * [b-15. img Object](#b-15-img-object)
-      * [b-16. data Object](#b-16-data-object)
-      * [b-17. Native Object (old)](#b-17-native-object-old)
-* [3.Response specification](#3response-specification)
-   * [a.Bid response parameters](#abid-response-parameters)
-      * [a-1. BidResponse Object (TopLevel)](#a-1-bidresponse-object-toplevel)
-      * [a-2. Bid Object](#a-2-bid-object)
-      * [a-3. Seatbid Object](#a-3-seatbid-object)
-      * [a-4. native response adm (serialized JSON object)](#a-4-native-response-adm-serialized-json-object)
-   * [b.imptrackers, jstracker, clicktrackers](#bimptrackers-jstracker-clicktrackers)
+   * [b. Bid request parameters](#b-bid-request-parameters)
+      * [BidRequest Object (TopLevel)](#bidrequest-object-toplevel)
+      * [imp Object](#imp-object)
+      * [site Object](#site-object)
+      * [app Object](#app-object)
+      * [user Object](#user-object)
+      * [device Object](#device-object)
+      * [banner Object](#banner-object)
+      * [video Object](#video-object)
+      * [pmp Object](#pmp-object)
+      * [Native Object (new)](#native-object-new)
+      * [Native Markup Request Object](#native-markup-request-object)
+      * [deals Object](#deals-object)
+      * [assets Object](#assets-object)
+      * [title Object](#title-object)
+      * [img Object](#img-object)
+      * [data Object](#data-object)
+      * [Native Object (old)](#native-object-old)
+* [3. Response specification](#3-response-specification)
+   * [a. Bid response parameters](#a-bid-response-parameters)
+      * [BidResponse Object (TopLevel)](#bidresponse-object-toplevel)
+      * [Bid Object](#bid-object)
+      * [Seatbid Object](#seatbid-object)
+      * [native response adm (serialized JSON object)](#native-response-adm-serialized-json-object)
+   * [b. imptrackers, jstracker, clicktrackers](#b-imptrackers-jstracker-clicktrackers)
       * [imptrackers](#imptrackers)
       * [jstracker](#jstracker)
       * [clicktrackers](#clicktrackers)
-      * [impression/click beacon](#c-impressionclick-beacon)
+      * [impression/click beacon](#impressionclick-beacon)
       * [endpoint for impression beacon](#endpoint-for-impression-beacon)
       * [fluct transmits according to the following conditions (imp beacon):](#fluct-transmits-according-to-the-following-conditions-imp-beacon)
       * [endpoint for click beacon](#endpoint-for-click-beacon)
       * [fluct transmits according to the following conditions (click beacon):](#fluct-transmits-according-to-the-following-conditions-click-beacon)
-   * [c. Macro substitution](#d-macro-substitution)
-   * [d.Click Measuring](#eclick-measuring)
-* [4.Code table](#4code-table)
-* [5.Bid Request/Response Samples](#5bid-requestresponse-samples)
+   * [c. Macro substitution](#c-macro-substitution)
+   * [d. Click Measuring](#d-click-measuring)
+* [4. Code table](#4-code-table)
+* [5. Bid Request/Response Samples](#5-bid-requestresponse-samples)
+   * [Bid Request web](#bid-request-web)
+   * [Bid request app](#bid-request-app)
+   * [Bid request native(icon)](#bid-request-native-icon)
+   * [Bid request native(main)](#bid-request-native-main)
+   * [Bid request pmp](#bid-request-pmp)
+   * [Bid request video](#bid-request-video)
+   * [Bid response web,app](#bid-response-webapp)
+   * [Bid response native(icon/main)](#bid-response-native-iconmain)
+   * [Bid response pmp](#bid-response-pmp)
+   * [Bid response video](#bid-response-video)
+   * [Native jstracker example](#native-jstracker-example)
 
-## 1.cookie sync
+## 1. cookie sync
 
 Usually the following sync will be performed, however we are also able to provide specified flows separately.
 
@@ -89,7 +100,7 @@ https request is also supported.
 
 Please let us know if we need to set the specific Port.
 
-### b.Bid request parameters
+### b. Bid request parameters
 
 Serialize format: one among Google Protobuf, JSON, MessagePack.
 
@@ -99,7 +110,7 @@ Please inform SSP which serialize format should be used. (DSP reponsibility)
 
 The following is a JSON example:
 
-#### b-1. BidRequest Object (TopLevel)
+#### BidRequest Object (TopLevel)
 
 <table>
   <tr>
@@ -162,7 +173,7 @@ The following is a JSON example:
 
 * Only one of the "site" and “app” sections will be necessary.
 
-#### b-2. imp Object
+#### imp Object
 
 <table>
   <tr>
@@ -213,7 +224,7 @@ The following is a JSON example:
 </table>
 
 
-#### b-3. site Object
+#### site Object
 
 <table>
   <tr>
@@ -249,7 +260,7 @@ The following is a JSON example:
 </table>
 
 
-#### b-4. app Object
+#### app Object
 
 <table>
   <tr>
@@ -286,7 +297,7 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
 </table>
 
 
-#### b-5. user Object
+#### user Object
 
 <table>
   <tr>
@@ -309,7 +320,7 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
 
 * When "ifa" is sent, “user.buyeruid” is not sent and “user.id” is set to be the value of “device.ifa”. 
 
-#### b-6. device Object
+#### device Object
 
 <table>
   <tr>
@@ -345,7 +356,7 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
 </table>
 
 
-#### b-7. banner Object
+#### banner Object
 
 <table>
   <tr>
@@ -371,7 +382,7 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
 </table>
 
 
-#### b-8. video Object
+#### video Object
 
 <table>
   <tr>
@@ -466,7 +477,7 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
 </table>
 
 
-#### b-9. pmp Object
+#### pmp Object
 
 <table>
   <tr>
@@ -487,7 +498,7 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
 </table>
 
 
-#### b-10. Native Object (new)
+#### Native Object (new)
 
 <table>
   <tr>
@@ -527,7 +538,7 @@ Express the specification of the previous NativeObject as `b-17. Native Object (
 There is no need to change from old to new, but please request case to change. 
 There is also the possibility of requesting that we change to the newer one at a certain timing from our company. 
 
-#### b-11. Native Markup Request Object
+#### Native Markup Request Object
 
 <table>
   <tr>
@@ -577,7 +588,7 @@ integer</td>
 
 * see the end of this document for details
 
-#### b-12. deals Object
+#### deals Object
 
 <table>
   <tr>
@@ -593,7 +604,7 @@ integer</td>
 </table>
 
 
-#### b-13. assets Object
+#### assets Object
 
 <table>
   <tr>
@@ -626,7 +637,7 @@ integer</td>
 
 * Only one of the "title", “img” and “data” sections will be necessary in “assets object”.
 
-#### b-14. title Object
+#### title Object
 
 <table>
   <tr>
@@ -642,7 +653,7 @@ integer</td>
 </table>
 
 
-#### b-15. img Object
+#### img Object
 
 <table>
   <tr>
@@ -671,7 +682,7 @@ integer</td>
 ※"wmin” and "hmin” are set as predetermined by DSP 
 (NewsFeed type:1 as 160x160 , type:3 as depending on design)
 
-#### b-16. data Object
+#### data Object
 
 <table>
   <tr>
@@ -691,7 +702,7 @@ integer</td>
   </tr>
 </table>
 
-#### b-17. Native Object (old)
+#### Native Object (old)
 
 <table>
   <tr>
@@ -745,7 +756,7 @@ Impressions will not be generated for responses which do not also contain the co
 
 Multiple asset objects containing img items may exist.
 
-#### b-18. publisher Object
+#### publisher Object
 
 <table>
   <tr>
@@ -760,7 +771,7 @@ Multiple asset objects containing img items may exist.
   </tr>
 </table>
 
-## 3.Response specification
+## 3. Response specification
 
 ### a. Bid response parameters
 
@@ -861,7 +872,7 @@ HTTP 204 No Content is expected for no bid
   </tr>
 </table>
 
-#### a-4. native response adm (serialized JSON object)
+#### native response adm (serialized JSON object)
 
 <table>
   <tr>
@@ -1153,7 +1164,7 @@ Redirecting route: Web page -> Company redirector -> fluct redirector -> Landing
 
 Then fluct will count the click and redirect the user to company's landing page.
 
-## 4.Code table
+## 4. Code table
 
 ### Category ID code:
 
@@ -1341,7 +1352,7 @@ Impressions will not be generated for responses which do not also contain the co
 
 Multiple asset objects containing img items may exist.
 
-## 5.Bid Request/Response Samples
+## 5. Bid Request/Response Samples
 
 ### Bid request web
 
