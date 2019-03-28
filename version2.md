@@ -22,6 +22,7 @@ OpenRTB 2.5 に準拠しています。詳細は[IABのOpenRTB API Specification
       * [device Object](#device-object)
       * [banner Object](#banner-object)
       * [video Object](#video-object)
+      * [audio Object](#audio-object) (Experimental)
       * [pmp Object](#pmp-object)
       * [Native Object (新)](#native-object-新)
       * [Native Markup Request Object](#native-markup-request-object)
@@ -57,10 +58,12 @@ OpenRTB 2.5 に準拠しています。詳細は[IABのOpenRTB API Specification
    * [Bid request native(main)](#bid-request-native-main)
    * [Bid request pmp](#bid-request-pmp)
    * [Bid request video](#bid-request-video)
+   * [Bid request audio](#bid-request-audio)
    * [Bid response web,app](#bid-response-webapp)
    * [Bid response native(icon/main)](#bid-response-native-iconmain)
    * [Bid response pmp](#bid-response-pmp)
    * [Bid response video](#bid-response-video)
+   * [Bid response audio](#bid-response-audio)
    * [Native jstracker example](#native-jstracker-example)
 
 
@@ -161,10 +164,12 @@ integer</td>
   <tr>
     <td>at</td>
     <td>optional</td>
-    <td>通常は、 2 を送ります。
-2が意味するのはセカンドプライスオークションです。
-default 2(2nd price auction)
-integer</td>
+    <td>1=ファーストプライスオークション, 2=セカンドプライスオークション integer</td>
+  </tr>
+  <tr>
+    <td>cur</td>
+    <td>optional</td>
+    <td>入札できる通貨 string array</td>
   </tr>
 </table>
 
@@ -228,6 +233,16 @@ integer</td>
     <td>optional</td>
     <td>掲載方法がインタースティシャルであるかを示す情報
 インタースティシャルでない = 0, インタースティシャルである = 1</td>
+  </tr>
+  <tr>
+    <td>bidfloor</td>
+    <td>optional</td>
+    <td>フロアプライス, float</td>
+  </tr>
+  <tr>
+    <td>bidfloorcur</td>
+    <td>optional</td>
+    <td>フロアプライスの通貨, string</td>
   </tr>
 </table>
 
@@ -428,116 +443,261 @@ integer</td>
   <tr>
     <td>mimes</td>
     <td>required</td>
-    <td>対応しているMIMEタイプ
-"video/mp4", “video/x-flv” 等
-string array</td>
+    <td>
+      対応しているMIMEタイプ
+      "video/mp4", “video/x-flv” 等
+      string array
+    </td>
   </tr>
   <tr>
     <td>pos</td>
     <td>optional</td>
-    <td>動画の掲載位置
-IABに準拠
-但し、スマートフォンのオーバーレイは、 9 で送ります。
-integer</td>
+    <td>
+      動画の掲載位置 (IABに準拠。 但し、スマートフォンのオーバーレイは、 9 で送ります) integer
+    </td>
   </tr>
   <tr>
     <td>minduration</td>
     <td>optional</td>
-    <td>動画の最短再生時間 (秒)
-integer</td>
+    <td>
+      動画の最短再生時間 (秒) integer
+    </td>
   </tr>
   <tr>
     <td>maxduration</td>
     <td>optional</td>
-    <td>動画の最長再生時間 (秒)
-integer</td>
+    <td>
+      動画の最長再生時間 (秒) integer
+    </td>
   </tr>
   <tr>
     <td>protocols</td>
     <td>optional</td>
-    <td>対応している動画プロトコル
-1=VAST 1.0
-2=VAST 2.0
-3=VAST 3.0
-4=VAST 1.0 Wrapper
-5=VAST 2.0 Wrapper
-6=VAST 3.0 Wrapper
-7=VAST 4.0
-8=VAST 4.0 Wrapper
-integer array</td>
+    <td>
+      対応している動画プロトコル
+      1=VAST 1.0,
+      2=VAST 2.0,
+      3=VAST 3.0,
+      4=VAST 1.0 Wrapper,
+      5=VAST 2.0 Wrapper,
+      6=VAST 3.0 Wrapper,
+      7=VAST 4.0,
+      8=VAST 4.0 Wrapper,
+      integer array
+    </td>
+  </tr>
+  <tr>
+    <td>battr</td>
+    <td>optional</td>
+    <td>
+      ブロックされたクリエイティブ属性 (IAB に準拠) integer array
+    </td>
   </tr>
   <tr>
     <td>h</td>
     <td>optional</td>
-    <td>動画の高さ
-integer</td>
+    <td>
+      動画の高さ integer
+      </td>
   </tr>
   <tr>
     <td>w</td>
     <td>optional</td>
-    <td>動画の横幅
-integer</td>
+    <td>
+      動画の横幅 integer
+    </td>
   </tr>
   <tr>
     <td>startdelay</td>
     <td>optional</td>
-    <td>再生開始までの時間 (秒)
-0=pre-roll
-&gt;0=mid-roll (指定される秒数後に再生される)
--1=一般的な mid-roll
--2=post-roll
-integer</td>
+    <td>
+      再生開始までの時間 (秒)
+      0=pre-roll,
+      &gt;0=mid-roll (指定される秒数後に再生される),
+      -1=一般的な mid-roll,
+      -2=post-roll,
+      integer
+    </td>
   </tr>
   <tr>
     <td>linearity</td>
     <td>optional</td>
-    <td>リニアリティ
-1=in-stream
-2=オーバーレイ
-integer</td>
+    <td>
+      リニアリティ
+      1=in-stream,
+      2=オーバーレイ,
+      integer
+    </td>
   </tr>
   <tr>
     <td>minbitrate</td>
     <td>optional</td>
-    <td>最小ビットレート (Kbps)
-integer</td>
+    <td>
+      最小ビットレート (Kbps)
+      integer
+    </td>
   </tr>
   <tr>
     <td>maxbitrate</td>
     <td>optional</td>
-    <td>最大ビットレート (Kbps)
-integer</td>
+    <td>
+      最大ビットレート (Kbps)
+      integer
+    </td>
   </tr>
   <tr>
     <td>skip</td>
     <td>optional</td>
-    <td>スキップ有無
-0=なし, 1=あり
-integer</td>
+    <td>
+      スキップ有無
+      0=なし,
+      1=あり,
+      integer
+    </td>
   </tr>
   <tr>
     <td>api</td>
     <td>optional</td>
-    <td>対応しているAPIフレームワーク
-1=VPAID 1.0
-2=VPAID 2.0
-3=MRAID-1
-4=ORMMA
-5=MRAID-2
-integer array</td>
+    <td>
+      対応しているAPIフレームワーク
+      1=VPAID 1.0,
+      2=VPAID 2.0,
+      3=MRAID-1,
+      4=ORMMA,
+      5=MRAID-2,
+      integer array
+    </td>
   </tr>
   <tr>
     <td>placement</td>
     <td>optional</td>
-    <td>配置方法
-1=in-stream (動画コンテンツの pre-roll, mid-roll, もしくは post-roll)
-2=in-banner (バナーの位置で再生される)
-5=インタースティシャル、フローティング (画面の一部もしくはすべてを覆い、再生中は継続して画面に表示される)
-imp.instl との組み合わせで全画面インタースティシャルと区別する
-integer</td>
+    <td>
+      配置方法
+      1=in-stream (動画コンテンツの pre-roll, mid-roll, もしくは post-roll),
+      2=in-banner (バナーの位置で再生される),
+      5=インタースティシャル、フローティング (画面の一部もしくはすべてを覆い、再生中は継続して画面に表示される),
+      imp.instl との組み合わせで全画面インタースティシャルと区別する,
+      integer
+    </td>
   </tr>
 </table>
 
+
+#### audio Object
+
+(Experimental)
+
+<table>
+  <tr>
+    <th>Field</th>
+    <th>scope</th>
+    <th>description</th>
+  </tr>
+  <tr>
+    <td>mimes</td>
+    <td>required</td>
+    <td>
+      対応しているMIMEタイプ "audio/mp4" 等 string array
+    </td>
+  </tr>
+  <tr>
+    <td>minduration</td>
+    <td>optional</td>
+    <td>
+      音声の最短再生時間 (秒) integer
+    </td>
+  </tr>
+  <tr>
+    <td>maxduration</td>
+    <td>optional</td>
+    <td>
+      音声の最長再生時間 (秒) integer
+    </td>
+  </tr>
+  <tr>
+    <td>protocols</td>
+    <td>optional</td>
+    <td>
+      対応している音声プロトコル
+        1=VAST 1.0,
+        2=VAST 2.0,
+        3=VAST 3.0,
+        4=VAST 1.0 Wrapper,
+        5=VAST 2.0 Wrapper,
+        6=VAST 3.0 Wrapper,
+        7=VAST 4.0,
+        8=VAST 4.0 Wrapper,
+        integer array
+    </td>
+  </tr>
+  <tr>
+    <td>startdelay</td>
+    <td>optional</td>
+    <td>
+      再生開始までの時間 (秒)
+      0=pre-roll,
+      &gt;0=mid-roll (指定される秒数後に再生される),
+      -1=一般的な mid-roll,
+      -2=post-roll,
+      integer
+    </td>
+  </tr>
+  <tr>
+    <td>battr</td>
+    <td>optional</td>
+    <td>
+      ブロックされたクリエイティブ属性 (IAB に準拠) integer array
+    </td>
+  </tr>
+  <tr>
+    <td>minbitrate</td>
+    <td>optional</td>
+    <td>
+      最小ビットレート (Kbps) integer
+    </td>
+  </tr>
+  <tr>
+    <td>maxbitrate</td>
+    <td>optional</td>
+    <td>
+      最大ビットレート (Kbps) integer
+    </td>
+  </tr>
+  <tr>
+    <td>api</td>
+    <td>optional</td>
+    <td>
+      対応しているAPIフレームワーク
+      1=VPAID 1.0,
+      2=VPAID 2.0,
+      3=MRAID-1,
+      4=ORMMA,
+      5=MRAID-2,
+      integer array
+    </td>
+  </tr>
+  <tr>
+    <td>feed</td>
+    <td>optional</td>
+    <td>
+      フィードの種類
+      1=音楽サービス,
+      2=FM/AM放送,
+      3=ポッドキャスト,
+      integer
+    </td>
+  </tr>
+  <tr>
+    <td>stitched</td>
+    <td>optional</td>
+    <td>
+      音声コンテンツに結合されるか
+      0=no,
+      1=yes,
+      integer
+    </td>
+  </tr>
+</table>
 
 #### pmp Object
 
@@ -663,8 +823,32 @@ assetsに設定されている項目でも、メディア側の設定によっ�
   <tr>
     <td>id</td>
     <td>required</td>
-    <td>SSP側で発行したdeal ID
-string</td>
+    <td>SSP側で発行したdeal ID, string</td>
+  </tr>
+  <tr>
+    <td>at</td>
+    <td>optional</td>
+    <td>1=ファーストプライスオークション, 2=セカンドプライスオークション, 3=固定価格, integer</td>
+  </tr>
+  <tr>
+    <td>bidfloor</td>
+    <td>optional</td>
+    <td>at が 1, 2 の場合はフロアプライス、 3 の場合はディールの固定価格, float</td>
+  </tr>
+  <tr>
+    <td>bidfloorcur</td>
+    <td>optional</td>
+    <td>bidfloor の通貨, string</td>
+  </tr>
+  <tr>
+    <td>wseat</td>
+    <td>optional</td>
+    <td>バイヤーシートのホワイトリスト, string array</td>
+  </tr>
+  <tr>
+    <td>wadomain</td>
+    <td>optional</td>
+    <td>広告主ドメインのホワイトリスト, string array</td>
   </tr>
 </table>
 
@@ -1552,12 +1736,57 @@ imgを保持するassetオブジェクトが複数あるケースもあります
         "mimes": [ "video/mp4" ],
         "minduration": 5,
         "maxduration": 60,
-        "protocols": [ 2, 3 ],
+        "protocols": [ 2, 3, 5, 6 ],
         "h": 640,
         "w": 480,
         "pos": 1,
         "linearity": 1,
         "placement": 2
+      }
+    }
+  ],
+  "site": {
+    "id": "1000012671",
+    "cat": [ "IAB19" ],
+    "domain": "magazine.fluct.jp",
+    "page": "https://magazine.fluct.jp/category/news",
+    "publisher": {
+      "id": "461"
+    }
+  },
+  "user": {
+    "id": "j98790jjh767yjnijhoou9707c321j313cdag234g",
+    "buyeruid": "AABBCCDD12345"
+  },
+  "bcat": [ "IAB25", "IAB26" ],
+  "badv": [ "blockdomain.com", "blockdomain2.jp" ],
+  "tmax": 120,
+  "device": {
+    "ua": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1",
+    "ip": "203.0.113.123"
+  },
+  "at": 2
+}
+```
+
+### Bid request audio
+
+```js
+{
+  "id": "a954e569-7d4b-4d8a-b39e-414c3ff8c5dc",
+  "imp": [
+    {
+      "id": "1",
+      "tagid": "14444:1000075047",
+      "secure": 1,
+      "audio": {
+        "mimes": [ "audio/mp4" ],
+        "minduration": 5,
+        "maxduration": 60,
+        "protocols": [ 2, 3, 5, 6 ],
+        "api": [],
+        "feed": 3,
+        "stitched": 1
       }
     }
   ],
@@ -1596,7 +1825,7 @@ imgを保持するassetオブジェクトが複数あるケースもあります
             "impid": "aud384920dieksjvpowlek231f9d8umxnd87ytgs",
             "price": 50,
             "crid": "12345",
-            "adm": "<iframe width=\"468\" height=\"60\" marginwidth=\"0\" marginheight=\"0\" hspace=\"0\" vspace=\"0\" frameborder=\"0\" scrolling=\"no\" allowTransparency=\"true\" src=\"http://xxx.net/imp/${AUCTION_PRICE}/${CLICK_URL_ENC}\"></iframe>",
+            "adm": "<iframe width=\"468\" height=\"60\" marginwidth=\"0\" marginheight=\"0\" hspace=\"0\" vspace=\"0\" frameborder=\"0\" scrolling=\"no\" allowTransparency=\"true\" src=\"http://example.net/imp/${AUCTION_PRICE}/${CLICK_URL_ENC}\"></iframe>",
             "adomain": ["adomain.com"]
         }]
     }]
@@ -1631,7 +1860,7 @@ imgを保持するassetオブジェクトが複数あるケースもあります
             "impid": "aud384920dieksjvpowlek231f9d8umxnd87ytgs",
             "price": 50,
             "crid": "12345",
-            "adm": "<iframe width=\"468\" height=\"60\" marginwidth=\"0\" marginheight=\"0\" hspace=\"0\" vspace=\"0\" frameborder=\"0\" scrolling=\"no\" allowTransparency=\"true\" src=\"http://xxx.net/imp/${AUCTION_PRICE}/${CLICK_URL_ENC}\"></iframe>",
+            "adm": "<iframe width=\"468\" height=\"60\" marginwidth=\"0\" marginheight=\"0\" hspace=\"0\" vspace=\"0\" frameborder=\"0\" scrolling=\"no\" allowTransparency=\"true\" src=\"http://example.net/imp/${AUCTION_PRICE}/${CLICK_URL_ENC}\"></iframe>",
             "dealid": "AAAA-jndf98d9-dalda"
         }]
     }]
@@ -1649,7 +1878,25 @@ imgを保持するassetオブジェクトが複数あるケースもあります
         "impid": "1",
         "price": 5000,
         "crid": "12345",
-        "adm": "http://xxx.net/vast/${AUCTION_PRICE}/${CLICK_URL_ENC}",
+        "adm": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><VAST version=\"3.0\"><Ad id=\"5d1bbb49009b\"><Wrapper><VASTAdTagURI><![CDATA[http://example.net/vast/${AUCTION_PRICE}/${CLICK_URL_ENC}]]></VASTAdTagURI><Impression><![CDATA[http://example.net/impression/${AUCTION_PRICE}/${CLICK_URL_ENC}]]></Impression><Creatives></Creatives></Wrapper></Ad></VAST>",
+        "adomain": ["adomain.com"]
+    }]
+  }]
+}
+```
+
+### Bid response audio
+
+```js
+{
+  "id": "a954e569-7d4b-4d8a-b39e-414c3ff8c5dc",
+  "cur": "JPY",
+  "seatbid": [{
+    "bid": [{
+        "impid": "1",
+        "price": 5000,
+        "crid": "12345",
+        "adm": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><VAST version=\"3.0\"><Ad id=\"5d1bbb49009b\"><Wrapper><VASTAdTagURI><![CDATA[http://example.net/vast/${AUCTION_PRICE}/${CLICK_URL_ENC}]]></VASTAdTagURI><Impression><![CDATA[http://example.net/impression/${AUCTION_PRICE}/${CLICK_URL_ENC}]]></Impression><Creatives></Creatives></Wrapper></Ad></VAST>",
         "adomain": ["adomain.com"]
     }]
   }]

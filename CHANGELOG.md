@@ -1,6 +1,11 @@
 # 変更履歴
 
 * 2.2
+    * 2019/03/28
+        * Bid Request に `cur`, `imp.video.battr`, `imp.bidfloor`, `imp.bidfloorcur` 追加
+        * Bid Request に試験的なオブジェクト `imp.audio` 追加
+        * `imp.pmp.deals` オブジェクト詳細を明記
+        * サンプルコードの調整
     * 2018/12/18
         * BidResponseについて、オブジェクト詳細の記述を明記
         * 置換マクロについて、クリエイティブ審査プロセス時の挙動を明記
