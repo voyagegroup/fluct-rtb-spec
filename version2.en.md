@@ -24,6 +24,7 @@ Moreover, this specification does not contain description of general RTB protoco
       * [device Object](#device-object)
       * [banner Object](#banner-object)
       * [video Object](#video-object)
+      * [audio Object](#audio-object) (Experimental)
       * [pmp Object](#pmp-object)
       * [Native Object (new)](#native-object-new)
       * [Native Markup Request Object](#native-markup-request-object)
@@ -58,10 +59,12 @@ Moreover, this specification does not contain description of general RTB protoco
    * [Bid request native(main)](#bid-request-native-main)
    * [Bid request pmp](#bid-request-pmp)
    * [Bid request video](#bid-request-video)
+   * [Bid request audio](#bid-request-audio)
    * [Bid response web,app](#bid-response-webapp)
    * [Bid response native(icon/main)](#bid-response-native-iconmain)
    * [Bid response pmp](#bid-response-pmp)
    * [Bid response video](#bid-response-video)
+   * [Bid response audio](#bid-response-audio)
    * [Native jstracker example](#native-jstracker-example)
 
 ## 1. cookie sync
@@ -130,7 +133,7 @@ The following is a JSON example:
   </tr>
   <tr>
     <td>site</td>
-    <td>optiona;</td>
+    <td>optional</td>
     <td></td>
   </tr>
   <tr>
@@ -166,7 +169,12 @@ The following is a JSON example:
   <tr>
     <td>at</td>
     <td>optional</td>
-    <td>default 2(2nd price auction)</td>
+    <td>1=first price auction, 2=second price auction, integer</td>
+  </tr>
+  <tr>
+    <td>cur</td>
+    <td>optional</td>
+    <td>string array</td>
   </tr>
 </table>
 
@@ -220,6 +228,16 @@ The following is a JSON example:
     <td>instl</td>
     <td>optional</td>
     <td>0=no, 1=yes, integer</td>
+  </tr>
+  <tr>
+    <td>bidfloor</td>
+    <td>optional</td>
+    <td>Floor price, float</td>
+  </tr>
+  <tr>
+    <td>bidfloorcur</td>
+    <td>optional</td>
+    <td>Floor price currency, string</td>
   </tr>
 </table>
 
@@ -419,6 +437,13 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
     <td>integer array</td>
   </tr>
   <tr>
+    <td>battr</td>
+    <td>optional</td>
+    <td>
+      integer array
+    </td>
+  </tr>
+  <tr>
     <td>h</td>
     <td>optional</td>
     <td>integer</td>
@@ -473,6 +498,118 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
     <td>placement</td>
     <td>optional</td>
     <td>integer</td>
+  </tr>
+</table>
+
+
+#### audio Object
+
+(Experimental)
+
+<table>
+  <tr>
+    <th>Field</th>
+    <th>scope</th>
+    <th>description</th>
+  </tr>
+  <tr>
+    <td>mimes</td>
+    <td>required</td>
+    <td>
+      "audio/mp4", string array
+    </td>
+  </tr>
+  <tr>
+    <td>minduration</td>
+    <td>optional</td>
+    <td>
+      integer
+    </td>
+  </tr>
+  <tr>
+    <td>maxduration</td>
+    <td>optional</td>
+    <td>
+      integer
+    </td>
+  </tr>
+  <tr>
+    <td>protocols</td>
+    <td>optional</td>
+    <td>
+        1=VAST 1.0,
+        2=VAST 2.0,
+        3=VAST 3.0,
+        4=VAST 1.0 Wrapper,
+        5=VAST 2.0 Wrapper,
+        6=VAST 3.0 Wrapper,
+        7=VAST 4.0,
+        8=VAST 4.0 Wrapper,
+        integer array
+    </td>
+  </tr>
+  <tr>
+    <td>startdelay</td>
+    <td>optional</td>
+    <td>
+      0=pre-roll,
+      &gt;0=mid-roll,
+      -1=mid-roll,
+      -2=post-roll,
+      integer
+    </td>
+  </tr>
+  <tr>
+    <td>battr</td>
+    <td>optional</td>
+    <td>
+      integer array
+    </td>
+  </tr>
+  <tr>
+    <td>minbitrate</td>
+    <td>optional</td>
+    <td>
+      integer
+    </td>
+  </tr>
+  <tr>
+    <td>maxbitrate</td>
+    <td>optional</td>
+    <td>
+      integer
+    </td>
+  </tr>
+  <tr>
+    <td>api</td>
+    <td>optional</td>
+    <td>
+      1=VPAID 1.0,
+      2=VPAID 2.0,
+      3=MRAID-1,
+      4=ORMMA,
+      5=MRAID-2,
+      integer array
+    </td>
+  </tr>
+  <tr>
+    <td>feed</td>
+    <td>optional</td>
+    <td>
+      1=Music Service,
+      2=FM/AM Broadcast,
+      3=Podcast,
+      integer
+    </td>
+  </tr>
+  <tr>
+    <td>stitched</td>
+    <td>optional</td>
+    <td>
+      0=no,
+      1=yes,
+      integer
+    </td>
   </tr>
 </table>
 
@@ -600,6 +737,31 @@ integer</td>
     <td>id</td>
     <td>required</td>
     <td></td>
+  </tr>
+  <tr>
+    <td>at</td>
+    <td>optional</td>
+    <td>1=first price auction, 2=second price auction, 3=fixed price, integer</td>
+  </tr>
+  <tr>
+    <td>bidfloor</td>
+    <td>optional</td>
+    <td>Floor price when "at" is 1 or 2, deal price when "at" is 3, float</td>
+  </tr>
+  <tr>
+    <td>bidfloorcur</td>
+    <td>optional</td>
+    <td>Floor price currency, string</td>
+  </tr>
+  <tr>
+    <td>wseat</td>
+    <td>optional</td>
+    <td>Whitelist of buyer seats, string array</td>
+  </tr>
+  <tr>
+    <td>wadomain</td>
+    <td>optional</td>
+    <td>Whitelist of advertiser domains, string array</td>
   </tr>
 </table>
 
@@ -1613,6 +1775,51 @@ Multiple asset objects containing img items may exist.
 }
 ```
 
+### Bid request audio
+
+```js
+{
+  "id": "a954e569-7d4b-4d8a-b39e-414c3ff8c5dc",
+  "imp": [
+    {
+      "id": "1",
+      "tagid": "14444:1000075047",
+      "secure": 1,
+      "audio": {
+        "mimes": [ "audio/mp4" ],
+        "minduration": 5,
+        "maxduration": 60,
+        "protocols": [ 2, 3, 5, 6 ],
+        "api": [],
+        "feed": 3,
+        "stitched": 1
+      }
+    }
+  ],
+  "site": {
+    "id": "1000012671",
+    "cat": [ "IAB19" ],
+    "domain": "magazine.fluct.jp",
+    "page": "https://magazine.fluct.jp/category/news",
+    "publisher": {
+      "id": "461"
+    }
+  },
+  "user": {
+    "id": "j98790jjh767yjnijhoou9707c321j313cdag234g",
+    "buyeruid": "AABBCCDD12345"
+  },
+  "bcat": [ "IAB25", "IAB26" ],
+  "badv": [ "blockdomain.com", "blockdomain2.jp" ],
+  "tmax": 120,
+  "device": {
+    "ua": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1",
+    "ip": "203.0.113.123"
+  },
+  "at": 2
+}
+```
+
 ### Bid response web/app
 
 ```js
@@ -1677,7 +1884,25 @@ Multiple asset objects containing img items may exist.
         "impid": "1",
         "price": 5000,
         "crid": "12345",
-        "adm": "http://xxx.net/vast/${AUCTION_PRICE}/${CLICK_URL_ENC}",
+        "adm": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><VAST version=\"3.0\"><Ad id=\"5d1bbb49009b\"><Wrapper><VASTAdTagURI><![CDATA[http://example.net/vast/${AUCTION_PRICE}/${CLICK_URL_ENC}]]></VASTAdTagURI><Impression><![CDATA[http://example.net/impression/${AUCTION_PRICE}/${CLICK_URL_ENC}]]></Impression><Creatives></Creatives></Wrapper></Ad></VAST>",
+        "adomain": ["adomain.com"]
+    }]
+  }]
+}
+```
+
+### Bid response audio
+
+```js
+{
+  "id": "a954e569-7d4b-4d8a-b39e-414c3ff8c5dc",
+  "cur": "JPY",
+  "seatbid": [{
+    "bid": [{
+        "impid": "1",
+        "price": 5000,
+        "crid": "12345",
+        "adm": "<?xml version=\"1.0\" encoding=\"UTF-8\"?><VAST version=\"3.0\"><Ad id=\"5d1bbb49009b\"><Wrapper><VASTAdTagURI><![CDATA[http://example.net/vast/${AUCTION_PRICE}/${CLICK_URL_ENC}]]></VASTAdTagURI><Impression><![CDATA[http://example.net/impression/${AUCTION_PRICE}/${CLICK_URL_ENC}]]></Impression><Creatives></Creatives></Wrapper></Ad></VAST>",
         "adomain": ["adomain.com"]
     }]
   }]
