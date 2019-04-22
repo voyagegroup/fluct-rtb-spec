@@ -23,6 +23,7 @@ Moreover, this specification does not contain description of general RTB protoco
       * [user Object](#user-object)
       * [device Object](#device-object)
       * [banner Object](#banner-object)
+      * [format Object](#format-object)
       * [video Object](#video-object)
       * [audio Object](#audio-object) (Experimental)
       * [pmp Object](#pmp-object)
@@ -397,6 +398,37 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
     <td>required</td>
     <td>overlay ad = 9</td>
   </tr>
+  <tr>
+    <td>vcm</td>
+    <td>optional</td>
+    <td>
+      Relavant only for banner objects in imp.video.companionad.
+      0=concurrent,
+      1=end-card,
+      integer
+    </td>
+  </tr>
+</table>
+
+
+#### format Object
+
+<table>
+  <tr>
+    <th>Field</th>
+    <th>scope</th>
+    <th>description</th>
+  </tr>
+  <tr>
+    <td>h</td>
+    <td>required</td>
+    <td>height integer</td>
+  </tr>
+  <tr>
+    <td>w</td>
+    <td>required</td>
+    <td>width integer</td>
+  </tr>
 </table>
 
 
@@ -498,6 +530,13 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
     <td>placement</td>
     <td>optional</td>
     <td>integer</td>
+  </tr>
+  <tr>
+    <td>companionad</td>
+    <td>optional</td>
+    <td>
+      Array of <a href="#banner-object">banner objects</a> when supported.
+    </td>
   </tr>
 </table>
 
@@ -1516,7 +1555,7 @@ Multiple asset objects containing img items may exist.
 
 ## 5. Bid Request/Response Samples
 
-### Bid request web
+### Bid request: web
 
 ```js
 {
@@ -1557,7 +1596,7 @@ Multiple asset objects containing img items may exist.
 }
 ```
 
-### Bid request app
+### Bid request: app
 
 ```js
 {
@@ -1599,7 +1638,7 @@ Multiple asset objects containing img items may exist.
 }
 ```
 
-### Bid request native (icon)
+### Bid request: native (icon)
 
 ```js
 {
@@ -1639,7 +1678,7 @@ Multiple asset objects containing img items may exist.
 }
 ```
 
-### Bid request native (main)
+### Bid request: native (main)
 
 ```js
 {
@@ -1679,7 +1718,7 @@ Multiple asset objects containing img items may exist.
 }
 ```
 
-### Bid request pmp
+### Bid request: pmp
 
 ```js
 {
@@ -1728,7 +1767,7 @@ Multiple asset objects containing img items may exist.
 }
 ```
 
-### Bid request video
+### Bid request: video
 
 ```js
 {
@@ -1775,7 +1814,62 @@ Multiple asset objects containing img items may exist.
 }
 ```
 
-### Bid request audio
+### Bid request: video with end-card
+
+Typically for rewarded video, where it can also be explicitly specified as `imp.video.ext.videotype = "rewarded"` or similar.
+
+```js
+{
+  "id": "a954e569-7d4b-4d8a-b39e-414c3ff8c5dc",
+  "imp": [
+    {
+      "id": "1",
+      "tagid": "14444:1000075047",
+      "secure": 1,
+      "istl": 1,
+      "video": {
+        "api": [ 3, 5 ],
+        "mimes": [ "video/mp4" ],
+        "minduration": 5,
+        "maxduration": 60,
+        "protocols": [ 2, 3, 5, 6 ],
+        "pos": 1,
+        "linearity": 1,
+        "placement": 5,
+        "companionad": [
+          {
+            "api": [ 3, 5 ],
+            "vcm": 1
+          }
+        ]
+      }
+    }
+  ],
+  "site": {
+    "id": "1000012671",
+    "cat": [ "IAB19" ],
+    "domain": "magazine.fluct.jp",
+    "page": "https://magazine.fluct.jp/category/news",
+    "publisher": {
+      "id": "461"
+    }
+  },
+  "user": {
+    "id": "j98790jjh767yjnijhoou9707c321j313cdag234g",
+    "buyeruid": "AABBCCDD12345"
+  },
+  "bcat": [ "IAB25", "IAB26" ],
+  "badv": [ "blockdomain.com", "blockdomain2.jp" ],
+  "tmax": 120,
+  "device": {
+    "ua": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1",
+    "ip": "203.0.113.123"
+  },
+  "at": 2
+}
+```
+
+### Bid request: audio
 
 ```js
 {
@@ -1820,7 +1914,7 @@ Multiple asset objects containing img items may exist.
 }
 ```
 
-### Bid response web/app
+### Bid response: web/app
 
 ```js
 {
@@ -1838,7 +1932,7 @@ Multiple asset objects containing img items may exist.
 }
 ```
 
-### Bid response native (icon/main)
+### Bid response: native (icon/main)
 
 ```js
 {
@@ -1855,7 +1949,7 @@ Multiple asset objects containing img items may exist.
 }
 ```
 
-### Bid response pmp
+### Bid response: pmp
 
 ```js
 {
@@ -1873,7 +1967,7 @@ Multiple asset objects containing img items may exist.
 }
 ```
 
-### Bid response video
+### Bid response: video
 
 ```js
 {
@@ -1891,7 +1985,7 @@ Multiple asset objects containing img items may exist.
 }
 ```
 
-### Bid response audio
+### Bid response: audio
 
 ```js
 {

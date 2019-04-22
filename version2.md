@@ -21,6 +21,7 @@ OpenRTB 2.5 に準拠しています。詳細は[IABのOpenRTB API Specification
       * [user Object](#user-object)
       * [device Object](#device-object)
       * [banner Object](#banner-object)
+      * [format Object](#format-object)
       * [video Object](#video-object)
       * [audio Object](#audio-object) (Experimental)
       * [pmp Object](#pmp-object)
@@ -410,24 +411,62 @@ integer</td>
     <th>description</th>
   </tr>
   <tr>
+  </tr>
+    <td>format</td>
+    <td>optional</td>
+    <td>
+      <a href="#format-object">フォーマットオブジェクト</a>の配列
+    </td>
+  <tr>
+  </tr>
+  <tr>
     <td>h</td>
-    <td>required</td>
-    <td>バナーの高さ
-integer</td>
+    <td>optional</td>
+    <td>バナーの高さ integer</td>
   </tr>
   <tr>
     <td>w</td>
-    <td>required</td>
-    <td>バナーの横幅
-integer</td>
+    <td>optional</td>
+    <td>バナーの横幅 integer</td>
   </tr>
   <tr>
     <td>pos</td>
     <td>required</td>
     <td>バナーの掲載位置
 IABに準拠
-但し、スマートフォンのオーバーレイ広告は、 9 で送ります。
+但し、スマートフォンのオーバーレイ広告は 9 で送ります。
 integer</td>
+  </tr>
+  <tr>
+    <td>vcm</td>
+    <td>optional</td>
+    <td>
+      imp.video.companionad の場合でのみ有効。
+      0=concurrent,
+      1=end-card,
+      integer
+    </td>
+  </tr>
+</table>
+
+
+#### format Object
+
+<table>
+  <tr>
+    <th>Field</th>
+    <th>scope</th>
+    <th>description</th>
+  </tr>
+  <tr>
+    <td>h</td>
+    <td>required</td>
+    <td>高さ integer</td>
+  </tr>
+  <tr>
+    <td>w</td>
+    <td>required</td>
+    <td>幅 integer</td>
   </tr>
 </table>
 
@@ -578,6 +617,13 @@ integer</td>
       5=インタースティシャル、フローティング (画面の一部もしくはすべてを覆い、再生中は継続して画面に表示される),
       imp.instl との組み合わせで全画面インタースティシャルと区別する,
       integer
+    </td>
+  </tr>
+  <tr>
+    <td>companionad</td>
+    <td>optional</td>
+    <td>
+      コンパニオンアドがサポートされている場合、<a href="#banner-object">バナーオブジェクト</a>が入れられる
     </td>
   </tr>
 </table>
@@ -1032,7 +1078,7 @@ DSPはリクエストに採用したのと同じシリアライズフォーマ�
 
 入札しない場合はHTTP 204 No Contentとしてください。
 
-#### BidResponse Object (TopLevel) 
+#### BidResponse Object (TopLevel)
 
 <table>
   <tr>
@@ -1510,7 +1556,7 @@ imgを保持するassetオブジェクトが複数あるケースもあります
 
 ## 5. リクエスト／レスポンスサンプル
 
-### Bid request web
+### Bid request: web
 
 ```js
 {
@@ -1551,7 +1597,7 @@ imgを保持するassetオブジェクトが複数あるケースもあります
 }
 ```
 
-### Bid request app
+### Bid request: app
 
 ```js
 {
@@ -1593,7 +1639,7 @@ imgを保持するassetオブジェクトが複数あるケースもあります
 }
 ```
 
-### Bid request native (icon)
+### Bid request: native (icon)
 
 ```js
 {
@@ -1633,7 +1679,7 @@ imgを保持するassetオブジェクトが複数あるケースもあります
 }
 ```
 
-### Bid request native (main)
+### Bid request: native (main)
 
 ```js
 {
@@ -1673,7 +1719,7 @@ imgを保持するassetオブジェクトが複数あるケースもあります
 }
 ```
 
-### Bid request pmp
+### Bid request: pmp
 
 ```js
 {
@@ -1722,7 +1768,7 @@ imgを保持するassetオブジェクトが複数あるケースもあります
 }
 ```
 
-### Bid request video
+### Bid request: video
 
 ```js
 {
@@ -1737,8 +1783,6 @@ imgを保持するassetオブジェクトが複数あるケースもあります
         "minduration": 5,
         "maxduration": 60,
         "protocols": [ 2, 3, 5, 6 ],
-        "h": 640,
-        "w": 480,
         "pos": 1,
         "linearity": 1,
         "placement": 2
@@ -1769,7 +1813,62 @@ imgを保持するassetオブジェクトが複数あるケースもあります
 }
 ```
 
-### Bid request audio
+### Bid request: video with end-card
+
+リワード付き動画広告はこの形式で、さらに `imp.video.ext.videotype = "rewarded"` 等で明示することも可能です。
+
+```js
+{
+  "id": "a954e569-7d4b-4d8a-b39e-414c3ff8c5dc",
+  "imp": [
+    {
+      "id": "1",
+      "tagid": "14444:1000075047",
+      "secure": 1,
+      "istl": 1,
+      "video": {
+        "api": [ 3, 5 ],
+        "mimes": [ "video/mp4" ],
+        "minduration": 5,
+        "maxduration": 60,
+        "protocols": [ 2, 3, 5, 6 ],
+        "pos": 1,
+        "linearity": 1,
+        "placement": 5,
+        "companionad": [
+          {
+            "api": [ 3, 5 ],
+            "vcm": 1
+          }
+        ]
+      }
+    }
+  ],
+  "site": {
+    "id": "1000012671",
+    "cat": [ "IAB19" ],
+    "domain": "magazine.fluct.jp",
+    "page": "https://magazine.fluct.jp/category/news",
+    "publisher": {
+      "id": "461"
+    }
+  },
+  "user": {
+    "id": "j98790jjh767yjnijhoou9707c321j313cdag234g",
+    "buyeruid": "AABBCCDD12345"
+  },
+  "bcat": [ "IAB25", "IAB26" ],
+  "badv": [ "blockdomain.com", "blockdomain2.jp" ],
+  "tmax": 120,
+  "device": {
+    "ua": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1",
+    "ip": "203.0.113.123"
+  },
+  "at": 2
+}
+```
+
+### Bid request: audio
 
 ```js
 {
@@ -1814,7 +1913,7 @@ imgを保持するassetオブジェクトが複数あるケースもあります
 }
 ```
 
-### Bid response web/app
+### Bid response: web/app
 
 ```js
 {
@@ -1832,7 +1931,7 @@ imgを保持するassetオブジェクトが複数あるケースもあります
 }
 ```
 
-### Bid response native (icon/main)
+### Bid response: native (icon/main)
 
 ```js
 {
@@ -1849,7 +1948,7 @@ imgを保持するassetオブジェクトが複数あるケースもあります
 }
 ```
 
-### Bid response pmp
+### Bid response: pmp
 
 ```js
 {
@@ -1867,7 +1966,7 @@ imgを保持するassetオブジェクトが複数あるケースもあります
 }
 ```
 
-### Bid response video
+### Bid response: video
 
 ```js
 {
@@ -1885,7 +1984,7 @@ imgを保持するassetオブジェクトが複数あるケースもあります
 }
 ```
 
-### Bid response audio
+### Bid response: audio
 
 ```js
 {
