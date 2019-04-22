@@ -1,6 +1,9 @@
 # 変更履歴
 
 * 2.2
+    * 2019/04/22
+        * Bid Request に `imp.banner.format`, `imp.banner.vcm`, `imp.video.companionad` 追加
+        * Bid Request サンプルコードにエンドカード付き動画広告の例を追加
     * 2019/03/28
         * Bid Request に `cur`, `imp.video.battr`, `imp.bidfloor`, `imp.bidfloorcur` 追加
         * Bid Request に試験的なオブジェクト `imp.audio` 追加
