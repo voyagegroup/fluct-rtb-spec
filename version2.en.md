@@ -54,18 +54,19 @@ Moreover, this specification does not contain description of general RTB protoco
    * [d. Click Measuring](#d-click-measuring)
 * [4. Code table](#4-code-table)
 * [5. Bid Request/Response Samples](#5-bid-requestresponse-samples)
-   * [Bid Request web](#bid-request-web)
-   * [Bid request app](#bid-request-app)
-   * [Bid request native(icon)](#bid-request-native-icon)
-   * [Bid request native(main)](#bid-request-native-main)
-   * [Bid request pmp](#bid-request-pmp)
-   * [Bid request video](#bid-request-video)
-   * [Bid request audio](#bid-request-audio)
-   * [Bid response web,app](#bid-response-webapp)
-   * [Bid response native(icon/main)](#bid-response-native-iconmain)
-   * [Bid response pmp](#bid-response-pmp)
-   * [Bid response video](#bid-response-video)
-   * [Bid response audio](#bid-response-audio)
+   * [Bid Request: web](#bid-request-web)
+   * [Bid request: app](#bid-request-app)
+   * [Bid request: native(icon)](#bid-request-native-icon)
+   * [Bid request: native(main)](#bid-request-native-main)
+   * [Bid request: pmp](#bid-request-pmp)
+   * [Bid request: video](#bid-request-video)
+   * [Bid request: video with end-card](#bid-request-video-with-end-card)
+   * [Bid request: audio](#bid-request-audio)
+   * [Bid response: web,app](#bid-response-webapp)
+   * [Bid response: native(icon/main)](#bid-response-native-iconmain)
+   * [Bid response: pmp](#bid-response-pmp)
+   * [Bid response: video](#bid-response-video)
+   * [Bid response: audio](#bid-response-audio)
    * [Native jstracker example](#native-jstracker-example)
 
 ## 1. cookie sync
@@ -270,6 +271,11 @@ The following is a JSON example:
     <td>page</td>
     <td>required</td>
     <td></td>
+  </tr>
+  <tr>
+    <td>mobile</td>
+    <td>optional</td>
+    <td>Indicates if the layout is optimized for mobile devices. 0=No, 1=Yes, integer</td>
   </tr>
   <tr>
     <td>publisher</td>

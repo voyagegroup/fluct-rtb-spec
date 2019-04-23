@@ -53,18 +53,19 @@ OpenRTB 2.5 に準拠しています。詳細は[IABのOpenRTB API Specification
    * [d. リダイレクタ仕様](#d-リダイレクタ仕様)
 * [4. コード表](#4-コード表)
 * [5. リクエスト／レスポンスサンプル](#5-リクエストレスポンスサンプル)
-   * [Bid Request web](#bid-request-web)
-   * [Bid request app](#bid-request-app)
-   * [Bid request native(icon)](#bid-request-native-icon)
-   * [Bid request native(main)](#bid-request-native-main)
-   * [Bid request pmp](#bid-request-pmp)
-   * [Bid request video](#bid-request-video)
-   * [Bid request audio](#bid-request-audio)
-   * [Bid response web,app](#bid-response-webapp)
-   * [Bid response native(icon/main)](#bid-response-native-iconmain)
-   * [Bid response pmp](#bid-response-pmp)
-   * [Bid response video](#bid-response-video)
-   * [Bid response audio](#bid-response-audio)
+   * [Bid Request: web](#bid-request-web)
+   * [Bid request: app](#bid-request-app)
+   * [Bid request: native(icon)](#bid-request-native-icon)
+   * [Bid request: native(main)](#bid-request-native-main)
+   * [Bid request: pmp](#bid-request-pmp)
+   * [Bid request: video](#bid-request-video)
+   * [Bid request: video with end-card](#bid-request-video-with-end-card)
+   * [Bid request: audio](#bid-request-audio)
+   * [Bid response: web,app](#bid-response-webapp)
+   * [Bid response: native(icon/main)](#bid-response-native-iconmain)
+   * [Bid response: pmp](#bid-response-pmp)
+   * [Bid response: video](#bid-response-video)
+   * [Bid response: audio](#bid-response-audio)
    * [Native jstracker example](#native-jstracker-example)
 
 
@@ -281,6 +282,11 @@ string</td>
     <td>required</td>
     <td>広告が掲載されたページのURL
 string</td>
+  </tr>
+  <tr>
+    <td>mobile</td>
+    <td>optional</td>
+    <td>レイアウトがモバイルデバイスに最適化されているか。 0=No, 1=Yes, integer</td>
   </tr>
   </tr>
   <tr>
