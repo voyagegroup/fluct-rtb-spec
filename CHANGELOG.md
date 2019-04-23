@@ -1,6 +1,8 @@
 # 変更履歴
 
 * 2.2
+    * 2019/04/23
+        * Bid Request に `site.mobile` 追加
     * 2019/04/22
         * Bid Request に `imp.banner.format`, `imp.banner.vcm`, `imp.video.companionad` 追加
         * Bid Request サンプルコードにエンドカード付き動画広告の例を追加
