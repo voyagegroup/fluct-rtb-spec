@@ -16,6 +16,7 @@ OpenRTB 2.5 に準拠しています。詳細は[IABのOpenRTB API Specification
    * [b. bidリクエストパラメタ](#b-bidリクエストパラメタ)
       * [BidRequest Object (TopLevel)](#bidrequest-object-toplevel)
       * [imp Object](#imp-object)
+      * [source Object](#source-object)
       * [site Object](#site-object)
       * [app Object](#app-object)
       * [user Object](#user-object)
@@ -123,6 +124,11 @@ string</td>
     <td>imp</td>
     <td>required</td>
     <td>広告枠に関する情報</td>
+  </tr>
+  <tr>
+    <td>source</td>
+    <td>optional</td>
+    <td>ヘッダー入札のような、広告エクスチェンジによる上流情報</td>
   </tr>
   <tr>
     <td>site</td>
@@ -245,6 +251,39 @@ integer</td>
     <td>bidfloorcur</td>
     <td>optional</td>
     <td>フロアプライスの通貨, string</td>
+  </tr>
+  <tr>
+    <td>ext.dfp_ad_unit_code</td>
+    <td>optional, experimental</td>
+    <td>Google AdManager経由の場合の、広告ユニットフルパス</td>
+  </tr>
+</table>
+
+
+#### source Object
+
+ヘッダー入札のような広告エクスチェンジによる上流情報がある場合に設定されます。情報がない場合にはsourceオブジェクトは空 <code>{}</code> となります。
+
+<table>
+  <tr>
+    <th>Field</th>
+    <th>scope</th>
+    <th>description</th>
+  </tr>
+  <tr>
+    <td>fd</td>
+    <td>required</td>
+    <td>integer. sourceオブジェクトがセットされる場合に常に <code>1</code> となります。</td>
+  </tr>
+  <tr>
+    <td>tid</td>
+    <td>optional, experimental</td>
+    <td>string. 上流でトランザクションIDが発番された場合そのIDを送信いたします。取得できない場合はBidRequest.idと同じものを設定します。</td>
+  </tr>
+  <tr>
+    <td>ext.stype</td>
+    <td>optional, experimental</td>
+    <td>string. ヘッダ入札タイプ。内容はお問い合わせください。</td>
   </tr>
 </table>
 

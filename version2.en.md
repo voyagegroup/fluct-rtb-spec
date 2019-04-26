@@ -18,6 +18,7 @@ Moreover, this specification does not contain description of general RTB protoco
    * [b. Bid request parameters](#b-bid-request-parameters)
       * [BidRequest Object (TopLevel)](#bidrequest-object-toplevel)
       * [imp Object](#imp-object)
+      * [source Object](#source-object)
       * [site Object](#site-object)
       * [app Object](#app-object)
       * [user Object](#user-object)
@@ -240,6 +241,39 @@ The following is a JSON example:
     <td>bidfloorcur</td>
     <td>optional</td>
     <td>Floor price currency, string</td>
+  </tr>
+  <tr>
+    <td>ext.dfp_ad_unit_code</td>
+    <td>optional, experimental</td>
+    <td>Google AdManager Ad unit full path</td>
+  </tr>
+</table>
+
+
+#### source Object
+
+It is set if the transaction in the ad exchange such as Header Bidding. Otherwise, empty (`{}`).
+
+<table>
+  <tr>
+    <th>Field</th>
+    <th>scope</th>
+    <th>description</th>
+  </tr>
+  <tr>
+    <td>fd</td>
+    <td>required</td>
+    <td>integer. Always <code>1</code> if source object is set.</td>
+  </tr>
+  <tr>
+    <td>tid</td>
+    <td>optional, experimental</td>
+    <td>string. Transaction ID that issued by upstream. Otherwise, same as BidRequest.id.</td>
+  </tr>
+  <tr>
+    <td>ext.stype</td>
+    <td>optional, experimental</td>
+    <td>string. Header Bidding type. Please contact us for details.</td>
   </tr>
 </table>
 
