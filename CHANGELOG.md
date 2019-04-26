@@ -1,6 +1,8 @@
 # 変更履歴
 
 * 2.2
+    * 2019/04/26
+        * Bid Request に `source` 追加
     * 2019/04/23
         * Bid Request に `site.mobile` 追加
     * 2019/04/22

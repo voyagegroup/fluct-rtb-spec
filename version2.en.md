@@ -18,6 +18,7 @@ Moreover, this specification does not contain description of general RTB protoco
    * [b. Bid request parameters](#b-bid-request-parameters)
       * [BidRequest Object (TopLevel)](#bidrequest-object-toplevel)
       * [imp Object](#imp-object)
+      * [source Object](#source-object)
       * [site Object](#site-object)
       * [app Object](#app-object)
       * [user Object](#user-object)
@@ -62,6 +63,7 @@ Moreover, this specification does not contain description of general RTB protoco
    * [Bid request: video](#bid-request-video)
    * [Bid request: video with end-card](#bid-request-video-with-end-card)
    * [Bid request: audio](#bid-request-audio)
+   * [Bid request: with source](#bid-request-with-source)
    * [Bid response: web,app](#bid-response-webapp)
    * [Bid response: native(icon/main)](#bid-response-native-iconmain)
    * [Bid response: pmp](#bid-response-pmp)
@@ -240,6 +242,39 @@ The following is a JSON example:
     <td>bidfloorcur</td>
     <td>optional</td>
     <td>Floor price currency, string</td>
+  </tr>
+  <tr>
+    <td>ext.dfp_ad_unit_code</td>
+    <td>optional, experimental</td>
+    <td>Google AdManager Ad unit full path</td>
+  </tr>
+</table>
+
+
+#### source Object
+
+A source object is set when the transaction has upstream information such as Header Bidding. Otherwise, empty (`{}`).
+
+<table>
+  <tr>
+    <th>Field</th>
+    <th>scope</th>
+    <th>description</th>
+  </tr>
+  <tr>
+    <td>fd</td>
+    <td>required</td>
+    <td>integer. Always <code>1</code> if source object is set.</td>
+  </tr>
+  <tr>
+    <td>tid</td>
+    <td>optional, experimental</td>
+    <td>string. Transaction ID that issued by upstream. Otherwise, same as BidRequest.id.</td>
+  </tr>
+  <tr>
+    <td>ext.stype</td>
+    <td>optional, experimental</td>
+    <td>string. Header Bidding type. Please contact us for details.</td>
   </tr>
 </table>
 
@@ -1919,6 +1954,62 @@ Typically for rewarded video, where it can also be explicitly specified as `imp.
   "at": 2
 }
 ```
+
+### Bid request: with source
+
+Google EBDA transaction example
+
+```json
+{
+  "id": "a954e569-7d4b-4d8a-b39e-414c3ff8c5dc",
+  "source": {
+    "fd": 1,
+    "tid": "a954e569-7d4b-4d8a-b39e-414c3ff8c5dc",
+    "ext": {
+        "stype": "EB",
+    }
+  },
+  "imp": [
+    {
+      "id": "1",
+      "tagid": "14444:1000075047",
+      "secure": 1,
+      "banner": {
+        "h": 250,
+        "w": 300,
+        "pos": 9
+      },
+      "bidfloor": 10.0,
+      "bidfloorcur": "JPY",
+      "ext": {
+        "dfp_ad_unit_code": "/62532913/s_fluct.test_336x280"
+      }
+    }
+  ],
+  "site": {
+    "id": "1000012671",
+    "cat": [ "IAB19" ],
+    "domain": "magazine.fluct.jp",
+    "page": "https://magazine.fluct.jp/category/news",
+    "publisher": {
+      "id": "461"
+    }
+  },
+  "user": {
+    "id": "j98790jjh767yjnijhoou9707c321j313cdag234g",
+    "buyeruid": "AABBCCDD12345"
+  },
+  "bcat": [ "IAB25", "IAB26" ],
+  "badv": [ "blockdomain.com", "blockdomain2.jp" ],
+  "tmax": 120,
+  "device": {
+    "ua": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1",
+    "ip": "203.0.113.123"
+  },
+  "at": 1
+}
+```
+
 
 ### Bid response: web/app
 

@@ -16,6 +16,7 @@ OpenRTB 2.5 に準拠しています。詳細は[IABのOpenRTB API Specification
    * [b. bidリクエストパラメタ](#b-bidリクエストパラメタ)
       * [BidRequest Object (TopLevel)](#bidrequest-object-toplevel)
       * [imp Object](#imp-object)
+      * [source Object](#source-object)
       * [site Object](#site-object)
       * [app Object](#app-object)
       * [user Object](#user-object)
@@ -61,6 +62,7 @@ OpenRTB 2.5 に準拠しています。詳細は[IABのOpenRTB API Specification
    * [Bid request: video](#bid-request-video)
    * [Bid request: video with end-card](#bid-request-video-with-end-card)
    * [Bid request: audio](#bid-request-audio)
+   * [Bid request: with source](#bid-request-with-source)
    * [Bid response: web,app](#bid-response-webapp)
    * [Bid response: native(icon/main)](#bid-response-native-iconmain)
    * [Bid response: pmp](#bid-response-pmp)
@@ -123,6 +125,11 @@ string</td>
     <td>imp</td>
     <td>required</td>
     <td>広告枠に関する情報</td>
+  </tr>
+  <tr>
+    <td>source</td>
+    <td>optional</td>
+    <td>ヘッダー入札のような、広告エクスチェンジによる上流情報</td>
   </tr>
   <tr>
     <td>site</td>
@@ -245,6 +252,39 @@ integer</td>
     <td>bidfloorcur</td>
     <td>optional</td>
     <td>フロアプライスの通貨, string</td>
+  </tr>
+  <tr>
+    <td>ext.dfp_ad_unit_code</td>
+    <td>optional, experimental</td>
+    <td>Google AdManager経由の場合の、広告ユニットフルパス</td>
+  </tr>
+</table>
+
+
+#### source Object
+
+ヘッダー入札のような広告エクスチェンジによる上流情報がある場合に設定されます。情報がない場合にはsourceオブジェクトは空 <code>{}</code> となります。
+
+<table>
+  <tr>
+    <th>Field</th>
+    <th>scope</th>
+    <th>description</th>
+  </tr>
+  <tr>
+    <td>fd</td>
+    <td>required</td>
+    <td>integer. sourceオブジェクトがセットされる場合に常に <code>1</code> となります。</td>
+  </tr>
+  <tr>
+    <td>tid</td>
+    <td>optional, experimental</td>
+    <td>string. 上流でトランザクションIDが発番された場合そのIDを送信いたします。取得できない場合はBidRequest.idと同じものを設定します。</td>
+  </tr>
+  <tr>
+    <td>ext.stype</td>
+    <td>optional, experimental</td>
+    <td>string. ヘッダ入札タイプ。内容はお問い合わせください。</td>
   </tr>
 </table>
 
@@ -1918,6 +1958,62 @@ imgを保持するassetオブジェクトが複数あるケースもあります
   "at": 2
 }
 ```
+
+### Bid request: with source
+
+Google EBDA transaction example
+
+```json
+{
+  "id": "a954e569-7d4b-4d8a-b39e-414c3ff8c5dc",
+  "source": {
+    "fd": 1,
+    "tid": "a954e569-7d4b-4d8a-b39e-414c3ff8c5dc",
+    "ext": {
+        "stype": "EB",
+    }
+  },
+  "imp": [
+    {
+      "id": "1",
+      "tagid": "14444:1000075047",
+      "secure": 1,
+      "banner": {
+        "h": 250,
+        "w": 300,
+        "pos": 9
+      },
+      "bidfloor": 10.0,
+      "bidfloorcur": "JPY",
+      "ext": {
+        "dfp_ad_unit_code": "/62532913/s_fluct.test_336x280"
+      }
+    }
+  ],
+  "site": {
+    "id": "1000012671",
+    "cat": [ "IAB19" ],
+    "domain": "magazine.fluct.jp",
+    "page": "https://magazine.fluct.jp/category/news",
+    "publisher": {
+      "id": "461"
+    }
+  },
+  "user": {
+    "id": "j98790jjh767yjnijhoou9707c321j313cdag234g",
+    "buyeruid": "AABBCCDD12345"
+  },
+  "bcat": [ "IAB25", "IAB26" ],
+  "badv": [ "blockdomain.com", "blockdomain2.jp" ],
+  "tmax": 120,
+  "device": {
+    "ua": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.89 Safari/537.1",
+    "ip": "203.0.113.123"
+  },
+  "at": 1
+}
+```
+
 
 ### Bid response: web/app
 
