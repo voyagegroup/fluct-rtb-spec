@@ -253,7 +253,7 @@ The following is a JSON example:
 
 #### source Object
 
-It is set if the transaction in the ad exchange such as Header Bidding. Otherwise, empty (`{}`).
+A source object is set when the transaction has upstream information such as Header Bidding. Otherwise, empty (`{}`).
 
 <table>
   <tr>
