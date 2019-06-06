@@ -378,7 +378,7 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
 </table>
 
 
-* When "ifa" is sent, “user.buyeruid” is not sent and “user.id” is set to be the value of “device.ifa”. 
+* When "ifa" is sent, “user.buyeruid” is not sent and “user.id” is set to be the value of “device.ifa”.
 
 #### device Object
 
@@ -410,6 +410,11 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
   </tr>
   <tr>
     <td>dnt</td>
+    <td>optional</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>osv</td>
     <td>optional</td>
     <td></td>
   </tr>
@@ -736,7 +741,7 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
   <tr>
     <td>api</td>
     <td>optional</td>
-    <td>List of supported API frameworks for this impression. 
+    <td>List of supported API frameworks for this impression.
 integer array</td>
   </tr>
   <tr>
@@ -747,13 +752,13 @@ integer array</td>
   </tr>
 </table>
 
-In the specification of openRTB, request is correctly included in NativeObject. 
+In the specification of openRTB, request is correctly included in NativeObject.
 In a connected DSP, there are cases where assets is included in nativeObject.  
-Connected DSPs can be connected without any change. 
-Express the specification of the previous NativeObject as `b-17. Native Object (old)`. 
+Connected DSPs can be connected without any change.
+Express the specification of the previous NativeObject as `b-17. Native Object (old)`.
 
-There is no need to change from old to new, but please request case to change. 
-There is also the possibility of requesting that we change to the newer one at a certain timing from our company. 
+There is no need to change from old to new, but please request case to change.
+There is also the possibility of requesting that we change to the newer one at a certain timing from our company.
 
 #### Native Markup Request Object
 
@@ -921,7 +926,7 @@ integer</td>
 </table>
 
 
-※"wmin” and "hmin” are set as predetermined by DSP 
+※"wmin” and "hmin” are set as predetermined by DSP
 (NewsFeed type:1 as 160x160 , type:3 as depending on design)
 
 #### data Object
@@ -1017,11 +1022,11 @@ Multiple asset objects containing img items may exist.
 
 ### a. Bid response parameters
 
-DSP should serialize bid information with the same format used in request serialization. 
+DSP should serialize bid information with the same format used in request serialization.
 
 HTTP 204 No Content is expected for no bid
 
-#### BidResponse Object (TopLevel) 
+#### BidResponse Object (TopLevel)
 
 <table>
   <tr>
@@ -1222,7 +1227,7 @@ example: var element = document.getElementById('fluct-native-rtb-container-12345
 
 Restrictions
 
-Script must be wrapped with `(function(){...})();` 
+Script must be wrapped with `(function(){...})();`
 Script must be executable in strict mode.
 Content Security Policy(*2) may prevent certain media from being displayed.
 This document does not specify web browsers or JavaScript engines needed to execute the script.
@@ -1673,7 +1678,8 @@ Multiple asset objects containing img items may exist.
     "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 9_3_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile/13E238",
     "ip": "203.0.113.123",
     "ifa": "2fac1234-31f8-11b4-a222-08002b34c003",
-    "lmt": 0
+    "lmt": 0,
+    "osv":"9.3.1"
   },
   "at": 2
 }

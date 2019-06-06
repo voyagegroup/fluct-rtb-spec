@@ -445,6 +445,11 @@ integer</td>
     <td>Do Not Track ヘッダのステータス
 integer</td>
   </tr>
+  <tr>
+    <td>osv</td>
+    <td>optional</td>
+    <td>OSのバージョン string</td>
+  </tr>
 </table>
 
 
@@ -844,9 +849,9 @@ integer array</td>
 </table>
 
 openRTBの仕様上、NativeObjectにrequestが含まれるのが正しいです。
-接続済みのDSPにおいてはnativeObjectにassetsを設定して接続したケースがございます。 
-その仕様で接続済みの事業者に関しては変更無しで接続可能です。 
-以前のNativeObjectの仕様を `b-17. Native Object (旧)` として表現します。 
+接続済みのDSPにおいてはnativeObjectにassetsを設定して接続したケースがございます。
+その仕様で接続済みの事業者に関しては変更無しで接続可能です。
+以前のNativeObjectの仕様を `b-17. Native Object (旧)` として表現します。
 <br/>
 旧から新への変更の必要はありませんが、変更したいケースはお申し出ください
 弊社から、とあるタイミングで新仕様の方に変更する旨の依頼を行う可能性もございます。
@@ -1303,7 +1308,7 @@ viewport(*1)中に表示されたか否かではなく,
 ページ中すなわちcanvas(*2)において表示されているか否かのタイミングでのリクエストの発行となります.
 
 * *1: http://www.w3.org/TR/CSS21/visuren.html#viewport
-* *2: http://www.w3.org/TR/CSS21/intro.html#canvas 
+* *2: http://www.w3.org/TR/CSS21/intro.html#canvas
 
 制約事項
 
@@ -1679,7 +1684,8 @@ imgを保持するassetオブジェクトが複数あるケースもあります
     "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 9_3_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile/13E238",
     "ip": "203.0.113.123",
     "ifa": "2fac1234-31f8-11b4-a222-08002b34c003",
-    "lmt": 0
+    "lmt": 0,
+    "osv": "9.3.1"
   },
   "at": 2
 }
