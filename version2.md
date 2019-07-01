@@ -101,11 +101,9 @@ SSPは指定されたエンドポイントURLにbidリクエストをPOSTしま�
 
 ### b. bidリクエストパラメタ
 
-シリアライズフォーマット：Google Protobuf、JSONのいずれか。
+シリアライズフォーマット：JSONのみ
 
 （※文字列型サポート以前のMessagePackを使用した接続実績がありますが、MessagePackは非推奨です。文字列型サポート版以降のMessagePackに対応する予定はありません。）
-
-DSPは使用するシリアライズフォーマットをSSPに通知してください。（DSP作業）
 
 #### BidRequest Object (TopLevel)
 
@@ -1125,7 +1123,7 @@ string</td>
 
 ### a. bidレスポンスパラメタ
 
-DSPはリクエストに採用したのと同じシリアライズフォーマットで入札情報をシリアライズします。
+DSPはフォーマットで入札情報をシリアライズします。
 
 入札しない場合はHTTP 204 No Contentとしてください。
 
