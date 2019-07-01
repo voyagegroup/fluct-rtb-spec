@@ -109,11 +109,9 @@ Please let us know if we need to set the specific Port.
 
 ### b. Bid request parameters
 
-Serialize format: one among Google Protobuf, JSON, MessagePack.
+Serialize format: JSON only.
 
 (* Although we have some integration experiences using non-text-based MessagePack, we strongly recommand not to use it, non-text-based MessagePack will not be supported in the future)
-
-Please inform SSP which serialize format should be used. (DSP reponsibility)
 
 The following is a JSON example:
 
@@ -1022,7 +1020,7 @@ Multiple asset objects containing img items may exist.
 
 ### a. Bid response parameters
 
-DSP should serialize bid information with the same format used in request serialization.
+DSP should serialize bid information with the JSON format.
 
 HTTP 204 No Content is expected for no bid
 
