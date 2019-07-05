@@ -2,7 +2,7 @@
 
 This specification is based on Video Ad Serving Template (VAST) 3.0.
 
-See Digital Video Ad Serving Template (VAST) 3.0](https://www.iab.com/guidelines/digital-video-ad-serving-template-vast-3-0/) for details.
+See [Digital Video Ad Serving Template (VAST) 3.0](https://www.iab.com/guidelines/digital-video-ad-serving-template-vast-3-0/) for details.
 
 ### Attention
 
