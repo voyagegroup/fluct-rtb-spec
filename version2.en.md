@@ -53,7 +53,6 @@ Moreover, this specification does not contain description of general RTB protoco
       * [fluct transmits according to the following conditions (click beacon):](#fluct-transmits-according-to-the-following-conditions-click-beacon)
    * [c. Macro substitution](#c-macro-substitution)
    * [d. Click Measuring](#d-click-measuring)
-   * [e. End card in VAST](#e-end-card-in-vast)
 * [4. Code table](#4-code-table)
 * [5. Bid Request/Response Samples](#5-bid-requestresponse-samples)
    * [Bid Request: web](#bid-request-web)
@@ -1409,42 +1408,6 @@ Redirecting route: Web page -> Company redirector -> fluct redirector -> Landing
     http://rd.adingo.jp/?p=rKRSvXZZsc3qXP7DfGyYd0ws220dxHwHVnICTDmTbaPn9JttXH6yinKvASt4mmHHZT_N6DHJbFvL44b27QhnsfTMmeY36Lj6T03cVm4N_OW6d3ukpfMh1cjUOuCcWL7hthiQK9quf-Uv83V7xFV3Z7Z8GptcRjhegT-aXliZsvMS7lLoxkXTHRO64iFKk8Ds&v=e0e8nlDL6O0.&k=1&guid=ON&u=http%3A%2F%2Flp.example.net
 
 Then fluct will count the click and redirect the user to company's landing page.
-
-### e. End card in VAST
-
-You can include a optional end card in VAST as a `<CompanionAds>` in `<Inline>` for a format such as rewarded video.
-
-```
-<VAST version="3.0">
-    <Ad id="91cdb2b8-d808-44f7-883b-8ce1fa3b3af8">
-        <InLine>
-            <Creatives>
-                <Creative>
-                    <CompanionAds>
-                        <Companion height="1080" width="1920">
-                            <StaticResource creativeType="image/jpeg">
-                                <![CDATA[http://example.net/endcard.jpg]]>
-                            </StaticResource>
-                            <IFrameResource>
-                                <![CDATA[http://example.net/endcard-ifarame]]>
-                            </IFrameResource>
-                            <HTMLResource>
-                                <![CDATA[http://example.net/endcard-html]]>
-                            </HTMLResource>
-                            <CompanionClickThrough>
-                                <![CDATA[http://example.net/click-through]]>
-                            </CompanionClickThrough>
-                            <CompanionClickTracking>
-                                <![CDATA[http://example.net/click-tracking]]>
-                            </CompanionClickTracking>
-                        </Companion>
-                    </CompanionAds>
-                </Creative>
-            </Creatives>
-        </InLine>
-    </Ad>
-</VAST>
-```
 
 ## 4. Code table
 
