@@ -52,6 +52,7 @@ OpenRTB 2.5 に準拠しています。詳細は[IABのOpenRTB API Specification
       * [clickビーコン送信に用いられる手法について](#clickビーコン送信に用いられる手法について)
    * [c. マクロ置換](#c-マクロ置換)
    * [d. リダイレクタ仕様](#d-リダイレクタ仕様)
+   * [e. VASTのエンドカード仕様](#e-VASTのエンドカード仕様)
 * [4. コード表](#4-コード表)
 * [5. リクエスト／レスポンスサンプル](#5-リクエストレスポンスサンプル)
    * [Bid Request: web](#bid-request-web)
@@ -1528,6 +1529,42 @@ SSPは広告HTML(adm)内の以下の文字列を置換したうえで配信し�
 3. 御社リダイレクタで、パラメタ r で指定された弊社リダイレクタに、実際のランディングURLをURLエンコードして付与する
 
     http://rd.adingo.jp/?p=rKRSvXZZsc3qXP7DfGyYd0ws220dxHwHVnICTDmTbaPn9JttXH6yinKvASt4mmHHZT_N6DHJbFvL44b27QhnsfTMmeY36Lj6T03cVm4N_OW6d3ukpfMh1cjUOuCcWL7hthiQK9quf-Uv83V7xFV3Z7Z8GptcRjhegT-aXliZsvMS7lLoxkXTHRO64iFKk8Ds&v=e0e8nlDL6O0.&k=1&guid=ON&u=http%3A%2F%2Flp.example.net
+
+### e. VASTのエンドカード仕様
+
+動画リワード等で利用されるエンドカードは、fluctに返却されるレスポンスが含むVASTの `<Inline>` にある `<CompanionAds>` として配置して下さい。
+
+```
+<VAST version="3.0">
+    <Ad id="91cdb2b8-d808-44f7-883b-8ce1fa3b3af8">
+        <InLine>
+            <Creatives>
+                <Creative>
+                    <CompanionAds>
+                        <Companion height="1080" width="1920">
+                            <StaticResource creativeType="image/jpeg">
+                                <![CDATA[http://example.net/endcard.jpg]]>
+                            </StaticResource>
+                            <IFrameResource>
+                                <![CDATA[http://example.net/endcard-ifarame]]>
+                            </IFrameResource>
+                            <HTMLResource>
+                                <![CDATA[http://example.net/endcard-html]]>
+                            </HTMLResource>
+                            <CompanionClickThrough>
+                                <![CDATA[http://example.net/click-through]]>
+                            </CompanionClickThrough>
+                            <CompanionClickTracking>
+                                <![CDATA[http://example.net/click-tracking]]>
+                            </CompanionClickTracking>
+                        </Companion>
+                    </CompanionAds>
+                </Creative>
+            </Creatives>
+        </InLine>
+    </Ad>
+</VAST>
+```
 
 ## 4. コード表
 
