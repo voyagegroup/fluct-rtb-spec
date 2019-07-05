@@ -1,4 +1,4 @@
-# fluct VAST Specification ver 2.2
+# fluct VAST Specification ver 1.0
 
 This specification is based on Video Ad Serving Template (VAST) 3.0.
 

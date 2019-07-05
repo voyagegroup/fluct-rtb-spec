@@ -18,7 +18,7 @@
 
 ## 1. VASTのエンドカード仕様
 
-動画リワード等で利用されるエンドカードは、fluctに返却されるレスポンスが含むVASTの `<Inline>` にある `<CompanionAds>` として配置して下さい。
+動画リワード等で利用されるエンドカードは、fluctに返却されるレスポンスが含むVASTの `<InLine>` にある `<CompanionAds>` として配置して下さい。
 
 ```
 <VAST version="3.0">
