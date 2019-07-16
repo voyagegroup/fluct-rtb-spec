@@ -1919,6 +1919,8 @@ imgを保持するassetオブジェクトが複数あるケースもあります
 
 ### Bid request: rewarded video
 
+リワード付き動画広告にいておいては `imp.video.ext.videotype = "rewarded"` 等でそれを明示することが可能です。
+
 ```js
 {
   "id": "6d7d1950-f26b-4955-8ed7-32d1c237cf6e",
@@ -1941,7 +1943,7 @@ imgを保持するassetオブジェクトが複数あるケースもあります
           }
         ],
         "ext": {
-          "rewarded_video": 1
+          "videotype": "rewarded"
         },
         "linearity": 1,
         "maxbitrate": 1500,

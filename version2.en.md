@@ -1801,6 +1801,8 @@ Multiple asset objects containing img items may exist.
 
 ### Bid request: rewarded video
 
+For rewarded video, where it can also be explicitly specified as `imp.video.ext.videotype = "rewarded"` or similar.
+
 ```js
 {
   "id": "6d7d1950-f26b-4955-8ed7-32d1c237cf6e",
@@ -1823,7 +1825,7 @@ Multiple asset objects containing img items may exist.
           }
         ],
         "ext": {
-          "rewarded_video": 1
+          "videotype": "rewarded"
         },
         "linearity": 1,
         "maxbitrate": 1500,
