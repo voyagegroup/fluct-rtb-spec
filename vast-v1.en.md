@@ -12,7 +12,8 @@ Moreover, this specification does not contain description of general VAST protoc
 
 ## Table of Contents
 
-* [1. End card in VAST](#e-end-card-in-vast)
+* [1. End card in VAST](#1-end-card-in-vast)
+* [2. Impression tracking](#2-impression-tracking)
 
 ## 1. End card in VAST
 
@@ -49,3 +50,6 @@ Optional end-card can be included as `<CompanionAds>` in `<InLine>` for formats 
     </Ad>
 </VAST>
 ```
+
+## 2. Impression tracking
+URI in `<Impression>` is requested when video start to play.
