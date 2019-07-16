@@ -61,6 +61,7 @@ OpenRTB 2.5 に準拠しています。詳細は[IABのOpenRTB API Specification
    * [Bid request: pmp](#bid-request-pmp)
    * [Bid request: video](#bid-request-video)
    * [Bid request: video with end-card](#bid-request-video-with-end-card)
+   * [Bid request: rewarded video](#bid-request-rewarded-video)
    * [Bid request: audio](#bid-request-audio)
    * [Bid request: with source](#bid-request-with-source)
    * [Bid response: web,app](#bid-response-webapp)
@@ -1865,8 +1866,6 @@ imgを保持するassetオブジェクトが複数あるケースもあります
 
 ### Bid request: video with end-card
 
-リワード付き動画広告はこの形式で、さらに `imp.video.ext.videotype = "rewarded"` 等で明示することも可能です。
-
 ```js
 {
   "id": "a954e569-7d4b-4d8a-b39e-414c3ff8c5dc",
@@ -1915,6 +1914,120 @@ imgを保持するassetオブジェクトが複数あるケースもあります
     "ip": "203.0.113.123"
   },
   "at": 2
+}
+```
+
+### Bid request: rewarded video
+
+リワード付き動画広告にいておいては `imp.video.ext.videotype = "rewarded"` 等でそれを明示することが可能です。
+
+```js
+{
+  "id": "6d7d1950-f26b-4955-8ed7-32d1c237cf6e",
+  "imp": [
+    {
+      "id": "a0ce9847-6bee-475b-9402-62a15f466d3e",
+      "tagid": "21145:1000124351",
+      "secure": 1,
+      "instl": 1,
+      "video": {
+        "api": [
+          5
+        ],
+        "companionad": [
+          {
+            "api": [
+              5
+            ],
+            "vcm": 1
+          }
+        ],
+        "ext": {
+          "videotype": "rewarded"
+        },
+        "linearity": 1,
+        "maxbitrate": 1500,
+        "maxduration": 30,
+        "mimes": [
+          "video/mp4",
+          "video/x-m4v",
+          "video/quicktime",
+          "video/avi",
+          "video/3gpp2",
+          "video/3gpp"
+        ],
+        "minbitrate": 300,
+        "minduration": 0,
+        "placement": 5,
+        "pos": 9,
+        "protocols": [
+          3,
+          6
+        ],
+        "skip": 0,
+        "startdelay": 0
+      },
+      "bidfloor": 1.0,
+      "bidfloorcur": "JPY",
+      "ext": {},
+      "pmp": {
+        "deals": [],
+        "ext": {},
+        "private_auction": 0
+      }
+    }
+  ],
+  "app": {
+    "bundle": "956084814",
+    "cat": [
+      "IAB1"
+    ],
+    "id": "1000019447",
+    "name": "rewarded video test",
+    "pagecat": [],
+    "publisher": {
+      "cat": [],
+      "domain": "",
+      "ext": {},
+      "id": "14208",
+      "name": ""
+    },
+    "sectioncat": [],
+    "storeurl": "https://itunes.apple.com/jp/app/%E7%AF%80%E7%B4%84-%E9%80%9A%E4%BF%A1%E9%87%8F%E3%83%81%E3%82%A7%E3%83%83%E3%82%AB%E3%83%BC-%E3%81%B4%E3%82%88%E3%83%91%E3%82%B1/id956084814?mt=8"
+  },
+  "at": 2,
+  "badv": [],
+  "bcat": [],
+  "cur": [
+    "JPY",
+    "USD"
+  ],
+  "device": {
+    "carrier": "0",
+    "devicetype": 4,
+    "dnt": 0,
+    "geo": {
+      "country": "JPN"
+    },
+    "ifa": "FBBE5BA3-4C89-4AD5-9056-F9D0E6D15760",
+    "ip": "220.110.139.200",
+    "ipv6": "",
+    "js": 1,
+    "language": "en",
+    "lmt": 0,
+    "make": "Apple",
+    "model": "iPhone",
+    "os": "iOS",
+    "osv": "12.2",
+    "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 12_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148"
+  },
+  "source": {},
+  "tmax": 120,
+  "user": {
+    "buyeruid": "",
+    "ext": {},
+    "id": "FBBE5BA3-4C89-4AD5-9056-F9D0E6D15760"
+  }
 }
 ```
 
