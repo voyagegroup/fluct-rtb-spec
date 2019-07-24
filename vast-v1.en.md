@@ -17,7 +17,7 @@ Moreover, this specification does not contain description of general VAST protoc
 
 ## 1. End card in VAST
 
-Optional end-card can be included as `<CompanionAds>` in `<InLine>` for formats such as rewarded video. And to show optimised end-card for different devices, multiple `<Companion>` with different sizes can be included.
+Optional end-card can be included as `<CompanionAds>` in `<InLine>` for formats such as rewarded video. Optimal end-card is shown when multiple `<Companion>` with different sizes are included.
 
 ```
 <VAST version="3.0">
