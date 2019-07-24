@@ -17,7 +17,7 @@ Moreover, this specification does not contain description of general VAST protoc
 
 ## 1. End card in VAST
 
-Optional end-card can be included as `<CompanionAds>` in `<InLine>` for formats such as rewarded video.
+Optional end-card can be included as `<CompanionAds>` in `<InLine>` for formats such as rewarded video. And to show optimised end-card for different devices, multiple `<Companion>` with different sizes can be included.
 
 ```
 <VAST version="3.0">
@@ -41,6 +41,23 @@ Optional end-card can be included as `<CompanionAds>` in `<InLine>` for formats 
                             </CompanionClickThrough>
                             <CompanionClickTracking>
                                 <![CDATA[http://example.net/click-tracking]]>
+                            </CompanionClickTracking>
+                        </Companion>
+                        <Companion height="1242" width="2688">
+                            <StaticResource creativeType="image/jpeg">
+                                <![CDATA[http://example.net/endcard-l.jpg]]>
+                            </StaticResource>
+                            <IFrameResource>
+                                <![CDATA[http://example.net/endcard-ifarame-l]]>
+                            </IFrameResource>
+                            <HTMLResource>
+                                <![CDATA[http://example.net/endcard-html-l]]>
+                            </HTMLResource>
+                            <CompanionClickThrough>
+                                <![CDATA[http://example.net/click-through-l]]>
+                            </CompanionClickThrough>
+                            <CompanionClickTracking>
+                                <![CDATA[http://example.net/click-tracking-l]]>
                             </CompanionClickTracking>
                         </Companion>
                     </CompanionAds>

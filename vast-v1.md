@@ -19,7 +19,7 @@
 
 ## 1. VASTのエンドカード仕様
 
-動画リワード等で利用されるエンドカードは、fluctに返却されるレスポンスが含むVASTの `<InLine>` にある `<CompanionAds>` として配置して下さい。
+動画リワード等で利用されるエンドカードは、fluctに返却されるレスポンスが含むVASTの `<InLine>` にある `<CompanionAds>` として配置して下さい。また、端末のサイズに合わせてエンドカードを出し分けたい場合は、`<CompanionAds>`にそれぞれのサイズの`<Companion>`を配置することにより、最適なサイズのエンドカードが表示されます。
 
 ```
 <VAST version="3.0">
@@ -43,6 +43,23 @@
                             </CompanionClickThrough>
                             <CompanionClickTracking>
                                 <![CDATA[http://example.net/click-tracking]]>
+                            </CompanionClickTracking>
+                        </Companion>
+                        <Companion height="1242" width="2688">
+                            <StaticResource creativeType="image/jpeg">
+                                <![CDATA[http://example.net/endcard-l.jpg]]>
+                            </StaticResource>
+                            <IFrameResource>
+                                <![CDATA[http://example.net/endcard-ifarame-l]]>
+                            </IFrameResource>
+                            <HTMLResource>
+                                <![CDATA[http://example.net/endcard-html-l]]>
+                            </HTMLResource>
+                            <CompanionClickThrough>
+                                <![CDATA[http://example.net/click-through-l]]>
+                            </CompanionClickThrough>
+                            <CompanionClickTracking>
+                                <![CDATA[http://example.net/click-tracking-l]]>
                             </CompanionClickTracking>
                         </Companion>
                     </CompanionAds>
