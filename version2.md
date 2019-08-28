@@ -2094,7 +2094,26 @@ Google EBDA transaction example
     "fd": 1,
     "tid": "a954e569-7d4b-4d8a-b39e-414c3ff8c5dc",
     "ext": {
-        "stype": "EB",
+      "schain": {
+        "complete": 1,
+        "nodes": [
+          {
+            "asi": "google.com",
+            "ext": {},
+            "hp": 1,
+            "sid": "pub-8141000000000000"
+          },
+          {
+            "asi": "adingo.jp",
+            "ext": {},
+            "hp": 1,
+            "rid": "3e103453-dd65-4c8f-806e-d28919e9bae3",
+            "sid": "12345"
+          }
+        ],
+        "ver": "1.0"
+      },
+      "stype": "EB"
     }
   },
   "imp": [
@@ -2138,6 +2157,114 @@ Google EBDA transaction example
 }
 ```
 
+fluct direct selling publisher example
+
+```
+{
+  "at": 2,
+  "badv": [],
+  "bapp": [],
+  "bcat": [],
+  "cur": [
+    "JPY",
+    "USD"
+  ],
+  "device": {
+    "carrier": "0",
+    "connectiontype": 0,
+    "devicetype": 4,
+    "dnt": 0,
+    "geo": {
+      "country": "JPN"
+    },
+    "ifa": "",
+    "ip": "220.110.1.1",
+    "ipv6": "",
+    "js": 1,
+    "language": "ja",
+    "lmt": 0,
+    "make": "",
+    "model": "PLUS",
+    "os": "Android",
+    "osv": "7.0",
+    "ua": "Mozilla/5.0 (Linux; Android 7.0; PLUS Build/NRD90M) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.98 Mobile Safari/537.36"
+  },
+  "id": "d6c4c590-3f89-4e96-a9dd-d52cbcf70459",
+  "imp": [
+    {
+      "banner": {
+        "api": [],
+        "battr": [],
+        "btype": [],
+        "ext": {},
+        "format": [
+          {
+            "h": 100,
+            "w": 320
+          }
+        ],
+        "h": 100,
+        "pos": 9,
+        "w": 320
+      },
+      "ext": {},
+      "id": "38a9c2a1-62db-4e49-bf42-8c5de9672cf0",
+      "instl": 0,
+      "pmp": {
+        "deals": [],
+        "ext": {},
+        "private_auction": 0
+      },
+      "secure": 1,
+      "tagid": "2500:1000030000"
+    }
+  ],
+  "site": {
+    "cat": [],
+    "domain": "magazine.fluct.jp",
+    "id": "1000001000",
+    "mobile": 1,
+    "name": "fluct magazine",
+    "page": "https://magazine.fluct.jp/",
+    "pagecat": [],
+    "publisher": {
+      "cat": [],
+      "domain": "",
+      "ext": {},
+      "id": "19601",
+      "name": ""
+    },
+    "ref": "",
+    "sectioncat": []
+  },
+  "source": {
+    "ext": {
+      "schain": {
+        "complete": 1,
+        "nodes": [
+          {
+            "asi": "adingo.jp",
+            "ext": {},
+            "hp": 1,
+            "rid": "d6c4c590-3f89-4e96-a9dd-d52cbcf70459",
+            "sid": "19601"
+          }
+        ],
+        "ver": "1.0"
+      },
+      "stype": ""
+    },
+    "fd": 0,
+    "tid": "d6c4c590-3f89-4e96-a9dd-d52cbcf70459"
+  },
+  "tmax": 120,
+  "user": {
+    "buyeruid": "fd159faf-5d64-4831-8d81-000000000000",
+    "ext": {},
+    "id": "389ae8ed80e820e7876989893c44370010c1f03f"
+  }
+}
+```
 
 ### Bid response: web/app
 
