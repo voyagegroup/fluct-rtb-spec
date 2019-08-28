@@ -262,7 +262,9 @@ integer</td>
 
 #### source Object
 
-ヘッダー入札のような広告エクスチェンジによる上流情報がある場合に設定されます。情報がない場合にはsourceオブジェクトは空 <code>{}</code> となります。
+[Sellers.json](https://iabtechlab.com/sellers-json/), [OpenRTB SupplyChain オブジェクト](https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/supplychainobject.md) に対応しています。
+
+fluct社が公開している Sellers.json は https://adingo.jp/sellers.json を参照してください。
 
 <table>
   <tr>
@@ -273,7 +275,7 @@ integer</td>
   <tr>
     <td>fd</td>
     <td>required</td>
-    <td>integer. sourceオブジェクトがセットされる場合に常に <code>1</code> となります。</td>
+    <td>integer. 上流で購入の意思決定がされる場合は <code>1</code>, それ以外は <code>0</code> となります。</td>
   </tr>
   <tr>
     <td>tid</td>
@@ -284,6 +286,11 @@ integer</td>
     <td>ext.stype</td>
     <td>optional, experimental</td>
     <td>string. ヘッダ入札タイプ。内容はお問い合わせください。</td>
+  </tr>
+  <tr>
+    <td>ext.schain</td>
+    <td>optional</td>
+    <td>[OpenRTB SupplyChain オブジェクト](https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/supplychainobject.md)</td>
   </tr>
 </table>
 

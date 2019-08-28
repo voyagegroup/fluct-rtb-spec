@@ -252,7 +252,9 @@ The following is a JSON example:
 
 #### source Object
 
-A source object is set when the transaction has upstream information such as Header Bidding. Otherwise, empty (`{}`).
+Both [Sellers.json](https://iabtechlab.com/sellers-json/) and [OpenRTB SupplyChain](https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/supplychainobject.md) are available.
+
+Refer to https://adingo.jp/sellers.json for sellers available through fluct.
 
 <table>
   <tr>
@@ -263,7 +265,7 @@ A source object is set when the transaction has upstream information such as Hea
   <tr>
     <td>fd</td>
     <td>required</td>
-    <td>integer. Always <code>1</code> if source object is set.</td>
+    <td>integer. <code>1</code> when upstream source is responsible for the final impression sale decision, or <code>0</code> otherwise.</td>
   </tr>
   <tr>
     <td>tid</td>
@@ -274,6 +276,11 @@ A source object is set when the transaction has upstream information such as Hea
     <td>ext.stype</td>
     <td>optional, experimental</td>
     <td>string. Header Bidding type. Please contact us for details.</td>
+  </tr>
+  <tr>
+    <td>ext.schain</td>
+    <td>optional</td>
+    <td>[OpenRTB SupplyChain object](https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/supplychainobject.md)</td>
   </tr>
 </table>
 
