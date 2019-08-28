@@ -1,6 +1,9 @@
 # 変更履歴
 
 * 2.2
+    * 2019/08/28
+        * Sellers.json, OpenRTB SupplyChain Object 対応を追加
+        * Bid Request に `source.ext.schain` 追加
     * 2019/07/16
         * リクエストサンプルにrewarded videoを追加
     * 2019/07/11
