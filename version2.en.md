@@ -1499,7 +1499,8 @@ Multiple asset objects containing img items may exist.
       "banner": {
         "h": 250,
         "w": 300,
-        "pos": 9
+        "pos": 9,
+        "format": [{"h":250, "w": 300}]
       }
     }
   ],
@@ -1540,7 +1541,8 @@ Multiple asset objects containing img items may exist.
       "banner": {
         "h": 50,
         "w": 320,
-        "pos": 9
+        "pos": 9,
+        "format": [{"h":50, "w": 320}]
       }
     }
   ],
