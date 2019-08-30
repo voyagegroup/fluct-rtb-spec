@@ -590,6 +590,13 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
       Array of <a href="#banner-object">banner objects</a> when supported.
     </td>
   </tr>
+  <tr>
+    <td>ext.videotype</td>
+    <td>optional, experimental</td>
+    <td>
+      Rewarded video ads are indicated by <code>imp.video.ext.videotype = "rewarded"</code>.
+    </td>
+  </tr>  
 </table>
 
 

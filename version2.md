@@ -683,6 +683,13 @@ integer</td>
       コンパニオンアドがサポートされている場合、<a href="#banner-object">バナーオブジェクト</a>が入れられる
     </td>
   </tr>
+  <tr>
+    <td>ext.videotype</td>
+    <td>optional, experimental</td>
+    <td>
+      リワード付き動画広告は<code>imp.video.ext.videotype = "rewarded"</code>で明示する
+    </td>
+  </tr>  
 </table>
 
 
