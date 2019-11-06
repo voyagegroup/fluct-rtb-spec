@@ -98,7 +98,7 @@ DSP_NAMEはつなぎ込みに先立ってSSPが発行します（SSP作業）。
 bid リクエストは gzip 圧縮して送ることも可能で、その場合、リクエストの HTTP ヘッダには `Content-Encoding: gzip` が追加されます。 (デフォルト: 非圧縮)
 リクエストの gzip 圧縮をご希望の際は、担当者までご連絡ください。
 
-圧縮された bid レスポンスを受け取ることも可能で、理解可能な圧縮アルゴリズムはリクエストの HTTP ヘッダ `Accept-Encoding` に追加されます。 (例: `Accept-Encoding: gzip`)
+圧縮された bid レスポンスを受け取ることも可能で、取り扱い可能な圧縮アルゴリズムはリクエストの HTTP ヘッダ `Accept-Encoding` に追加されます。 (例: `Accept-Encoding: gzip`)
 レスポンスを圧縮する場合、レスポンスの HTTP ヘッダ `Content-Encoding` で選択した圧縮アルゴリズムを明示してください。
 
 ## 3. リクエスト仕様
