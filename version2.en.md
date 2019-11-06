@@ -98,7 +98,7 @@ The expiry date of sync is default to 30 days, however it can also be customized
 ## 2. Request/Response encoding
 
 Fluct is capable of sending gzip-compressed bid requests, along with the HTTP header `Content-Encoding: gzip`.  (default: uncompressed)
-If you wish to receive gzipped bid requests, contact aliance representative.
+If you wish to receive gzipped bid requests, contact alliance representative.
 
 Fluct is also capable of receiving compressed bid responses whenever corresponding requests contain a list of accepted compression algorightms in the HTTP header `Accept-Encoding`.  (e.g., `Accept-Encoding: gzip`)
 If you are replying a compressed bid response, the response must contain the HTTP header `Content-Encoding` with selected compression names.
