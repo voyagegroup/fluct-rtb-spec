@@ -11,65 +11,66 @@ OpenRTB 2.5 に準拠しています。詳細は[IABのOpenRTB API Specification
 
 * [0. 変更履歴](#0-変更履歴)
 * [1. cookie sync](#1-cookie-sync)
-* [2. リクエスト仕様](#2-リクエスト仕様)
-   * [a. エンドポイントURL](#a-エンドポイントurl)
-   * [b. bidリクエストパラメタ](#b-bidリクエストパラメタ)
-      * [BidRequest Object (TopLevel)](#bidrequest-object-toplevel)
-      * [imp Object](#imp-object)
-      * [source Object](#source-object)
-      * [site Object](#site-object)
-      * [app Object](#app-object)
-      * [user Object](#user-object)
-      * [device Object](#device-object)
-      * [banner Object](#banner-object)
-      * [format Object](#format-object)
-      * [video Object](#video-object)
-      * [audio Object](#audio-object) (Experimental)
-      * [pmp Object](#pmp-object)
-      * [Native Object (新)](#native-object-新)
-      * [Native Markup Request Object](#native-markup-request-object)
-      * [deals Object](#deals-object)
-      * [assets Object](#assets-object)
-      * [title Object](#title-object)
-      * [img Object](#img-object)
-      * [data Object](#data-object)
-      * [Native Object (旧)](#native-object-旧)
-* [3. レスポンス仕様](#3-レスポンス仕様)
-   * [a. bidレスポンスパラメタ](#a-bidレスポンスパラメタ)
-      * [BidResponse Object (TopLevel)](#bidresponse-object-toplevel)
-      * [Bid Object](#bid-object)
-      * [Seatbid Object](#seatbid-object)
-      * [native response adm (serialized JSON object)](#native-response-adm-serialized-json-object)
-   * [b. imptrackers, jstracker, clicktrackersの取り扱い](#b-imptrackers-jstracker-clicktrackersの取り扱い)
-      * [imptrackers](#imptrackers)
-      * [jstracker](#jstracker)
-      * [clicktrackers](#clicktrackers)
-      * [impressionまたは/clickビーコンの送信](#impressionまたはclickビーコンの送信)
-      * [impressionビーコンを受けるエンドポイント](#impressionビーコンを受けるエンドポイント)
-      * [impressionビーコンを送信するfluctのクライアント側](#impressionビーコンを送信するfluctのクライアント側)
-      * [clickビーコンを受けるエンドポイント](#clickビーコンを受けるエンドポイント)
-      * [clickビーコンを送信するfluctのクライアント側](#clickビーコンを送信するfluctのクライアント側)
-      * [clickビーコン送信に用いられる手法について](#clickビーコン送信に用いられる手法について)
-   * [c. マクロ置換](#c-マクロ置換)
-   * [d. リダイレクタ仕様](#d-リダイレクタ仕様)
-* [4. コード表](#4-コード表)
-* [5. リクエスト／レスポンスサンプル](#5-リクエストレスポンスサンプル)
-   * [Bid Request: web](#bid-request-web)
-   * [Bid request: app](#bid-request-app)
-   * [Bid request: native(icon)](#bid-request-native-icon)
-   * [Bid request: native(main)](#bid-request-native-main)
-   * [Bid request: pmp](#bid-request-pmp)
-   * [Bid request: video](#bid-request-video)
-   * [Bid request: video with end-card](#bid-request-video-with-end-card)
-   * [Bid request: rewarded video](#bid-request-rewarded-video)
-   * [Bid request: audio](#bid-request-audio)
-   * [Bid request: with source](#bid-request-with-source)
-   * [Bid response: web,app](#bid-response-webapp)
-   * [Bid response: native(icon/main)](#bid-response-native-iconmain)
-   * [Bid response: pmp](#bid-response-pmp)
-   * [Bid response: video](#bid-response-video)
-   * [Bid response: audio](#bid-response-audio)
-   * [Native jstracker example](#native-jstracker-example)
+* [2. リクエスト・レスポンスのエンコーディング](#2-リクエスト・レスポンスのエンコーディング)
+* [3. リクエスト仕様](#3-リクエスト仕様)
+  * [a. エンドポイントURL](#a-エンドポイントurl)
+  * [b. bidリクエストパラメタ](#b-bidリクエストパラメタ)
+    * [BidRequest Object (TopLevel)](#bidrequest-object-toplevel)
+    * [imp Object](#imp-object)
+    * [source Object](#source-object)
+    * [site Object](#site-object)
+    * [app Object](#app-object)
+    * [user Object](#user-object)
+    * [device Object](#device-object)
+    * [banner Object](#banner-object)
+    * [format Object](#format-object)
+    * [video Object](#video-object)
+    * [audio Object](#audio-object) (Experimental)
+    * [pmp Object](#pmp-object)
+    * [Native Object (新)](#native-object-新)
+    * [Native Markup Request Object](#native-markup-request-object)
+    * [deals Object](#deals-object)
+    * [assets Object](#assets-object)
+    * [title Object](#title-object)
+    * [img Object](#img-object)
+    * [data Object](#data-object)
+    * [Native Object (旧)](#native-object-旧)
+* [4. レスポンス仕様](#4-レスポンス仕様)
+  * [a. bidレスポンスパラメタ](#a-bidレスポンスパラメタ)
+    * [BidResponse Object (TopLevel)](#bidresponse-object-toplevel)
+    * [Bid Object](#bid-object)
+    * [Seatbid Object](#seatbid-object)
+    * [native response adm (serialized JSON object)](#native-response-adm-serialized-json-object)
+  * [b. imptrackers, jstracker, clicktrackersの取り扱い](#b-imptrackers-jstracker-clicktrackersの取り扱い)
+    * [imptrackers](#imptrackers)
+    * [jstracker](#jstracker)
+    * [clicktrackers](#clicktrackers)
+    * [impressionまたは/clickビーコンの送信](#impressionまたはclickビーコンの送信)
+    * [impressionビーコンを受けるエンドポイント](#impressionビーコンを受けるエンドポイント)
+    * [impressionビーコンを送信するfluctのクライアント側](#impressionビーコンを送信するfluctのクライアント側)
+    * [clickビーコンを受けるエンドポイント](#clickビーコンを受けるエンドポイント)
+    * [clickビーコンを送信するfluctのクライアント側](#clickビーコンを送信するfluctのクライアント側)
+    * [clickビーコン送信に用いられる手法について](#clickビーコン送信に用いられる手法について)
+  * [c. マクロ置換](#c-マクロ置換)
+  * [d. リダイレクタ仕様](#d-リダイレクタ仕様)
+* [5. コード表](#5-コード表)
+* [6. リクエスト／レスポンスサンプル](#6-リクエストレスポンスサンプル)
+  * [Bid Request: web](#bid-request-web)
+  * [Bid request: app](#bid-request-app)
+  * [Bid request: native(icon)](#bid-request-native-icon)
+  * [Bid request: native(main)](#bid-request-native-main)
+  * [Bid request: pmp](#bid-request-pmp)
+  * [Bid request: video](#bid-request-video)
+  * [Bid request: video with end-card](#bid-request-video-with-end-card)
+  * [Bid request: rewarded video](#bid-request-rewarded-video)
+  * [Bid request: audio](#bid-request-audio)
+  * [Bid request: with source](#bid-request-with-source)
+  * [Bid response: web,app](#bid-response-webapp)
+  * [Bid response: native(icon/main)](#bid-response-native-iconmain)
+  * [Bid response: pmp](#bid-response-pmp)
+  * [Bid response: video](#bid-response-video)
+  * [Bid response: audio](#bid-response-audio)
+  * [Native jstracker example](#native-jstracker-example)
 
 
 ## 0. 変更履歴
@@ -92,7 +93,15 @@ DSP_NAMEはつなぎ込みに先立ってSSPが発行します（SSP作業）。
 
     https://cs.adingo.jp/sync/?from=your_dsp&id=XXXXXX&expire=90
 
-## 2. リクエスト仕様
+## 2. リクエスト・レスポンスのエンコーディング
+
+bid リクエストは gzip 圧縮して送ることも可能で、その場合、リクエストの HTTP ヘッダには `Content-Encoding: gzip` が追加されます。 (デフォルト: 非圧縮)
+リクエストの gzip 圧縮をご希望の際は、担当者までご連絡ください。
+
+圧縮された bid レスポンスを受け取ることも可能で、取り扱い可能な圧縮アルゴリズムはリクエストの HTTP ヘッダ `Accept-Encoding` に追加されます。 (例: `Accept-Encoding: gzip`)
+レスポンスを圧縮する場合、レスポンスの HTTP ヘッダ `Content-Encoding` で選択した圧縮アルゴリズムを明示してください。
+
+## 3. リクエスト仕様
 
 ### a. エンドポイントURL
 
@@ -1127,7 +1136,7 @@ string</td>
   </tr>
 </table>
 
-## 3. レスポンス仕様
+## 4. レスポンス仕様
 
 ### a. bidレスポンスパラメタ
 
@@ -1537,7 +1546,7 @@ SSPは広告HTML(adm)内の以下の文字列を置換したうえで配信し�
 
     http://rd.adingo.jp/?p=rKRSvXZZsc3qXP7DfGyYd0ws220dxHwHVnICTDmTbaPn9JttXH6yinKvASt4mmHHZT_N6DHJbFvL44b27QhnsfTMmeY36Lj6T03cVm4N_OW6d3ukpfMh1cjUOuCcWL7hthiQK9quf-Uv83V7xFV3Z7Z8GptcRjhegT-aXliZsvMS7lLoxkXTHRO64iFKk8Ds&v=e0e8nlDL6O0.&k=1&guid=ON&u=http%3A%2F%2Flp.example.net
 
-## 4. コード表
+## 5. コード表
 
 ネイティブアドレイアウトIDコード
 
@@ -1611,7 +1620,7 @@ BidResponseに含まれない場合はRTBで落札できた場合でも広告表
 
 imgを保持するassetオブジェクトが複数あるケースもあります。
 
-## 5. リクエスト／レスポンスサンプル
+## 6. リクエスト／レスポンスサンプル
 
 ### Bid request: web
 

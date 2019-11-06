@@ -1,6 +1,8 @@
 # 変更履歴
 
 * 2.2
+    * 2019/11/06
+        * Request/Response のエンコーディングを追加
     * 2019/08/28
         * Sellers.json, OpenRTB SupplyChain Object 対応を追加
         * Bid Request に `source.ext.schain` 追加

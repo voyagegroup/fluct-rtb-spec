@@ -13,64 +13,65 @@ Moreover, this specification does not contain description of general RTB protoco
 ## Table of Contents
 
 * [1. cookie sync](#1-cookie-sync)
-* [2. Request specification](#2-request-specification)
-   * [a. Endpoint URL](#a-endpoint-url)
-   * [b. Bid request parameters](#b-bid-request-parameters)
-      * [BidRequest Object (TopLevel)](#bidrequest-object-toplevel)
-      * [imp Object](#imp-object)
-      * [source Object](#source-object)
-      * [site Object](#site-object)
-      * [app Object](#app-object)
-      * [user Object](#user-object)
-      * [device Object](#device-object)
-      * [banner Object](#banner-object)
-      * [format Object](#format-object)
-      * [video Object](#video-object)
-      * [audio Object](#audio-object) (Experimental)
-      * [pmp Object](#pmp-object)
-      * [Native Object (new)](#native-object-new)
-      * [Native Markup Request Object](#native-markup-request-object)
-      * [deals Object](#deals-object)
-      * [assets Object](#assets-object)
-      * [title Object](#title-object)
-      * [img Object](#img-object)
-      * [data Object](#data-object)
-      * [Native Object (old)](#native-object-old)
-* [3. Response specification](#3-response-specification)
-   * [a. Bid response parameters](#a-bid-response-parameters)
-      * [BidResponse Object (TopLevel)](#bidresponse-object-toplevel)
-      * [Bid Object](#bid-object)
-      * [Seatbid Object](#seatbid-object)
-      * [native response adm (serialized JSON object)](#native-response-adm-serialized-json-object)
-   * [b. imptrackers, jstracker, clicktrackers](#b-imptrackers-jstracker-clicktrackers)
-      * [imptrackers](#imptrackers)
-      * [jstracker](#jstracker)
-      * [clicktrackers](#clicktrackers)
-      * [impression/click beacon](#impressionclick-beacon)
-      * [endpoint for impression beacon](#endpoint-for-impression-beacon)
-      * [fluct transmits according to the following conditions (imp beacon):](#fluct-transmits-according-to-the-following-conditions-imp-beacon)
-      * [endpoint for click beacon](#endpoint-for-click-beacon)
-      * [fluct transmits according to the following conditions (click beacon):](#fluct-transmits-according-to-the-following-conditions-click-beacon)
-   * [c. Macro substitution](#c-macro-substitution)
-   * [d. Click Measuring](#d-click-measuring)
-* [4. Code table](#4-code-table)
-* [5. Bid Request/Response Samples](#5-bid-requestresponse-samples)
-   * [Bid Request: web](#bid-request-web)
-   * [Bid request: app](#bid-request-app)
-   * [Bid request: native(icon)](#bid-request-native-icon)
-   * [Bid request: native(main)](#bid-request-native-main)
-   * [Bid request: pmp](#bid-request-pmp)
-   * [Bid request: video](#bid-request-video)
-   * [Bid request: video with end-card](#bid-request-video-with-end-card)
-   * [Bid request: rewarded video](#bid-request-rewarded-video)
-   * [Bid request: audio](#bid-request-audio)
-   * [Bid request: with source](#bid-request-with-source)
-   * [Bid response: web,app](#bid-response-webapp)
-   * [Bid response: native(icon/main)](#bid-response-native-iconmain)
-   * [Bid response: pmp](#bid-response-pmp)
-   * [Bid response: video](#bid-response-video)
-   * [Bid response: audio](#bid-response-audio)
-   * [Native jstracker example](#native-jstracker-example)
+* [2. Request/Response encoding](#2-requestresponse-encoding)
+* [3. Request specification](#3-request-specification)
+  * [a. Endpoint URL](#a-endpoint-url)
+  * [b. Bid request parameters](#b-bid-request-parameters)
+    * [BidRequest Object (TopLevel)](#bidrequest-object-toplevel)
+    * [imp Object](#imp-object)
+    * [source Object](#source-object)
+    * [site Object](#site-object)
+    * [app Object](#app-object)
+    * [user Object](#user-object)
+    * [device Object](#device-object)
+    * [banner Object](#banner-object)
+    * [format Object](#format-object)
+    * [video Object](#video-object)
+    * [audio Object](#audio-object) (Experimental)
+    * [pmp Object](#pmp-object)
+    * [Native Object (new)](#native-object-new)
+    * [Native Markup Request Object](#native-markup-request-object)
+    * [deals Object](#deals-object)
+    * [assets Object](#assets-object)
+    * [title Object](#title-object)
+    * [img Object](#img-object)
+    * [data Object](#data-object)
+    * [Native Object (old)](#native-object-old)
+* [4. Response specification](#4-response-specification)
+  * [a. Bid response parameters](#a-bid-response-parameters)
+    * [BidResponse Object (TopLevel)](#bidresponse-object-toplevel)
+    * [Bid Object](#bid-object)
+    * [Seatbid Object](#seatbid-object)
+    * [native response adm (serialized JSON object)](#native-response-adm-serialized-json-object)
+  * [b. imptrackers, jstracker, clicktrackers](#b-imptrackers-jstracker-clicktrackers)
+    * [imptrackers](#imptrackers)
+    * [jstracker](#jstracker)
+    * [clicktrackers](#clicktrackers)
+    * [impression/click beacon](#impressionclick-beacon)
+    * [endpoint for impression beacon](#endpoint-for-impression-beacon)
+    * [fluct transmits according to the following conditions (imp beacon):](#fluct-transmits-according-to-the-following-conditions-imp-beacon)
+    * [endpoint for click beacon](#endpoint-for-click-beacon)
+    * [fluct transmits according to the following conditions (click beacon):](#fluct-transmits-according-to-the-following-conditions-click-beacon)
+  * [c. Macro substitution](#c-macro-substitution)
+  * [d. Click Measuring](#d-click-measuring)
+* [5. Code table](#5-code-table)
+* [6. Bid Request/Response Samples](#6-bid-requestresponse-samples)
+  * [Bid Request: web](#bid-request-web)
+  * [Bid request: app](#bid-request-app)
+  * [Bid request: native(icon)](#bid-request-native-icon)
+  * [Bid request: native(main)](#bid-request-native-main)
+  * [Bid request: pmp](#bid-request-pmp)
+  * [Bid request: video](#bid-request-video)
+  * [Bid request: video with end-card](#bid-request-video-with-end-card)
+  * [Bid request: rewarded video](#bid-request-rewarded-video)
+  * [Bid request: audio](#bid-request-audio)
+  * [Bid request: with source](#bid-request-with-source)
+  * [Bid response: web,app](#bid-response-webapp)
+  * [Bid response: native(icon/main)](#bid-response-native-iconmain)
+  * [Bid response: pmp](#bid-response-pmp)
+  * [Bid response: video](#bid-response-video)
+  * [Bid response: audio](#bid-response-audio)
+  * [Native jstracker example](#native-jstracker-example)
 
 ## 1. cookie sync
 
@@ -94,7 +95,15 @@ The expiry date of sync is default to 30 days, however it can also be customized
 
     https://cs.adingo.jp/sync/?from=your_dsp&id=XXXXXX&expire=90
 
-## 2. Request specification
+## 2. Request/Response encoding
+
+Fluct is capable of sending gzip-compressed bid requests, along with the HTTP header `Content-Encoding: gzip`.  (default: uncompressed)
+If you wish to receive gzipped bid requests, contact alliance representative.
+
+Fluct is also capable of receiving compressed bid responses whenever corresponding requests contain a list of accepted compression algorightms in the HTTP header `Accept-Encoding`.  (e.g., `Accept-Encoding: gzip`)
+If you are replying a compressed bid response, the response must contain the HTTP header `Content-Encoding` with selected compression names.
+
+## 3. Request specification
 
 ### a. Endpoint URL
 
@@ -1024,7 +1033,7 @@ Multiple asset objects containing img items may exist.
   </tr>
 </table>
 
-## 3. Response specification
+## 4. Response specification
 
 ### a. Bid response parameters
 
@@ -1417,7 +1426,7 @@ Redirecting route: Web page -> Company redirector -> fluct redirector -> Landing
 
 Then fluct will count the click and redirect the user to company's landing page.
 
-## 4. Code table
+## 5. Code table
 
 ### Native Ads layout ID code:
 
@@ -1491,7 +1500,7 @@ Impressions will not be generated for responses which do not also contain the co
 
 Multiple asset objects containing img items may exist.
 
-## 5. Bid Request/Response Samples
+## 6. Bid Request/Response Samples
 
 ### Bid request: web
 
