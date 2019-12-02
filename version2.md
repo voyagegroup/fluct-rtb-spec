@@ -38,8 +38,8 @@ OpenRTB 2.5 に準拠しています。詳細は[IABのOpenRTB API Specification
 * [4. レスポンス仕様](#4-レスポンス仕様)
   * [a. bidレスポンスパラメタ](#a-bidレスポンスパラメタ)
     * [BidResponse Object (TopLevel)](#bidresponse-object-toplevel)
-    * [Bid Object](#bid-object)
     * [Seatbid Object](#seatbid-object)
+    * [Bid Object](#bid-object)
     * [native response adm (serialized JSON object)](#native-response-adm-serialized-json-object)
   * [b. imptrackers, jstracker, clicktrackersの取り扱い](#b-imptrackers-jstracker-clicktrackersの取り扱い)
     * [imptrackers](#imptrackers)
@@ -70,6 +70,8 @@ OpenRTB 2.5 に準拠しています。詳細は[IABのOpenRTB API Specification
   * [Bid response: pmp](#bid-response-pmp)
   * [Bid response: video](#bid-response-video)
   * [Bid response: audio](#bid-response-audio)
+  * [Bid response: with bundle](#bid-response-with-bundle)
+  * [Bid response: with nurl and lurl](#bid-response-with-nurl-and-lurl)
   * [Native jstracker example](#native-jstracker-example)
 
 
@@ -383,8 +385,8 @@ string</td>
   <tr>
     <td>bundle</td>
     <td>optional</td>
-    <td>プラットフォーム上でのアプリケーション識別子
-Android ではパッケージ名で、 iOS では数字の ID。
+    <td>プラットフォーム上でのアプリケーション識別子.
+Androidではパッケージ名で、iOSでは数字のID。
 (例) Android: "com.foo.mygame", iOS: "1234567890"
 string</td>
   </tr>
@@ -1221,7 +1223,17 @@ DSPはJSONフォーマットで入札情報をシリアライズします。
     <td>adomain</td>
     <td>optional (recommended)</td>
     <td>array of string</td>
-    <td>広告遷移先のドメインのリスト</td>
+    <td>ブロックリスト確認用の広告主ドメイン</td>
+  </tr>
+  <tr>
+    <td>bundle</td>
+    <td>optional (recommended)</td>
+    <td>array of string</td>
+    <td>
+      プラットフォーム上でのアプリケーション識別子.
+      Androidではパッケージ名で、iOSでは数字のID。
+      (例) Android: "com.foo.mygame", iOS: "1234567890"
+    </td>
   </tr>
   <tr>
     <td>crid</td>
@@ -1233,7 +1245,29 @@ DSPはJSONフォーマットで入札情報をシリアライズします。
     <td>dealid</td>
     <td>optional</td>
     <td>string</td>
-    <td>pmp入札の場合必須項目. 入札対象のBidRequest.imp.pmp.dealid</td>
+    <td>pmp dealへの入札の場合必須項目. 入札対象のBidRequest.imp.pmp.deal.id</td>
+  </tr>
+  <tr>
+    <td>nurl</td>
+    <td>optional</td>
+    <td>string</td>
+    <td>
+      win通知URL.
+      入札が勝利した際に呼び出される。
+      約定・表示・請求を通知するものではなく、オークションでの勝利を通知するもの。
+      adm と同様の置換マクロを含めてもよい。
+    </td>
+  </tr>
+  <tr>
+    <td>lurl</td>
+    <td>optional</td>
+    <td>string</td>
+    <td>
+      loss通知URL.
+      入札が勝利しなかった際に呼び出される。
+      adm と同様のマクロ置換が行われ、 ${AUCTION_PRICE} には約定価格 (通知可能な場合のみ)、 ${AUCTION_LOSS} には loss reason code が通知される。
+      loss reason code については、 IAB OpenRTB 2.5 仕様 5.25 Loss Reason Codes を参照してください。
+    </td>
   </tr>
 </table>
 
@@ -2363,6 +2397,61 @@ fluct direct selling publisher example
         "adomain": ["adomain.com"]
     }]
   }]
+}
+```
+
+### Bid response: with bundle
+
+```js
+{
+  "cur": "USD",
+  "id": "11910673-3de7-4385-b5f0-2fb7035a1a68",
+  "seatbid": [
+    {
+      "bid": [
+        {
+          "adm": "<script src=\"https://example.net/adm?price=${AUCTION_PRICE}\"></script>",
+          "bundle": "net.example.app",
+          "crid": "80095",
+          "h": 250,
+          "id": "1",
+          "impid": "cd793387-5dfd-4c7f-9665-666f9070c25c",
+          "price": 1.2345,
+          "w": 300
+        }
+      ]
+    }
+  ]
+}
+```
+
+### Bid response: with nurl and lurl
+
+```js
+{
+  "cur": "USD",
+  "id": "11910673-3de7-4385-b5f0-2fb7035a1a68",
+  "seatbid": [
+    {
+      "bid": [
+        {
+          "adm": "<script src=\"https://example.net/adm?price=${AUCTION_PRICE}\"></script>",
+          "adomain": [
+            "adomain.com"
+          ],
+          "bundle": "",
+          "crid": "80095",
+          "h": 250,
+          "id": "1",
+          "impid": "cd793387-5dfd-4c7f-9665-666f9070c25c",
+          "lurl": "https://example.net/loss?code=${AUCTION_LOSS}&auction_id=${AUCTION_ID}&clearing_price=${AUCTION_PRICE}",
+          "nurl": "https://example.net/win?code=${AUCTION_LOSS}&auction_id=${AUCTION_ID}&clearing_price=${AUCTION_PRICE}",
+          "price": 1.2345,
+          "w": 300
+        }
+      ]
+    }
+  ]
 }
 ```
 

@@ -40,8 +40,8 @@ Moreover, this specification does not contain description of general RTB protoco
 * [4. Response specification](#4-response-specification)
   * [a. Bid response parameters](#a-bid-response-parameters)
     * [BidResponse Object (TopLevel)](#bidresponse-object-toplevel)
-    * [Bid Object](#bid-object)
     * [Seatbid Object](#seatbid-object)
+    * [Bid Object](#bid-object)
     * [native response adm (serialized JSON object)](#native-response-adm-serialized-json-object)
   * [b. imptrackers, jstracker, clicktrackers](#b-imptrackers-jstracker-clicktrackers)
     * [imptrackers](#imptrackers)
@@ -71,6 +71,8 @@ Moreover, this specification does not contain description of general RTB protoco
   * [Bid response: pmp](#bid-response-pmp)
   * [Bid response: video](#bid-response-video)
   * [Bid response: audio](#bid-response-audio)
+  * [Bid response: with bundle](#bid-response-with-bundle)
+  * [Bid response: with nurl and lurl](#bid-response-with-nurl-and-lurl)
   * [Native jstracker example](#native-jstracker-example)
 
 ## 1. cookie sync
@@ -1112,25 +1114,53 @@ HTTP 204 No Content is expected for no bid
     <td>adm</td>
     <td>required</td>
     <td>string</td>
-    <td>Ad data. 広告フォーマットにより内容の形式は異なります。レスポンスサンプルを参照してください。</td>
+    <td>Ad markup data. See response example for details.</td>
   </tr>
   <tr>
     <td>adomain</td>
     <td>optional (recommended)</td>
     <td>array of string</td>
-    <td>広告遷移先のドメインのリスト</td>
+    <td>A list of advertiser domains for block list checking.</td>
+  </tr>
+  <tr>
+    <td>bundle</td>
+    <td>optional (recommended)</td>
+    <td>
+      Platform-specific application identifier
+      ex) Android: "com.foo.mygame", iOS: "1234567890"
+    </td>
   </tr>
   <tr>
     <td>crid</td>
     <td>optional</td>
     <td>string</td>
-    <td>広告クリエイティブID</td>
+    <td>Creative ID</td>
   </tr>
   <tr>
     <td>dealid</td>
     <td>optional</td>
     <td>string</td>
-    <td>pmp入札の場合必須項目. 入札対象のBidRequest.imp.pmp.dealid</td>
+    <td>Required if bidding for a PMP deal. Reference to BidRequest.imp.pmp.deal.id</td>
+  </tr>
+  <tr>
+    <td>nurl</td>
+    <td>optional</td>
+    <td>string</td>
+    <td>
+      Win notice URL to be called if the bid wins the auction.
+      Not necessarily indicating delivered, viewed, or billable.
+      Substituting macros may be included.
+    </td>
+  </tr>
+  <tr>
+    <td>lurl</td>
+    <td>optional</td>
+    <td>string</td>
+    <td>
+      Loss notice URL to be called if the bid loses the auction.
+      Substituting macros, where ${AUCTION_PRICE} for winner's clearing price when possible and ${AUCTION_LOSS} for loss reason code, may be included.
+      See IAB OpenRTB 2.5 specification 5.25 Loss Reason Codes for details.
+    </td>
   </tr>
 </table>
 
@@ -2246,6 +2276,61 @@ fluct direct selling publisher example
         "adomain": ["adomain.com"]
     }]
   }]
+}
+```
+
+### Bid response: with bundle
+
+```js
+{
+  "cur": "USD",
+  "id": "11910673-3de7-4385-b5f0-2fb7035a1a68",
+  "seatbid": [
+    {
+      "bid": [
+        {
+          "adm": "<script src=\"https://example.net/adm?price=${AUCTION_PRICE}\"></script>",
+          "bundle": "net.example.app",
+          "crid": "80095",
+          "h": 250,
+          "id": "1",
+          "impid": "cd793387-5dfd-4c7f-9665-666f9070c25c",
+          "price": 1.2345,
+          "w": 300
+        }
+      ]
+    }
+  ]
+}
+```
+
+### Bid response: with nurl and lurl
+
+```js
+{
+  "cur": "USD",
+  "id": "11910673-3de7-4385-b5f0-2fb7035a1a68",
+  "seatbid": [
+    {
+      "bid": [
+        {
+          "adm": "<script src=\"https://example.net/adm?price=${AUCTION_PRICE}\"></script>",
+          "adomain": [
+            "adomain.com"
+          ],
+          "bundle": "",
+          "crid": "80095",
+          "h": 250,
+          "id": "1",
+          "impid": "cd793387-5dfd-4c7f-9665-666f9070c25c",
+          "lurl": "https://example.net/loss?code=${AUCTION_LOSS}&auction_id=${AUCTION_ID}&clearing_price=${AUCTION_PRICE}",
+          "nurl": "https://example.net/win?code=${AUCTION_LOSS}&auction_id=${AUCTION_ID}&clearing_price=${AUCTION_PRICE}",
+          "price": 1.2345,
+          "w": 300
+        }
+      ]
+    }
+  ]
 }
 ```
 

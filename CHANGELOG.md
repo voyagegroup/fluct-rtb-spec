@@ -1,6 +1,8 @@
 # 変更履歴
 
 * 2.2
+    * 2019/12/02
+        * Bid Response に `bundle`, `nurl`, `lurl` を追加
     * 2019/11/06
         * Request/Response のエンコーディングを追加
     * 2019/08/28
