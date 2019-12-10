@@ -6,7 +6,7 @@ See [IAB OpenRTB API Specification Version 2.5](https://www.iab.com/wp-content/u
 
 ### Attention
 
-This specification may be incomplete. If you find any inadequacy or encounter confusion, please contact the person in charge: [fluct_dev@voyagegroup.info](mailto:fluct_dev@voyagegroup.info).
+This specification may be incomplete. If you find any inadequacy or encounter confusion, please contact the person in charge: [developer@fluct.jp](mailto:developer@fluct.jp).
 
 Moreover, this specification does not contain description of general RTB protocol (e.g., OpenRTB).
 

@@ -6,7 +6,7 @@ See [Digital Video Ad Serving Template (VAST) 3.0](https://www.iab.com/guideline
 
 ### Attention
 
-This specification may be incomplete. If you find any inadequacy or encounter confusion, please contact the person in charge: [fluct_dev@voyagegroup.info](mailto:fluct_dev@voyagegroup.info).
+This specification may be incomplete. If you find any inadequacy or encounter confusion, please contact the person in charge: [developer@fluct.jp](mailto:developer@fluct.jp).
 
 Moreover, this specification does not contain description of general VAST protocol.
 

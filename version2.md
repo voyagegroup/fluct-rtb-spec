@@ -4,7 +4,7 @@ OpenRTB 2.5 に準拠しています。詳細は[IABのOpenRTB API Specification
 
 注意
 
-この仕様書には不完全な点があるかもしれません。不備や不明瞭な点がありましたら、担当者か [fluct_dev@voyagegroup.info](mailto:fluct_dev@voyagegroup.info) に教えてください。また、一般的なRTBのプロトコルそのものに対する説明はありません。
+この仕様書には不完全な点があるかもしれません。不備や不明瞭な点がありましたら、担当者か [developer@fluct.jp](mailto:developer@fluct.jp) に教えてください。また、一般的なRTBのプロトコルそのものに対する説明はありません。
 
 
 ## Table of Contents
