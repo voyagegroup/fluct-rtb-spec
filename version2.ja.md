@@ -288,7 +288,7 @@ fluct社が公開している Sellers.json は https://adingo.jp/sellers.json �
   <tr>
     <td>ext.schain</td>
     <td>optional</td>
-    <td>[OpenRTB SupplyChain オブジェクト](https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/supplychainobject.md)</td>
+    <td><a href="https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/supplychainobject.md">OpenRTB SupplyChain オブジェクト</a></td>
   </tr>
 </table>
 
@@ -686,8 +686,6 @@ integer</td>
 
 #### audio Object
 
-(Experimental)
-
 <table>
   <tr>
     <th>Field</th>
@@ -812,7 +810,7 @@ integer</td>
   <tr>
     <td>request</td>
     <td>required</td>
-    <td>[Native Ad Request Markup Object](./native-ads-v1.ja.md)</td>
+    <td><a href="native-ads-v1.ja.md">Native Ad Request Markup Object</a></td>
   </tr>
   <tr>
     <td>ver</td>

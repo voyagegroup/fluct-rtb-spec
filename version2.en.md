@@ -285,7 +285,7 @@ Refer to https://adingo.jp/sellers.json for sellers available through fluct.
   <tr>
     <td>ext.schain</td>
     <td>optional</td>
-    <td>[OpenRTB SupplyChain object](https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/supplychainobject.md)</td>
+    <td><a href="https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/supplychainobject.md">OpenRTB SupplyChain object</a></td>
   </tr>
 </table>
 
@@ -600,8 +600,6 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
 
 #### audio Object
 
-(Experimental)
-
 <table>
   <tr>
     <th>Field</th>
@@ -721,7 +719,7 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
   <tr>
     <td>request</td>
     <td>required</td>
-    <td>[Native Ad Request Markup Object](./native-ads-v1.en.md)</td>
+    <td><a href="native-ads-v1.en.md">Native Ad Request Markup Object</a></td>
   </tr>
   <tr>
     <td>ver</td>
