@@ -1,6 +1,10 @@
 # 変更履歴
 
 * 2.2
+    * 2019/12/11
+        * Native 広告仕様を RTB 仕様から分離
+            * [native-ads-v1.ja.md](./native-ads-v1.ja.md)
+            * [native-ads-v1.en.md](./native-ads-v1.en.md)
     * 2019/12/02
         * Bid Response に `bundle`, `nurl`, `lurl` を追加
     * 2019/11/06

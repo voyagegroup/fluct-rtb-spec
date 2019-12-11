@@ -27,27 +27,21 @@ Moreover, this specification does not contain description of general RTB protoco
     * [banner Object](#banner-object)
     * [format Object](#format-object)
     * [video Object](#video-object)
-    * [audio Object](#audio-object) (Experimental)
+    * [audio Object](#audio-object)
+    * [native Object](#native-object)
     * [pmp Object](#pmp-object)
-    * [Native Object (new)](#native-object-new)
-    * [Native Markup Request Object](#native-markup-request-object)
     * [deals Object](#deals-object)
     * [assets Object](#assets-object)
     * [title Object](#title-object)
     * [img Object](#img-object)
     * [data Object](#data-object)
-    * [Native Object (old)](#native-object-old)
 * [4. Response specification](#4-response-specification)
   * [a. Bid response parameters](#a-bid-response-parameters)
     * [BidResponse Object (TopLevel)](#bidresponse-object-toplevel)
     * [Seatbid Object](#seatbid-object)
     * [Bid Object](#bid-object)
     * [native response adm (serialized JSON object)](#native-response-adm-serialized-json-object)
-  * [b. imptrackers, jstracker, clicktrackers](#b-imptrackers-jstracker-clicktrackers)
-    * [imptrackers](#imptrackers)
-    * [jstracker](#jstracker)
-    * [clicktrackers](#clicktrackers)
-    * [impression/click beacon](#impressionclick-beacon)
+  * [b. impression/click beacon](#b-impressionclick-beacon)
     * [endpoint for impression beacon](#endpoint-for-impression-beacon)
     * [fluct transmits according to the following conditions (imp beacon):](#fluct-transmits-according-to-the-following-conditions-imp-beacon)
     * [endpoint for click beacon](#endpoint-for-click-beacon)
@@ -73,7 +67,7 @@ Moreover, this specification does not contain description of general RTB protoco
   * [Bid response: audio](#bid-response-audio)
   * [Bid response: with bundle](#bid-response-with-bundle)
   * [Bid response: with nurl and lurl](#bid-response-with-nurl-and-lurl)
-  * [Native jstracker example](#native-jstracker-example)
+
 
 ## 1. cookie sync
 
@@ -291,7 +285,7 @@ Refer to https://adingo.jp/sellers.json for sellers available through fluct.
   <tr>
     <td>ext.schain</td>
     <td>optional</td>
-    <td>[OpenRTB SupplyChain object](https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/supplychainobject.md)</td>
+    <td><a href="https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/supplychainobject.md">OpenRTB SupplyChain object</a></td>
   </tr>
 </table>
 
@@ -606,8 +600,6 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
 
 #### audio Object
 
-(Experimental)
-
 <table>
   <tr>
     <th>Field</th>
@@ -716,28 +708,7 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
 </table>
 
 
-#### pmp Object
-
-<table>
-  <tr>
-    <th>Field</th>
-    <th>scope</th>
-    <th>description</th>
-  </tr>
-  <tr>
-    <td>private_auction</td>
-    <td>required</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>deals</td>
-    <td>required</td>
-    <td></td>
-  </tr>
-</table>
-
-
-#### Native Object (new)
+#### Native Object
 
 <table>
   <tr>
@@ -748,7 +719,7 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
   <tr>
     <td>request</td>
     <td>required</td>
-    <td>Native Markup Request Object or string(toJsonString(Native Markup Request Object))</td>
+    <td><a href="native-ads-v1.en.md">Native Ad Request Markup Object</a></td>
   </tr>
   <tr>
     <td>ver</td>
@@ -769,15 +740,8 @@ integer array</td>
   </tr>
 </table>
 
-In the specification of openRTB, request is correctly included in NativeObject.
-In a connected DSP, there are cases where assets is included in nativeObject.  
-Connected DSPs can be connected without any change.
-Express the specification of the previous NativeObject as `b-17. Native Object (old)`.
 
-There is no need to change from old to new, but please request case to change.
-There is also the possibility of requesting that we change to the newer one at a certain timing from our company.
-
-#### Native Markup Request Object
+#### pmp Object
 
 <table>
   <tr>
@@ -786,46 +750,17 @@ There is also the possibility of requesting that we change to the newer one at a
     <th>description</th>
   </tr>
   <tr>
-    <td>ver</td>
-    <td>optional</td>
-    <td>string</td>
-  </tr>
-  <tr>
-    <td>layout</td>
-    <td>recommended</td>
-    <td>adapting layoutId
-integer</td>
-  </tr>
-  <tr>
-    <td>adunit</td>
-    <td>recommended</td>
-    <td>integer</td>
-  </tr>
-  <tr>
-    <td>plcmtcnt</td>
-    <td>optional</td>
-    <td>integer</td>
-  </tr>
-  <tr>
-    <td>seq</td>
-    <td>optional</td>
-    <td>integer</td>
-  </tr>
-  <tr>
-    <td>assets</td>
+    <td>private_auction</td>
     <td>required</td>
-    <td>array of Object</td>
+    <td></td>
   </tr>
   <tr>
-    <td>ext</td>
-    <td>optional</td>
-    <td>object</td>
+    <td>deals</td>
+    <td>required</td>
+    <td></td>
   </tr>
 </table>
 
-* "assets" in BidResponse is to be the same structure of that in BidRequest.
-
-* see the end of this document for details
 
 #### deals Object
 
@@ -867,158 +802,6 @@ integer</td>
   </tr>
 </table>
 
-
-#### assets Object
-
-<table>
-  <tr>
-    <th>Field</th>
-    <th>scope</th>
-    <th>description</th>
-  </tr>
-  <tr>
-    <td>id</td>
-    <td>required</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>title</td>
-    <td>optional</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>img</td>
-    <td>optional</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>data</td>
-    <td>optional</td>
-    <td></td>
-  </tr>
-</table>
-
-
-* Only one of the "title", “img” and “data” sections will be necessary in “assets object”.
-
-#### title Object
-
-<table>
-  <tr>
-    <th>Field</th>
-    <th>scope</th>
-    <th>description</th>
-  </tr>
-  <tr>
-    <td>len</td>
-    <td>required</td>
-    <td></td>
-  </tr>
-</table>
-
-
-#### img Object
-
-<table>
-  <tr>
-    <th>Field</th>
-    <th>scope</th>
-    <th>description</th>
-  </tr>
-  <tr>
-    <td>wmin</td>
-    <td>required</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>hmin</td>
-    <td>required</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>type</td>
-    <td></td>
-    <td>1(Icon) / 3(Main)</td>
-  </tr>
-</table>
-
-
-※"wmin” and "hmin” are set as predetermined by DSP
-(NewsFeed type:1 as 160x160 , type:3 as depending on design)
-
-#### data Object
-
-<table>
-  <tr>
-    <th>Field</th>
-    <th>scope</th>
-    <th>description</th>
-  </tr>
-  <tr>
-    <td>type</td>
-    <td>required</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>len</td>
-    <td>required</td>
-    <td></td>
-  </tr>
-</table>
-
-#### Native Object (old)
-
-<table>
-  <tr>
-    <th>Field</th>
-    <th>scope</th>
-    <th>description</th>
-  </tr>
-  <tr>
-    <td>ver</td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>assets</td>
-    <td>assets Object</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>layout</td>
-    <td></td>
-    <td>3/501</td>
-  </tr>
-</table>
-
-
-* "assets" in BidResponse is to be the same structure of that in BidRequest.
-
-* see the end of this document for details
-
-* native layouts/required assets
-
-<table>
-  <tr>
-    <th>layout</th>
-    <th>required</th>
-  </tr>
-  <tr>
-    <td>3 (NewsFeed)</td>
-    <td>img,title,data(sponsored)</td>
-  </tr>
-  <tr>
-    <td>501 (TextAd)</td>
-    <td>title,data(sponsored)</td>
-  </tr>
-</table>
-
-
-* The above required items will be sent for each native layout.
-
-Impressions will not be generated for responses which do not also contain the corresponding items.
-
-Multiple asset objects containing img items may exist.
 
 #### publisher Object
 
@@ -1164,155 +947,18 @@ HTTP 204 No Content is expected for no bid
   </tr>
 </table>
 
-#### native response adm (serialized JSON object)
 
-<table>
-  <tr>
-    <th>Field</th>
-    <th>scope</th>
-    <td>detail</td>
-  </tr>
-  <tr>
-    <td>native.optouturl</td>
-    <td>required</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>native.link.url</td>
-    <td>required</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>native.imptrackers</td>
-    <td>required</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>native.assets</td>
-    <td>required</td>
-    <td>Each element of "native.assets" must include one of "title", "img", or "data". The fields in the response are expected to match those of the bid request, see Bid Response Samples below.</td>
-  </tr>
-  <tr>
-    <td>native.assets.id</td>
-    <td>required</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>native.assets.title.text</td>
-    <td>required</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>native.assets.img.url</td>
-    <td>required</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>native.assets.img.w</td>
-    <td>required</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>native.assets.img.h</td>
-    <td>required</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>native.assets.data.value</td>
-    <td>required</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>native.jstracker</td>
-    <td>optional</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>native.link.clicktrackers</td>
-    <td>optional</td>
-    <td></td>
-  </tr>
-</table>
-
-### b. imptrackers, jstracker, clicktrackers
-
-#### imptrackers
-
-URL of the impression beacon
-Macros (${AUCTION_PRICE}, etc.) must be included in the URL.
-Protocol will be determined separate from this document.
-In the case of multiple values only the first will be used.
-
-The imptracker URL will be called when the advertisement is displayed in the page/"canvas"(*1).  (as opposed to in the "viewport"(*2))
-
-* *1: http://www.w3.org/TR/CSS21/intro.html#canvas
-* *2: http://www.w3.org/TR/CSS21/visuren.html#viewport
-
-also refer to section below information
-
-#### jstracker
-
-Optional JavaScript(*1) to be executed.
-In the case of multiple values only the first will be used.
-
-Uses
-
-for measurement of viewable impressions, click position, or other ad properties
-not for 3rd party delivery, dynamic display, etc.
-
-Custom advertisement elements
-
-NOTE: The specification for this functionality is for future use and not yet implemented. Contact fluct if you require custom functionality.
-Advertisement elements are accessed from within the page via the fluct-native-rtb-container-XXXX element (relative to the DOM root).
-"XXXX" is replaced on the DSP side by an optional suffix.
-
-```
-example: var element = document.getElementById('fluct-native-rtb-container-123456');
-```
-
-Restrictions
-
-Script must be wrapped with `(function(){...})();`
-Script must be executable in strict mode.
-Content Security Policy(*2) may prevent certain media from being displayed.
-This document does not specify web browsers or JavaScript engines needed to execute the script.
-fluct is not responsible for errors in the script which prevent proper functioning of the impression and click beacons.
-
-Execution timing
-
-Begins when the element is inserted into the page.
-NOTE: In certain cases this may be prior to the advertisement being shown.
-
-* *1: www.ecma-international.org/ecma-262/5.1/
-* *2: http://www.w3.org/TR/CSP/
-
-#### clicktrackers
-
-URL of the click beacon
-Protocol will be determined separate from this document.
-In the case of multiple values only the first will be used.
-
-Execution timing
-
-- Occurs when the link in the advertisement is clicked..
-
-Restrictions
-
-- There may be browsers for which redirection occurs before the beacon request is completed.
-- Method of resolution of discrepancies between SSP and DSP will be determined separate from this document.
-- also refer to section below information
-
-#### impression/click beacon
+### b. impression/click beacon
 
 The following assumptions are made about URLs which serve beacons:
 
-##### endpoint for impression beacon
+#### endpoint for impression beacon
 
 * GET method support
 
 * sent by setting URL in src field on img tag (XMLHttpRequest not supported)
 
-##### fluct transmits according to the following conditions (imp beacon):
+#### fluct transmits according to the following conditions (imp beacon):
 
 <table>
   <tr>
@@ -1325,16 +971,13 @@ The following assumptions are made about URLs which serve beacons:
   </tr>
 </table>
 
-
-##### endpoint for click beacon
+#### endpoint for click beacon
 
 * HTTPS (TLS version 1.2 or above) support
-
 * POST support
-
 * Cross-Origin XMLHttpRequest support (see definition at http://www.w3.org/TR/cors/)
 
-##### fluct transmits according to the following conditions (click beacon):
+#### fluct transmits according to the following conditions (click beacon):
 
 <table>
   <tr>
@@ -1361,7 +1004,6 @@ The following assumptions are made about URLs which serve beacons:
 
 
 * It is assumed that transmission is done from the browser which delivers the advertisement; hence Cross-Origin XMLHttpRequest is used.
-
 * For some environments navigator.sendBeacon() (as defined at http://www.w3.org/TR/beacon/) is also transmitted.
 
 ### c. Macro substitution
@@ -1388,7 +1030,6 @@ SSP will substitute the following strings in ad HTML (adm) before delivering.
     <td>Normally substituted to 0. In the creative review process, it is substituted to 1.</td>
   </tr>
 </table>
-
 
 Cipher system (algorithm, key length, block cipher modes of operation) should be discussed and decided by SSP and DSP beforehand. (e.g., CFB 3DES + the so called Web safe Base64 etc.)
 
@@ -1458,77 +1099,6 @@ Then fluct will count the click and redirect the user to company's landing page.
 
 ## 5. Code table
 
-### Native Ads layout ID code:
-
-<table>
-  <tr>
-    <th>ID</th>
-    <th>layout name</th>
-    <th>fluct status</th>
-    <th>required</th>
-  </tr>
-  <tr>
-    <td>1</td>
-    <td>Content Wall</td>
-    <td>-</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>2</td>
-    <td>App Wall</td>
-    <td>-</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>3</td>
-    <td>News Feed</td>
-    <td>supported</td>
-    <td>img,title,data(sponsored)</td>
-  </tr>
-  <tr>
-    <td>4</td>
-    <td>Chat List</td>
-    <td>-</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>5</td>
-    <td>Carousel</td>
-    <td>-</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>6</td>
-    <td>Content Stream</td>
-    <td>-</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>7</td>
-    <td>Grid adjoining the content</td>
-    <td>-</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>501</td>
-    <td>Text Ad</td>
-    <td>supported</td>
-    <td>title,data(sponsored)</td>
-  </tr>
-  <tr>
-    <td>+500</td>
-    <td></td>
-    <td>others</td>
-    <td></td>
-  </tr>
-</table>
-
-
-* The above required items will be sent for each native layout.
-
-Impressions will not be generated for responses which do not also contain the corresponding items.
-
-Multiple asset objects containing img items may exist.
 
 ## 6. Bid Request/Response Samples
 
@@ -1629,7 +1199,7 @@ Multiple asset objects containing img items may exist.
       "tagid": "14444:1000075047",
       "secure": 1,
       "native": {
-        "ver": "1",
+        "ver": "1.0",
         "request":"{\"native\":{\"assets\": [{\"id\": 1,\"title\": {\"len\": 20}},{\"id\": 2,\"img\": {\"hmin\": 160,\"type\": 1,\"wmin\": 160}},{\"id\": 3,\"data\": {\"len\": 30,\"type\": 1}},{\"data\": {\"len\": 50,\"type\": 2},\"id\": 4}],\"layout\": 3}}"
       }
     }
@@ -1669,7 +1239,7 @@ Multiple asset objects containing img items may exist.
       "tagid": "14444:1000075047",
       "secure": 1,
       "native": {
-        "ver": "1",
+        "ver": "1.0",
         "request":"{\"native\":{\"assets\": [{\"id\": 1,\"title\": {\"len\": 20}},{\"id\": 2,\"img\": {\"hmin\": 320,\"type\": 3,\"wmin\":640}},{\"id\": 3,\"data\": {\"len\": 30,\"type\": 1}},{\"data\": {\"len\": 50,\"type\": 2},\"id\": 4}],\"layout\": 3}}"
       }
     }
@@ -2083,7 +1653,7 @@ Google EBDA transaction example
 
 fluct direct selling publisher example
 
-```
+```json
 {
   "at": 2,
   "badv": [],
@@ -2332,181 +1902,4 @@ fluct direct selling publisher example
     }
   ]
 }
-```
-
-### Native jstracker example
-
-```js
-/**
- *  # fluct SSP's jstracker example
- *
- *
- *  ## Conformance requirements
- *
- *    The key words "MUST", "MUST NOT", "REQUIRED", "SHOULD", "SHOULD NOT",
- *    "RECOMMENDED", "MAY", and "OPTIONAL"
- *    in the normative parts of this document are to be interpreted as described in RFC2119.
- *    https://www.ietf.org/rfc/rfc2119.txt
- *
- *
- *  ## Abstract
- *
- *    fluct SSP's jstracker enables to execute a script provided by DSP,
- *    to fill a gap which other generic protocol feature cannot support.
- *
- *    fluct SSP ensures to invoke jstracker script.
- *    But fluct SSP do not ensure and control the result of evaluating jstracker.
- *
- *  ### Usecases
- *
- *    - DSP MAY:
- *      - measure custom metrics which are not covered by imptrackers or clicktrackers.
- *
- *    - DSP MUST NOT:
- *      - hijack all publisher contents including advertisements.
- *      - or other all violation which breaks real time bidding.
- *        - e.g. display some extra advertisements which are not through RTB.
- *
- *
- *  ## Remarks
- *
- *  ### Execution Environment
- *
- *    - fluct SSP's jstracker is evaluated with using `eval()` or other JavaScript features
- *      to evaluate a string as an executable script.
- *      And jstracker is evaluated as "strict mode" as defined
- *      in [ECMA262 5.1th](http://www.ecma-international.org/ecma-262/5.1/).
- *
- *    - fluct SSP delivers the advertisement to very various user agents.
- *      In some environments (e.g. a page applied [Content Security Policy](https://www.w3.org/TR/CSP/)),
- *      fluct SSP might be failed to evaluate jstracker, or you cannot get the result of it correctly.
- *
- *    - fluct SSP calls jstracker in a timing which cannot call `document.write()`
- *      or other features because fluct SSP is called from `script` element with `async` attributes
- *      or other asynchronous calling. So jstracker must be able to run in such calling timing.
- *
- *  #### non-normative section:
- *
- *  At this moment (September 2016), the bottom line fluct SSP's native RTB supports
- *  are Android 4.1 or iOS 5.1 for mobile web advertisement.
- *  But this bottom line is always flux.
- *  If you'd like to know about it, please contact the person in charge of fluct SSP.
- *
- *
- *  ### Execution Timing
- *
- *    fluct SSP's jstracker will be invoked __BEFORE the advertisement is visible in the page,
- *    CSS rev.2.1, section 2.3.1, The Canvas (https://www.w3.org/TR/CSS2/intro.html#the-canvas)__.
- *    In other words, fluct SSP does not ensure that
- *    whether the advertisement is visible actually when invoking jstracker.
- *
- *    This is by design to integrate with a publisher's page which requires that
- *    to delay displaying an advertisement until they'd like to display it
- *    for a rich pager or other effects for their user.
- *
- *    So if you'd like to track the advertisement impression in jstracker,
- *    you should handle the DOM event which fluct SSP's script fires on the impression.
- *
- *    And we recommend to you that to extend a time limit which your impression beacon lives.
- *
- *
- *  ### Be careful about performance
- *
- *  - If it's available, we recommend to keep down to execute high computational cost operations
- *    for a publisher
- *    - Reduce causing layout computation.
- *    - Handle a scrolling with passive event listener.
- *    - Use Intersection Observer API.
- *
- *  - If it's available, we recommend to keep down a jstracker size for publisher and user.
- *    jstracker will be delivered from fluct's server to the page of publisher.
- *    So the large size jstracker will causes a latency to display the advertisement.
- */
-
-/**
- *  Example of jstracker (non-normative contents).
- *
- *  If you use jstracker in your production, please reduce the byte size of yours.
- *
- *  You can access these variables:
- *    - `aId` {string}
- *      - The value of RTB's `BidResponse.id`.
- */
-
-// Use `img` element to send an impression beacon.
-function impByImgElement() {
-  var img = document.createElement('img');
-
-  // If your request uses plain http, it will be blocked by user agent (web browser)
-  // because of applying mixed content restrictions.
-  //  - http://www.w3.org/TR/mixed-content/
-  //  - https://developer.mozilla.org/en-US/docs/Web/Security/Mixed_content
-  //
-  // We recommend to request over TLS (use https scheme).
-  img.src = 'https://example.fluct.jp/beacon/special/imgelement';
-
-  // To prevent breaking a page layout by a loaded beacon image,
-  // Please dispose them after completing to send a beacon.
-  function remover(event) {
-    img.removeEventListener('load', remover, false);
-    img.removeEventListener('error', remover, false);
-
-    document.body.removeChild(img);
-  }
-  img.addEventListener('load', remover, false);
-  img.addEventListener('error', remover, false);
-
-  document.body.appendChild(img);
-}
-
-// Use `XMLHttpReuqest` to send an impression beacon.
-//
-//  - Your request will be restricted by Cross-Origin Resource Sharing
-//    if you use this approach.
-//    https://www.w3.org/TR/cors/
-//
-//  - You might be able to use [`navigator.sendBeacon()`](https://www.w3.org/TR/beacon/)
-//    to send an impression beacon instead of `XMLHttpRequest`.
-function impByXHR() {
-  var xhr = new XMLHttpRequest();
-  xhr.open('GET', 'https://example.fluct.jp/beacon/special/xhr', true);
-  xhr.send(null);
-}
-
-// this example assign `aId` to `UNIQUE_ID` to explain it clearly.
-// If you construct jstracker, you can access to `aId` directly.
-var UNIQUE_ID = aId;
-
-// To detect the advertisement is actually shown in
-// [CSS rev.2.1, section 2.3.1, The Canvas"](https://www.w3.org/TR/CSS2/intro.html#the-canvas),
-// use this event name. fluct SSP will dispatch the DOM Event to `window` on it.
-var IMP_EVENT_BY_FLUCT = 'FluctNativeNewsfeedAdShownInCanvas';
-
-window.addEventListener(IMP_EVENT_BY_FLUCT, function onImpression(event) {
-  // some advertisement script of fluct SSP might be embedded in the publisher's document at the same time.
-  // Thus you should compare `event.uniqueId` with `UNIQUE_ID` to identify the advertisement
-  // which this jstracker belongs to.
-  if (event.uniqueId !== UNIQUE_ID) {
-    return;
-  }
-
-  // After identifying, please unregister the needless event handler to release a resource.
-  window.removeEventListener(IMP_EVENT_BY_FLUCT, onImpression, false);
-
-  // You can get the node which is the root of the subtree of this advertisement
-  // by following operation.
-  //
-  // This might not an actually advertisement element.
-  // This might contain some elements to style the advertisement.
-  var FLUCT_PREFIX = 'fluct-native-rtb-container-'
-  var subtreeRootOfAdvertisement = document.getElementById(FLUCT_PREFIX + UNIQUE_ID);
-
-  // If you'd like to measure a CSSOM View of the actual advertisement element.
-  // You should call this.
-  var actualAdvertisement = subtreeRootOfAdvertisement.querySelector('[data-fluct-native-newsfeed-ad-wrapper]');
-
-  // Request custom impression beacons.
-  impByImgElement();
-  impByXHR();
-}, false);
 ```
