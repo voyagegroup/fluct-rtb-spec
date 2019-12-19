@@ -1,6 +1,6 @@
 # fluct RTB Specification ver 2.2
 
-This specification is based on OpenRTB 2.5.
+This specification complies with OpenRTB Version 2.5.
 
 See [IAB OpenRTB API Specification Version 2.5](https://www.iab.com/wp-content/uploads/2016/03/OpenRTB-API-Specification-Version-2-5-FINAL.pdf) for details.
 
@@ -16,7 +16,8 @@ Moreover, this specification does not contain description of general RTB protoco
 * [2. Request/Response encoding](#2-requestresponse-encoding)
 * [3. Request specification](#3-request-specification)
   * [a. Endpoint URL](#a-endpoint-url)
-  * [b. Bid request parameters](#b-bid-request-parameters)
+  * [b. OpenRTB Version HTTP Header](#b-openrtb-version-http-header)
+  * [c. Bid request parameters](#c-bid-request-parameters)
     * [BidRequest Object (TopLevel)](#bidrequest-object-toplevel)
     * [imp Object](#imp-object)
     * [source Object](#source-object)
@@ -107,13 +108,23 @@ The endpoint URL which will be used by bid request should be passed to SSP. (DSP
 
 SSP conducts bid request with POST method to the specified endpoint URL.
 
-In order to speed up the process, please turn on HTTP keep alive support if possible.
+For the optimal performance, DSP should enable HTTP keep-alive whenever possible.
 
 https request is also supported.
 
 Please let us know if we need to set the specific Port.
 
-### b. Bid request parameters
+### b. OpenRTB Version HTTP Header
+
+The OpenRTB Version of the request will be passed in bid request HTTP header as:
+
+    X-OpenRTB-Version: 2.5
+
+The version is in format `<major>.<minor>`, and patch version is not included.
+
+Fluct will follow backward-compatible OpenRTB 2 minor version updates, and the version in HTTP header will be updated, accordingly.
+
+### c. Bid request parameters
 
 Serialize format: JSON only.
 
