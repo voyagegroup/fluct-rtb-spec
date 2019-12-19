@@ -1,6 +1,8 @@
 # 変更履歴
 
 * 2.2
+    * 2019/12/19
+        * HTTP `X-OpenRTB-Version` ヘッダの説明を追加
     * 2019/12/11
         * Native 広告仕様を RTB 仕様から分離
             * [native-ads-v1.ja.md](./native-ads-v1.ja.md)

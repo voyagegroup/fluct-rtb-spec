@@ -11,10 +11,11 @@ OpenRTB 2.5 に準拠しています。詳細は[IABのOpenRTB API Specification
 
 * [0. 変更履歴](#0-変更履歴)
 * [1. cookie sync](#1-cookie-sync)
-* [2. リクエスト・レスポンスのエンコーディング](#2-リクエスト・レスポンスのエンコーディング)
+* [2. リクエスト・レスポンスのエンコーディング](#2-リクエストレスポンスのエンコーディング)
 * [3. リクエスト仕様](#3-リクエスト仕様)
   * [a. エンドポイントURL](#a-エンドポイントurl)
-  * [b. bidリクエストパラメタ](#b-bidリクエストパラメタ)
+  * [b. OpenRTB バージョン HTTP ヘッダ](#b-openrtb-バージョン-http-ヘッダ)
+  * [c. bidリクエストパラメタ](#c-bidリクエストパラメタ)
     * [BidRequest Object (TopLevel)](#bidrequest-object-toplevel)
     * [imp Object](#imp-object)
     * [source Object](#source-object)
@@ -100,7 +101,17 @@ bid リクエストを送信すべきエンドポイントURLをSSPに通知し�
 
 SSPは指定されたエンドポイントURLにbidリクエストをPOSTします。高速化のため、可能であれば HTTP keep aliveをサポートしてください。なお、httpsにも対応しております。また、個別のportの指定がある場合は、事前にご連絡ください。
 
-### b. bidリクエストパラメタ
+### b. OpenRTB バージョン HTTP ヘッダ
+
+準拠している OpenRTB バージョンは、下記 bid リクエスト HTTP ヘッダで送信されます。
+
+    X-OpenRTB-Version: 2.5
+
+このバージョンは `<メジャー>.<マイナー>` 形式で、パッチバージョンは含まれません。
+
+fluct では後方互換性のある OpenRTB 2 マイナーバージョンの進行に追随し、それに伴い HTTP ヘッダ中のバージョンも更新されます。
+
+### c. bidリクエストパラメタ
 
 シリアライズフォーマット：JSONのみ
 
