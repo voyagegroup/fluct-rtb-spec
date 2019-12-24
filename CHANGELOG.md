@@ -1,12 +1,16 @@
 # 変更履歴
 
 * 2.2
+    * 2019/12/24
+        * RTB Bid Request/Response 例を改修
+            * [version2.req-examples.md](version2.req-examples.md)
+            * [version2.res-examples.md](version2.res-examples.md)
     * 2019/12/19
         * HTTP `X-OpenRTB-Version` ヘッダの説明を追加
     * 2019/12/11
         * Native 広告仕様を RTB 仕様から分離
-            * [native-ads-v1.ja.md](./native-ads-v1.ja.md)
-            * [native-ads-v1.en.md](./native-ads-v1.en.md)
+            * [native-ads-v1.ja.md](native-ads-v1.ja.md)
+            * [native-ads-v1.en.md](native-ads-v1.en.md)
     * 2019/12/02
         * Bid Response に `bundle`, `nurl`, `lurl` を追加
     * 2019/11/06
