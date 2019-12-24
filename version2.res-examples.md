@@ -2,7 +2,7 @@
 
 * [Banner](#banner)
 * [Native](#native)
-* [Video/Audio](#video-audio)
+* [Video/Audio](#videoaudio)
 * [With dealid](#with-dealid)
 * [With nurl and lurl](#with-nurl-and-lurl)
 * [With bundle](#with-bundle)
