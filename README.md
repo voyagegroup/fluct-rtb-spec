@@ -6,6 +6,11 @@
 * [日本語](version2.ja.md)
 * [CHANGELOG](CHANGELOG.md)
 
+Bid Request/Response Examples:
+
+* [Bid Request Examples](version2.req-examples.md)
+* [Bid Response Examples](version2.res-examples.md)
+
 ## VAST Spec v1.x
 
 * [English](vast-v1.en.md)
