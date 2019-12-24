@@ -8,4 +8,4 @@ version2.%.md: $(DLV)/rtb/version2.%.md
 clean:
 	rm -f $(ARTIFACT)
 
-.PHONY: all
+.PHONY: all clean
