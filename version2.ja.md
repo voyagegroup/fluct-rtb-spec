@@ -23,6 +23,7 @@ OpenRTB 2.5 に準拠しています。詳細は[IABのOpenRTB API Specification
     * [app Object](#app-object)
     * [user Object](#user-object)
     * [device Object](#device-object)
+    * [geo Object](#geo-object)
     * [banner Object](#banner-object)
     * [format Object](#format-object)
     * [video Object](#video-object)
@@ -404,8 +405,8 @@ string</td>
   </tr>
 </table>
 
-
 ※ device.ifaを送る場合は、user.buyeruidは送らず、user.idにはdevice.ifaの値と同様の値が入ります
+
 
 #### device Object
 
@@ -422,10 +423,21 @@ string</td>
 string</td>
   </tr>
   <tr>
+    <td>geo</td>
+    <td>optional</td>
+    <td>
+      <a href="#geo-object">geo object</a>
+    </td>
+  </tr>
+  <tr>
     <td>ip</td>
     <td>required</td>
-    <td>IPアドレス
-string</td>
+    <td>IPv4 アドレス string</td>
+  </tr>
+  <tr>
+    <td>ipv6</td>
+    <td>optional</td>
+    <td>IPv6 アドレス string</td>
   </tr>
   <tr>
     <td>ifa</td>
@@ -453,6 +465,72 @@ integer</td>
 </table>
 
 
+#### geo Object
+
+<table>
+  <tr>
+    <th>Field</th>
+    <th>scope</th>
+    <th>description</th>
+  </tr>
+  <tr>
+    <td>lat</td>
+    <td>optional</td>
+    <td>緯度; -90.0~90.0 で、負は南; float</td>
+  </tr>
+  <tr>
+    <td>lon</td>
+    <td>optional</td>
+    <td>経度; -180.0~180.0 で、負は西; float</td>
+  </tr>
+  <tr>
+    <td>type</td>
+    <td>optional</td>
+    <td>位置情報の由来; 1=GPS, 2=IP address, 3=ユーザの提供による; integer</td>
+  </tr>
+  <tr>
+    <td>accuracy</td>
+    <td>optional</td>
+    <td>精度 (メートル); integer</td>
+  </tr>
+  <tr>
+    <td>ipservice</td>
+    <td>optional</td>
+    <td>IPアドレス由来の位置情報の場合、その提供元; 1=ip2location, 2=Neustar, 3=MaxMind, 4=NetAcuity; integer</td>
+  </tr>
+  <tr>
+    <td>country</td>
+    <td>optional</td>
+    <td>国コード (ISO 3166-1 alpha-3); string</td>
+  </tr>
+  <tr>
+    <td>region</td>
+    <td>optional</td>
+    <td>地域コード (ISO 3166-2); 米国の場合のみ2文字州コード; string</td>
+  </tr>
+  <tr>
+    <td>metro</td>
+    <td>optional</td>
+    <td>Google metro code; string</td>
+  </tr>
+  <tr>
+    <td>city</td>
+    <td>optional</td>
+    <td>都市名; string</td>
+  </tr>
+  <tr>
+    <td>zip</td>
+    <td>optional</td>
+    <td>郵便番号; string</td>
+  </tr>
+  <tr>
+    <td>utcoffset</td>
+    <td>optional</td>
+    <td>UTC との時差 (分); integer</td>
+  </tr>
+</table>
+
+
 #### banner Object
 
 <table>
@@ -466,7 +544,7 @@ integer</td>
     <td>format</td>
     <td>optional</td>
     <td>
-      <a href="#format-object">フォーマットオブジェクト</a>の配列
+      <a href="#format-object">format object</a>の配列
     </td>
   <tr>
   </tr>
@@ -674,7 +752,7 @@ integer</td>
     <td>companionad</td>
     <td>optional</td>
     <td>
-      コンパニオンアドがサポートされている場合、<a href="#banner-object">バナーオブジェクト</a>が入れられる
+      コンパニオンアドがサポートされている場合、<a href="#banner-object">banner object</a>が入れられる
     </td>
   </tr>
 </table>

@@ -32,7 +32,13 @@
     "devicetype": 2,
     "dnt": 0,
     "geo": {
-      "country": "JPN"
+      "city": "Shibuya",
+      "country": "JPN",
+      "ipservice": 3,
+      "region": "JP-13",
+      "type": 2,
+      "utcoffset": 540,
+      "zip": "150-0043"
     },
     "hwv": "",
     "ifa": "",
@@ -48,7 +54,7 @@
     "pxratio": 0.0,
     "ua": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/51.0.2704.79 Safari\/537.36 Edge\/14.14393"
   },
-  "id": "526e0673-6c0b-46d5-b945-f7075a1db26c",
+  "id": "ee59d6dc-6f20-4d6e-92be-2aec30f6c66b",
   "imp": [
     {
       "banner": {
@@ -109,7 +115,7 @@
             "asi": "adingo.jp",
             "ext": {},
             "hp": 1,
-            "rid": "526e0673-6c0b-46d5-b945-f7075a1db26c",
+            "rid": "ee59d6dc-6f20-4d6e-92be-2aec30f6c66b",
             "sid": "234"
           }
         ],
@@ -118,13 +124,13 @@
       "stype": ""
     },
     "fd": 0,
-    "tid": "526e0673-6c0b-46d5-b945-f7075a1db26c"
+    "tid": "ee59d6dc-6f20-4d6e-92be-2aec30f6c66b"
   },
   "tmax": 120,
   "user": {
     "buyeruid": "synced-buyeruid",
     "ext": {},
-    "id": "6d51a515f01cbc4936e11a2196f478ff00c4e746"
+    "id": "a356c2b925699e3d05af52405f3af3adbdfb2552"
   },
   "wseat": []
 }
@@ -170,10 +176,16 @@
     "devicetype": 2,
     "dnt": 0,
     "geo": {
-      "country": "JPN"
+      "city": "Shibuya",
+      "country": "JPN",
+      "ipservice": 3,
+      "region": "JP-13",
+      "type": 2,
+      "utcoffset": 540,
+      "zip": "150-0043"
     },
     "hwv": "",
-    "ifa": "dea06fec-cc9d-4656-8cfa-a9cfb9809a80",
+    "ifa": "238ef9ea-39d8-4795-8000-e5a0973f62c0",
     "ip": "210.168.46.254",
     "ipv6": "",
     "js": 1,
@@ -186,7 +198,7 @@
     "pxratio": 0.0,
     "ua": "Mozilla \/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit\/601.1.46 (KHTML, like Gecko) Version\/9.0 Mobile\/13B5110e Safari\/601.1"
   },
-  "id": "8d836437-b19b-403b-bdf7-f4d2045406bc",
+  "id": "108b7491-3e1c-4588-b524-f46979a99e02",
   "imp": [
     {
       "banner": {
@@ -227,7 +239,7 @@
             "asi": "adingo.jp",
             "ext": {},
             "hp": 1,
-            "rid": "8d836437-b19b-403b-bdf7-f4d2045406bc",
+            "rid": "108b7491-3e1c-4588-b524-f46979a99e02",
             "sid": "234"
           }
         ],
@@ -236,13 +248,13 @@
       "stype": ""
     },
     "fd": 0,
-    "tid": "8d836437-b19b-403b-bdf7-f4d2045406bc"
+    "tid": "108b7491-3e1c-4588-b524-f46979a99e02"
   },
   "tmax": 120,
   "user": {
     "buyeruid": "",
     "ext": {},
-    "id": "dea06fec-cc9d-4656-8cfa-a9cfb9809a80"
+    "id": "238ef9ea-39d8-4795-8000-e5a0973f62c0"
   },
   "wseat": []
 }
@@ -270,7 +282,13 @@
     "devicetype": 2,
     "dnt": 0,
     "geo": {
-      "country": "JPN"
+      "city": "Shibuya",
+      "country": "JPN",
+      "ipservice": 3,
+      "region": "JP-13",
+      "type": 2,
+      "utcoffset": 540,
+      "zip": "150-0043"
     },
     "hwv": "",
     "ifa": "",
@@ -286,7 +304,7 @@
     "pxratio": 0.0,
     "ua": "Mozilla\/5.0 (Linux; Android 9; SOV39 Build\/52.0.C.1.119) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/68.0.3440.91 Mobile Safari\/537.36"
   },
-  "id": "d01d1662-d25a-42af-b69f-cb7ec9d2e1ef",
+  "id": "f825e972-e5fe-4253-9c2e-2df5c996f6fb",
   "imp": [
     {
       "bidfloor": 2.430134,
@@ -339,7 +357,7 @@
             "asi": "adingo.jp",
             "ext": {},
             "hp": 1,
-            "rid": "d01d1662-d25a-42af-b69f-cb7ec9d2e1ef",
+            "rid": "f825e972-e5fe-4253-9c2e-2df5c996f6fb",
             "sid": "234"
           }
         ],
@@ -348,13 +366,13 @@
       "stype": ""
     },
     "fd": 0,
-    "tid": "d01d1662-d25a-42af-b69f-cb7ec9d2e1ef"
+    "tid": "f825e972-e5fe-4253-9c2e-2df5c996f6fb"
   },
   "tmax": 120,
   "user": {
     "buyeruid": "synced-buyeruid",
     "ext": {},
-    "id": "e2cfd6369dd09425ed9a69ef271d665615e64046"
+    "id": "0c17f6f9a903e93cdd30e1e77a8dad01a47d5ffe"
   },
   "wseat": []
 }
@@ -382,7 +400,13 @@
     "devicetype": 2,
     "dnt": 0,
     "geo": {
-      "country": "JPN"
+      "city": "Shibuya",
+      "country": "JPN",
+      "ipservice": 3,
+      "region": "JP-13",
+      "type": 2,
+      "utcoffset": 540,
+      "zip": "150-0043"
     },
     "hwv": "",
     "ifa": "",
@@ -398,7 +422,7 @@
     "pxratio": 0.0,
     "ua": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/51.0.2704.79 Safari\/537.36 Edge\/14.14393"
   },
-  "id": "58a04645-5763-4a3e-9ce4-f4f33a551a6a",
+  "id": "702182a1-214b-4750-9c5f-99261491a79a",
   "imp": [
     {
       "bidfloor": 2.430134,
@@ -473,7 +497,7 @@
             "asi": "adingo.jp",
             "ext": {},
             "hp": 1,
-            "rid": "58a04645-5763-4a3e-9ce4-f4f33a551a6a",
+            "rid": "702182a1-214b-4750-9c5f-99261491a79a",
             "sid": "234"
           }
         ],
@@ -482,13 +506,13 @@
       "stype": ""
     },
     "fd": 0,
-    "tid": "58a04645-5763-4a3e-9ce4-f4f33a551a6a"
+    "tid": "702182a1-214b-4750-9c5f-99261491a79a"
   },
   "tmax": 120,
   "user": {
     "buyeruid": "synced-buyeruid",
     "ext": {},
-    "id": "5b06322a95f3997cee6a0763c59a97e197185029"
+    "id": "77137608018ece4c6bef4c5ac8662a330919fe12"
   },
   "wseat": []
 }
@@ -538,10 +562,16 @@ For rewarded-video ad, a request video-object can explicitly include optional pa
     "devicetype": 2,
     "dnt": 0,
     "geo": {
-      "country": "JPN"
+      "city": "Shibuya",
+      "country": "JPN",
+      "ipservice": 3,
+      "region": "JP-13",
+      "type": 2,
+      "utcoffset": 540,
+      "zip": "150-0043"
     },
     "hwv": "",
-    "ifa": "ee2c8225-6feb-4bc1-b1a7-233ee9e2482f",
+    "ifa": "aa915921-3f8a-4a8b-9490-94e9654a8a7f",
     "ip": "210.168.46.254",
     "ipv6": "",
     "js": 1,
@@ -554,7 +584,7 @@ For rewarded-video ad, a request video-object can explicitly include optional pa
     "pxratio": 0.0,
     "ua": "Mozilla \/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit\/601.1.46 (KHTML, like Gecko) Version\/9.0 Mobile\/13B5110e Safari\/601.1"
   },
-  "id": "1728c374-6a72-4a84-937b-cc439daf3444",
+  "id": "4c227a0d-5228-4876-accf-d95ca734c76c",
   "imp": [
     {
       "bidfloor": 2.430134,
@@ -585,7 +615,7 @@ For rewarded-video ad, a request video-object can explicitly include optional pa
           }
         ],
         "ext": {
-          "videotype": "rewarded"
+          "rewarded": 1
         },
         "h": 647,
         "linearity": 1,
@@ -622,7 +652,7 @@ For rewarded-video ad, a request video-object can explicitly include optional pa
             "asi": "adingo.jp",
             "ext": {},
             "hp": 1,
-            "rid": "1728c374-6a72-4a84-937b-cc439daf3444",
+            "rid": "4c227a0d-5228-4876-accf-d95ca734c76c",
             "sid": "234"
           }
         ],
@@ -631,13 +661,13 @@ For rewarded-video ad, a request video-object can explicitly include optional pa
       "stype": ""
     },
     "fd": 0,
-    "tid": "1728c374-6a72-4a84-937b-cc439daf3444"
+    "tid": "4c227a0d-5228-4876-accf-d95ca734c76c"
   },
   "tmax": 300,
   "user": {
     "buyeruid": "",
     "ext": {},
-    "id": "ee2c8225-6feb-4bc1-b1a7-233ee9e2482f"
+    "id": "aa915921-3f8a-4a8b-9490-94e9654a8a7f"
   },
   "wseat": []
 }
@@ -665,7 +695,13 @@ For rewarded-video ad, a request video-object can explicitly include optional pa
     "devicetype": 2,
     "dnt": 0,
     "geo": {
-      "country": "JPN"
+      "city": "Shibuya",
+      "country": "JPN",
+      "ipservice": 3,
+      "region": "JP-13",
+      "type": 2,
+      "utcoffset": 540,
+      "zip": "150-0043"
     },
     "hwv": "",
     "ifa": "",
@@ -681,7 +717,7 @@ For rewarded-video ad, a request video-object can explicitly include optional pa
     "pxratio": 0.0,
     "ua": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/51.0.2704.79 Safari\/537.36 Edge\/14.14393"
   },
-  "id": "2de96e98-4fad-4e83-b92b-907acdddb535",
+  "id": "8ddc3fa0-e770-484b-94de-7a398f471928",
   "imp": [
     {
       "audio": {
@@ -750,7 +786,7 @@ For rewarded-video ad, a request video-object can explicitly include optional pa
             "asi": "adingo.jp",
             "ext": {},
             "hp": 1,
-            "rid": "2de96e98-4fad-4e83-b92b-907acdddb535",
+            "rid": "8ddc3fa0-e770-484b-94de-7a398f471928",
             "sid": "234"
           }
         ],
@@ -759,13 +795,13 @@ For rewarded-video ad, a request video-object can explicitly include optional pa
       "stype": ""
     },
     "fd": 0,
-    "tid": "2de96e98-4fad-4e83-b92b-907acdddb535"
+    "tid": "8ddc3fa0-e770-484b-94de-7a398f471928"
   },
   "tmax": 120,
   "user": {
     "buyeruid": "synced-buyeruid",
     "ext": {},
-    "id": "7162fb3c3056d052e3f1a397ee8c6e0c54d6027a"
+    "id": "3568c3ac2fd34540b607f02ee3c0545062c2e938"
   },
   "wseat": []
 }
@@ -793,7 +829,13 @@ For rewarded-video ad, a request video-object can explicitly include optional pa
     "devicetype": 2,
     "dnt": 0,
     "geo": {
-      "country": "JPN"
+      "city": "Shibuya",
+      "country": "JPN",
+      "ipservice": 3,
+      "region": "JP-13",
+      "type": 2,
+      "utcoffset": 540,
+      "zip": "150-0043"
     },
     "hwv": "",
     "ifa": "",
@@ -809,7 +851,7 @@ For rewarded-video ad, a request video-object can explicitly include optional pa
     "pxratio": 0.0,
     "ua": "Mozilla \/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit\/601.1.46 (KHTML, like Gecko) Version\/9.0 Mobile\/13B5110e Safari\/601.1"
   },
-  "id": "63feee14-7251-4ce1-a397-1c039b99432c",
+  "id": "33f203d8-d8ca-4da6-b6c4-6f42e095cd84",
   "imp": [
     {
       "ext": {},
@@ -910,7 +952,7 @@ For rewarded-video ad, a request video-object can explicitly include optional pa
             "asi": "adingo.jp",
             "ext": {},
             "hp": 1,
-            "rid": "63feee14-7251-4ce1-a397-1c039b99432c",
+            "rid": "33f203d8-d8ca-4da6-b6c4-6f42e095cd84",
             "sid": "234"
           }
         ],
@@ -919,13 +961,13 @@ For rewarded-video ad, a request video-object can explicitly include optional pa
       "stype": ""
     },
     "fd": 0,
-    "tid": "63feee14-7251-4ce1-a397-1c039b99432c"
+    "tid": "33f203d8-d8ca-4da6-b6c4-6f42e095cd84"
   },
   "tmax": 120,
   "user": {
     "buyeruid": "synced-buyeruid",
     "ext": {},
-    "id": "f1cbf2653819d55ffd71f265653bc380fe11c603"
+    "id": "73656f35a5814486f5a5dd71ac59bbcceab2153d"
   },
   "wseat": []
 }
@@ -953,7 +995,13 @@ For rewarded-video ad, a request video-object can explicitly include optional pa
     "devicetype": 2,
     "dnt": 0,
     "geo": {
-      "country": "JPN"
+      "city": "Shibuya",
+      "country": "JPN",
+      "ipservice": 3,
+      "region": "JP-13",
+      "type": 2,
+      "utcoffset": 540,
+      "zip": "150-0043"
     },
     "hwv": "",
     "ifa": "",
@@ -969,7 +1017,7 @@ For rewarded-video ad, a request video-object can explicitly include optional pa
     "pxratio": 0.0,
     "ua": "Mozilla \/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit\/601.1.46 (KHTML, like Gecko) Version\/9.0 Mobile\/13B5110e Safari\/601.1"
   },
-  "id": "646be0d0-7d91-428f-9ef5-810cf6b74e0f",
+  "id": "4ee4cf4c-5574-4838-80dc-33df297602ab",
   "imp": [
     {
       "banner": {
@@ -1058,7 +1106,7 @@ For rewarded-video ad, a request video-object can explicitly include optional pa
             "asi": "adingo.jp",
             "ext": {},
             "hp": 1,
-            "rid": "646be0d0-7d91-428f-9ef5-810cf6b74e0f",
+            "rid": "4ee4cf4c-5574-4838-80dc-33df297602ab",
             "sid": "234"
           }
         ],
@@ -1067,13 +1115,13 @@ For rewarded-video ad, a request video-object can explicitly include optional pa
       "stype": ""
     },
     "fd": 0,
-    "tid": "646be0d0-7d91-428f-9ef5-810cf6b74e0f"
+    "tid": "4ee4cf4c-5574-4838-80dc-33df297602ab"
   },
   "tmax": 120,
   "user": {
     "buyeruid": "synced-buyeruid",
     "ext": {},
-    "id": "bc0e97fd046f34c60b8772777acefd15c80b3a3e"
+    "id": "67a5346912bc227271f45df203b77e3c94fc1940"
   },
   "wseat": []
 }
@@ -1103,7 +1151,13 @@ Google Open Bidding transaction example.
     "devicetype": 2,
     "dnt": 0,
     "geo": {
-      "country": "JPN"
+      "city": "Portland",
+      "country": "USA",
+      "ipservice": 3,
+      "region": "OR",
+      "type": 2,
+      "utcoffset": -480,
+      "zip": "97218"
     },
     "hwv": "",
     "ifa": "",
@@ -1119,7 +1173,7 @@ Google Open Bidding transaction example.
     "pxratio": 0.0,
     "ua": "Mozilla \/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit\/601.1.46 (KHTML, like Gecko) Version\/9.0 Mobile\/13B5110e Safari\/601.1"
   },
-  "id": "735d6307-5b0b-45b5-9ca7-e4632e0b4d39",
+  "id": "7dadc8ca-39c6-485d-99f3-da0d666ee54b",
   "imp": [
     {
       "banner": {
@@ -1186,7 +1240,7 @@ Google Open Bidding transaction example.
             "asi": "adingo.jp",
             "ext": {},
             "hp": 1,
-            "rid": "735d6307-5b0b-45b5-9ca7-e4632e0b4d39",
+            "rid": "7dadc8ca-39c6-485d-99f3-da0d666ee54b",
             "sid": "234"
           }
         ],
@@ -1195,13 +1249,13 @@ Google Open Bidding transaction example.
       "stype": "EB"
     },
     "fd": 1,
-    "tid": "c2d8ad25-4cab-444d-9f76-57f5a6dfe30b"
+    "tid": "55942c25-4802-4b8e-ae9a-d8fe83bd442c"
   },
   "tmax": 120,
   "user": {
     "buyeruid": "synced-buyeruid",
     "ext": {},
-    "id": "bc52ab0a9223f722c57c16dc0d6cc21a080bd22c"
+    "id": "d28de788fc31ddca4a49ec61569490f5ca0efbe0"
   },
   "wseat": []
 }

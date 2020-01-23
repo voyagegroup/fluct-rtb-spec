@@ -25,6 +25,7 @@ Moreover, this specification does not contain description of general RTB protoco
     * [app Object](#app-object)
     * [user Object](#user-object)
     * [device Object](#device-object)
+    * [geo Object](#geo-object)
     * [banner Object](#banner-object)
     * [format Object](#format-object)
     * [video Object](#video-object)
@@ -382,8 +383,8 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
   </tr>
 </table>
 
-
 * When "ifa" is sent, “user.buyeruid” is not sent and “user.id” is set to be the value of “device.ifa”.
+
 
 #### device Object
 
@@ -399,9 +400,21 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
     <td></td>
   </tr>
   <tr>
+    <td>geo</td>
+    <td>optional</td>
+    <td>
+      <a href="#geo-object">geo object</a>
+    </td>
+  </tr>
+  <tr>
     <td>ip</td>
     <td>required</td>
-    <td></td>
+    <td>IPv4 Address; string</td>
+  </tr>
+  <tr>
+    <td>ipv6</td>
+    <td>optional</td>
+    <td>IPv6 Address; string</td>
   </tr>
   <tr>
     <td>ifa</td>
@@ -422,6 +435,72 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
     <td>osv</td>
     <td>optional</td>
     <td></td>
+  </tr>
+</table>
+
+
+#### geo Object
+
+<table>
+  <tr>
+    <th>Field</th>
+    <th>scope</th>
+    <th>description</th>
+  </tr>
+  <tr>
+    <td>lat</td>
+    <td>optional</td>
+    <td>Latitude; -90.0~90.0 where negative is south; float</td>
+  </tr>
+  <tr>
+    <td>lon</td>
+    <td>optional</td>
+    <td>Longitude; -180.0~180.0 where negative is west; float</td>
+  </tr>
+  <tr>
+    <td>type</td>
+    <td>optional</td>
+    <td>Source of location data; 1=GPS, 2=IP address, 3=User provided; integer</td>
+  </tr>
+  <tr>
+    <td>accuracy</td>
+    <td>optional</td>
+    <td>Accuracy in meters; integer</td>
+  </tr>
+  <tr>
+    <td>ipservice</td>
+    <td>optional</td>
+    <td>Provider of IP address geolocation service; 1=ip2location, 2=Neustar, 3=MaxMind, 4=NetAcuity; integer</td>
+  </tr>
+  <tr>
+    <td>country</td>
+    <td>optional</td>
+    <td>Country code in ISO 3166-1 alpha-3; string</td>
+  </tr>
+  <tr>
+    <td>region</td>
+    <td>optional</td>
+    <td>Region code in ISO 3166-2; 2-letter state code if US; string</td>
+  </tr>
+  <tr>
+    <td>metro</td>
+    <td>optional</td>
+    <td>Google metro code; string</td>
+  </tr>
+  <tr>
+    <td>city</td>
+    <td>optional</td>
+    <td>City name; string</td>
+  </tr>
+  <tr>
+    <td>zip</td>
+    <td>optional</td>
+    <td>Zip or postalcode; string</td>
+  </tr>
+  <tr>
+    <td>utcoffset</td>
+    <td>optional</td>
+    <td>Local time offset from UTC in minutes; integer</td>
   </tr>
 </table>
 

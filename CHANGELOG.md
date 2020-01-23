@@ -1,6 +1,9 @@
 # 変更履歴
 
 * 2.2
+    * 2020/01/23
+        * Bid Request Geo Object を仕様に追加
+        * Bid Request/Response 例を更新
     * 2019/12/24
         * RTB Bid Request/Response 例を改修
             * [version2.req-examples.md](version2.req-examples.md)
