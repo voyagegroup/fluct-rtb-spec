@@ -10,7 +10,7 @@
             * `cid`, `w`, `h`, `attr`, `cat` 追加
             * `bundle` の型を string[] から string に修正
             * `adomain` を必須項目 (required) に変更
-            * `bundle`, `cid`, `crid`, `w`, `h` を推奨項目 (recommended) に変更
+            * `bundle`, `cid`, `crid`, `w`, `h`, `attr`, `cat` を推奨項目 (recommended) に変更
         * Bid Request/Response Examples を更新
         * その他、古い情報を削除
     * 2020/01/23
