@@ -2,7 +2,7 @@
 
 OpenRTB 2.5 に準拠しています。詳細は[IABのOpenRTB API Specification Version 2.5](https://www.iab.com/wp-content/uploads/2016/03/OpenRTB-API-Specification-Version-2-5-FINAL.pdf)をご確認ください
 
-注意
+### 注意
 
 この仕様書には不完全な点があるかもしれません。不備や不明瞭な点がありましたら、担当者か [developer@fluct.jp](mailto:developer@fluct.jp) に教えてください。また、一般的なRTBのプロトコルそのものに対する説明はありません。
 
@@ -16,11 +16,12 @@ OpenRTB 2.5 に準拠しています。詳細は[IABのOpenRTB API Specification
   * [a. エンドポイントURL](#a-エンドポイントurl)
   * [b. OpenRTB バージョン HTTP ヘッダ](#b-openrtb-バージョン-http-ヘッダ)
   * [c. bidリクエストパラメタ](#c-bidリクエストパラメタ)
-    * [BidRequest Object (TopLevel)](#bidrequest-object-toplevel)
+    * [Bid Request Object (Top Level)](#bid-request-object-top-level)
     * [imp Object](#imp-object)
     * [source Object](#source-object)
     * [site Object](#site-object)
     * [app Object](#app-object)
+    * [publisher Object](#publisher-object)
     * [user Object](#user-object)
     * [device Object](#device-object)
     * [geo Object](#geo-object)
@@ -30,13 +31,12 @@ OpenRTB 2.5 に準拠しています。詳細は[IABのOpenRTB API Specification
     * [audio Object](#audio-object)
     * [native Object](#native-object)
     * [pmp Object](#pmp-object)
-    * [deals Object](#deals-object)
+    * [deal Object](#deal-object)
 * [4. レスポンス仕様](#4-レスポンス仕様)
   * [a. bidレスポンスパラメタ](#a-bidレスポンスパラメタ)
-    * [BidResponse Object (TopLevel)](#bidresponse-object-toplevel)
-    * [Seatbid Object](#seatbid-object)
-    * [Bid Object](#bid-object)
-    * [native response adm (serialized JSON object)](#native-response-adm-serialized-json-object)
+    * [Bid Response Object (Top Level)](#bid-response-object-top-level)
+    * [seatbid Object](#seatbid-object)
+    * [bid Object](#bid-object)
   * [b. impressionまたは/clickビーコンの送信](#b-impressionまたはclickビーコンの送信)
     * [impressionビーコンを受けるエンドポイント](#impressionビーコンを受けるエンドポイント)
     * [impressionビーコンを送信するfluctのクライアント側](#impressionビーコンを送信するfluctのクライアント側)
@@ -101,155 +101,150 @@ fluct では後方互換性のある OpenRTB 2 マイナーバージョンの進
 
 シリアライズフォーマット：JSONのみ
 
-（※文字列型サポート以前のMessagePackを使用した接続実績がありますが、MessagePackは非推奨です。文字列型サポート版以降のMessagePackに対応する予定はありません。）
 
-#### BidRequest Object (TopLevel)
+#### Bid Request Object (Top Level)
 
 <table>
   <tr>
     <th>Field</th>
-    <th>scope</th>
+    <th>type</th>
     <th>description</th>
   </tr>
   <tr>
     <td>id</td>
-    <td>required</td>
-    <td>オークション毎にSSP側でユニークに採番されるID
-string</td>
+    <td>string; required</td>
+    <td>オークション毎にSSP側でユニークに採番されるID</td>
   </tr>
   <tr>
     <td>imp</td>
-    <td>required</td>
+    <td>imp object; required</td>
     <td>広告枠に関する情報</td>
   </tr>
   <tr>
     <td>source</td>
-    <td>optional</td>
+    <td>source object</td>
     <td>ヘッダー入札のような、広告エクスチェンジによる上流情報</td>
   </tr>
   <tr>
     <td>site</td>
-    <td>optional</td>
+    <td>site object</td>
     <td>掲載されるサイトに関する情報</td>
   </tr>
   <tr>
     <td>app</td>
-    <td>optional</td>
+    <td>app object</td>
     <td>掲載されるアプリに関する情報</td>
   </tr>
   <tr>
     <td>user</td>
-    <td>optional</td>
+    <td>user object</td>
     <td>ユーザに関する情報</td>
   </tr>
   <tr>
     <td>bcat</td>
-    <td>required</td>
-    <td>パブリッシャー側でブロックしたい広告のカテゴリ情報
-string array</td>
+    <td>array of strings; required</td>
+    <td>
+      パブリッシャー側でブロックしたい広告のカテゴリ情報。
+      IAB OpenRTB 2.5 仕様 5.1 Content Categories を参照してください。
+    </td>
   </tr>
   <tr>
     <td>badv</td>
-    <td>optional</td>
-    <td>パブリッシャー側でブロックしたい広告のドメイン情報
-string array</td>
+    <td>array of strings</td>
+    <td>パブリッシャー側でブロックしたい広告のドメイン情報</td>
   </tr>
   <tr>
     <td>tmax</td>
-    <td>optional</td>
+    <td>integer</td>
     <td>オークションのタイムアウトの時間
-120 は 120ms以内を意味します。
-integer</td>
+120 は 120ms以内を意味します。</td>
   </tr>
   <tr>
     <td>device</td>
-    <td>optional</td>
+    <td>device object</td>
     <td>デバイスに関する情報</td>
   </tr>
   <tr>
     <td>at</td>
-    <td>optional</td>
-    <td>1=ファーストプライスオークション, 2=セカンドプライスオークション integer</td>
+    <td>integer</td>
+    <td>1=ファーストプライスオークション, 2=セカンドプライスオークション</td>
   </tr>
   <tr>
     <td>cur</td>
-    <td>optional</td>
-    <td>入札できる通貨 string array</td>
+    <td>array of strings</td>
+    <td>入札できる通貨</td>
   </tr>
 </table>
 
+* site、app いずれかは必須
 
-※ site、app いずれかは必須
 
 #### imp Object
 
 <table>
   <tr>
     <th>Field</th>
-    <th>scope</th>
+    <th>type</th>
     <th>description</th>
   </tr>
   <tr>
     <td>id</td>
-    <td>required</td>
-    <td>SSP側で採番したID
-string</td>
+    <td>string; required</td>
+    <td>SSP側で採番したID</td>
   </tr>
   <tr>
     <td>tagid</td>
-    <td>required</td>
-    <td>SSP側で管理している広告枠を表すID
-string
-ex) 1234:987654321</td>
+    <td>string; required</td>
+    <td>SSP側で管理している広告枠を表すID。 ex) 1234:987654321</td>
   </tr>
   <tr>
     <td>secure</td>
-    <td>optional</td>
+    <td>integer</td>
     <td>
-      掲載面がhttpsページであるかを示す情報
-      nonsecure=0, secure=1,
-      integer
+      掲載面がhttpsページであるかを示す情報。
+      0=nonsecure,
+      1=secure
     </td>
   </tr>
   <tr>
     <td>banner</td>
-    <td>optional</td>
+    <td>banner object</td>
     <td>banner に関する情報</td>
   </tr>
   <tr>
     <td>video</td>
-    <td>optional</td>
+    <td>video object</td>
     <td>video に関する情報</td>
   </tr>
   <tr>
-    <td>pmp</td>
-    <td>optional</td>
-    <td>pmp に関する情報</td>
-  </tr>
-  <tr>
     <td>native</td>
-    <td>optional</td>
+    <td>native object</td>
     <td>native に関する情報</td>
   </tr>
   <tr>
+    <td>pmp</td>
+    <td>pmp object</td>
+    <td>pmp に関する情報</td>
+  </tr>
+  <tr>
     <td>instl</td>
-    <td>optional</td>
+    <td>integer</td>
     <td>掲載方法がインタースティシャルであるかを示す情報
 インタースティシャルでない = 0, インタースティシャルである = 1</td>
   </tr>
   <tr>
     <td>bidfloor</td>
-    <td>optional</td>
-    <td>フロアプライス, float</td>
+    <td>float</td>
+    <td>フロアプライス</td>
   </tr>
   <tr>
     <td>bidfloorcur</td>
-    <td>optional</td>
-    <td>フロアプライスの通貨, string</td>
+    <td>string</td>
+    <td>フロアプライスの通貨</td>
   </tr>
   <tr>
     <td>ext.dfp_ad_unit_code</td>
-    <td>optional, experimental</td>
+    <td>string; experimental</td>
     <td>Google AdManager経由の場合の、広告ユニットフルパス</td>
   </tr>
 </table>
@@ -264,27 +259,27 @@ fluct社が公開している Sellers.json は https://adingo.jp/sellers.json �
 <table>
   <tr>
     <th>Field</th>
-    <th>scope</th>
+    <th>type</th>
     <th>description</th>
   </tr>
   <tr>
     <td>fd</td>
-    <td>required</td>
-    <td>integer. 上流で購入の意思決定がされる場合は <code>1</code>, それ以外は <code>0</code> となります。</td>
+    <td>integer; required</td>
+    <td>上流で購入の意思決定がされる場合は <code>1</code>, それ以外は <code>0</code> となります。</td>
   </tr>
   <tr>
     <td>tid</td>
-    <td>optional, experimental</td>
-    <td>string. 上流でトランザクションIDが発番された場合そのIDを送信いたします。取得できない場合はBidRequest.idと同じものを設定します。</td>
+    <td>string; experimental</td>
+    <td>上流でトランザクションIDが発番された場合そのIDを送信いたします。取得できない場合はBidRequest.idと同じものを設定します。</td>
   </tr>
   <tr>
     <td>ext.stype</td>
-    <td>optional, experimental</td>
-    <td>string. ヘッダ入札タイプ。内容はお問い合わせください。</td>
+    <td>string; experimental</td>
+    <td>ヘッダ入札タイプ。内容はお問い合わせください。</td>
   </tr>
   <tr>
     <td>ext.schain</td>
-    <td>optional</td>
+    <td>supply-chain object</td>
     <td><a href="https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/supplychainobject.md">OpenRTB SupplyChain オブジェクト</a></td>
   </tr>
 </table>
@@ -295,44 +290,42 @@ fluct社が公開している Sellers.json は https://adingo.jp/sellers.json �
 <table>
   <tr>
     <th>Field</th>
-    <th>scope</th>
+    <th>type</th>
     <th>description</th>
   </tr>
   <tr>
     <td>id</td>
-    <td>required</td>
-    <td>SSP側で管理してるサイトに関してのID
-※広告枠IDはimp.tagidを参照
-string</td>
+    <td>string; required</td>
+    <td>SSP側で管理しているサイトに関してのID。
+※広告枠IDはimp.tagidを参照</td>
   </tr>
   <tr>
     <td>cat</td>
-    <td>optional</td>
-    <td>サイトのカテゴリ
-IAB のカテゴリに準拠
-string array</td>
+    <td>array of strings</td>
+    <td>
+      サイトのカテゴリ。
+      IAB OpenRTB 2.5 仕様 5.1 Content Categories を参照してください。
+    </td>
   </tr>
   <tr>
     <td>domain</td>
-    <td>optional</td>
-    <td>fluct社が登録している配信先のドメイン情報（静的）
-string</td>
+    <td>string</td>
+    <td>掲載面のドメイン</td>
   </tr>
   <tr>
     <td>page</td>
-    <td>required</td>
-    <td>広告が掲載されたページのURL
-string</td>
+    <td>string; required</td>
+    <td>広告が掲載されたページのURL</td>
   </tr>
   <tr>
     <td>mobile</td>
-    <td>optional</td>
-    <td>レイアウトがモバイルデバイスに最適化されているか。 0=No, 1=Yes, integer</td>
+    <td>integer</td>
+    <td>レイアウトがモバイルデバイスに最適化されているか。 0=No, 1=Yes</td>
   </tr>
   </tr>
   <tr>
     <td>publisher</td>
-    <td>optional</td>
+    <td>publisher object</td>
     <td>パブリッシャーに関する情報</td>
   </tr>
 </table>
@@ -343,41 +336,55 @@ string</td>
 <table>
   <tr>
     <th>Field</th>
-    <th>scope</th>
+    <th>type</th>
     <th>description</th>
   </tr>
   <tr>
     <td>id</td>
-    <td>required</td>
-    <td>SSP側で管理してるアプリに関してのID
-※広告枠IDはimp.tagidを参照
-string</td>
+    <td>string; required</td>
+    <td>SSP側で管理しているアプリに関してのID。
+※広告枠IDはimp.tagidを参照</td>
   </tr>
   <tr>
     <td>cat</td>
-    <td>optional</td>
-    <td>アプリのカテゴリ
-IAB のカテゴリに準拠
-string array</td>
+    <td>array of strings</td>
+    <td>
+      アプリのカテゴリ。
+      IAB OpenRTB 2.5 仕様 5.1 Content Categories を参照してください。
+    </td>
   </tr>
   <tr>
     <td>storeurl</td>
-    <td>optional</td>
-    <td>各store で利用されているURL
-string</td>
+    <td>string</td>
+    <td>各store で利用されているURL</td>
   </tr>
   <tr>
     <td>bundle</td>
-    <td>optional</td>
-    <td>プラットフォーム上でのアプリケーション識別子.
+    <td>string</td>
+    <td>プラットフォーム上でのアプリケーション識別子。
 Androidではパッケージ名で、iOSでは数字のID。
-(例) Android: "com.foo.mygame", iOS: "1234567890"
-string</td>
+(例) Android: "com.foo.mygame", iOS: "1234567890"</td>
   </tr>
   <tr>
     <td>publisher</td>
-    <td>optional</td>
+    <td>publisher object</td>
     <td>パブリッシャーに関する情報</td>
+  </tr>
+</table>
+
+
+#### publisher Object
+
+<table>
+  <tr>
+    <th>Field</th>
+    <th>type</th>
+    <th>description</th>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>string; required</td>
+    <td>SSP側で管理しているパブリッシャーに関してのID</td>
   </tr>
 </table>
 
@@ -387,25 +394,23 @@ string</td>
 <table>
   <tr>
     <th>Field</th>
-    <th>scope</th>
+    <th>type</th>
     <th>description</th>
   </tr>
   <tr>
     <td>id</td>
-    <td>optional</td>
-    <td>SSP側で管理しているユーザID
-string</td>
+    <td>string</td>
+    <td>SSP側で管理しているユーザID</td>
   </tr>
   <tr>
     <td>buyeruid</td>
-    <td>optional</td>
+    <td>string</td>
     <td>cookie sync したことで得た、
-DSPで管理しているユーザID
-string</td>
+DSPで管理しているユーザID</td>
   </tr>
 </table>
 
-※ device.ifaを送る場合は、user.buyeruidは送らず、user.idにはdevice.ifaの値と同様の値が入ります
+* device.ifaを送る場合は、user.buyeruidは送らず、user.idにはdevice.ifaの値と同様の値が入ります。
 
 
 #### device Object
@@ -413,56 +418,64 @@ string</td>
 <table>
   <tr>
     <th>Field</th>
-    <th>scope</th>
+    <th>type</th>
     <th>description</th>
   </tr>
   <tr>
     <td>ua</td>
-    <td>required</td>
-    <td>ユーザーエージェント
-string</td>
+    <td>string; required</td>
+    <td>ユーザーエージェント</td>
   </tr>
   <tr>
     <td>geo</td>
-    <td>optional</td>
-    <td>
-      <a href="#geo-object">geo object</a>
-    </td>
+    <td>geo object</td>
+    <td>ジオに関する情報</td>
   </tr>
   <tr>
     <td>ip</td>
-    <td>required</td>
-    <td>IPv4 アドレス string</td>
+    <td>string</td>
+    <td>IPv4 アドレス</td>
   </tr>
   <tr>
     <td>ipv6</td>
-    <td>optional</td>
-    <td>IPv6 アドレス string</td>
+    <td>string</td>
+    <td>IPv6 アドレス</td>
   </tr>
   <tr>
     <td>ifa</td>
-    <td>optional</td>
-    <td>広告識別子情報（IDFA/ADID）
-string</td>
+    <td>string</td>
+    <td>広告識別子情報（IDFA/ADID）</td>
   </tr>
   <tr>
     <td>lmt</td>
-    <td>optional</td>
-    <td>Limit Ad Tracking のステータス
-integer</td>
+    <td>integer</td>
+    <td>Limit Ad Tracking のステータス</td>
   </tr>
   <tr>
     <td>dnt</td>
-    <td>optional</td>
-    <td>Do Not Track ヘッダのステータス
-integer</td>
+    <td>integer</td>
+    <td>Do Not Track ヘッダのステータス</td>
   </tr>
   <tr>
     <td>osv</td>
-    <td>optional</td>
-    <td>OSのバージョン string</td>
+    <td>string</td>
+    <td>OSのバージョン</td>
+  </tr>
+  <tr>
+    <td>h</td>
+    <td>integer</td>
+    <td>画面の高さ (pixel)</td>
+  </tr>
+  <tr>
+    <td>w</td>
+    <td>integer</td>
+    <td>画面の幅 (pixel)</td>
   </tr>
 </table>
+
+* device.w, device.h が利用可能な場合、画面の向きは以下のように区別できます:
+    * w > h のとき: ランドスケープ
+    * h > w のとき: ポートレイト
 
 
 #### geo Object
@@ -470,63 +483,63 @@ integer</td>
 <table>
   <tr>
     <th>Field</th>
-    <th>scope</th>
+    <th>type</th>
     <th>description</th>
   </tr>
   <tr>
     <td>lat</td>
-    <td>optional</td>
-    <td>緯度; -90.0~90.0 で、負は南; float</td>
+    <td>float</td>
+    <td>緯度。 -90.0~90.0 で、負は南</td>
   </tr>
   <tr>
     <td>lon</td>
-    <td>optional</td>
-    <td>経度; -180.0~180.0 で、負は西; float</td>
+    <td>float</td>
+    <td>経度。 -180.0~180.0 で、負は西</td>
   </tr>
   <tr>
     <td>type</td>
-    <td>optional</td>
-    <td>位置情報の由来; 1=GPS, 2=IP address, 3=ユーザの提供による; integer</td>
+    <td>integer</td>
+    <td>位置情報の由来。 1=GPS, 2=IP address, 3=ユーザの提供による</td>
   </tr>
   <tr>
     <td>accuracy</td>
-    <td>optional</td>
-    <td>精度 (メートル); integer</td>
+    <td>integer</td>
+    <td>精度 (メートル)</td>
   </tr>
   <tr>
     <td>ipservice</td>
-    <td>optional</td>
-    <td>IPアドレス由来の位置情報の場合、その提供元; 1=ip2location, 2=Neustar, 3=MaxMind, 4=NetAcuity; integer</td>
+    <td>integer</td>
+    <td>IPアドレス由来の位置情報の場合、その提供元。 1=ip2location, 2=Neustar, 3=MaxMind, 4=NetAcuity</td>
   </tr>
   <tr>
     <td>country</td>
-    <td>optional</td>
-    <td>国コード (ISO 3166-1 alpha-3); string</td>
+    <td>string</td>
+    <td>国コード (ISO 3166-1 alpha-3)</td>
   </tr>
   <tr>
     <td>region</td>
-    <td>optional</td>
-    <td>地域コード (ISO 3166-2); 米国の場合のみ2文字州コード; string</td>
+    <td>string</td>
+    <td>地域コード (ISO 3166-2)。 米国の場合のみ2文字州コード</td>
   </tr>
   <tr>
     <td>metro</td>
-    <td>optional</td>
-    <td>Google metro code; string</td>
+    <td>string</td>
+    <td>Google metro code</td>
   </tr>
   <tr>
     <td>city</td>
-    <td>optional</td>
-    <td>都市名; string</td>
+    <td>string</td>
+    <td>都市名</td>
   </tr>
   <tr>
     <td>zip</td>
-    <td>optional</td>
-    <td>郵便番号; string</td>
+    <td>string</td>
+    <td>郵便番号</td>
   </tr>
   <tr>
     <td>utcoffset</td>
-    <td>optional</td>
-    <td>UTC との時差 (分); integer</td>
+    <td>integer</td>
+    <td>UTC との時差 (分)</td>
   </tr>
 </table>
 
@@ -536,44 +549,42 @@ integer</td>
 <table>
   <tr>
     <th>Field</th>
-    <th>scope</th>
+    <th>type</th>
     <th>description</th>
   </tr>
   <tr>
   </tr>
     <td>format</td>
-    <td>optional</td>
+    <td>array of format objects</td>
     <td>
-      <a href="#format-object">format object</a>の配列
+      フォーマットに関する情報
     </td>
   <tr>
   </tr>
   <tr>
     <td>h</td>
-    <td>optional</td>
-    <td>バナーの高さ integer</td>
+    <td>integer</td>
+    <td>バナーの高さ</td>
   </tr>
   <tr>
     <td>w</td>
-    <td>optional</td>
-    <td>バナーの横幅 integer</td>
+    <td>integer</td>
+    <td>バナーの横幅</td>
   </tr>
   <tr>
     <td>pos</td>
-    <td>required</td>
-    <td>バナーの掲載位置
-IABに準拠
-但し、スマートフォンのオーバーレイ広告は 9 で送ります。
-integer</td>
+    <td>integer; required</td>
+    <td>バナーの掲載位置。
+IABに準拠。
+但し、スマートフォンのオーバーレイ広告は 9 で送ります</td>
   </tr>
   <tr>
     <td>vcm</td>
-    <td>optional</td>
+    <td>integer</td>
     <td>
       imp.video.companionad の場合でのみ有効。
       0=concurrent,
-      1=end-card,
-      integer
+      1=end-card
     </td>
   </tr>
 </table>
@@ -584,18 +595,18 @@ integer</td>
 <table>
   <tr>
     <th>Field</th>
-    <th>scope</th>
+    <th>type</th>
     <th>description</th>
   </tr>
   <tr>
     <td>h</td>
-    <td>required</td>
-    <td>高さ integer</td>
+    <td>integer; required</td>
+    <td>高さ</td>
   </tr>
   <tr>
     <td>w</td>
-    <td>required</td>
-    <td>幅 integer</td>
+    <td>integer; required</td>
+    <td>幅</td>
   </tr>
 </table>
 
@@ -605,44 +616,43 @@ integer</td>
 <table>
   <tr>
     <th>Field</th>
-    <th>scope</th>
+    <th>type</th>
     <th>description</th>
   </tr>
   <tr>
     <td>mimes</td>
-    <td>required</td>
+    <td>array of strings; required</td>
     <td>
-      対応しているMIMEタイプ
+      対応しているMIMEタイプ。
       "video/mp4", “video/x-flv” 等
-      string array
     </td>
   </tr>
   <tr>
     <td>pos</td>
-    <td>optional</td>
+    <td>integer</td>
     <td>
-      動画の掲載位置 (IABに準拠。 但し、スマートフォンのオーバーレイは、 9 で送ります) integer
+      動画の掲載位置 (IABに準拠。 但し、スマートフォンのオーバーレイは、 9 で送ります)
     </td>
   </tr>
   <tr>
     <td>minduration</td>
-    <td>optional</td>
+    <td>integer</td>
     <td>
-      動画の最短再生時間 (秒) integer
+      動画の最短再生時間 (秒)
     </td>
   </tr>
   <tr>
     <td>maxduration</td>
-    <td>optional</td>
+    <td>integer</td>
     <td>
-      動画の最長再生時間 (秒) integer
+      動画の最長再生時間 (秒)
     </td>
   </tr>
   <tr>
     <td>protocols</td>
-    <td>optional</td>
+    <td>array of integers</td>
     <td>
-      対応している動画プロトコル
+      対応している動画プロトコル。
       1=VAST 1.0,
       2=VAST 2.0,
       3=VAST 3.0,
@@ -650,109 +660,97 @@ integer</td>
       5=VAST 2.0 Wrapper,
       6=VAST 3.0 Wrapper,
       7=VAST 4.0,
-      8=VAST 4.0 Wrapper,
-      integer array
+      8=VAST 4.0 Wrapper
     </td>
   </tr>
   <tr>
     <td>battr</td>
-    <td>optional</td>
+    <td>array of integers</td>
     <td>
-      ブロックされたクリエイティブ属性 (IAB に準拠) integer array
+      ブロックされたクリエイティブ属性 (IAB に準拠)
     </td>
   </tr>
   <tr>
     <td>h</td>
-    <td>optional</td>
-    <td>
-      動画の高さ integer
-      </td>
+    <td>integer</td>
+    <td>動画の高さ</td>
   </tr>
   <tr>
     <td>w</td>
-    <td>optional</td>
-    <td>
-      動画の横幅 integer
-    </td>
+    <td>integer</td>
+    <td>動画の横幅</td>
   </tr>
   <tr>
     <td>startdelay</td>
-    <td>optional</td>
+    <td>integer</td>
     <td>
-      再生開始までの時間 (秒)
+      再生開始までの時間 (秒)。
       0=pre-roll,
       &gt;0=mid-roll (指定される秒数後に再生される),
       -1=一般的な mid-roll,
-      -2=post-roll,
-      integer
+      -2=post-roll
     </td>
   </tr>
   <tr>
     <td>linearity</td>
-    <td>optional</td>
+    <td>integer</td>
     <td>
-      リニアリティ
+      リニアリティ。
       1=in-stream,
-      2=オーバーレイ,
-      integer
+      2=オーバーレイ
     </td>
   </tr>
   <tr>
     <td>minbitrate</td>
-    <td>optional</td>
+    <td>integer</td>
     <td>
       最小ビットレート (Kbps)
-      integer
     </td>
   </tr>
   <tr>
     <td>maxbitrate</td>
-    <td>optional</td>
+    <td>integer</td>
     <td>
       最大ビットレート (Kbps)
-      integer
     </td>
   </tr>
   <tr>
     <td>skip</td>
-    <td>optional</td>
+    <td>integer</td>
     <td>
-      スキップ有無
+      スキップ有無。
       0=なし,
-      1=あり,
-      integer
+      1=あり
     </td>
   </tr>
   <tr>
     <td>api</td>
-    <td>optional</td>
+    <td>array of integers</td>
     <td>
-      対応しているAPIフレームワーク
+      対応しているAPIフレームワーク。
       1=VPAID 1.0,
       2=VPAID 2.0,
       3=MRAID-1,
       4=ORMMA,
-      5=MRAID-2,
-      integer array
+      5=MRAID-2
     </td>
   </tr>
   <tr>
     <td>placement</td>
-    <td>optional</td>
+    <td>integer</td>
     <td>
-      配置方法
+      配置方法。
       1=in-stream (動画コンテンツの pre-roll, mid-roll, もしくは post-roll),
       2=in-banner (バナーの位置で再生される),
       5=インタースティシャル、フローティング (画面の一部もしくはすべてを覆い、再生中は継続して画面に表示される),
-      imp.instl との組み合わせで全画面インタースティシャルと区別する,
-      integer
+      imp.instl との組み合わせで全画面インタースティシャルと区別する
     </td>
   </tr>
   <tr>
     <td>companionad</td>
-    <td>optional</td>
+    <td>array of banner objects</td>
     <td>
-      コンパニオンアドがサポートされている場合、<a href="#banner-object">banner object</a>が入れられる
+      コンパニオンアドがサポートされている場合、 banner object が入れられる
     </td>
   </tr>
 </table>
@@ -763,35 +761,35 @@ integer</td>
 <table>
   <tr>
     <th>Field</th>
-    <th>scope</th>
+    <th>type</th>
     <th>description</th>
   </tr>
   <tr>
     <td>mimes</td>
-    <td>required</td>
+    <td>array of strings; required</td>
     <td>
-      対応しているMIMEタイプ "audio/mp4" 等 string array
+      対応しているMIMEタイプ。 "audio/mp4" 等
     </td>
   </tr>
   <tr>
     <td>minduration</td>
-    <td>optional</td>
+    <td>integer</td>
     <td>
-      音声の最短再生時間 (秒) integer
+      音声の最短再生時間 (秒)
     </td>
   </tr>
   <tr>
     <td>maxduration</td>
-    <td>optional</td>
+    <td>integer</td>
     <td>
-      音声の最長再生時間 (秒) integer
+      音声の最長再生時間 (秒)
     </td>
   </tr>
   <tr>
     <td>protocols</td>
-    <td>optional</td>
+    <td>array of integers</td>
     <td>
-      対応している音声プロトコル
+      対応している音声プロトコル。
         1=VAST 1.0,
         2=VAST 2.0,
         3=VAST 3.0,
@@ -799,75 +797,70 @@ integer</td>
         5=VAST 2.0 Wrapper,
         6=VAST 3.0 Wrapper,
         7=VAST 4.0,
-        8=VAST 4.0 Wrapper,
-        integer array
+        8=VAST 4.0 Wrapper
     </td>
   </tr>
   <tr>
     <td>startdelay</td>
-    <td>optional</td>
+    <td>integer</td>
     <td>
-      再生開始までの時間 (秒)
+      再生開始までの時間 (秒)。
       0=pre-roll,
       &gt;0=mid-roll (指定される秒数後に再生される),
       -1=一般的な mid-roll,
-      -2=post-roll,
-      integer
+      -2=post-roll
     </td>
   </tr>
   <tr>
     <td>battr</td>
-    <td>optional</td>
+    <td>array of integers</td>
     <td>
-      ブロックされたクリエイティブ属性 (IAB に準拠) integer array
+      ブロックされたクリエイティブ属性 (IAB に準拠)
     </td>
   </tr>
   <tr>
     <td>minbitrate</td>
-    <td>optional</td>
+    <td>integer</td>
     <td>
-      最小ビットレート (Kbps) integer
+      最小ビットレート (Kbps)
     </td>
   </tr>
   <tr>
     <td>maxbitrate</td>
-    <td>optional</td>
+    <td>integer</td>
     <td>
-      最大ビットレート (Kbps) integer
+      最大ビットレート (Kbps)
     </td>
   </tr>
   <tr>
     <td>api</td>
-    <td>optional</td>
+    <td>array of integers</td>
     <td>
-      対応しているAPIフレームワーク
+      対応しているAPIフレームワーク。
       1=VPAID 1.0,
       2=VPAID 2.0,
       3=MRAID-1,
       4=ORMMA,
-      5=MRAID-2,
-      integer array
+      5=MRAID-2
     </td>
   </tr>
   <tr>
     <td>feed</td>
-    <td>optional</td>
+    <td>integer</td>
     <td>
-      フィードの種類
+      フィードの種類。
       1=音楽サービス,
       2=FM/AM放送,
-      3=ポッドキャスト,
-      integer
+      3=ポッドキャスト
     </td>
   </tr>
   <tr>
     <td>stitched</td>
-    <td>optional</td>
+    <td>integer</td>
     <td>
       音声コンテンツに結合されるか
       0=no,
-      1=yes,
-      integer
+      1=yes
     </td>
   </tr>
 </table>
@@ -878,32 +871,31 @@ integer</td>
 <table>
   <tr>
     <th>Field</th>
-    <th>scope</th>
+    <th>type</th>
     <th>description</th>
   </tr>
   <tr>
     <td>request</td>
-    <td>required</td>
+    <td>string; required</td>
     <td><a href="native-ads-v1.ja.md">Native Ad Request Markup Object</a></td>
   </tr>
   <tr>
     <td>ver</td>
-    <td>recommended</td>
     <td>string</td>
+    <td></td>
   </tr>
   <tr>
     <td>api</td>
-    <td>optional</td>
+    <td>array of integers</td>
     <td>
       対応しているAPIフレームワーク
-      integer array
     </td>
   </tr>
   <tr>
     <td>battr</td>
-    <td>optional</td>
+    <td>array of integers</td>
     <td>
-      ブロックされたクリエイティブ属性 (IAB に準拠) integer array
+      ブロックされたクリエイティブ属性 (IAB に準拠)
     </td>
   </tr>
 </table>
@@ -914,76 +906,62 @@ integer</td>
 <table>
   <tr>
     <th>Field</th>
-    <th>scope</th>
+    <th>type</th>
     <th>description</th>
   </tr>
   <tr>
     <td>private_auction</td>
-    <td>required</td>
-    <td>integer</td>
+    <td>integer; required</td>
+    <td>
+      Dealへの入札に限定するか。
+      0=no, 1=yes
+    </td>
   </tr>
   <tr>
     <td>deals</td>
-    <td>required</td>
-    <td>object array</td>
+    <td>array of deal objects; required</td>
+    <td></td>
   </tr>
 </table>
 
 
-#### deals Object
+#### deal Object
 
 <table>
   <tr>
     <th>Field</th>
-    <th>scope</th>
+    <th>type</th>
     <th>description</th>
   </tr>
   <tr>
     <td>id</td>
-    <td>required</td>
-    <td>SSP側で発行したdeal ID, string</td>
+    <td>string; required</td>
+    <td>SSP側で発行したdeal ID</td>
   </tr>
   <tr>
     <td>at</td>
-    <td>optional</td>
-    <td>1=ファーストプライスオークション, 2=セカンドプライスオークション, 3=固定価格, integer</td>
+    <td>integer</td>
+    <td>1=ファーストプライスオークション, 2=セカンドプライスオークション, 3=固定価格</td>
   </tr>
   <tr>
     <td>bidfloor</td>
-    <td>optional</td>
-    <td>at が 1, 2 の場合はフロアプライス、 3 の場合はディールの固定価格, float</td>
+    <td>float</td>
+    <td>at が 1, 2 の場合はフロアプライス、 3 の場合はディールの固定価格</td>
   </tr>
   <tr>
     <td>bidfloorcur</td>
-    <td>optional</td>
-    <td>bidfloor の通貨, string</td>
+    <td>string</td>
+    <td>bidfloor の通貨</td>
   </tr>
   <tr>
     <td>wseat</td>
-    <td>optional</td>
-    <td>バイヤーシートのホワイトリスト, string array</td>
+    <td>array of strings</td>
+    <td>バイヤーシートのホワイトリスト</td>
   </tr>
   <tr>
     <td>wadomain</td>
-    <td>optional</td>
-    <td>広告主ドメインのホワイトリスト, string array</td>
-  </tr>
-</table>
-
-
-#### Publisher Object
-
-<table>
-  <tr>
-    <th>Field</th>
-    <th>scope</th>
-    <th>description</th>
-  </tr>
-  <tr>
-    <td>id</td>
-    <td>required</td>
-    <td>SSP側で管理してるパブリッシャーに関してのID
-string</td>
+    <td>array of strings</td>
+    <td>広告主ドメインのホワイトリスト</td>
   </tr>
 </table>
 
@@ -996,113 +974,150 @@ DSPはJSONフォーマットで入札情報をシリアライズします。
 
 入札しない場合はHTTP 204 No Contentとしてください。
 
-#### BidResponse Object (TopLevel)
+
+#### Bid Response Object (Top Level)
 
 <table>
   <tr>
     <th>Field</th>
-    <th>scope</th>
     <th>type</th>
     <th>description</th>
   </tr>
   <tr>
     <td>id</td>
-    <td>required</td>
-    <td>string</td>
+    <td>string; required</td>
     <td>レスポンスのID</td>
   </tr>
   <tr>
     <td>cur</td>
-    <td>required</td>
-    <td>string</td>
+    <td>string; required</td>
     <td>入札金額の通貨コード ISO-4217</td>
   </tr>
   <tr>
     <td>seatbid</td>
-    <td>required</td>
-    <td>array of seatbid object</td>
-    <td></td>
+    <td>array of seatbid objects; required</td>
+    <td>1+ seatbid objects</td>
   </tr>
 </table>
+
 
 #### seatbid Object
 
 <table>
   <tr>
     <th>Field</th>
-    <th>scope</th>
     <th>type</th>
     <th>description</th>
   </tr>
   <tr>
     <td>bid</td>
-    <td>required</td>
-    <td>array of bid object</td>
-    <td></td>
+    <td>array of bid objects; required</td>
+    <td>1+ bid objects</td>
+  </tr>
+  <tr>
+    <td>seat</td>
+    <td>string</td>
+    <td>
+      バイヤーシート ID。
+      複数シートのbidをする場合は必須です。
+    </td>
   </tr>
 </table>
+
 
 #### bid Object
 
 <table>
   <tr>
     <th>Field</th>
-    <th>scope</th>
     <th>type</th>
     <th>description</th>
   </tr>
   <tr>
     <td>impid</td>
-    <td>required</td>
-    <td>string</td>
+    <td>string; required</td>
     <td>入札対象のBidRequest.imp.id</td>
   </tr>
   <tr>
     <td>price</td>
-    <td>required</td>
-    <td>float</td>
+    <td>float; required</td>
     <td>入札金額</td>
   </tr>
   <tr>
     <td>adm</td>
-    <td>required</td>
-    <td>string</td>
-    <td>広告表示データ. 広告フォーマットにより内容の形式は異なります。レスポンスサンプルを参照してください。</td>
+    <td>string; required</td>
+    <td>
+      広告表示データ。
+      広告フォーマットにより内容の形式は異なります。
+      レスポンスサンプルを参照してください。
+    </td>
   </tr>
   <tr>
     <td>adomain</td>
-    <td>optional (recommended)</td>
-    <td>array of string</td>
-    <td>ブロックリスト確認用の広告主ドメイン</td>
+    <td>array of strings; required</td>
+    <td>
+      広告主ドメイン。
+      返却されない場合、パブリッシャーが広告主をドメインでブロックしている枠への入札は無効です。
+    </td>
   </tr>
   <tr>
     <td>bundle</td>
-    <td>optional (recommended)</td>
-    <td>array of string</td>
+    <td>string; recommended</td>
     <td>
-      プラットフォーム上でのアプリケーション識別子.
+      プラットフォーム上でのアプリケーション識別子。
       Androidではパッケージ名で、iOSでは数字のID。
       (例) Android: "com.foo.mygame", iOS: "1234567890"
     </td>
   </tr>
   <tr>
+    <td>cid</td>
+    <td>string; recommended</td>
+    <td>キャンペーンID</td>
+  </tr>
+  <tr>
     <td>crid</td>
-    <td>optional</td>
-    <td>string</td>
+    <td>string; recommended</td>
     <td>広告クリエイティブID</td>
   </tr>
   <tr>
     <td>dealid</td>
-    <td>optional</td>
     <td>string</td>
-    <td>pmp dealへの入札の場合必須項目. 入札対象のBidRequest.imp.pmp.deal.id</td>
+    <td>
+      pmp dealへの入札の場合は必須項目。
+      入札対象のBidRequest.imp.pmp.deal.id
+    </td>
+  </tr>
+  <tr>
+    <td>h</td>
+    <td>integer; recommended</td>
+    <td>クリエイティブの高さ</td>
+  </tr>
+  <tr>
+    <td>w</td>
+    <td>integer; recommended</td>
+    <td>クリエイティブの幅</td>
+  </tr>
+  <tr>
+    <td>attr</td>
+    <td>array of integers; recommended</td>
+    <td>
+      クリエイティブ属性。
+      IAB OpenRTB 2.5 仕様 5.3 Creative Attributes を参照してください。
+    </td>
+  </tr>
+  <tr>
+    <td>cat</td>
+    <td>array of strings; recommended</td>
+    <td>
+      クリエイティブカテゴリ。
+      IAB OpenRTB 2.5 仕様 5.1 Content Categories を参照してください。
+    </td>
   </tr>
   <tr>
     <td>nurl</td>
-    <td>optional</td>
     <td>string</td>
     <td>
-      win通知URL.
+      Win通知URL。
       入札が勝利した際に呼び出される。
       約定・表示・請求を通知するものではなく、オークションでの勝利を通知するもの。
       adm と同様の置換マクロを含めてもよい。
@@ -1110,13 +1125,12 @@ DSPはJSONフォーマットで入札情報をシリアライズします。
   </tr>
   <tr>
     <td>lurl</td>
-    <td>optional</td>
     <td>string</td>
     <td>
-      loss通知URL.
+      Loss通知URL。
       入札が勝利しなかった際に呼び出される。
-      adm と同様のマクロ置換が行われ、 ${AUCTION_PRICE} には約定価格 (通知可能な場合のみ)、 ${AUCTION_LOSS} には loss reason code が通知される。
-      loss reason code については、 IAB OpenRTB 2.5 仕様 5.25 Loss Reason Codes を参照してください。
+      adm と同様のマクロ置換が行われ、 <code>${AUCTION_PRICE}</code> には約定価格 (通知可能な場合のみ)、 <code>${AUCTION_LOSS}</code> には loss reason code が通知される。
+      Loss reason code については、 IAB OpenRTB 2.5 仕様 5.25 Loss Reason Codes を参照してください。
     </td>
   </tr>
 </table>
@@ -1124,7 +1138,7 @@ DSPはJSONフォーマットで入札情報をシリアライズします。
 
 ### b. impressionまたは/clickビーコンの送信
 
-fluctのクライアント制御スクリプトからビーコンを送信に関して, 各エンドポイントは以下の仕様に準拠しているという前提で送信を行います.
+fluctのクライアント制御スクリプトからビーコンを送信に関して, 各エンドポイントは以下の仕様に準拠しているという前提で送信を行います。
 
 #### impressionビーコンを受けるエンドポイント
 
@@ -1136,7 +1150,7 @@ fluctのクライアント制御スクリプトからビーコンを送信に関
 
 #### impressionビーコンを送信するfluctのクライアント側
 
-以下の条件で送信を行います.
+以下の条件で送信を行います。
 
 <table>
   <tr>
@@ -1161,7 +1175,7 @@ fluctのクライアント制御スクリプトからビーコンを送信に関
 
 #### clickビーコンを送信するfluctのクライアント側
 
-以下の条件で送信を行います.
+以下の条件で送信を行います。
 
 <table>
   <tr>
@@ -1188,8 +1202,8 @@ fluctのクライアント制御スクリプトからビーコンを送信に関
 
 #### clickビーコン送信に用いられる手法について
 
-* 実際に広告が表示されるブラウザ側から送信する前提となっているため, XMLHttpRequestによるCross-Origin Requestが用いられます.
-* 一部の対応環境では, より確実なビーコン送信のため, [http://www.w3.org/TR/beacon/](http://www.w3.org/TR/beacon/) にて定義された navigator.sendBeacon()による送信が行われる場合があります.
+* 実際に広告が表示されるブラウザ側から送信する前提となっているため, XMLHttpRequestによるCross-Origin Requestが用いられます。
+* 一部の対応環境では, より確実なビーコン送信のため, [http://www.w3.org/TR/beacon/](http://www.w3.org/TR/beacon/) にて定義された navigator.sendBeacon()による送信が行われる場合があります。
 
 
 ### c. マクロ置換
