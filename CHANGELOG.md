@@ -1,6 +1,18 @@
 # 変更履歴
 
 * 2.2
+    * 2020/04/24
+        * Bid Request Device Object
+            * `w`, `h` 追加
+        * Bid Response Seatbid Object
+            * `seat` 追加
+        * Bid Response Bid Object
+            * `cid`, `w`, `h`, `attr`, `cat` 追加
+            * `bundle` の型を string[] から string に修正
+            * `adomain` を必須項目 (required) に変更
+            * `bundle`, `cid`, `crid`, `w`, `h`, `attr`, `cat` を推奨項目 (recommended) に変更
+        * Bid Request/Response Examples を更新
+        * その他、古い情報を削除
     * 2020/01/23
         * Bid Request Geo Object を仕様に追加
         * Bid Request/Response 例を更新

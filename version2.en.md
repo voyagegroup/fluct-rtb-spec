@@ -18,11 +18,12 @@ Moreover, this specification does not contain description of general RTB protoco
   * [a. Endpoint URL](#a-endpoint-url)
   * [b. OpenRTB Version HTTP Header](#b-openrtb-version-http-header)
   * [c. Bid request parameters](#c-bid-request-parameters)
-    * [BidRequest Object (TopLevel)](#bidrequest-object-toplevel)
+    * [Bid Request Object (Top Level)](#bid-request-object-top-level)
     * [imp Object](#imp-object)
     * [source Object](#source-object)
     * [site Object](#site-object)
     * [app Object](#app-object)
+    * [publisher Object](#publisher-object)
     * [user Object](#user-object)
     * [device Object](#device-object)
     * [geo Object](#geo-object)
@@ -32,17 +33,12 @@ Moreover, this specification does not contain description of general RTB protoco
     * [audio Object](#audio-object)
     * [native Object](#native-object)
     * [pmp Object](#pmp-object)
-    * [deals Object](#deals-object)
-    * [assets Object](#assets-object)
-    * [title Object](#title-object)
-    * [img Object](#img-object)
-    * [data Object](#data-object)
+    * [deal Object](#deal-object)
 * [4. Response specification](#4-response-specification)
   * [a. Bid response parameters](#a-bid-response-parameters)
-    * [BidResponse Object (TopLevel)](#bidresponse-object-toplevel)
-    * [Seatbid Object](#seatbid-object)
-    * [Bid Object](#bid-object)
-    * [native response adm (serialized JSON object)](#native-response-adm-serialized-json-object)
+    * [Bid Response Object (Top Level)](#bid-response-object-top-level)
+    * [seatbid Object](#seatbid-object)
+    * [bid Object](#bid-object)
   * [b. impression/click beacon](#b-impressionclick-beacon)
     * [endpoint for impression beacon](#endpoint-for-impression-beacon)
     * [fluct transmits according to the following conditions (imp beacon):](#fluct-transmits-according-to-the-following-conditions-imp-beacon)
@@ -112,139 +108,136 @@ Fluct will follow backward-compatible OpenRTB 2 minor version updates, and the v
 
 Serialize format: JSON only.
 
-(* Although we have some integration experiences using non-text-based MessagePack, we strongly recommand not to use it, non-text-based MessagePack will not be supported in the future)
 
-The following is a JSON example:
-
-#### BidRequest Object (TopLevel)
+#### Bid Request Object (Top Level)
 
 <table>
   <tr>
     <th>Field</th>
-    <th>scope</th>
+    <th>type</th>
     <th>description</th>
   </tr>
   <tr>
     <td>id</td>
-    <td>required</td>
+    <td>string; required</td>
     <td></td>
   </tr>
   <tr>
     <td>imp</td>
-    <td>required</td>
+    <td>array of imp objects; required</td>
     <td></td>
   </tr>
   <tr>
     <td>site</td>
-    <td>optional</td>
+    <td>site object</td>
     <td></td>
   </tr>
   <tr>
     <td>app</td>
-    <td>optional</td>
+    <td>app object</td>
     <td></td>
   </tr>
   <tr>
     <td>user</td>
-    <td>optional</td>
+    <td>user object</td>
     <td></td>
   </tr>
   <tr>
     <td>bcat</td>
-    <td>required</td>
+    <td>array of strings; required</td>
     <td></td>
   </tr>
   <tr>
     <td>badv</td>
-    <td>optional</td>
+    <td>array of strings</td>
     <td></td>
   </tr>
   <tr>
     <td>tmax</td>
-    <td>optional</td>
-    <td>120ms</td>
+    <td>integer</td>
+    <td>auction timeout in msec</td>
   </tr>
   <tr>
     <td>device</td>
-    <td>optional</td>
+    <td>devivce object</td>
     <td></td>
   </tr>
   <tr>
     <td>at</td>
-    <td>optional</td>
-    <td>1=first price auction, 2=second price auction, integer</td>
+    <td>integer</td>
+    <td>1=first price auction, 2=second price auction</td>
   </tr>
   <tr>
     <td>cur</td>
-    <td>optional</td>
-    <td>string array</td>
+    <td>array of strings</td>
+    <td>a list of accepted currencies</td>
   </tr>
 </table>
 
-
 * Only one of the "site" and “app” sections will be necessary.
+
 
 #### imp Object
 
 <table>
   <tr>
     <th>Field</th>
-    <th>scope</th>
+    <th>type</th>
     <th>description</th>
   </tr>
   <tr>
     <td>id</td>
-    <td>required</td>
+    <td>string; required</td>
     <td></td>
   </tr>
   <tr>
     <td>tagid</td>
-    <td>required</td>
+    <td>string; required</td>
     <td>ex) 1234:987654321</td>
   </tr>
   <tr>
     <td>secure</td>
-    <td>optional</td>
+    <td>integer</td>
     <td></td>
   </tr>
   <tr>
     <td>banner</td>
-    <td>optional</td>
+    <td>banner object</td>
     <td></td>
   </tr>
   <tr>
     <td>video</td>
-    <td>optional</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>pmp</td>
-    <td>optional</td>
+    <td>video object</td>
     <td></td>
   </tr>
   <tr>
     <td>native</td>
-    <td>optional</td>
+    <td>native object</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>pmp</td>
+    <td>pmp object</td>
     <td></td>
   </tr>
   <tr>
     <td>instl</td>
-    <td>optional</td>
-    <td>0=no, 1=yes, integer</td>
+    <td>integer</td>
+    <td>0=no, 1=yes</td>
   </tr>
   <tr>
     <td>bidfloor</td>
-    <td>optional</td>
-    <td>Floor price, float</td>
+    <td>float</td>
+    <td>Floor price</td>
   </tr>
   <tr>
     <td>bidfloorcur</td>
-    <td>optional</td>
-    <td>Floor price currency, string</td>
+    <td>string</td>
+    <td>Floor price currency</td>
   </tr>
   <tr>
     <td>ext.dfp_ad_unit_code</td>
-    <td>optional, experimental</td>
+    <td>string; experimental</td>
     <td>Google AdManager Ad unit full path</td>
   </tr>
 </table>
@@ -259,27 +252,27 @@ Refer to https://adingo.jp/sellers.json for sellers available through fluct.
 <table>
   <tr>
     <th>Field</th>
-    <th>scope</th>
+    <th>type</th>
     <th>description</th>
   </tr>
   <tr>
     <td>fd</td>
-    <td>required</td>
-    <td>integer. <code>1</code> when upstream source is responsible for the final impression sale decision, or <code>0</code> otherwise.</td>
+    <td>integer; required</td>
+    <td><code>1</code> when upstream source is responsible for the final impression sale decision, or <code>0</code> otherwise.</td>
   </tr>
   <tr>
     <td>tid</td>
-    <td>optional, experimental</td>
-    <td>string. Transaction ID that issued by upstream. Otherwise, same as BidRequest.id.</td>
+    <td>string; experimental</td>
+    <td>Transaction ID that is issued by upstream. Otherwise, same as BidRequest.id.</td>
   </tr>
   <tr>
     <td>ext.stype</td>
-    <td>optional, experimental</td>
-    <td>string. Header Bidding type. Please contact us for details.</td>
+    <td>string; experimental</td>
+    <td>Header Bidding type. Contact us for details.</td>
   </tr>
   <tr>
     <td>ext.schain</td>
-    <td>optional</td>
+    <td>supply-chain object</td>
     <td><a href="https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/supplychainobject.md">OpenRTB SupplyChain object</a></td>
   </tr>
 </table>
@@ -290,37 +283,37 @@ Refer to https://adingo.jp/sellers.json for sellers available through fluct.
 <table>
   <tr>
     <th>Field</th>
-    <th>scope</th>
+    <th>type</th>
     <th>description</th>
   </tr>
   <tr>
     <td>id</td>
-    <td>required</td>
+    <td>string; required</td>
     <td></td>
   </tr>
   <tr>
     <td>cat</td>
-    <td>optional</td>
+    <td>array of strings</td>
     <td></td>
   </tr>
   <tr>
     <td>domain</td>
-    <td>optional</td>
+    <td>string</td>
     <td></td>
   </tr>
   <tr>
     <td>page</td>
-    <td>required</td>
+    <td>string; required</td>
     <td></td>
   </tr>
   <tr>
     <td>mobile</td>
-    <td>optional</td>
-    <td>Indicates if the layout is optimized for mobile devices. 0=No, 1=Yes, integer</td>
+    <td>integer</td>
+    <td>Indicates if the layout is optimized for mobile devices. 0=No, 1=Yes</td>
   </tr>
   <tr>
     <td>publisher</td>
-    <td>optional</td>
+    <td>publisher object</td>
     <td></td>
   </tr>
 </table>
@@ -331,33 +324,49 @@ Refer to https://adingo.jp/sellers.json for sellers available through fluct.
 <table>
   <tr>
     <th>Field</th>
-    <th>scope</th>
+    <th>type</th>
     <th>description</th>
   </tr>
   <tr>
     <td>id</td>
-    <td>required</td>
+    <td>string; required</td>
     <td></td>
   </tr>
   <tr>
     <td>cat</td>
-    <td>optional</td>
+    <td>array of strings</td>
     <td></td>
   </tr>
   <tr>
     <td>storeurl</td>
-    <td>optional</td>
+    <td>string</td>
     <td></td>
   </tr>
   <tr>
     <td>bundle</td>
-    <td>optional</td>
-    <td>Platform-specific application identifier
+    <td>string</td>
+    <td>Platform-specific application identifier.
 ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
   </tr>
   <tr>
     <td>publisher</td>
-    <td>optional</td>
+    <td>publisher object</td>
+    <td></td>
+  </tr>
+</table>
+
+
+#### publisher Object
+
+<table>
+  <tr>
+    <th>Field</th>
+    <th>type</th>
+    <th>description</th>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>string; required</td>
     <td></td>
   </tr>
 </table>
@@ -368,17 +377,17 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
 <table>
   <tr>
     <th>Field</th>
-    <th>scope</th>
+    <th>type</th>
     <th>description</th>
   </tr>
   <tr>
     <td>id</td>
-    <td>optional</td>
+    <td>string</td>
     <td></td>
   </tr>
   <tr>
     <td>buyeruid</td>
-    <td>optional</td>
+    <td>string</td>
     <td></td>
   </tr>
 </table>
@@ -391,52 +400,64 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
 <table>
   <tr>
     <th>Field</th>
-    <th>scope</th>
+    <th>type</th>
     <th>description</th>
   </tr>
   <tr>
     <td>ua</td>
-    <td>required</td>
+    <td>string; required</td>
     <td></td>
   </tr>
   <tr>
     <td>geo</td>
-    <td>optional</td>
-    <td>
-      <a href="#geo-object">geo object</a>
-    </td>
+    <td>geo object</td>
+    <td></td>
   </tr>
   <tr>
     <td>ip</td>
-    <td>required</td>
-    <td>IPv4 Address; string</td>
+    <td>string</td>
+    <td>IPv4 Address</td>
   </tr>
   <tr>
     <td>ipv6</td>
-    <td>optional</td>
-    <td>IPv6 Address; string</td>
+    <td>string</td>
+    <td>IPv6 Address</td>
   </tr>
   <tr>
     <td>ifa</td>
-    <td>optional</td>
+    <td>string</td>
     <td></td>
   </tr>
   <tr>
     <td>lmt</td>
-    <td>optional</td>
+    <td>integer</td>
     <td></td>
   </tr>
   <tr>
     <td>dnt</td>
-    <td>optional</td>
+    <td>integer</td>
     <td></td>
   </tr>
   <tr>
     <td>osv</td>
-    <td>optional</td>
+    <td>string</td>
     <td></td>
   </tr>
+  <tr>
+    <td>h</td>
+    <td>integer</td>
+    <td>screen height in pixels</td>
+  </tr>
+  <tr>
+    <td>w</td>
+    <td>integer</td>
+    <td>screen width in pixels</td>
+  </tr>
 </table>
+
+* When device.w and device.h are available, screen orientation can be determined as:
+    * when w > h: landscape
+    * when h > w: portrait
 
 
 #### geo Object
@@ -444,63 +465,63 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
 <table>
   <tr>
     <th>Field</th>
-    <th>scope</th>
+    <th>type</th>
     <th>description</th>
   </tr>
   <tr>
     <td>lat</td>
-    <td>optional</td>
-    <td>Latitude; -90.0~90.0 where negative is south; float</td>
+    <td>float</td>
+    <td>Latitude; -90.0~90.0 where negative is south</td>
   </tr>
   <tr>
     <td>lon</td>
-    <td>optional</td>
-    <td>Longitude; -180.0~180.0 where negative is west; float</td>
+    <td>float</td>
+    <td>Longitude; -180.0~180.0 where negative is west</td>
   </tr>
   <tr>
     <td>type</td>
-    <td>optional</td>
-    <td>Source of location data; 1=GPS, 2=IP address, 3=User provided; integer</td>
+    <td>integer</td>
+    <td>Source of location data; 1=GPS, 2=IP address, 3=User provided</td>
   </tr>
   <tr>
     <td>accuracy</td>
-    <td>optional</td>
-    <td>Accuracy in meters; integer</td>
+    <td>integer</td>
+    <td>Accuracy in meters</td>
   </tr>
   <tr>
     <td>ipservice</td>
-    <td>optional</td>
-    <td>Provider of IP address geolocation service; 1=ip2location, 2=Neustar, 3=MaxMind, 4=NetAcuity; integer</td>
+    <td>integer</td>
+    <td>Provider of IP address geolocation service; 1=ip2location, 2=Neustar, 3=MaxMind, 4=NetAcuity</td>
   </tr>
   <tr>
     <td>country</td>
-    <td>optional</td>
-    <td>Country code in ISO 3166-1 alpha-3; string</td>
+    <td>string</td>
+    <td>Country code in ISO 3166-1 alpha-3</td>
   </tr>
   <tr>
     <td>region</td>
-    <td>optional</td>
-    <td>Region code in ISO 3166-2; 2-letter state code if US; string</td>
+    <td>string</td>
+    <td>Region code in ISO 3166-2; 2-letter state code if US</td>
   </tr>
   <tr>
     <td>metro</td>
-    <td>optional</td>
-    <td>Google metro code; string</td>
+    <td>string</td>
+    <td>Google metro code</td>
   </tr>
   <tr>
     <td>city</td>
-    <td>optional</td>
-    <td>City name; string</td>
+    <td>string</td>
+    <td>City name</td>
   </tr>
   <tr>
     <td>zip</td>
-    <td>optional</td>
-    <td>Zip or postalcode; string</td>
+    <td>string</td>
+    <td>Zip or postalcode</td>
   </tr>
   <tr>
     <td>utcoffset</td>
-    <td>optional</td>
-    <td>Local time offset from UTC in minutes; integer</td>
+    <td>integer</td>
+    <td>Local time offset from UTC in minutes</td>
   </tr>
 </table>
 
@@ -510,32 +531,36 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
 <table>
   <tr>
     <th>Field</th>
-    <th>scope</th>
+    <th>type</th>
     <th>description</th>
   </tr>
   <tr>
+    <td>format</td>
+    <td>array of format objects</td>
+    <td></td>
+  </tr>
+  <tr>
     <td>h</td>
-    <td>required</td>
+    <td>integer</td>
     <td></td>
   </tr>
   <tr>
     <td>w</td>
-    <td>required</td>
+    <td>integer</td>
     <td></td>
   </tr>
   <tr>
     <td>pos</td>
-    <td>required</td>
+    <td>integer; required</td>
     <td>overlay ad = 9</td>
   </tr>
   <tr>
     <td>vcm</td>
-    <td>optional</td>
+    <td>integer</td>
     <td>
       Relavant only for banner objects in imp.video.companionad.
       0=concurrent,
-      1=end-card,
-      integer
+      1=end-card
     </td>
   </tr>
 </table>
@@ -546,18 +571,18 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
 <table>
   <tr>
     <th>Field</th>
-    <th>scope</th>
+    <th>type</th>
     <th>description</th>
   </tr>
   <tr>
     <td>h</td>
-    <td>required</td>
-    <td>height integer</td>
+    <td>integer; required</td>
+    <td>height</td>
   </tr>
   <tr>
     <td>w</td>
-    <td>required</td>
-    <td>width integer</td>
+    <td>integer; required</td>
+    <td>width</td>
   </tr>
 </table>
 
@@ -567,68 +592,64 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
 <table>
   <tr>
     <th>Field</th>
-    <th>scope</th>
+    <th>type</th>
     <th>description</th>
   </tr>
   <tr>
     <td>mimes</td>
-    <td>required</td>
+    <td>array of strings; required</td>
     <td>
-      "video/mp4",
-      string array
+      "video/mp4"
     </td>
   </tr>
   <tr>
     <td>pos</td>
-    <td>optional</td>
-    <td>overlay ad = 9, integer</td>
+    <td>integer</td>
+    <td>overlay ad = 9</td>
   </tr>
   <tr>
     <td>minduration</td>
-    <td>optional</td>
     <td>integer</td>
+    <td></td>
   </tr>
   <tr>
     <td>maxduration</td>
-    <td>optional</td>
     <td>integer</td>
+    <td></td>
   </tr>
   <tr>
     <td>protocols</td>
-    <td>optional</td>
-    <td>integer array</td>
+    <td>array of integers</td>
+    <td></td>
   </tr>
   <tr>
     <td>battr</td>
-    <td>optional</td>
-    <td>
-      integer array
-    </td>
+    <td>array of integers</td>
+    <td></td>
   </tr>
   <tr>
     <td>h</td>
-    <td>optional</td>
     <td>integer</td>
+    <td></td>
   </tr>
   <tr>
     <td>w</td>
-    <td>optional</td>
     <td>integer</td>
+    <td></td>
   </tr>
   <tr>
     <td>startdelay</td>
-    <td>optional</td>
+    <td>integer</td>
     <td>
       0=pre-roll,
       &gt;0=mid-roll,
       -1=mid-roll,
-      -2=post-roll,
-      integer
+      -2=post-roll
     </td>
   </tr>
   <tr>
     <td>linearity</td>
-    <td>optional</td>
+    <td>integer</td>
     <td>
       1=in-stream
       2=overlay
@@ -636,36 +657,36 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
   </tr>
   <tr>
     <td>minbitrate</td>
-    <td>optional</td>
     <td>integer</td>
+    <td></td>
   </tr>
   <tr>
     <td>maxbitrate</td>
-    <td>optional</td>
     <td>integer</td>
+    <td></td>
   </tr>
   <tr>
     <td>skip</td>
-    <td>optional</td>
+    <td>integer</td>
     <td>
-      0=no, 1=yes, integer
+      0=no, 1=yes
     </td>
   </tr>
   <tr>
     <td>api</td>
-    <td>optional</td>
-    <td>integer array</td>
+    <td>array of integers</td>
+    <td></td>
   </tr>
   <tr>
     <td>placement</td>
-    <td>optional</td>
     <td>integer</td>
+    <td></td>
   </tr>
   <tr>
     <td>companionad</td>
-    <td>optional</td>
+    <td>array of banner objects</td>
     <td>
-      Array of <a href="#banner-object">banner objects</a> when supported.
+      Array of banner objects when supported.
     </td>
   </tr>
 </table>
@@ -676,33 +697,29 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
 <table>
   <tr>
     <th>Field</th>
-    <th>scope</th>
+    <th>type</th>
     <th>description</th>
   </tr>
   <tr>
     <td>mimes</td>
-    <td>required</td>
+    <td>array of strings; required</td>
     <td>
-      "audio/mp4", string array
+      "audio/mp4"
     </td>
   </tr>
   <tr>
     <td>minduration</td>
-    <td>optional</td>
-    <td>
-      integer
-    </td>
+    <td>integer</td>
+    <td></td>
   </tr>
   <tr>
     <td>maxduration</td>
-    <td>optional</td>
-    <td>
-      integer
-    </td>
+    <td>integer</td>
+    <td></td>
   </tr>
   <tr>
     <td>protocols</td>
-    <td>optional</td>
+    <td>array of integers</td>
     <td>
         1=VAST 1.0,
         2=VAST 2.0,
@@ -711,71 +728,59 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
         5=VAST 2.0 Wrapper,
         6=VAST 3.0 Wrapper,
         7=VAST 4.0,
-        8=VAST 4.0 Wrapper,
-        integer array
+        8=VAST 4.0 Wrapper
     </td>
   </tr>
   <tr>
     <td>startdelay</td>
-    <td>optional</td>
+    <td>integer</td>
     <td>
       0=pre-roll,
       &gt;0=mid-roll,
       -1=mid-roll,
-      -2=post-roll,
-      integer
+      -2=post-roll
     </td>
   </tr>
   <tr>
     <td>battr</td>
-    <td>optional</td>
-    <td>
-      integer array
-    </td>
+    <td>array of integers</td>
   </tr>
   <tr>
     <td>minbitrate</td>
-    <td>optional</td>
-    <td>
-      integer
-    </td>
+    <td>integer</td>
+    <td></td>
   </tr>
   <tr>
     <td>maxbitrate</td>
-    <td>optional</td>
-    <td>
-      integer
-    </td>
+    <td>integer</td>
+    <td></td>
   </tr>
   <tr>
     <td>api</td>
-    <td>optional</td>
+    <td>array of integers</td>
     <td>
       1=VPAID 1.0,
       2=VPAID 2.0,
       3=MRAID-1,
       4=ORMMA,
-      5=MRAID-2,
-      integer array
+      5=MRAID-2
     </td>
   </tr>
   <tr>
     <td>feed</td>
-    <td>optional</td>
+    <td>integer</td>
     <td>
       1=Music Service,
       2=FM/AM Broadcast,
-      3=Podcast,
-      integer
+      3=Podcast
     </td>
   </tr>
   <tr>
     <td>stitched</td>
-    <td>optional</td>
+    <td>integer</td>
     <td>
       0=no,
-      1=yes,
-      integer
+      1=yes
     </td>
   </tr>
 </table>
@@ -786,30 +791,28 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
 <table>
   <tr>
     <th>Field</th>
-    <th>scope</th>
+    <th>type</th>
     <th>description</th>
   </tr>
   <tr>
     <td>request</td>
-    <td>required</td>
+    <td>string; required</td>
     <td><a href="native-ads-v1.en.md">Native Ad Request Markup Object</a></td>
   </tr>
   <tr>
     <td>ver</td>
-    <td>recommended</td>
     <td>string</td>
+    <td></td>
   </tr>
   <tr>
     <td>api</td>
-    <td>optional</td>
-    <td>List of supported API frameworks for this impression.
-integer array</td>
+    <td>array of integers</td>
+    <td>List of supported API frameworks for this impression</td>
   </tr>
   <tr>
     <td>battr</td>
-    <td>optional</td>
-    <td>Blocked creative attributes.
-integer array</td>
+    <td>array of integers</td>
+    <td>Blocked creative attributes</td>
   </tr>
 </table>
 
@@ -819,77 +822,62 @@ integer array</td>
 <table>
   <tr>
     <th>Field</th>
-    <th>scope</th>
+    <th>type</th>
     <th>description</th>
   </tr>
   <tr>
     <td>private_auction</td>
-    <td>required</td>
+    <td>integer; required</td>
     <td></td>
   </tr>
   <tr>
     <td>deals</td>
-    <td>required</td>
+    <td>array of deal objects; required</td>
     <td></td>
   </tr>
 </table>
 
 
-#### deals Object
+#### deal Object
 
 <table>
   <tr>
     <th>Field</th>
-    <th>scope</th>
+    <th>type</th>
     <th>description</th>
   </tr>
   <tr>
     <td>id</td>
-    <td>required</td>
+    <td>string; required</td>
     <td></td>
   </tr>
   <tr>
     <td>at</td>
-    <td>optional</td>
-    <td>1=first price auction, 2=second price auction, 3=fixed price, integer</td>
+    <td>integer</td>
+    <td>1=first price auction, 2=second price auction, 3=fixed price</td>
   </tr>
   <tr>
     <td>bidfloor</td>
-    <td>optional</td>
-    <td>Floor price when "at" is 1 or 2, deal price when "at" is 3, float</td>
+    <td>float</td>
+    <td>Floor price when "at" is 1 or 2, deal price when "at" is 3</td>
   </tr>
   <tr>
     <td>bidfloorcur</td>
-    <td>optional</td>
-    <td>Floor price currency, string</td>
+    <td>string</td>
+    <td>Floor price currency</td>
   </tr>
   <tr>
     <td>wseat</td>
-    <td>optional</td>
-    <td>Whitelist of buyer seats, string array</td>
+    <td>array of strings</td>
+    <td>Whitelist of buyer seats</td>
   </tr>
   <tr>
     <td>wadomain</td>
-    <td>optional</td>
-    <td>Whitelist of advertiser domains, string array</td>
+    <td>array of strings</td>
+    <td>Whitelist of advertiser domains</td>
   </tr>
 </table>
 
-
-#### publisher Object
-
-<table>
-  <tr>
-    <th>Field</th>
-    <th>scope</th>
-    <th>description</th>
-  </tr>
-  <tr>
-    <td>id</td>
-    <td>required</td>
-    <td>string</td>
-  </tr>
-</table>
 
 ## 4. Response specification
 
@@ -897,110 +885,141 @@ integer array</td>
 
 DSP should serialize bid information with the JSON format.
 
-HTTP 204 No Content is expected for no bid
+HTTP 204 No Content is expected for no bid.
 
-#### BidResponse Object (TopLevel)
+
+#### Bid Response Object (Top Level)
 
 <table>
   <tr>
     <th>Field</th>
-    <th>scope</th>
     <th>type</th>
     <th>description</th>
   </tr>
   <tr>
     <td>id</td>
-    <td>required</td>
-    <td>string</td>
+    <td>string; required</td>
     <td>ID of bid response</td>
   </tr>
   <tr>
     <td>cur</td>
-    <td>required</td>
-    <td>string</td>
+    <td>string; required</td>
     <td>Bid price currency using ISO-4217 code</td>
   </tr>
   <tr>
     <td>seatbid</td>
-    <td>required</td>
-    <td>array of seatbid object</td>
-    <td></td>
+    <td>array of seatbid objects; required</td>
+    <td>1+ seatbid objects</td>
   </tr>
 </table>
+
 
 #### seatbid Object
 
 <table>
   <tr>
     <th>Field</th>
-    <th>scope</th>
     <th>type</th>
     <th>description</th>
   </tr>
   <tr>
     <td>bid</td>
-    <td>required</td>
-    <td>array of bid object</td>
-    <td></td>
+    <td>array of bid objects; required</td>
+    <td>1+ bid objects</td>
+  </tr>
+  <tr>
+    <td>seat</td>
+    <td>string</td>
+    <td>
+      ID of the buyer seat.
+      Required when bidding for multiple seats.
+    </td>
   </tr>
 </table>
+
 
 #### bid Object
 
 <table>
   <tr>
     <th>Field</th>
-    <th>scope</th>
     <th>type</th>
     <th>description</th>
   </tr>
   <tr>
     <td>impid</td>
-    <td>required</td>
-    <td>string</td>
+    <td>string; required</td>
     <td>Bid target BidRequest.imp.id</td>
   </tr>
   <tr>
     <td>price</td>
-    <td>required</td>
-    <td>float</td>
+    <td>float; required</td>
     <td>Bid price</td>
   </tr>
   <tr>
     <td>adm</td>
-    <td>required</td>
-    <td>string</td>
+    <td>string; required</td>
     <td>Ad markup data. See response example for details.</td>
   </tr>
   <tr>
     <td>adomain</td>
-    <td>optional (recommended)</td>
-    <td>array of string</td>
-    <td>A list of advertiser domains for block list checking.</td>
+    <td>array of strings; required</td>
+    <td>
+      A list of advertiser domains.
+      When not returned, the bid to a frame where a publisher blocks advertisers by domain is invalid.
+    </td>
   </tr>
   <tr>
     <td>bundle</td>
-    <td>optional (recommended)</td>
+    <td>string; recommended</td>
     <td>
-      Platform-specific application identifier
+      Platform-specific application identifier.
       ex) Android: "com.foo.mygame", iOS: "1234567890"
     </td>
   </tr>
   <tr>
+    <td>cid</td>
+    <td>string; recommended</td>
+    <td>Campaign ID</td>
+  </tr>
+  <tr>
     <td>crid</td>
-    <td>optional</td>
-    <td>string</td>
+    <td>string; recommended</td>
     <td>Creative ID</td>
   </tr>
   <tr>
     <td>dealid</td>
-    <td>optional</td>
     <td>string</td>
     <td>Required if bidding for a PMP deal. Reference to BidRequest.imp.pmp.deal.id</td>
   </tr>
   <tr>
+    <td>h</td>
+    <td>integer; recommended</td>
+    <td>Creative height in pixels</td>
+  </tr>
+  <tr>
+    <td>w</td>
+    <td>integer; recommended</td>
+    <td>Creative width in pixels</td>
+  </tr>
+  <tr>
+    <td>attr</td>
+    <td>array of integers; recommended</td>
+    <td>
+      Creative Attributes.
+      See IAB OpenRTB 2.5 specification 5.3 Creative Attributes for details.
+    </td>
+  </tr>
+  <tr>
+    <td>cat</td>
+    <td>array of strings; recommended</td>
+    <td>
+      Creative Categories.
+      See IAB OpenRTB 2.5 specification 5.1 Content Categories for details.
+    </td>
+  </tr>
+  <tr>
     <td>nurl</td>
-    <td>optional</td>
     <td>string</td>
     <td>
       Win notice URL to be called if the bid wins the auction.
@@ -1010,11 +1029,10 @@ HTTP 204 No Content is expected for no bid
   </tr>
   <tr>
     <td>lurl</td>
-    <td>optional</td>
     <td>string</td>
     <td>
       Loss notice URL to be called if the bid loses the auction.
-      Substituting macros, where ${AUCTION_PRICE} for winner's clearing price when possible and ${AUCTION_LOSS} for loss reason code, may be included.
+      Substituting macros, where <code>${AUCTION_PRICE}</code> for winner's clearing price when possible and <code>${AUCTION_LOSS}</code> for loss reason code, may be included.
       See IAB OpenRTB 2.5 specification 5.25 Loss Reason Codes for details.
     </td>
   </tr>

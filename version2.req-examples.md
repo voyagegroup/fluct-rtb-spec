@@ -21,13 +21,20 @@
     "blocked-advertiser3.com"
   ],
   "bapp": [],
-  "bcat": [],
+  "bcat": [
+    "IAB23",
+    "IAB24",
+    "IAB25-2",
+    "IAB25-3",
+    "IAB25-4",
+    "IAB25-5",
+    "IAB26"
+  ],
   "cur": [
     "JPY",
     "USD"
   ],
   "device": {
-    "carrier": "",
     "connectiontype": 0,
     "devicetype": 2,
     "dnt": 0,
@@ -54,7 +61,7 @@
     "pxratio": 0.0,
     "ua": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/51.0.2704.79 Safari\/537.36 Edge\/14.14393"
   },
-  "id": "ee59d6dc-6f20-4d6e-92be-2aec30f6c66b",
+  "id": "8aaf696c-1860-4f3d-bb5d-b4cd6eee8f6b",
   "imp": [
     {
       "banner": {
@@ -115,7 +122,7 @@
             "asi": "adingo.jp",
             "ext": {},
             "hp": 1,
-            "rid": "ee59d6dc-6f20-4d6e-92be-2aec30f6c66b",
+            "rid": "8aaf696c-1860-4f3d-bb5d-b4cd6eee8f6b",
             "sid": "234"
           }
         ],
@@ -124,13 +131,13 @@
       "stype": ""
     },
     "fd": 0,
-    "tid": "ee59d6dc-6f20-4d6e-92be-2aec30f6c66b"
+    "tid": "8aaf696c-1860-4f3d-bb5d-b4cd6eee8f6b"
   },
   "tmax": 120,
   "user": {
     "buyeruid": "synced-buyeruid",
     "ext": {},
-    "id": "a356c2b925699e3d05af52405f3af3adbdfb2552"
+    "id": "f306301bc1f209abe1e2f39308cf34b7f39ee2fe"
   },
   "wseat": []
 }
@@ -165,13 +172,20 @@
     "23456",
     "34567"
   ],
-  "bcat": [],
+  "bcat": [
+    "IAB23",
+    "IAB24",
+    "IAB25-2",
+    "IAB25-3",
+    "IAB25-4",
+    "IAB25-5",
+    "IAB26"
+  ],
   "cur": [
     "JPY",
     "USD"
   ],
   "device": {
-    "carrier": "",
     "connectiontype": 2,
     "devicetype": 2,
     "dnt": 0,
@@ -185,7 +199,7 @@
       "zip": "150-0043"
     },
     "hwv": "",
-    "ifa": "238ef9ea-39d8-4795-8000-e5a0973f62c0",
+    "ifa": "a66805fe-9710-4851-98ca-97681872cfa4",
     "ip": "210.168.46.254",
     "ipv6": "",
     "js": 1,
@@ -198,7 +212,7 @@
     "pxratio": 0.0,
     "ua": "Mozilla \/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit\/601.1.46 (KHTML, like Gecko) Version\/9.0 Mobile\/13B5110e Safari\/601.1"
   },
-  "id": "108b7491-3e1c-4588-b524-f46979a99e02",
+  "id": "b9ae1ece-ad75-4f35-a994-90ca72d4d784",
   "imp": [
     {
       "banner": {
@@ -239,7 +253,7 @@
             "asi": "adingo.jp",
             "ext": {},
             "hp": 1,
-            "rid": "108b7491-3e1c-4588-b524-f46979a99e02",
+            "rid": "b9ae1ece-ad75-4f35-a994-90ca72d4d784",
             "sid": "234"
           }
         ],
@@ -248,13 +262,13 @@
       "stype": ""
     },
     "fd": 0,
-    "tid": "108b7491-3e1c-4588-b524-f46979a99e02"
+    "tid": "b9ae1ece-ad75-4f35-a994-90ca72d4d784"
   },
   "tmax": 120,
   "user": {
     "buyeruid": "",
     "ext": {},
-    "id": "238ef9ea-39d8-4795-8000-e5a0973f62c0"
+    "id": "a66805fe-9710-4851-98ca-97681872cfa4"
   },
   "wseat": []
 }
@@ -271,13 +285,20 @@
     "blocked-advertiser3.com"
   ],
   "bapp": [],
-  "bcat": [],
+  "bcat": [
+    "IAB23",
+    "IAB24",
+    "IAB25-2",
+    "IAB25-3",
+    "IAB25-4",
+    "IAB25-5",
+    "IAB26"
+  ],
   "cur": [
     "JPY",
     "USD"
   ],
   "device": {
-    "carrier": "",
     "connectiontype": 2,
     "devicetype": 2,
     "dnt": 0,
@@ -304,11 +325,11 @@
     "pxratio": 0.0,
     "ua": "Mozilla\/5.0 (Linux; Android 9; SOV39 Build\/52.0.C.1.119) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/68.0.3440.91 Mobile Safari\/537.36"
   },
-  "id": "f825e972-e5fe-4253-9c2e-2df5c996f6fb",
+  "id": "8779d122-6370-4785-9163-162614683b67",
   "imp": [
     {
-      "bidfloor": 2.430134,
-      "bidfloorcur": "USD",
+      "bidfloor": 300.0,
+      "bidfloorcur": "JPY",
       "ext": {},
       "id": "",
       "instl": 0,
@@ -316,7 +337,7 @@
         "api": [],
         "battr": [],
         "ext": {},
-        "request": "{\"native\":{\"assets\":[{\"id\":1,\"title\":{\"len\":20}},{\"id\":2,\"img\":{\"hmin\":160,\"type\":1,\"wmin\":160}},{\"data\":{\"len\":30,\"type\":1},\"id\":3},{\"data\":{\"len\":50,\"type\":2},\"id\":4}],\"layout\":3}}",
+        "request": "{\"native\":{\"assets\":[{\"id\":1,\"required\":1,\"title\":{\"len\":10}},{\"id\":2,\"img\":{\"hmin\":10,\"type\":1,\"wmin\":10},\"required\":1},{\"data\":{\"len\":30,\"type\":1},\"id\":3},{\"data\":{\"len\":50,\"type\":2},\"id\":4}],\"layout\":3,\"plcmtcnt\":2,\"ver\":\"1.0\"}}",
         "ver": "1.0"
       },
       "pmp": {
@@ -357,7 +378,7 @@
             "asi": "adingo.jp",
             "ext": {},
             "hp": 1,
-            "rid": "f825e972-e5fe-4253-9c2e-2df5c996f6fb",
+            "rid": "8779d122-6370-4785-9163-162614683b67",
             "sid": "234"
           }
         ],
@@ -366,13 +387,13 @@
       "stype": ""
     },
     "fd": 0,
-    "tid": "f825e972-e5fe-4253-9c2e-2df5c996f6fb"
+    "tid": "8779d122-6370-4785-9163-162614683b67"
   },
   "tmax": 120,
   "user": {
     "buyeruid": "synced-buyeruid",
     "ext": {},
-    "id": "0c17f6f9a903e93cdd30e1e77a8dad01a47d5ffe"
+    "id": "a7cee2429ce3fbe36ed8938c6e4d628fcbf3a09b"
   },
   "wseat": []
 }
@@ -389,13 +410,20 @@
     "blocked-advertiser3.com"
   ],
   "bapp": [],
-  "bcat": [],
+  "bcat": [
+    "IAB23",
+    "IAB24",
+    "IAB25-2",
+    "IAB25-3",
+    "IAB25-4",
+    "IAB25-5",
+    "IAB26"
+  ],
   "cur": [
     "JPY",
     "USD"
   ],
   "device": {
-    "carrier": "",
     "connectiontype": 0,
     "devicetype": 2,
     "dnt": 0,
@@ -422,7 +450,7 @@
     "pxratio": 0.0,
     "ua": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/51.0.2704.79 Safari\/537.36 Edge\/14.14393"
   },
-  "id": "702182a1-214b-4750-9c5f-99261491a79a",
+  "id": "315f2976-c9db-4fa9-b080-a41682cafab1",
   "imp": [
     {
       "bidfloor": 2.430134,
@@ -462,7 +490,7 @@
           3,
           6
         ],
-        "skip": 0,
+        "skip": 1,
         "startdelay": 0,
         "w": 300
       }
@@ -497,7 +525,7 @@
             "asi": "adingo.jp",
             "ext": {},
             "hp": 1,
-            "rid": "702182a1-214b-4750-9c5f-99261491a79a",
+            "rid": "315f2976-c9db-4fa9-b080-a41682cafab1",
             "sid": "234"
           }
         ],
@@ -506,13 +534,13 @@
       "stype": ""
     },
     "fd": 0,
-    "tid": "702182a1-214b-4750-9c5f-99261491a79a"
+    "tid": "315f2976-c9db-4fa9-b080-a41682cafab1"
   },
   "tmax": 120,
   "user": {
     "buyeruid": "synced-buyeruid",
     "ext": {},
-    "id": "77137608018ece4c6bef4c5ac8662a330919fe12"
+    "id": "eaa9f8d5e64ae407d3818f5c0d302c77ab8e1f8f"
   },
   "wseat": []
 }
@@ -551,13 +579,20 @@ For rewarded-video ad, a request video-object can explicitly include optional pa
     "23456",
     "34567"
   ],
-  "bcat": [],
+  "bcat": [
+    "IAB23",
+    "IAB24",
+    "IAB25-2",
+    "IAB25-3",
+    "IAB25-4",
+    "IAB25-5",
+    "IAB26"
+  ],
   "cur": [
     "JPY",
     "USD"
   ],
   "device": {
-    "carrier": "",
     "connectiontype": 2,
     "devicetype": 2,
     "dnt": 0,
@@ -570,8 +605,9 @@ For rewarded-video ad, a request video-object can explicitly include optional pa
       "utcoffset": 540,
       "zip": "150-0043"
     },
+    "h": 647,
     "hwv": "",
-    "ifa": "aa915921-3f8a-4a8b-9490-94e9654a8a7f",
+    "ifa": "8a3b376e-8be9-463d-adde-9fa708eb12a7",
     "ip": "210.168.46.254",
     "ipv6": "",
     "js": 1,
@@ -582,9 +618,10 @@ For rewarded-video ad, a request video-object can explicitly include optional pa
     "os": "iOS",
     "osv": "9.1",
     "pxratio": 0.0,
-    "ua": "Mozilla \/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit\/601.1.46 (KHTML, like Gecko) Version\/9.0 Mobile\/13B5110e Safari\/601.1"
+    "ua": "Mozilla \/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit\/601.1.46 (KHTML, like Gecko) Version\/9.0 Mobile\/13B5110e Safari\/601.1",
+    "w": 375
   },
-  "id": "4c227a0d-5228-4876-accf-d95ca734c76c",
+  "id": "87330509-fd31-4c7e-aeca-bef41b5e9f58",
   "imp": [
     {
       "bidfloor": 2.430134,
@@ -617,7 +654,6 @@ For rewarded-video ad, a request video-object can explicitly include optional pa
         "ext": {
           "rewarded": 1
         },
-        "h": 647,
         "linearity": 1,
         "maxbitrate": 2000,
         "maxduration": 30,
@@ -638,8 +674,7 @@ For rewarded-video ad, a request video-object can explicitly include optional pa
           6
         ],
         "skip": 0,
-        "startdelay": 0,
-        "w": 375
+        "startdelay": 0
       }
     }
   ],
@@ -652,7 +687,7 @@ For rewarded-video ad, a request video-object can explicitly include optional pa
             "asi": "adingo.jp",
             "ext": {},
             "hp": 1,
-            "rid": "4c227a0d-5228-4876-accf-d95ca734c76c",
+            "rid": "87330509-fd31-4c7e-aeca-bef41b5e9f58",
             "sid": "234"
           }
         ],
@@ -661,13 +696,13 @@ For rewarded-video ad, a request video-object can explicitly include optional pa
       "stype": ""
     },
     "fd": 0,
-    "tid": "4c227a0d-5228-4876-accf-d95ca734c76c"
+    "tid": "87330509-fd31-4c7e-aeca-bef41b5e9f58"
   },
   "tmax": 300,
   "user": {
     "buyeruid": "",
     "ext": {},
-    "id": "aa915921-3f8a-4a8b-9490-94e9654a8a7f"
+    "id": "8a3b376e-8be9-463d-adde-9fa708eb12a7"
   },
   "wseat": []
 }
@@ -684,13 +719,20 @@ For rewarded-video ad, a request video-object can explicitly include optional pa
     "blocked-advertiser3.com"
   ],
   "bapp": [],
-  "bcat": [],
+  "bcat": [
+    "IAB23",
+    "IAB24",
+    "IAB25-2",
+    "IAB25-3",
+    "IAB25-4",
+    "IAB25-5",
+    "IAB26"
+  ],
   "cur": [
     "JPY",
     "USD"
   ],
   "device": {
-    "carrier": "",
     "connectiontype": 0,
     "devicetype": 2,
     "dnt": 0,
@@ -717,7 +759,7 @@ For rewarded-video ad, a request video-object can explicitly include optional pa
     "pxratio": 0.0,
     "ua": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/51.0.2704.79 Safari\/537.36 Edge\/14.14393"
   },
-  "id": "8ddc3fa0-e770-484b-94de-7a398f471928",
+  "id": "772b6275-dfae-4727-95bf-ca4e3377f1ba",
   "imp": [
     {
       "audio": {
@@ -786,7 +828,7 @@ For rewarded-video ad, a request video-object can explicitly include optional pa
             "asi": "adingo.jp",
             "ext": {},
             "hp": 1,
-            "rid": "8ddc3fa0-e770-484b-94de-7a398f471928",
+            "rid": "772b6275-dfae-4727-95bf-ca4e3377f1ba",
             "sid": "234"
           }
         ],
@@ -795,13 +837,13 @@ For rewarded-video ad, a request video-object can explicitly include optional pa
       "stype": ""
     },
     "fd": 0,
-    "tid": "8ddc3fa0-e770-484b-94de-7a398f471928"
+    "tid": "772b6275-dfae-4727-95bf-ca4e3377f1ba"
   },
   "tmax": 120,
   "user": {
     "buyeruid": "synced-buyeruid",
     "ext": {},
-    "id": "3568c3ac2fd34540b607f02ee3c0545062c2e938"
+    "id": "4767dbca2bc735d5fae7db69d9ba552eed5ae503"
   },
   "wseat": []
 }
@@ -818,13 +860,20 @@ For rewarded-video ad, a request video-object can explicitly include optional pa
     "blocked-advertiser3.com"
   ],
   "bapp": [],
-  "bcat": [],
+  "bcat": [
+    "IAB23",
+    "IAB24",
+    "IAB25-2",
+    "IAB25-3",
+    "IAB25-4",
+    "IAB25-5",
+    "IAB26"
+  ],
   "cur": [
     "JPY",
     "USD"
   ],
   "device": {
-    "carrier": "",
     "connectiontype": 2,
     "devicetype": 2,
     "dnt": 0,
@@ -851,7 +900,7 @@ For rewarded-video ad, a request video-object can explicitly include optional pa
     "pxratio": 0.0,
     "ua": "Mozilla \/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit\/601.1.46 (KHTML, like Gecko) Version\/9.0 Mobile\/13B5110e Safari\/601.1"
   },
-  "id": "33f203d8-d8ca-4da6-b6c4-6f42e095cd84",
+  "id": "591c0aa6-d0a9-42f2-9a42-dccf3082b1b7",
   "imp": [
     {
       "ext": {},
@@ -917,7 +966,7 @@ For rewarded-video ad, a request video-object can explicitly include optional pa
           3,
           6
         ],
-        "skip": 0,
+        "skip": 1,
         "startdelay": 0,
         "w": 300
       }
@@ -952,7 +1001,7 @@ For rewarded-video ad, a request video-object can explicitly include optional pa
             "asi": "adingo.jp",
             "ext": {},
             "hp": 1,
-            "rid": "33f203d8-d8ca-4da6-b6c4-6f42e095cd84",
+            "rid": "591c0aa6-d0a9-42f2-9a42-dccf3082b1b7",
             "sid": "234"
           }
         ],
@@ -961,13 +1010,13 @@ For rewarded-video ad, a request video-object can explicitly include optional pa
       "stype": ""
     },
     "fd": 0,
-    "tid": "33f203d8-d8ca-4da6-b6c4-6f42e095cd84"
+    "tid": "591c0aa6-d0a9-42f2-9a42-dccf3082b1b7"
   },
   "tmax": 120,
   "user": {
     "buyeruid": "synced-buyeruid",
     "ext": {},
-    "id": "73656f35a5814486f5a5dd71ac59bbcceab2153d"
+    "id": "3796150a94c34264c42a33f692b6749d979ea26e"
   },
   "wseat": []
 }
@@ -984,13 +1033,20 @@ For rewarded-video ad, a request video-object can explicitly include optional pa
     "blocked-advertiser3.com"
   ],
   "bapp": [],
-  "bcat": [],
+  "bcat": [
+    "IAB23",
+    "IAB24",
+    "IAB25-2",
+    "IAB25-3",
+    "IAB25-4",
+    "IAB25-5",
+    "IAB26"
+  ],
   "cur": [
     "JPY",
     "USD"
   ],
   "device": {
-    "carrier": "",
     "connectiontype": 2,
     "devicetype": 2,
     "dnt": 0,
@@ -1017,7 +1073,7 @@ For rewarded-video ad, a request video-object can explicitly include optional pa
     "pxratio": 0.0,
     "ua": "Mozilla \/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit\/601.1.46 (KHTML, like Gecko) Version\/9.0 Mobile\/13B5110e Safari\/601.1"
   },
-  "id": "4ee4cf4c-5574-4838-80dc-33df297602ab",
+  "id": "87623225-7e71-441a-be45-389946cf249e",
   "imp": [
     {
       "banner": {
@@ -1106,7 +1162,7 @@ For rewarded-video ad, a request video-object can explicitly include optional pa
             "asi": "adingo.jp",
             "ext": {},
             "hp": 1,
-            "rid": "4ee4cf4c-5574-4838-80dc-33df297602ab",
+            "rid": "87623225-7e71-441a-be45-389946cf249e",
             "sid": "234"
           }
         ],
@@ -1115,13 +1171,13 @@ For rewarded-video ad, a request video-object can explicitly include optional pa
       "stype": ""
     },
     "fd": 0,
-    "tid": "4ee4cf4c-5574-4838-80dc-33df297602ab"
+    "tid": "87623225-7e71-441a-be45-389946cf249e"
   },
   "tmax": 120,
   "user": {
     "buyeruid": "synced-buyeruid",
     "ext": {},
-    "id": "67a5346912bc227271f45df203b77e3c94fc1940"
+    "id": "b4c56a41a43d462f6f90583e185113c61a657027"
   },
   "wseat": []
 }
@@ -1140,13 +1196,20 @@ Google Open Bidding transaction example.
     "blocked-advertiser3.com"
   ],
   "bapp": [],
-  "bcat": [],
+  "bcat": [
+    "IAB23",
+    "IAB24",
+    "IAB25-2",
+    "IAB25-3",
+    "IAB25-4",
+    "IAB25-5",
+    "IAB26"
+  ],
   "cur": [
     "JPY",
     "USD"
   ],
   "device": {
-    "carrier": "",
     "connectiontype": 2,
     "devicetype": 2,
     "dnt": 0,
@@ -1173,7 +1236,7 @@ Google Open Bidding transaction example.
     "pxratio": 0.0,
     "ua": "Mozilla \/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit\/601.1.46 (KHTML, like Gecko) Version\/9.0 Mobile\/13B5110e Safari\/601.1"
   },
-  "id": "7dadc8ca-39c6-485d-99f3-da0d666ee54b",
+  "id": "ea20ea4a-f80f-4145-a574-78359f7af88a",
   "imp": [
     {
       "banner": {
@@ -1240,7 +1303,7 @@ Google Open Bidding transaction example.
             "asi": "adingo.jp",
             "ext": {},
             "hp": 1,
-            "rid": "7dadc8ca-39c6-485d-99f3-da0d666ee54b",
+            "rid": "ea20ea4a-f80f-4145-a574-78359f7af88a",
             "sid": "234"
           }
         ],
@@ -1249,13 +1312,13 @@ Google Open Bidding transaction example.
       "stype": "EB"
     },
     "fd": 1,
-    "tid": "55942c25-4802-4b8e-ae9a-d8fe83bd442c"
+    "tid": "cad53f48-a5db-4966-89bc-e9b669cc31de"
   },
   "tmax": 120,
   "user": {
     "buyeruid": "synced-buyeruid",
     "ext": {},
-    "id": "d28de788fc31ddca4a49ec61569490f5ca0efbe0"
+    "id": "5fae42c9e6d63e22e703b5c5eebbf9d97e965f12"
   },
   "wseat": []
 }

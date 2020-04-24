@@ -24,10 +24,12 @@
           ],
           "cid": "75580",
           "crid": "40734",
+          "h": 250,
           "id": "0",
           "impid": "00007d85-89e3-41e9-9e09-96e3a5000000",
           "language": "ja",
-          "price": 0.014828
+          "price": 0.014828,
+          "w": 300
         }
       ]
     }
@@ -77,6 +79,7 @@
           "adomain": [
             "ecnavi.jp"
           ],
+          "cid": "1001",
           "crid": "66027",
           "impid": "0000d491-84a5-49b3-8e33-52b2e1000000",
           "price": 975.52
@@ -105,10 +108,12 @@
           "cid": "75580",
           "crid": "40734",
           "dealid": "bidding-deal-id",
+          "h": 250,
           "id": "0",
           "impid": "00007d85-89e3-41e9-9e09-96e3a5000000",
           "language": "ja",
-          "price": 0.014828
+          "price": 0.014828,
+          "w": 300
         }
       ]
     }
@@ -133,12 +138,14 @@
           ],
           "cid": "75580",
           "crid": "40734",
+          "h": 250,
           "id": "0",
           "impid": "00007d85-89e3-41e9-9e09-96e3a5000000",
           "language": "ja",
           "lurl": "https://example.net/loss?code=${AUCTION_LOSS}&auction_id=${AUCTION_ID}&clearing_price=${AUCTION_PRICE}",
           "nurl": "https://example.net/win?code=${AUCTION_LOSS}&auction_id=${AUCTION_ID}&clearing_price=${AUCTION_PRICE}",
-          "price": 0.014828
+          "price": 0.014828,
+          "w": 300
         }
       ]
     }
