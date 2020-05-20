@@ -1,6 +1,11 @@
 # 変更履歴
 
 * 2.2
+    * 2020/05/20
+        * Bid Response マクロ置換の更新
+            * `${AUCTION_CURRENCY}`, `${AUCTION_ID}`, `${AUCTION_IMP_ID}`, `${AUCTION_IMP_ID}`, `${AUCTION_LOSS}`, `${AUCTION_SECOND_PRICE}`, `${AUCTION_SECOND_PRICE_IV}` を追加
+            * `${CLICK_URL_ENC}` を非推奨に変更
+        * Request/Response 本文の圧縮を推奨に変更
     * 2020/04/24
         * Bid Request Device Object
             * `w`, `h` 追加
