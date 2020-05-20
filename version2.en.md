@@ -14,6 +14,8 @@ Moreover, this specification does not contain description of general RTB protoco
 
 * [1. cookie sync](#1-cookie-sync)
 * [2. Request/Response encoding](#2-requestresponse-encoding)
+  * [a. Request encoding](#a-request-encoding)
+  * [b. Response encoding](#b-response-encoding)
 * [3. Request specification](#3-request-specification)
   * [a. Endpoint URL](#a-endpoint-url)
   * [b. OpenRTB Version HTTP Header](#b-openrtb-version-http-header)
@@ -74,11 +76,26 @@ The expiry date of sync is default to 30 days, however it can also be customized
 
 ## 2. Request/Response encoding
 
-Fluct is capable of sending gzip-compressed bid requests, along with the HTTP header `Content-Encoding: gzip`.  (default: uncompressed)
-If you wish to receive gzipped bid requests, contact alliance representative.
+To minimize HTTP traffic exchanged between DSP and Fluct, it is **recommended** to have **both** bid request and response bodies **compressed**.
 
-Fluct is also capable of receiving compressed bid responses whenever corresponding requests contain a list of accepted compression algorightms in the HTTP header `Accept-Encoding`.  (e.g., `Accept-Encoding: gzip`)
-If you are replying a compressed bid response, the response must contain the HTTP header `Content-Encoding` with selected compression names.
+### a. Request encoding
+
+Bid requests can be gzip-compressed.
+If DSPs wish to receive gzip-compressed bid requests, contact an alliance representative.
+
+Following header is added to a request when its body is gzip-compressed:
+
+    Content-Encoding: gzip
+
+### b. Response encoding
+
+A response body can be compressed when its request has a header similar to:
+
+    Accept-Encoding: gzip
+
+When returning a compressed response body, such response should have a header similar to:
+
+    Content-Encoding: gzip
 
 ## 3. Request specification
 
