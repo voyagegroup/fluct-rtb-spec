@@ -1049,6 +1049,7 @@ DSPはJSONフォーマットで入札情報をシリアライズします。
     <td>
       広告表示データ。
       広告フォーマットにより内容の形式は異なります。
+      マクロ置換がおこなわれます。
       レスポンスサンプルを参照してください。
     </td>
   </tr>
@@ -1118,9 +1119,9 @@ DSPはJSONフォーマットで入札情報をシリアライズします。
     <td>string</td>
     <td>
       Win通知URL。
-      入札が勝利した際に呼び出される。
-      約定・表示・請求を通知するものではなく、オークションでの勝利を通知するもの。
-      adm と同様の置換マクロを含めてもよい。
+      入札が勝利した際に呼び出されます。
+      約定・表示・請求を通知するものではなく、オークションでの勝利を通知するものです。
+      マクロ置換がおこなわれます。
     </td>
   </tr>
   <tr>
@@ -1128,9 +1129,8 @@ DSPはJSONフォーマットで入札情報をシリアライズします。
     <td>string</td>
     <td>
       Loss通知URL。
-      入札が勝利しなかった際に呼び出される。
-      adm と同様のマクロ置換が行われ、 <code>${AUCTION_PRICE}</code> には約定価格 (通知可能な場合のみ)、 <code>${AUCTION_LOSS}</code> には loss reason code が通知される。
-      Loss reason code については、 IAB OpenRTB 2.5 仕様 5.25 Loss Reason Codes を参照してください。
+      入札が勝利しなかった際に呼び出されます。
+      マクロ置換がおこなわれます。
     </td>
   </tr>
 </table>
@@ -1208,31 +1208,118 @@ fluctのクライアント制御スクリプトからビーコンを送信に関
 
 ### c. マクロ置換
 
-SSPは広告HTML(adm)内の以下の文字列を置換したうえで配信します。iab定義の必要な項目をお申し付けください。（他にも必要な項目があれば対応致します）
-
 <table>
   <tr>
     <th>マクロ</th>
     <th>詳細</th>
+    <th>adm</th>
+    <th>nurl</th>
+    <th>lurl</th>
   </tr>
   <tr>
-    <td>${AUCTION_PRICE} </td>
-    <td>暗号化された約定金額。クリエイティブ審査プロセスによる描画の場合、<code>AUDIT</code> という文字列に置換されます。 </td>
+    <td><code>${CLICK_URL_ENC}</code></td>
+    <td>
+      URLエンコードされたリダイレクタURL。
+      <strong>(非推奨)</strong>
+    </td>
+    <td>Yes</td>
+    <td></td>
+    <td></td>
   </tr>
   <tr>
-    <td>${CLICK_URL_ENC} </td>
-    <td>URLエンコードされたリダイレクタURL </td>
+    <td><code>${AUCTION_CURRENCY}</code></td>
+    <td>
+      入札で使用された通貨。
+    </td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
   </tr>
   <tr>
-    <td>${IS_PREVIEW} </td>
-    <td>クリエイティブ審査プロセスによる描画の場合 <code>1</code> に、通常は <code>0</code> に置換されます。 </td>
+    <td><code>${AUCTION_ID}</code></td>
+    <td>
+      オークション ID。
+      ビッドリクエストの <code>id</code> に置換されます。
+    </td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><code>${AUCTION_IMP_ID}</code></td>
+    <td>
+      インプレッション ID。
+      ビッドリクエストの <code>imp.id</code> に置換されます。
+    </td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><code>${AUCTION_LOSS}</code></td>
+    <td>
+      オークション敗因コード。
+      オークション敗因コードについては、 IAB OpenRTB 2.5 仕様 5.25 Loss Reason Codes を参照してください。
+    </td>
+    <td></td>
+    <td>Yes</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><code>${AUCTION_PRICE}</code></td>
+    <td>
+      約定金額。暗号化可能。
+      クリエイティブ審査プロセスによる描画の場合、<code>AUDIT</code> という文字列に置換されます。
+    </td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><code>${AUCTION_PRICE_IV}</code></td>
+    <td>
+      約定金額暗号化初期化ベクトル。
+      初期化ベクトルを生成する暗号化方式の場合に置換されます。
+    </td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><code>${AUCTION_SECOND_PRICE}</code></td>
+    <td>
+      2位入札金額。暗号化可能。
+    </td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>${AUCTION_SECOND_PRICE_IV}</code></td>
+    <td>
+      2位入札金額暗号化用初期化ベクトル。
+      初期化ベクトルを生成する暗号化方式の場合に置換されます。
+    </td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>${IS_PREVIEW}</code></td>
+    <td>
+      クリエイティブ審査プロセスによる描画の場合 <code>1</code> に、通常は <code>0</code> に置換されます。
+    </td>
+    <td>Yes</td>
+    <td></td>
+    <td></td>
   </tr>
 </table>
 
+* 暗号化方式（アルゴリズム、鍵長、暗号利用モード）については、事前に協議して決定します。（例：CFB 3DES + いわゆるWeb セーフ Base64など）
+    * 暗号鍵は決定した方式に基づいて、 fluct が発行します。
+* 特に明記されない限り、クリエイティブ審査プロセスによる描画ではマクロは置換されません。
+* 他に必要な項目があれば、可能なものは対応致します。
 
-暗号化方式（アルゴリズム、鍵長、暗号利用モード）については、事前にSSPとDSPが協議して決定します。（例：CFB 3DES + いわゆるWeb セーフ Base64など）
-
-暗号鍵は決定した方式に基づいて、SSPが発行します。（SSP作業）
 
 ### d. リダイレクタ仕様
 
@@ -1295,6 +1382,7 @@ SSPは広告HTML(adm)内の以下の文字列を置換したうえで配信し�
 3. 御社リダイレクタで、パラメタ r で指定された弊社リダイレクタに、実際のランディングURLをURLエンコードして付与する
 
     http://rd.adingo.jp/?p=rKRSvXZZsc3qXP7DfGyYd0ws220dxHwHVnICTDmTbaPn9JttXH6yinKvASt4mmHHZT_N6DHJbFvL44b27QhnsfTMmeY36Lj6T03cVm4N_OW6d3ukpfMh1cjUOuCcWL7hthiQK9quf-Uv83V7xFV3Z7Z8GptcRjhegT-aXliZsvMS7lLoxkXTHRO64iFKk8Ds&v=e0e8nlDL6O0.&k=1&guid=ON&u=http%3A%2F%2Flp.example.net
+
 
 ## 5. コード表
 

@@ -959,7 +959,11 @@ HTTP 204 No Content is expected for no bid.
   <tr>
     <td>adm</td>
     <td>string; required</td>
-    <td>Ad markup data. See response example for details.</td>
+    <td>
+      Ad markup data.
+      Substituting macros may be included.
+      See response example for details.
+    </td>
   </tr>
   <tr>
     <td>adomain</td>
@@ -1032,8 +1036,7 @@ HTTP 204 No Content is expected for no bid.
     <td>string</td>
     <td>
       Loss notice URL to be called if the bid loses the auction.
-      Substituting macros, where <code>${AUCTION_PRICE}</code> for winner's clearing price when possible and <code>${AUCTION_LOSS}</code> for loss reason code, may be included.
-      See IAB OpenRTB 2.5 specification 5.25 Loss Reason Codes for details.
+      Substituting macros may be included.
     </td>
   </tr>
 </table>
@@ -1099,32 +1102,118 @@ The following assumptions are made about URLs which serve beacons:
 
 ### c. Macro substitution
 
-SSP will substitute the following strings in ad HTML (adm) before delivering.
-
-(Others may also be supported by request.)
-
 <table>
   <tr>
     <th>macro</th>
     <th>description</th>
+    <th>adm</th>
+    <th>nurl</th>
+    <th>lurl</th>
   </tr>
   <tr>
-    <td>${AUCTION_PRICE} </td>
-    <td>The encoded winning price. In the creative review process, it is substituted to the string <code>AUDIT</code>.</td>
+    <td><code>${CLICK_URL_ENC}</code></td>
+    <td>
+      URL-encoded redirection URL.
+      <strong>(Deprecated)</strong>
+    </td>
+    <td>Yes</td>
+    <td></td>
+    <td></td>
   </tr>
   <tr>
-    <td>${CLICK_URL_ENC} </td>
-    <td>The url-encoded redirector URL. </td>
+    <td><code>${AUCTION_CURRENCY}</code></td>
+    <td>
+      Currency code used in the bid.
+    </td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
   </tr>
   <tr>
-    <td>${IS_PREVIEW}</td>
-    <td>Normally substituted to 0. In the creative review process, it is substituted to 1.</td>
+    <td><code>${AUCTION_ID}</code></td>
+    <td>
+      Auction ID from bid request <code>id</code>.
+    </td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><code>${AUCTION_IMP_ID}</code></td>
+    <td>
+      Impression ID from bid request <code>imp.id</code>.
+    </td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><code>${AUCTION_LOSS}</code></td>
+    <td>
+      Auction loss reason codes.
+      See IAB OpenRTB 2.5 specification 5.25 Loss Reason Codes for details.
+    </td>
+    <td></td>
+    <td>Yes</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><code>${AUCTION_PRICE}</code></td>
+    <td>
+      Auction clearing price.
+      Encryption is optional.
+      Substituted to <code>AUDIT</code> in the creative review process.
+    </td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><code>${AUCTION_PRICE_IV}</code></td>
+    <td>
+      Initialization vector (IV) for the auction clearing price encryption.
+      Substituted when the encryption algorithm requires IV generation.
+    </td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><code>${AUCTION_SECOND_PRICE}</code></td>
+    <td>
+      Auction second price.
+      Encryption is optional.
+    </td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>${AUCTION_SECOND_PRICE_IV}</code></td>
+    <td>
+      Initialization vector (IV) for the auction second price encryption.
+      Substituted when the encryption algorithm requires IV generation.
+    </td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>${IS_PREVIEW}</code></td>
+    <td>
+      Substituted to <code>1</code> in the creative review pricess, otherwise substituted to <code>0</code>.
+    </td>
+    <td>Yes</td>
+    <td></td>
+    <td></td>
   </tr>
 </table>
 
-Cipher system (algorithm, key length, block cipher modes of operation) should be discussed and decided by SSP and DSP beforehand. (e.g., CFB 3DES + the so called Web safe Base64 etc.)
+* Cipher system (algorithm, key length, block cipher modes of operation) should be decided beforehand. (e.g., CFB 3DES + the so called Web safe Base64 etc.)
+    * Fluct issues the encryption key after cipher system has been determined.
+* Unless otherwise specified, macros are not substituted during the creative review process.
+* Additional macros may be implemented when demanded.
 
-SSP issues the encryption key after cipher system has been determined. (SSP responsibility)
 
 ### d. Click Measuring
 
@@ -1187,6 +1276,7 @@ Redirecting route: Web page -> Company redirector -> fluct redirector -> Landing
     http://rd.adingo.jp/?p=rKRSvXZZsc3qXP7DfGyYd0ws220dxHwHVnICTDmTbaPn9JttXH6yinKvASt4mmHHZT_N6DHJbFvL44b27QhnsfTMmeY36Lj6T03cVm4N_OW6d3ukpfMh1cjUOuCcWL7hthiQK9quf-Uv83V7xFV3Z7Z8GptcRjhegT-aXliZsvMS7lLoxkXTHRO64iFKk8Ds&v=e0e8nlDL6O0.&k=1&guid=ON&u=http%3A%2F%2Flp.example.net
 
 Then fluct will count the click and redirect the user to company's landing page.
+
 
 ## 5. Code table
 
