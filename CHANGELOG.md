@@ -1,6 +1,8 @@
 # 変更履歴
 
 * 2.2
+    * 2020/06/05
+        * Bid Request Video-Ext Object を仕様に追加
     * 2020/05/20
         * Bid Response マクロ置換の更新
             * `${AUCTION_CURRENCY}`, `${AUCTION_ID}`, `${AUCTION_IMP_ID}`, `${AUCTION_IMP_ID}`, `${AUCTION_LOSS}`, `${AUCTION_SECOND_PRICE}`, `${AUCTION_SECOND_PRICE_IV}` を追加
