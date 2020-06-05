@@ -770,6 +770,31 @@ IABに準拠。
       コンパニオンアドがサポートされている場合、 banner object が入れられる
     </td>
   </tr>
+  <tr>
+    <td>ext</td>
+    <td>video-ext object</td>
+    <td>
+      video 拡張オブジェクト
+    </td>
+  </tr>
+</table>
+
+
+#### video-ext Object
+
+<table>
+  <tr>
+    <th>Field</th>
+    <th>type</th>
+    <th>description</th>
+  </tr>
+  <tr>
+    <td>videotype</td>
+    <td>string</td>
+    <td>
+      rewarded=動画リワードのインプレッション
+    </td>
+  </tr>
 </table>
 
 

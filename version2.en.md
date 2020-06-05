@@ -706,6 +706,31 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
       Array of banner objects when supported.
     </td>
   </tr>
+  <tr>
+    <td>ext</td>
+    <td>video-ext object</td>
+    <td>
+      video extension object
+    </td>
+  </tr>
+</table>
+
+
+#### video-ext Object
+
+<table>
+  <tr>
+    <th>Field</th>
+    <th>type</th>
+    <th>description</th>
+  </tr>
+  <tr>
+    <td>videotype</td>
+    <td>string</td>
+    <td>
+      rewarded=rewarded-video impression
+    </td>
+  </tr>
 </table>
 
 

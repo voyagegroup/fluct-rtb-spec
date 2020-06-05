@@ -61,7 +61,7 @@
     "pxratio": 0.0,
     "ua": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/51.0.2704.79 Safari\/537.36 Edge\/14.14393"
   },
-  "id": "8aaf696c-1860-4f3d-bb5d-b4cd6eee8f6b",
+  "id": "88042d2f-c0ef-43dd-9c0b-8062b53219a4",
   "imp": [
     {
       "banner": {
@@ -98,6 +98,7 @@
       "IAB1"
     ],
     "domain": "magazine.fluct.jp",
+    "ext": {},
     "id": "123",
     "mobile": 1,
     "name": "Example Site",
@@ -122,7 +123,7 @@
             "asi": "adingo.jp",
             "ext": {},
             "hp": 1,
-            "rid": "8aaf696c-1860-4f3d-bb5d-b4cd6eee8f6b",
+            "rid": "88042d2f-c0ef-43dd-9c0b-8062b53219a4",
             "sid": "234"
           }
         ],
@@ -131,13 +132,13 @@
       "stype": ""
     },
     "fd": 0,
-    "tid": "8aaf696c-1860-4f3d-bb5d-b4cd6eee8f6b"
+    "tid": "88042d2f-c0ef-43dd-9c0b-8062b53219a4"
   },
   "tmax": 120,
   "user": {
     "buyeruid": "synced-buyeruid",
     "ext": {},
-    "id": "f306301bc1f209abe1e2f39308cf34b7f39ee2fe"
+    "id": "5205d199-2798-45f7-b018-aac176cb10cd"
   },
   "wseat": []
 }
@@ -152,6 +153,7 @@
     "cat": [
       "IAB1"
     ],
+    "ext": {},
     "id": "123",
     "name": "Example App",
     "pagecat": [],
@@ -199,7 +201,7 @@
       "zip": "150-0043"
     },
     "hwv": "",
-    "ifa": "a66805fe-9710-4851-98ca-97681872cfa4",
+    "ifa": "c2695f3d-ea7b-41ee-9a70-7601bed2347a",
     "ip": "210.168.46.254",
     "ipv6": "",
     "js": 1,
@@ -212,7 +214,7 @@
     "pxratio": 0.0,
     "ua": "Mozilla \/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit\/601.1.46 (KHTML, like Gecko) Version\/9.0 Mobile\/13B5110e Safari\/601.1"
   },
-  "id": "b9ae1ece-ad75-4f35-a994-90ca72d4d784",
+  "id": "d771dcaf-e259-44c8-a520-df3d2742094c",
   "imp": [
     {
       "banner": {
@@ -253,7 +255,7 @@
             "asi": "adingo.jp",
             "ext": {},
             "hp": 1,
-            "rid": "b9ae1ece-ad75-4f35-a994-90ca72d4d784",
+            "rid": "d771dcaf-e259-44c8-a520-df3d2742094c",
             "sid": "234"
           }
         ],
@@ -262,13 +264,13 @@
       "stype": ""
     },
     "fd": 0,
-    "tid": "b9ae1ece-ad75-4f35-a994-90ca72d4d784"
+    "tid": "d771dcaf-e259-44c8-a520-df3d2742094c"
   },
   "tmax": 120,
   "user": {
     "buyeruid": "",
     "ext": {},
-    "id": "a66805fe-9710-4851-98ca-97681872cfa4"
+    "id": "c2695f3d-ea7b-41ee-9a70-7601bed2347a"
   },
   "wseat": []
 }
@@ -325,7 +327,7 @@
     "pxratio": 0.0,
     "ua": "Mozilla\/5.0 (Linux; Android 9; SOV39 Build\/52.0.C.1.119) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/68.0.3440.91 Mobile Safari\/537.36"
   },
-  "id": "8779d122-6370-4785-9163-162614683b67",
+  "id": "f29f9920-a597-4700-9ee7-a655951cecb0",
   "imp": [
     {
       "bidfloor": 300.0,
@@ -354,6 +356,7 @@
       "IAB1"
     ],
     "domain": "magazine.fluct.jp",
+    "ext": {},
     "id": "123",
     "mobile": 1,
     "name": "Example Site",
@@ -378,7 +381,7 @@
             "asi": "adingo.jp",
             "ext": {},
             "hp": 1,
-            "rid": "8779d122-6370-4785-9163-162614683b67",
+            "rid": "f29f9920-a597-4700-9ee7-a655951cecb0",
             "sid": "234"
           }
         ],
@@ -387,13 +390,13 @@
       "stype": ""
     },
     "fd": 0,
-    "tid": "8779d122-6370-4785-9163-162614683b67"
+    "tid": "f29f9920-a597-4700-9ee7-a655951cecb0"
   },
   "tmax": 120,
   "user": {
     "buyeruid": "synced-buyeruid",
     "ext": {},
-    "id": "a7cee2429ce3fbe36ed8938c6e4d628fcbf3a09b"
+    "id": "f7ad1ed10ad27fcdf09d72737d3d7c1dbc735b07"
   },
   "wseat": []
 }
@@ -450,7 +453,7 @@
     "pxratio": 0.0,
     "ua": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/51.0.2704.79 Safari\/537.36 Edge\/14.14393"
   },
-  "id": "315f2976-c9db-4fa9-b080-a41682cafab1",
+  "id": "2239c2d6-5855-47de-9b75-06d64a8eef94",
   "imp": [
     {
       "bidfloor": 2.430134,
@@ -501,6 +504,7 @@
       "IAB1"
     ],
     "domain": "magazine.fluct.jp",
+    "ext": {},
     "id": "123",
     "mobile": 1,
     "name": "Example Site",
@@ -525,7 +529,7 @@
             "asi": "adingo.jp",
             "ext": {},
             "hp": 1,
-            "rid": "315f2976-c9db-4fa9-b080-a41682cafab1",
+            "rid": "2239c2d6-5855-47de-9b75-06d64a8eef94",
             "sid": "234"
           }
         ],
@@ -534,23 +538,19 @@
       "stype": ""
     },
     "fd": 0,
-    "tid": "315f2976-c9db-4fa9-b080-a41682cafab1"
+    "tid": "2239c2d6-5855-47de-9b75-06d64a8eef94"
   },
   "tmax": 120,
   "user": {
     "buyeruid": "synced-buyeruid",
     "ext": {},
-    "id": "eaa9f8d5e64ae407d3818f5c0d302c77ab8e1f8f"
+    "id": "ca6a44b4-ecd1-4e47-be0e-2903cc4943ab"
   },
   "wseat": []
 }
 ```
 
 ### Rewarded-Video
-
-リワード付き動画広告においては、 `imp.video.ext.videotype = "rewarded"` 等でそれを明示することが可能です。
-
-For rewarded-video ad, a request video-object can explicitly include optional parameter `imp.video.ext.videotype = "rewarded"` or similar.
 
 ```json
 {
@@ -559,6 +559,7 @@ For rewarded-video ad, a request video-object can explicitly include optional pa
     "cat": [
       "IAB1"
     ],
+    "ext": {},
     "id": "123",
     "name": "Example App",
     "pagecat": [],
@@ -605,9 +606,9 @@ For rewarded-video ad, a request video-object can explicitly include optional pa
       "utcoffset": 540,
       "zip": "150-0043"
     },
-    "h": 647,
+    "h": 1334,
     "hwv": "",
-    "ifa": "8a3b376e-8be9-463d-adde-9fa708eb12a7",
+    "ifa": "e8e9c32d-5f62-4865-ac5d-91bf11b729e8",
     "ip": "210.168.46.254",
     "ipv6": "",
     "js": 1,
@@ -619,9 +620,9 @@ For rewarded-video ad, a request video-object can explicitly include optional pa
     "osv": "9.1",
     "pxratio": 0.0,
     "ua": "Mozilla \/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit\/601.1.46 (KHTML, like Gecko) Version\/9.0 Mobile\/13B5110e Safari\/601.1",
-    "w": 375
+    "w": 750
   },
-  "id": "87330509-fd31-4c7e-aeca-bef41b5e9f58",
+  "id": "5602ee2b-2141-49eb-a5f1-6ab802561ae9",
   "imp": [
     {
       "bidfloor": 2.430134,
@@ -652,8 +653,9 @@ For rewarded-video ad, a request video-object can explicitly include optional pa
           }
         ],
         "ext": {
-          "rewarded": 1
+          "videotype": "rewarded"
         },
+        "h": 647,
         "linearity": 1,
         "maxbitrate": 2000,
         "maxduration": 30,
@@ -674,7 +676,8 @@ For rewarded-video ad, a request video-object can explicitly include optional pa
           6
         ],
         "skip": 0,
-        "startdelay": 0
+        "startdelay": 0,
+        "w": 375
       }
     }
   ],
@@ -687,7 +690,7 @@ For rewarded-video ad, a request video-object can explicitly include optional pa
             "asi": "adingo.jp",
             "ext": {},
             "hp": 1,
-            "rid": "87330509-fd31-4c7e-aeca-bef41b5e9f58",
+            "rid": "5602ee2b-2141-49eb-a5f1-6ab802561ae9",
             "sid": "234"
           }
         ],
@@ -696,13 +699,13 @@ For rewarded-video ad, a request video-object can explicitly include optional pa
       "stype": ""
     },
     "fd": 0,
-    "tid": "87330509-fd31-4c7e-aeca-bef41b5e9f58"
+    "tid": "5602ee2b-2141-49eb-a5f1-6ab802561ae9"
   },
   "tmax": 300,
   "user": {
     "buyeruid": "",
     "ext": {},
-    "id": "8a3b376e-8be9-463d-adde-9fa708eb12a7"
+    "id": "e8e9c32d-5f62-4865-ac5d-91bf11b729e8"
   },
   "wseat": []
 }
@@ -759,7 +762,7 @@ For rewarded-video ad, a request video-object can explicitly include optional pa
     "pxratio": 0.0,
     "ua": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/51.0.2704.79 Safari\/537.36 Edge\/14.14393"
   },
-  "id": "772b6275-dfae-4727-95bf-ca4e3377f1ba",
+  "id": "91c98d76-3de7-419c-a9d0-b476101ce37a",
   "imp": [
     {
       "audio": {
@@ -804,6 +807,7 @@ For rewarded-video ad, a request video-object can explicitly include optional pa
       "IAB1"
     ],
     "domain": "magazine.fluct.jp",
+    "ext": {},
     "id": "123",
     "mobile": 1,
     "name": "Example Site",
@@ -828,7 +832,7 @@ For rewarded-video ad, a request video-object can explicitly include optional pa
             "asi": "adingo.jp",
             "ext": {},
             "hp": 1,
-            "rid": "772b6275-dfae-4727-95bf-ca4e3377f1ba",
+            "rid": "91c98d76-3de7-419c-a9d0-b476101ce37a",
             "sid": "234"
           }
         ],
@@ -837,13 +841,13 @@ For rewarded-video ad, a request video-object can explicitly include optional pa
       "stype": ""
     },
     "fd": 0,
-    "tid": "772b6275-dfae-4727-95bf-ca4e3377f1ba"
+    "tid": "91c98d76-3de7-419c-a9d0-b476101ce37a"
   },
   "tmax": 120,
   "user": {
     "buyeruid": "synced-buyeruid",
     "ext": {},
-    "id": "4767dbca2bc735d5fae7db69d9ba552eed5ae503"
+    "id": "89a7023b-4ae5-4949-86fc-8ecfafd52c54"
   },
   "wseat": []
 }
@@ -900,7 +904,7 @@ For rewarded-video ad, a request video-object can explicitly include optional pa
     "pxratio": 0.0,
     "ua": "Mozilla \/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit\/601.1.46 (KHTML, like Gecko) Version\/9.0 Mobile\/13B5110e Safari\/601.1"
   },
-  "id": "591c0aa6-d0a9-42f2-9a42-dccf3082b1b7",
+  "id": "0bb20d0f-bdc3-4f1b-8395-9b0bbffae192",
   "imp": [
     {
       "ext": {},
@@ -977,6 +981,7 @@ For rewarded-video ad, a request video-object can explicitly include optional pa
       "IAB1"
     ],
     "domain": "magazine.fluct.jp",
+    "ext": {},
     "id": "123",
     "mobile": 1,
     "name": "Example Site",
@@ -1001,7 +1006,7 @@ For rewarded-video ad, a request video-object can explicitly include optional pa
             "asi": "adingo.jp",
             "ext": {},
             "hp": 1,
-            "rid": "591c0aa6-d0a9-42f2-9a42-dccf3082b1b7",
+            "rid": "0bb20d0f-bdc3-4f1b-8395-9b0bbffae192",
             "sid": "234"
           }
         ],
@@ -1010,13 +1015,13 @@ For rewarded-video ad, a request video-object can explicitly include optional pa
       "stype": ""
     },
     "fd": 0,
-    "tid": "591c0aa6-d0a9-42f2-9a42-dccf3082b1b7"
+    "tid": "0bb20d0f-bdc3-4f1b-8395-9b0bbffae192"
   },
   "tmax": 120,
   "user": {
     "buyeruid": "synced-buyeruid",
     "ext": {},
-    "id": "3796150a94c34264c42a33f692b6749d979ea26e"
+    "id": "328ff3ea-f758-48c1-8fb2-21d471974c01"
   },
   "wseat": []
 }
@@ -1073,7 +1078,7 @@ For rewarded-video ad, a request video-object can explicitly include optional pa
     "pxratio": 0.0,
     "ua": "Mozilla \/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit\/601.1.46 (KHTML, like Gecko) Version\/9.0 Mobile\/13B5110e Safari\/601.1"
   },
-  "id": "87623225-7e71-441a-be45-389946cf249e",
+  "id": "9e9b54d3-fe58-48ec-9b29-89d7b2a8f6d9",
   "imp": [
     {
       "banner": {
@@ -1138,6 +1143,7 @@ For rewarded-video ad, a request video-object can explicitly include optional pa
       "IAB1"
     ],
     "domain": "magazine.fluct.jp",
+    "ext": {},
     "id": "123",
     "mobile": 1,
     "name": "Example Site",
@@ -1162,7 +1168,7 @@ For rewarded-video ad, a request video-object can explicitly include optional pa
             "asi": "adingo.jp",
             "ext": {},
             "hp": 1,
-            "rid": "87623225-7e71-441a-be45-389946cf249e",
+            "rid": "9e9b54d3-fe58-48ec-9b29-89d7b2a8f6d9",
             "sid": "234"
           }
         ],
@@ -1171,13 +1177,13 @@ For rewarded-video ad, a request video-object can explicitly include optional pa
       "stype": ""
     },
     "fd": 0,
-    "tid": "87623225-7e71-441a-be45-389946cf249e"
+    "tid": "9e9b54d3-fe58-48ec-9b29-89d7b2a8f6d9"
   },
   "tmax": 120,
   "user": {
     "buyeruid": "synced-buyeruid",
     "ext": {},
-    "id": "b4c56a41a43d462f6f90583e185113c61a657027"
+    "id": "68115af4-db5b-4a7b-bafb-2d17814cba6f"
   },
   "wseat": []
 }
@@ -1236,7 +1242,7 @@ Google Open Bidding transaction example.
     "pxratio": 0.0,
     "ua": "Mozilla \/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit\/601.1.46 (KHTML, like Gecko) Version\/9.0 Mobile\/13B5110e Safari\/601.1"
   },
-  "id": "ea20ea4a-f80f-4145-a574-78359f7af88a",
+  "id": "cf013a7b-6b8a-4680-884f-23ccdc375d6b",
   "imp": [
     {
       "banner": {
@@ -1273,6 +1279,7 @@ Google Open Bidding transaction example.
       "IAB1"
     ],
     "domain": "magazine.fluct.jp",
+    "ext": {},
     "id": "123",
     "mobile": 1,
     "name": "Example Site",
@@ -1303,7 +1310,7 @@ Google Open Bidding transaction example.
             "asi": "adingo.jp",
             "ext": {},
             "hp": 1,
-            "rid": "ea20ea4a-f80f-4145-a574-78359f7af88a",
+            "rid": "cf013a7b-6b8a-4680-884f-23ccdc375d6b",
             "sid": "234"
           }
         ],
@@ -1312,13 +1319,13 @@ Google Open Bidding transaction example.
       "stype": "EB"
     },
     "fd": 1,
-    "tid": "cad53f48-a5db-4966-89bc-e9b669cc31de"
+    "tid": "03401c4f-86f7-4d3b-b3f9-ca6da12989c3"
   },
   "tmax": 120,
   "user": {
     "buyeruid": "synced-buyeruid",
     "ext": {},
-    "id": "5fae42c9e6d63e22e703b5c5eebbf9d97e965f12"
+    "id": "b417b2ba-e960-49f6-b35a-2ab07924b526"
   },
   "wseat": []
 }
