@@ -264,6 +264,11 @@ fluct では後方互換性のある OpenRTB 2 マイナーバージョンの進
     <td>string; experimental</td>
     <td>Google AdManager経由の場合の、広告ユニットフルパス</td>
   </tr>
+  <tr>
+    <td>ext.skadn</td>
+    <td>skadn Request object</td>
+    <td>MoPub iOS 14 サポート提案に関する情報</td>
+  </tr>
 </table>
 
 
@@ -1007,6 +1012,35 @@ IABに準拠。
   </tr>
 </table>
 
+#### skadn Request Object
+
+[MoPub iOS 14 Support Proposal Request Object](https://developers.mopub.com/dsps/integration/ios14proposal/#bid-request)
+
+<table>
+  <tr>
+    <th>Field</th>
+    <th>type</th>
+    <th>description</th>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>string; required</td>
+    <td>サポートされているSKAdNetworkのバージョン。常に "2.0 "以上。</td>
+  </tr>
+  <tr>
+    <td>sourceapp</td>
+    <td>string; required</td>
+    <td>
+      プラットフォーム上でのアプリケーション識別子。
+      (例) iOS: "1234567890
+    </td>
+  </tr>
+  <tr>
+    <td>skadnetids</td>
+    <td>array of strings; required</td>
+    <td>パブリッシャーアプリのinfo.plistのSKAdNetworkItemエントリ</td>
+  </tr>
+</table>
 
 ## 4. レスポンス仕様
 
@@ -1175,8 +1209,67 @@ DSPはJSONフォーマットで入札情報をシリアライズします。
       マクロ置換がおこなわれます。
     </td>
   </tr>
+  <tr>
+    <td>ext.skadn</td>
+    <td>skadn Response object</td>
+    <td>MoPub iOS 14 サポート提案に関する情報</td>
+  </tr>
 </table>
 
+#### skadn Response Object
+
+[MoPub iOS 14 Support Proposal Response Object](https://developers.mopub.com/dsps/integration/ios14proposal/#bid-response)
+
+<table>
+  <tr>
+    <th>Field</th>
+    <th>type</th>
+    <th>description</th>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>string; required</td>
+    <td>サポートされているskadnetworkのバージョン。"2.0 "以上。</td>
+  </tr>
+  <tr>
+    <td>network</td>
+    <td>string; required</td>
+    <td>`BidRequest.imp.ext.skadn.skadnetids`内の1つにマッチしなければなりません。</td>
+  </tr>
+  <tr>
+    <td>campaign</td>
+    <td>string; required</td>
+    <td>Appleの仕様に対応したキャンペーンID。</td>
+  </tr>
+  <tr>
+    <td>itunesitem</td>
+    <td>string; required</td>
+    <td>広告主のアプリのAppStore ID。`BidResponse.seatbid.bid.bundle`と一致する必要があります。</td>
+  </tr>
+  <tr>
+    <td>nonce</td>
+    <td>string; required</td>
+    <td>各広告レスポンスに固有のID。</td>
+  </tr>
+  <tr>
+    <td>sourceapp</td>
+    <td>string; required</td>
+    <td>
+      プラットフォーム上でのアプリケーション識別子。
+      `BidRequest.imp.ext.skadn.sourceapp`と一致する必要があります。
+    </td>
+  </tr>
+  <tr>
+    <td>timestamp</td>
+    <td>string; required</td>
+    <td>文字列のミリ秒単位のUnix時間。</td>
+  </tr>
+  <tr>
+    <td>signature</td>
+    <td>string; required</td>
+    <td>AppleのSKAdNetworkシグネチャ。</td>
+  </tr>
+</table>
 
 ### b. impressionまたは/clickビーコンの送信
 
