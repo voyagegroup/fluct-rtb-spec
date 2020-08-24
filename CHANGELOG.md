@@ -1,7 +1,7 @@
 # 変更履歴
 
 * 2.2
-    * 2020/08/18
+    * 2020/08/24
         * MoPub iOS 14 Support Proposal に対応
             * Bid Request SKAdn Request Object を仕様に追加
             * Bid Request Imp Object
