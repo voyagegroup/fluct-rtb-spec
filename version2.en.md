@@ -257,6 +257,11 @@ Serialize format: JSON only.
     <td>string; experimental</td>
     <td>Google AdManager Ad unit full path</td>
   </tr>
+  <tr>
+    <td>ext.skadn</td>
+    <td>skadn Request object</td>
+    <td>MoPub iOS 14 support proposal request object</td>
+  </tr>
 </table>
 
 
@@ -920,6 +925,35 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
   </tr>
 </table>
 
+#### skadn Request Object
+
+[MoPub iOS 14 Support Proposal Request Object](https://developers.mopub.com/dsps/integration/ios14proposal/#bid-request)
+
+<table>
+  <tr>
+    <th>Field</th>
+    <th>type</th>
+    <th>description</th>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>string; required</td>
+    <td>Version of SKAdNetwork supported. Always "2.0" or higher.</td>
+  </tr>
+  <tr>
+    <td>sourceapp</td>
+    <td>string; required</td>
+    <td>
+      Platform-specific application identifier.
+      ex) iOS: "1234567890"
+    </td>
+  </tr>
+  <tr>
+    <td>skadnetids</td>
+    <td>array of strings; required</td>
+    <td>SKAdNetworkItem entries in the publisher app's info.plist</td>
+  </tr>
+</table>
 
 ## 4. Response specification
 
@@ -1080,6 +1114,66 @@ HTTP 204 No Content is expected for no bid.
       Loss notice URL to be called if the bid loses the auction.
       Substituting macros may be included.
     </td>
+  </tr>
+  <tr>
+    <td>ext.skadn</td>
+    <td>skadn Response object</td>
+    <td>MoPub iOS 14 support proposal response object</td>
+  </tr>
+</table>
+
+#### skadn Response Object
+
+[MoPub iOS 14 Support Proposal Response Object](https://developers.mopub.com/dsps/integration/ios14proposal/#bid-response)
+
+<table>
+  <tr>
+    <th>Field</th>
+    <th>type</th>
+    <th>description</th>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>string; required</td>
+    <td>Version of SKAdNetwork desired. 2.0 or above.</td>
+  </tr>
+  <tr>
+    <td>network</td>
+    <td>string; required</td>
+    <td>Should be one of `BidRequest.imp.ext.skadn.skadnetids`.</td>
+  </tr>
+  <tr>
+    <td>campaign</td>
+    <td>string; required</td>
+    <td>Campaign ID compatible with Apple’s spec.</td>
+  </tr>
+  <tr>
+    <td>itunesitem</td>
+    <td>string; required</td>
+    <td>Advertiser app's Apple App Store ID. Should match `BidResponse.seatbid.bid.bundle`.</td>
+  </tr>
+  <tr>
+    <td>nonce</td>
+    <td>string; required</td>
+    <td>Unique ID for each ad response</td>
+  </tr>
+  <tr>
+    <td>sourceapp</td>
+    <td>string; required</td>
+    <td>
+      Platform-specific application identifier.
+      Should match `BidRequest.imp.ext.skadn.sourceapp`.
+    </td>
+  </tr>
+  <tr>
+    <td>timestamp</td>
+    <td>string; required</td>
+    <td>Unix time in milliseconds in string.</td>
+  </tr>
+  <tr>
+    <td>signature</td>
+    <td>string; required</td>
+    <td>Apple SKAdNetwork signature.</td>
   </tr>
 </table>
 

@@ -6,6 +6,7 @@
 * [With dealid](#with-dealid)
 * [With nurl and lurl](#with-nurl-and-lurl)
 * [With bundle](#with-bundle)
+* [With MoPub iOS 14 Support Proposal Response Object](#with-mopub-ios-14-support-proposal-response-object)
 
 ### Banner
 
@@ -208,6 +209,43 @@
           "impid": "00005cbf-0000-41a6-8a36-3c0492000000",
           "price": 17.9217,
           "w": 300
+        }
+      ]
+    }
+  ]
+}
+```
+
+### With MoPub iOS 14 Support Proposal Response Object
+
+```json
+{
+  "cur": "JPY",
+  "id": "000083bf-0000-41ea-992e-4457da000000",
+  "seatbid": [
+    {
+      "bid": [
+        {
+          "adm": "<VAST version=\"3.0\"><Ad id=\"66027\"><Wrapper><AdSystem version=\"1.0\"></AdSystem><VASTAdTagURI><![CDATA[https://adsystem/pr=${AUCTION_PRICE}]]></VASTAdTagURI></Wrapper></Ad></VAST>",
+          "adomain": [
+            "ecnavi.jp"
+          ],
+          "cid": "1001",
+          "crid": "66027",
+          "impid": "0000d491-84a5-49b3-8e33-52b2e1000000",
+          "price": 975.52,
+          "ext": {
+            "skadn": {
+              "version": "2.0",
+              "network": "cDkw7geQsH.skadnetwork",
+              "campaign": "45",
+              "itunesitem": "880047117",
+              "nonce": "473b1a16-b4ef-43ad-9591-fcf3aefa82a7",
+              "sourceapp": "123456789",
+              "timestamp": "1594406341",
+              "signature": "MEQCIEQlmZRNfYzKBSE8QnhLTIHZZZWCFgZpRqRxHss65KoFAiAJgJKjdrWdkLUOCCjuEx2RmFS7daRzSVZRVZ8RyMyUXg=="
+            }
+          }
         }
       ]
     }

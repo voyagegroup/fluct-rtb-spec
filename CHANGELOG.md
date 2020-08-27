@@ -1,6 +1,15 @@
 # 変更履歴
 
 * 2.2
+    * 2020/08/27
+        * MoPub iOS 14 Support Proposal に対応
+            * Bid Request SKAdn Request Object を仕様に追加
+            * Bid Request Imp Object
+                * `ext.skadn` 追加
+            * Bid Response SKAdn Response Object を仕様に追加
+            * Bid Response Bid Object
+                * `ext.skadn` 追加
+            * Bid Request/Response 例を更新
     * 2020/06/05
         * Bid Request Video-Ext Object を仕様に追加
     * 2020/05/20
