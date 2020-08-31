@@ -244,7 +244,10 @@
               "sourceapp": "123456789",
               "timestamp": "1594406341",
               "signature": "MEQCIEQlmZRNfYzKBSE8QnhLTIHZZZWCFgZpRqRxHss65KoFAiAJgJKjdrWdkLUOCCjuEx2RmFS7daRzSVZRVZ8RyMyUXg=="
-            }
+            },
+            "clicktrackers": [
+                "https://tracker.example.com/click?id=57750EF0-3125-49FF-89AA-0B6A398B21FA"
+            ]
           }
         }
       ]

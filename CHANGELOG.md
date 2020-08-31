@@ -1,6 +1,11 @@
 # 変更履歴
 
 * 2.2
+    * 2020/08/31
+        * MoPub iOS 14 Support Proposal Click Tracking に対応
+            * Bid Response Bid Object
+                * `ext.clicktrackers` 追加
+            * Bid Response 例を更新
     * 2020/08/27
         * MoPub iOS 14 Support Proposal に対応
             * Bid Request SKAdn Request Object を仕様に追加

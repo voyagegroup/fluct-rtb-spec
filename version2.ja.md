@@ -1214,6 +1214,11 @@ DSPはJSONフォーマットで入札情報をシリアライズします。
     <td>skadn Response object</td>
     <td>MoPub iOS 14 サポート提案に関する情報</td>
   </tr>
+  <tr>
+    <td>ext.clicktrackers</td>
+    <td>array of strings</td>
+    <td>MoPub iOS 14 サポート提案のclicktrackers</td>
+  </tr>
 </table>
 
 #### skadn Response Object
