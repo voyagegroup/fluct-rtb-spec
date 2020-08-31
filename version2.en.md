@@ -1120,6 +1120,11 @@ HTTP 204 No Content is expected for no bid.
     <td>skadn Response object</td>
     <td>MoPub iOS 14 support proposal response object</td>
   </tr>
+  <tr>
+    <td>ext.clicktrackers</td>
+    <td>array of strings</td>
+    <td>Click trackers for MoPub iOS 14 support proposal</td>
+  </tr>
 </table>
 
 #### skadn Response Object
