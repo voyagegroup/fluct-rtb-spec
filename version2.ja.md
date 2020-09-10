@@ -187,6 +187,11 @@ fluct では後方互換性のある OpenRTB 2 マイナーバージョンの進
     <td>1=ファーストプライスオークション, 2=セカンドプライスオークション</td>
   </tr>
   <tr>
+    <td>wseat</td>
+    <td>array of strings</td>
+    <td>バイヤーシートのホワイトリスト</td>
+  </tr>
+  <tr>
     <td>cur</td>
     <td>array of strings</td>
     <td>入札できる通貨</td>
