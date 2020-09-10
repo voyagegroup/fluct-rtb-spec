@@ -176,7 +176,7 @@ Serialize format: JSON only.
   </tr>
   <tr>
     <td>device</td>
-    <td>devivce object</td>
+    <td>device object</td>
     <td></td>
   </tr>
   <tr>
