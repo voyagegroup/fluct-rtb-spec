@@ -185,6 +185,11 @@ Serialize format: JSON only.
     <td>1=first price auction, 2=second price auction</td>
   </tr>
   <tr>
+    <td>wseat</td>
+    <td>array of strings</td>
+    <td>Whitelist of buyer seats</td>
+  </tr>
+  <tr>
     <td>cur</td>
     <td>array of strings</td>
     <td>a list of accepted currencies</td>
