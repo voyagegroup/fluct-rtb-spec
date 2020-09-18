@@ -9,7 +9,7 @@
 * [PMP Deal Only](#pmp-deal-only)
 * [PMP Deal or Open Auction](#pmp-deal-or-open-auction)
 * [Supply Chain in Google Open Bidding](#supply-chain-in-google-open-bidding)
-* [With MoPub iOS 14 Support Proposal Request Object](#with-mopub-ios-14-support-proposal-request-object)
+* [SKAdNetwork Request Object](#skadnetwork-request-object)
 
 ### Web
 
@@ -1467,7 +1467,7 @@ Google Open Bidding transaction example.
 }
 ```
 
-### With MoPub iOS 14 Support Proposal Request Object
+### SKAdNetwork Request Object
 
 ```json
 {

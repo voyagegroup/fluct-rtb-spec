@@ -36,11 +36,13 @@ Moreover, this specification does not contain description of general RTB protoco
     * [native Object](#native-object)
     * [pmp Object](#pmp-object)
     * [deal Object](#deal-object)
+    * [skadn Request Object](#skadn-request-object)
 * [4. Response specification](#4-response-specification)
   * [a. Bid response parameters](#a-bid-response-parameters)
     * [Bid Response Object (Top Level)](#bid-response-object-top-level)
     * [seatbid Object](#seatbid-object)
     * [bid Object](#bid-object)
+    * [skadn Response Object](#skadn-response-object)
   * [b. impression/click beacon](#b-impressionclick-beacon)
     * [endpoint for impression beacon](#endpoint-for-impression-beacon)
     * [fluct transmits according to the following conditions (imp beacon):](#fluct-transmits-according-to-the-following-conditions-imp-beacon)
@@ -265,7 +267,7 @@ Serialize format: JSON only.
   <tr>
     <td>ext.skadn</td>
     <td>skadn Request object</td>
-    <td>MoPub iOS 14 support proposal request object</td>
+    <td>SKAdNetwork request object</td>
   </tr>
 </table>
 
@@ -932,7 +934,7 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
 
 #### skadn Request Object
 
-[MoPub iOS 14 Support Proposal Request Object](https://developers.mopub.com/dsps/integration/ios14proposal/#bid-request)
+[SKAdNetwork Request Object](https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/extensions/community_extensions/skadnetwork.md#bid-request)
 
 <table>
   <tr>
@@ -1123,7 +1125,7 @@ HTTP 204 No Content is expected for no bid.
   <tr>
     <td>ext.skadn</td>
     <td>skadn Response object</td>
-    <td>MoPub iOS 14 support proposal response object</td>
+    <td>SKAdNetwork response object</td>
   </tr>
   <tr>
     <td>ext.clicktrackers</td>
@@ -1134,7 +1136,7 @@ HTTP 204 No Content is expected for no bid.
 
 #### skadn Response Object
 
-[MoPub iOS 14 Support Proposal Response Object](https://developers.mopub.com/dsps/integration/ios14proposal/#bid-response)
+[SKAdNetwork Response Object](https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/extensions/community_extensions/skadnetwork.md#bid-response)
 
 <table>
   <tr>
