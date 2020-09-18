@@ -6,7 +6,7 @@
 * [With dealid](#with-dealid)
 * [With nurl and lurl](#with-nurl-and-lurl)
 * [With bundle](#with-bundle)
-* [With MoPub iOS 14 Support Proposal Response Object](#with-mopub-ios-14-support-proposal-response-object)
+* [With SKAdNetwork Response Object](#with-skadnetwork-response-object)
 
 ### Banner
 
@@ -216,7 +216,7 @@
 }
 ```
 
-### With MoPub iOS 14 Support Proposal Response Object
+### With SKAdNetwork Response Object
 
 ```json
 {

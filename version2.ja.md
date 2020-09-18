@@ -34,11 +34,13 @@ OpenRTB 2.5 に準拠しています。詳細は[IABのOpenRTB API Specification
     * [native Object](#native-object)
     * [pmp Object](#pmp-object)
     * [deal Object](#deal-object)
+    * [skadn Request Object](#skadn-request-object)
 * [4. レスポンス仕様](#4-レスポンス仕様)
   * [a. bidレスポンスパラメタ](#a-bidレスポンスパラメタ)
     * [Bid Response Object (Top Level)](#bid-response-object-top-level)
     * [seatbid Object](#seatbid-object)
     * [bid Object](#bid-object)
+    * [skadn Response Object](#skadn-response-object)
   * [b. impressionまたは/clickビーコンの送信](#b-impressionまたはclickビーコンの送信)
     * [impressionビーコンを受けるエンドポイント](#impressionビーコンを受けるエンドポイント)
     * [impressionビーコンを送信するfluctのクライアント側](#impressionビーコンを送信するfluctのクライアント側)
@@ -272,7 +274,7 @@ fluct では後方互換性のある OpenRTB 2 マイナーバージョンの進
   <tr>
     <td>ext.skadn</td>
     <td>skadn Request object</td>
-    <td>MoPub iOS 14 サポート提案に関する情報</td>
+    <td>SKAdNetwork に関する情報</td>
   </tr>
 </table>
 
@@ -1019,7 +1021,7 @@ IABに準拠。
 
 #### skadn Request Object
 
-[MoPub iOS 14 Support Proposal Request Object](https://developers.mopub.com/dsps/integration/ios14proposal/#bid-request)
+[SKAdNetwork Request Object](https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/extensions/community_extensions/skadnetwork.md#bid-request)
 
 <table>
   <tr>
@@ -1217,7 +1219,7 @@ DSPはJSONフォーマットで入札情報をシリアライズします。
   <tr>
     <td>ext.skadn</td>
     <td>skadn Response object</td>
-    <td>MoPub iOS 14 サポート提案に関する情報</td>
+    <td>SKAdNetwork に関する情報</td>
   </tr>
   <tr>
     <td>ext.clicktrackers</td>
@@ -1228,7 +1230,7 @@ DSPはJSONフォーマットで入札情報をシリアライズします。
 
 #### skadn Response Object
 
-[MoPub iOS 14 Support Proposal Response Object](https://developers.mopub.com/dsps/integration/ios14proposal/#bid-response)
+[SKAdNetwork Response Object](https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/extensions/community_extensions/skadnetwork.md#bid-response)
 
 <table>
   <tr>
@@ -1239,7 +1241,7 @@ DSPはJSONフォーマットで入札情報をシリアライズします。
   <tr>
     <td>version</td>
     <td>string; required</td>
-    <td>サポートされているskadnetworkのバージョン。"2.0 "以上。</td>
+    <td>サポートされているskadnetworkのバージョン。"2.0" 以上。</td>
   </tr>
   <tr>
     <td>network</td>
