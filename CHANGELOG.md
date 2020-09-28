@@ -1,6 +1,8 @@
 # 変更履歴
 
 * 2.2
+    * 2020/09/28
+        * 2020/12/31 `${CLICK_URL_ENC}` マクロ廃止のお知らせ追加
     * 2020/08/31
         * MoPub iOS 14 Support Proposal Click Tracking に対応
             * Bid Response Bid Object
