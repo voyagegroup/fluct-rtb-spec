@@ -49,7 +49,7 @@ Moreover, this specification does not contain description of general RTB protoco
     * [endpoint for click beacon](#endpoint-for-click-beacon)
     * [fluct transmits according to the following conditions (click beacon):](#fluct-transmits-according-to-the-following-conditions-click-beacon)
   * [c. Macro substitution](#c-macro-substitution)
-  * [d. Click Measuring](#d-click-measuring)
+  * [d. End of CLICK_URL_ENC Macro Support](#d-end-of-click_url_enc-macro-support)
 * [5. Code table](#5-code-table)
 * [6. Bid Request/Response Examples](#6-bid-requestresponse-examples)
 
@@ -1261,8 +1261,8 @@ The following assumptions are made about URLs which serve beacons:
   <tr>
     <td><code>${CLICK_URL_ENC}</code></td>
     <td>
-      URL-encoded redirection URL.
-      <strong>(Deprecated)</strong>
+      <strong>(To Be Removed on 2020/12/31)</strong>
+      <a href="#d-end-of-click_url_enc-macro-support">End of CLICK_URL_ENC Macro Support</a>
     </td>
     <td>Yes</td>
     <td></td>
@@ -1363,67 +1363,11 @@ The following assumptions are made about URLs which serve beacons:
 * Additional macros may be implemented when demanded.
 
 
-### d. Click Measuring
+### d. End of CLICK_URL_ENC Macro Support
 
-Basically, fluct provides a redirector URL for click measuring. The redirector URL is somthing like the following:
-
-http://rd.adingo.jp/?p=rKRSvXZZsc3qXP7DfGyYd0ws220dxHwHVnICTDmTbaPn9JttXH6yinKvASt4mmHHZT_N6DHJbFvL44b27QhnsfTMmeY36Lj6T03cVm4N_OW6d3ukpfMh1cjUOuCcWL7hthiQK9quf-Uv83V7xFV3Z7Z8GptcRjhegT-aXliZsvMS7lLoxkXTHRO64iFKk8Ds&v=e0e8nlDL6O0.&k=1&guid=ON&u=...
-
-**the value of the last "u=" parameter indicates the landing page URL.**
-
-And usually fluct's redirector URL for click measuring is used in 3 ways:
-
-#### Method A: embedding the landing page URL into fluct redirector URL in the creative html of bid response.
-
-Redirecting route: Web Page -> Company redirector -> fluct redirector -> Landing page
-
-1. Company embeds a creative html like the following in bid response, (say the "r=" parameter indicates the landing page URL)
-
-```html
-<a href="http://dsp.example.com/?id=12345678&**r=${CLICK_URL_ENC}___TWICE_encoded_landing_page_URL___**"><img...></a>
-```
-
-Notice that the landing page URL should be **twice encoded**. Below is an example:
-
-```html
-<a href="http://dsp.example.com/?id=12345678&r=${CLICK_URL_ENC}http%253A%252F%252Fexample.com"><img...></a>
-```
-
-2. fluct will expand the creative html into this: (say the landing page URL is http://lp.example.net)
-
-```html
-<a href="http://dsp.example.com/?id=12345678&r=http%3A%2F%2Frd.adingo.jp%2F%3Fp%3DrKRSvXZZsc3qXP7DfGyYd0ws220dxHwHVnICTDmTbaPn9JttXH6yinKvASt4mmHHZT_N6DHJbFvL44b27QhnsfTMmeY36Lj6T03cVm4N_OW6d3ukpfMh1cjUOuCcWL7hthiQK9quf-Uv83V7xFV3Z7Z8GptcRjhegT-aXliZsvMS7lLoxkXTHRO64iFKk8Ds%26v%3De0e8nlDL6O0.%26k%3D1%26guid%3DON%26u%3Dhttp%253A%252F%252Flp.example.net"><img...></a>
-```
-
-3. When clicked, company should redirect to fluct click measuring redirector URL:
-
-    http://rd.adingo.jp/?p=rKRSvXZZsc3qXP7DfGyYd0ws220dxHwHVnICTDmTbaPn9JttXH6yinKvASt4mmHHZT_N6DHJbFvL44b27QhnsfTMmeY36Lj6T03cVm4N_OW6d3ukpfMh1cjUOuCcWL7hthiQK9quf-Uv83V7xFV3Z7Z8GptcRjhegT-aXliZsvMS7lLoxkXTHRO64iFKk8Ds&v=e0e8nlDL6O0.&k=1&guid=ON&u=http%3A%2F%2Flp.example.net
-
-Then fluct will count the click and redirect the user to company's landing page.
-
-#### Method B: Company prepares the landing page URL when redirecting to fluct redirector
-
-Redirecting route: Web page -> Company redirector -> fluct redirector -> Landing page
-
-1. Company embeds a creative html like the following in bid response, (say the "r=" parameter indicates the landing page URL)
-
-```html
-<a href="http://dsp.example.com/?id=12345678&r=${CLICK_URL_ENC}"><img
-
-...></a>
-```
-
-2. fluct will expand the creative html into something like the following:
-
-```html
-<a href="http://dsp.example.com/?id=12345678&r=http%3A%2F%2Frd.adingo.jp%2F%3Fp%3DrKRSvXZZsc3qXP7DfGyYd0ws220dxHwHVnICTDmTbaPn9JttXH6yinKvASt4mmHHZT_N6DHJbFvL44b27QhnsfTMmeY36Lj6T03cVm4N_OW6d3ukpfMh1cjUOuCcWL7hthiQK9quf-Uv83V7xFV3Z7Z8GptcRjhegT-aXliZsvMS7lLoxkXTHRO64iFKk8Ds%26v%3De0e8nlDL6O0.%26k%3D1%26guid%3DON%26u%3D"><img...></a>
-```
-
-3. When clicked, company should redirect to the fluct click measuring redirector URL with the encoded landing page URL added to the end.
-
-    http://rd.adingo.jp/?p=rKRSvXZZsc3qXP7DfGyYd0ws220dxHwHVnICTDmTbaPn9JttXH6yinKvASt4mmHHZT_N6DHJbFvL44b27QhnsfTMmeY36Lj6T03cVm4N_OW6d3ukpfMh1cjUOuCcWL7hthiQK9quf-Uv83V7xFV3Z7Z8GptcRjhegT-aXliZsvMS7lLoxkXTHRO64iFKk8Ds&v=e0e8nlDL6O0.&k=1&guid=ON&u=http%3A%2F%2Flp.example.net
-
-Then fluct will count the click and redirect the user to company's landing page.
+As a part of the systems improvement, Fluct is going to drop support for the Fluct-defined click-measurement macro, `${CLICK_URL_ENC}`, on **December 31, 2020**.
+After the date, the ad click-through may not navigate viewer browser to the landing page if the macro exists in the ADM.
+In order to prevent unexpected click behavior, please remove the macro completely before the date.
 
 
 ## 5. Code table

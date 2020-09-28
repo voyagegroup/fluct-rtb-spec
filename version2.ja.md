@@ -48,7 +48,7 @@ OpenRTB 2.5 に準拠しています。詳細は[IABのOpenRTB API Specification
     * [clickビーコンを送信するfluctのクライアント側](#clickビーコンを送信するfluctのクライアント側)
     * [clickビーコン送信に用いられる手法について](#clickビーコン送信に用いられる手法について)
   * [c. マクロ置換](#c-マクロ置換)
-  * [d. リダイレクタ仕様](#d-リダイレクタ仕様)
+  * [d. CLICK_URL_ENC マクロ廃止について](#d-click_url_enc-マクロ廃止について)
 * [5. コード表](#5-コード表)
 * [6. リクエスト／レスポンス例](#6-リクエストレスポンス例)
   * [リクエスト例](#リクエスト例)
@@ -1366,8 +1366,8 @@ fluctのクライアント制御スクリプトからビーコンを送信に関
   <tr>
     <td><code>${CLICK_URL_ENC}</code></td>
     <td>
-      URLエンコードされたリダイレクタURL。
-      <strong>(非推奨)</strong>
+      <strong>2020/12/31 で廃止します。</strong>
+      <a href="#d-click_url_enc-マクロ廃止について">CLICK_URL_ENC マクロ廃止について</a>
     </td>
     <td>Yes</td>
     <td></td>
@@ -1465,70 +1465,13 @@ fluctのクライアント制御スクリプトからビーコンを送信に関
 * 暗号化方式（アルゴリズム、鍵長、暗号利用モード）については、事前に協議して決定します。（例：CFB 3DES + いわゆるWeb セーフ Base64など）
     * 暗号鍵は決定した方式に基づいて、 fluct が発行します。
 * 特に明記されない限り、クリエイティブ審査プロセスによる描画ではマクロは置換されません。
-* 他に必要な項目があれば、可能なものは対応致します。
 
 
-### d. リダイレクタ仕様
+### d. CLICK_URL_ENC マクロ廃止について
 
-弊社リダイレクタ仕様
+システム改修に伴い、ビッドレスポンスadmに入れていただいているFluct定義クリック計測用マクロ `${CLICK_URL_ENC}` を **2020/12/31** に廃止させていただきます。
+期日以降、admに当マクロが存在すると、広告ランディングページへ正しく遷移しない可能性がありますので、期日前にadmから当マクロを撤去・削除していただきますよう、ご協力をお願いいたします。
 
-例： http://rd.adingo.jp/?p=rKRSvXZZsc3qXP7DfGyYd0ws220dxHwHVnICTDmTbaPn9JttXH6yinKvASt4mmHHZT_N6DHJbFvL44b27QhnsfTMmeY36Lj6T03cVm4N_OW6d3ukpfMh1cjUOuCcWL7hthiQK9quf-Uv83V7xFV3Z7Z8GptcRjhegT-aXliZsvMS7lLoxkXTHRO64iFKk8Ds&v=e0e8nlDL6O0.&k=1&guid=ON&u=
-
-このようなURLになっています。 最後の u= に、ランディングページのURLを渡すと、そこにリダイレクトします。
-
-※オープンリダイレクタになっていますが、広告のクリック計測サーバにおけるオープンリダイレクタは脆弱性とはみなさないという立場を弊社は取っています。
-
-#### ■方法A)
-
-ビッドレスポンス内で、弊社のリダイレクタURLに、ランディングページURLを渡していただく
-
-遷移：
-
-広告ページ → 御社リダイレクタ → 弊社リダイレクタ → ランディングページ
-
-1. ビッドレスポンス内のリンク先を以下のようにしていただく（SSP側ランディングURLを渡すパラメタを例えば r としています。以下同様）
-
-```html
-<a href="http://dsp.example.com/?id=12345678&r=${CLICK_URL_ENC}___ここにランディングURLを2重URLエンコードして埋め込む___"><img...></a>
-
-例： <a href="http://dsp.example.com/?id=12345678&r=${CLICK_URL_ENC}http%253A%252F%252Fexample.com"><img...></a>
-```
-
-2. 弊社側のマクロ展開により、以下のようになる（ランディングURLを[ http://lp.example.net](http://lp.example.net/) とします）
-
-```html
-<a href="http://dsp.example.com/?id=12345678&r=http%3A%2F%2Frd.adingo.jp%2F%3Fp%3DrKRSvXZZsc3qXP7DfGyYd0ws220dxHwHVnICTDmTbaPn9JttXH6yinKvASt4mmHHZT_N6DHJbFvL44b27QhnsfTMmeY36Lj6T03cVm4N_OW6d3ukpfMh1cjUOuCcWL7hthiQK9quf-Uv83V7xFV3Z7Z8GptcRjhegT-aXliZsvMS7lLoxkXTHRO64iFKk8Ds%26v%3De0e8nlDL6O0.%26k%3D1%26guid%3DON%26u%3Dhttp%253A%252F%252Flp.example.net"><img...></a>
-```
-
-3. 御社リダイレクタで、パラメタ r で指定された弊社リダイレクタへリダイレクト
-
-    http://rd.adingo.jp/?p=rKRSvXZZsc3qXP7DfGyYd0ws220dxHwHVnICTDmTbaPn9JttXH6yinKvASt4mmHHZT_N6DHJbFvL44b27QhnsfTMmeY36Lj6T03cVm4N_OW6d3ukpfMh1cjUOuCcWL7hthiQK9quf-Uv83V7xFV3Z7Z8GptcRjhegT-aXliZsvMS7lLoxkXTHRO64iFKk8Ds&v=e0e8nlDL6O0.&k=1&guid=ON&u=http%3A%2F%2Flp.example.net
-
-#### ■方法B)
-
-御社のリダイレクタで、弊社のリダイレクタURLに、ランディングページURLを渡していただく
-
-遷移：
-
-広告ページ → 御社リダイレクタ → 弊社リダイレクタ → ランディングページ
-
-1. ビッドレスポンス内のリンク先を以下のようにしていただく
-
-```html
-<a href="http://dsp.example.com/?id=12345678&r=${CLICK_URL_ENC}"><img
-
-...></a>
-```
-
-2. 弊社マクロ展開により、以下のようになる
-
-```html
-<a href="http://dsp.example.com/?id=12345678&r=http%3A%2F%2Frd.adingo.jp%2F%3Fp%3DrKRSvXZZsc3qXP7DfGyYd0ws220dxHwHVnICTDmTbaPn9JttXH6yinKvASt4mmHHZT_N6DHJbFvL44b27QhnsfTMmeY36Lj6T03cVm4N_OW6d3ukpfMh1cjUOuCcWL7hthiQK9quf-Uv83V7xFV3Z7Z8GptcRjhegT-aXliZsvMS7lLoxkXTHRO64iFKk8Ds%26v%3De0e8nlDL6O0.%26k%3D1%26guid%3DON%26u%3D"><img...></a>
-```
-
-3. 御社リダイレクタで、パラメタ r で指定された弊社リダイレクタに、実際のランディングURLをURLエンコードして付与する
-
-    http://rd.adingo.jp/?p=rKRSvXZZsc3qXP7DfGyYd0ws220dxHwHVnICTDmTbaPn9JttXH6yinKvASt4mmHHZT_N6DHJbFvL44b27QhnsfTMmeY36Lj6T03cVm4N_OW6d3ukpfMh1cjUOuCcWL7hthiQK9quf-Uv83V7xFV3Z7Z8GptcRjhegT-aXliZsvMS7lLoxkXTHRO64iFKk8Ds&v=e0e8nlDL6O0.&k=1&guid=ON&u=http%3A%2F%2Flp.example.net
 
 
 ## 5. コード表
