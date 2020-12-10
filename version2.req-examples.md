@@ -16,34 +16,16 @@
 ```json
 {
   "at": 1,
-  "badv": [
-    "blocked-advertiser1.com",
-    "blocked-advertiser2.com",
-    "blocked-advertiser3.com"
-  ],
+  "badv": [],
   "bapp": [],
   "bcat": [
     "IAB23",
-    "IAB23-1",
-    "IAB23-10",
-    "IAB23-2",
-    "IAB23-3",
-    "IAB23-4",
-    "IAB23-5",
-    "IAB23-6",
-    "IAB23-7",
-    "IAB23-8",
-    "IAB23-9",
     "IAB24",
     "IAB25-2",
     "IAB25-3",
     "IAB25-4",
     "IAB25-5",
-    "IAB26",
-    "IAB26-1",
-    "IAB26-2",
-    "IAB26-3",
-    "IAB26-4"
+    "IAB26"
   ],
   "cur": [
     "JPY",
@@ -53,6 +35,7 @@
     "connectiontype": 0,
     "devicetype": 2,
     "dnt": 0,
+    "ext": {},
     "geo": {
       "city": "Shibuya",
       "country": "JPN",
@@ -76,7 +59,7 @@
     "pxratio": 0.0,
     "ua": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/51.0.2704.79 Safari\/537.36 Edge\/14.14393"
   },
-  "id": "86e40f49-f710-4293-a229-35e0fbf82e7a",
+  "id": "a97b986d-5953-4b92-9d28-6c14b98fbee2",
   "imp": [
     {
       "banner": {
@@ -139,7 +122,7 @@
             "asi": "adingo.jp",
             "ext": {},
             "hp": 1,
-            "rid": "86e40f49-f710-4293-a229-35e0fbf82e7a",
+            "rid": "a97b986d-5953-4b92-9d28-6c14b98fbee2",
             "sid": "234"
           }
         ],
@@ -148,13 +131,13 @@
       "stype": ""
     },
     "fd": 0,
-    "tid": "86e40f49-f710-4293-a229-35e0fbf82e7a"
+    "tid": "a97b986d-5953-4b92-9d28-6c14b98fbee2"
   },
   "tmax": 120,
   "user": {
     "buyeruid": "synced-buyeruid",
     "ext": {},
-    "id": "9c73dc20-712e-4d94-8255-6de93accf040"
+    "id": "478ebd42-2ecb-402f-8044-02a4c7452843"
   },
   "wseat": []
 }
@@ -192,26 +175,12 @@
   ],
   "bcat": [
     "IAB23",
-    "IAB23-1",
-    "IAB23-10",
-    "IAB23-2",
-    "IAB23-3",
-    "IAB23-4",
-    "IAB23-5",
-    "IAB23-6",
-    "IAB23-7",
-    "IAB23-8",
-    "IAB23-9",
     "IAB24",
     "IAB25-2",
     "IAB25-3",
     "IAB25-4",
     "IAB25-5",
-    "IAB26",
-    "IAB26-1",
-    "IAB26-2",
-    "IAB26-3",
-    "IAB26-4"
+    "IAB26"
   ],
   "cur": [
     "JPY",
@@ -221,6 +190,7 @@
     "connectiontype": 2,
     "devicetype": 2,
     "dnt": 0,
+    "ext": {},
     "geo": {
       "city": "Shibuya",
       "country": "JPN",
@@ -231,7 +201,7 @@
       "zip": "150-0043"
     },
     "hwv": "",
-    "ifa": "e2249a97-8609-4072-9aaf-b4a15129873f",
+    "ifa": "8d22f439-ac2b-4684-85e1-be3dc5857b9d",
     "ip": "210.168.46.254",
     "ipv6": "",
     "js": 1,
@@ -244,7 +214,7 @@
     "pxratio": 0.0,
     "ua": "Mozilla \/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit\/601.1.46 (KHTML, like Gecko) Version\/9.0 Mobile\/13B5110e Safari\/601.1"
   },
-  "id": "66a31e28-d140-4483-b61d-b435159725ca",
+  "id": "de565620-8e6c-41de-b948-9d52fcf0b4cb",
   "imp": [
     {
       "banner": {
@@ -286,7 +256,7 @@
             "asi": "adingo.jp",
             "ext": {},
             "hp": 1,
-            "rid": "66a31e28-d140-4483-b61d-b435159725ca",
+            "rid": "de565620-8e6c-41de-b948-9d52fcf0b4cb",
             "sid": "234"
           }
         ],
@@ -295,13 +265,13 @@
       "stype": ""
     },
     "fd": 0,
-    "tid": "66a31e28-d140-4483-b61d-b435159725ca"
+    "tid": "de565620-8e6c-41de-b948-9d52fcf0b4cb"
   },
   "tmax": 120,
   "user": {
     "buyeruid": "",
     "ext": {},
-    "id": "e2249a97-8609-4072-9aaf-b4a15129873f"
+    "id": "8d22f439-ac2b-4684-85e1-be3dc5857b9d"
   },
   "wseat": []
 }
@@ -312,34 +282,16 @@
 ```json
 {
   "at": 1,
-  "badv": [
-    "blocked-advertiser1.com",
-    "blocked-advertiser2.com",
-    "blocked-advertiser3.com"
-  ],
+  "badv": [],
   "bapp": [],
   "bcat": [
     "IAB23",
-    "IAB23-1",
-    "IAB23-10",
-    "IAB23-2",
-    "IAB23-3",
-    "IAB23-4",
-    "IAB23-5",
-    "IAB23-6",
-    "IAB23-7",
-    "IAB23-8",
-    "IAB23-9",
     "IAB24",
     "IAB25-2",
     "IAB25-3",
     "IAB25-4",
     "IAB25-5",
-    "IAB26",
-    "IAB26-1",
-    "IAB26-2",
-    "IAB26-3",
-    "IAB26-4"
+    "IAB26"
   ],
   "cur": [
     "JPY",
@@ -349,6 +301,7 @@
     "connectiontype": 2,
     "devicetype": 2,
     "dnt": 0,
+    "ext": {},
     "geo": {
       "city": "Shibuya",
       "country": "JPN",
@@ -372,7 +325,7 @@
     "pxratio": 0.0,
     "ua": "Mozilla\/5.0 (Linux; Android 9; SOV39 Build\/52.0.C.1.119) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/68.0.3440.91 Mobile Safari\/537.36"
   },
-  "id": "75a40036-f9d6-4f8c-8240-d37b28c2dbc7",
+  "id": "d623f953-4994-40de-93d8-5825e175bbae",
   "imp": [
     {
       "bidfloor": 300.0,
@@ -427,7 +380,7 @@
             "asi": "adingo.jp",
             "ext": {},
             "hp": 1,
-            "rid": "75a40036-f9d6-4f8c-8240-d37b28c2dbc7",
+            "rid": "d623f953-4994-40de-93d8-5825e175bbae",
             "sid": "234"
           }
         ],
@@ -436,13 +389,13 @@
       "stype": ""
     },
     "fd": 0,
-    "tid": "75a40036-f9d6-4f8c-8240-d37b28c2dbc7"
+    "tid": "d623f953-4994-40de-93d8-5825e175bbae"
   },
   "tmax": 120,
   "user": {
     "buyeruid": "synced-buyeruid",
     "ext": {},
-    "id": "2c7b94bfca27de03ce862bb6c9cb7a1e7093197d"
+    "id": "b808091909bcb209e0d55549027068f466e0d9d4"
   },
   "wseat": []
 }
@@ -453,34 +406,16 @@
 ```json
 {
   "at": 1,
-  "badv": [
-    "blocked-advertiser1.com",
-    "blocked-advertiser2.com",
-    "blocked-advertiser3.com"
-  ],
+  "badv": [],
   "bapp": [],
   "bcat": [
     "IAB23",
-    "IAB23-1",
-    "IAB23-10",
-    "IAB23-2",
-    "IAB23-3",
-    "IAB23-4",
-    "IAB23-5",
-    "IAB23-6",
-    "IAB23-7",
-    "IAB23-8",
-    "IAB23-9",
     "IAB24",
     "IAB25-2",
     "IAB25-3",
     "IAB25-4",
     "IAB25-5",
-    "IAB26",
-    "IAB26-1",
-    "IAB26-2",
-    "IAB26-3",
-    "IAB26-4"
+    "IAB26"
   ],
   "cur": [
     "JPY",
@@ -490,6 +425,7 @@
     "connectiontype": 0,
     "devicetype": 2,
     "dnt": 0,
+    "ext": {},
     "geo": {
       "city": "Shibuya",
       "country": "JPN",
@@ -513,7 +449,7 @@
     "pxratio": 0.0,
     "ua": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/51.0.2704.79 Safari\/537.36 Edge\/14.14393"
   },
-  "id": "52ce85ca-0879-4891-9935-9c6e2d8c3e4f",
+  "id": "6ac348f1-833b-45ea-946e-8c871582b9d5",
   "imp": [
     {
       "bidfloor": 2.430134,
@@ -590,7 +526,7 @@
             "asi": "adingo.jp",
             "ext": {},
             "hp": 1,
-            "rid": "52ce85ca-0879-4891-9935-9c6e2d8c3e4f",
+            "rid": "6ac348f1-833b-45ea-946e-8c871582b9d5",
             "sid": "234"
           }
         ],
@@ -599,13 +535,13 @@
       "stype": ""
     },
     "fd": 0,
-    "tid": "52ce85ca-0879-4891-9935-9c6e2d8c3e4f"
+    "tid": "6ac348f1-833b-45ea-946e-8c871582b9d5"
   },
   "tmax": 120,
   "user": {
     "buyeruid": "synced-buyeruid",
     "ext": {},
-    "id": "9f1b91cc-f7ea-48b9-bcac-60d44b690fc1"
+    "id": "7ff12f69-f671-4d01-b556-c152c17ebbf2"
   },
   "wseat": []
 }
@@ -643,26 +579,12 @@
   ],
   "bcat": [
     "IAB23",
-    "IAB23-1",
-    "IAB23-10",
-    "IAB23-2",
-    "IAB23-3",
-    "IAB23-4",
-    "IAB23-5",
-    "IAB23-6",
-    "IAB23-7",
-    "IAB23-8",
-    "IAB23-9",
     "IAB24",
     "IAB25-2",
     "IAB25-3",
     "IAB25-4",
     "IAB25-5",
-    "IAB26",
-    "IAB26-1",
-    "IAB26-2",
-    "IAB26-3",
-    "IAB26-4"
+    "IAB26"
   ],
   "cur": [
     "JPY",
@@ -672,6 +594,7 @@
     "connectiontype": 2,
     "devicetype": 2,
     "dnt": 0,
+    "ext": {},
     "geo": {
       "city": "Shibuya",
       "country": "JPN",
@@ -683,7 +606,7 @@
     },
     "h": 1334,
     "hwv": "",
-    "ifa": "a3704764-40a6-4301-ac18-62d9bbabfa9f",
+    "ifa": "178638ef-0387-4c6c-97dc-f60656cd4763",
     "ip": "210.168.46.254",
     "ipv6": "",
     "js": 1,
@@ -697,7 +620,7 @@
     "ua": "Mozilla \/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit\/601.1.46 (KHTML, like Gecko) Version\/9.0 Mobile\/13B5110e Safari\/601.1",
     "w": 750
   },
-  "id": "79b3bf0f-adf1-4387-8580-ea25c0427bb2",
+  "id": "a5c25d5d-49f5-4329-aaa3-824d93b75e49",
   "imp": [
     {
       "bidfloor": 2.430134,
@@ -766,7 +689,7 @@
             "asi": "adingo.jp",
             "ext": {},
             "hp": 1,
-            "rid": "79b3bf0f-adf1-4387-8580-ea25c0427bb2",
+            "rid": "a5c25d5d-49f5-4329-aaa3-824d93b75e49",
             "sid": "234"
           }
         ],
@@ -775,13 +698,13 @@
       "stype": ""
     },
     "fd": 0,
-    "tid": "79b3bf0f-adf1-4387-8580-ea25c0427bb2"
+    "tid": "a5c25d5d-49f5-4329-aaa3-824d93b75e49"
   },
   "tmax": 300,
   "user": {
     "buyeruid": "",
     "ext": {},
-    "id": "a3704764-40a6-4301-ac18-62d9bbabfa9f"
+    "id": "178638ef-0387-4c6c-97dc-f60656cd4763"
   },
   "wseat": []
 }
@@ -792,34 +715,16 @@
 ```json
 {
   "at": 1,
-  "badv": [
-    "blocked-advertiser1.com",
-    "blocked-advertiser2.com",
-    "blocked-advertiser3.com"
-  ],
+  "badv": [],
   "bapp": [],
   "bcat": [
     "IAB23",
-    "IAB23-1",
-    "IAB23-10",
-    "IAB23-2",
-    "IAB23-3",
-    "IAB23-4",
-    "IAB23-5",
-    "IAB23-6",
-    "IAB23-7",
-    "IAB23-8",
-    "IAB23-9",
     "IAB24",
     "IAB25-2",
     "IAB25-3",
     "IAB25-4",
     "IAB25-5",
-    "IAB26",
-    "IAB26-1",
-    "IAB26-2",
-    "IAB26-3",
-    "IAB26-4"
+    "IAB26"
   ],
   "cur": [
     "JPY",
@@ -829,6 +734,7 @@
     "connectiontype": 0,
     "devicetype": 2,
     "dnt": 0,
+    "ext": {},
     "geo": {
       "city": "Shibuya",
       "country": "JPN",
@@ -852,7 +758,7 @@
     "pxratio": 0.0,
     "ua": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/51.0.2704.79 Safari\/537.36 Edge\/14.14393"
   },
-  "id": "5d88ffdc-c22b-4b7b-b60f-213982bf56f5",
+  "id": "ece496ac-6a57-4eaf-b2ed-ab26e71d2205",
   "imp": [
     {
       "audio": {
@@ -923,7 +829,7 @@
             "asi": "adingo.jp",
             "ext": {},
             "hp": 1,
-            "rid": "5d88ffdc-c22b-4b7b-b60f-213982bf56f5",
+            "rid": "ece496ac-6a57-4eaf-b2ed-ab26e71d2205",
             "sid": "234"
           }
         ],
@@ -932,13 +838,13 @@
       "stype": ""
     },
     "fd": 0,
-    "tid": "5d88ffdc-c22b-4b7b-b60f-213982bf56f5"
+    "tid": "ece496ac-6a57-4eaf-b2ed-ab26e71d2205"
   },
   "tmax": 120,
   "user": {
     "buyeruid": "synced-buyeruid",
     "ext": {},
-    "id": "d6602ecb-8d6b-44f3-b22a-963f6296735f"
+    "id": "52d365a4-d389-4a3d-98dc-544890278b9c"
   },
   "wseat": []
 }
@@ -949,34 +855,16 @@
 ```json
 {
   "at": 1,
-  "badv": [
-    "blocked-advertiser1.com",
-    "blocked-advertiser2.com",
-    "blocked-advertiser3.com"
-  ],
+  "badv": [],
   "bapp": [],
   "bcat": [
     "IAB23",
-    "IAB23-1",
-    "IAB23-10",
-    "IAB23-2",
-    "IAB23-3",
-    "IAB23-4",
-    "IAB23-5",
-    "IAB23-6",
-    "IAB23-7",
-    "IAB23-8",
-    "IAB23-9",
     "IAB24",
     "IAB25-2",
     "IAB25-3",
     "IAB25-4",
     "IAB25-5",
-    "IAB26",
-    "IAB26-1",
-    "IAB26-2",
-    "IAB26-3",
-    "IAB26-4"
+    "IAB26"
   ],
   "cur": [
     "JPY",
@@ -986,6 +874,7 @@
     "connectiontype": 2,
     "devicetype": 2,
     "dnt": 0,
+    "ext": {},
     "geo": {
       "city": "Shibuya",
       "country": "JPN",
@@ -1009,7 +898,7 @@
     "pxratio": 0.0,
     "ua": "Mozilla \/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit\/601.1.46 (KHTML, like Gecko) Version\/9.0 Mobile\/13B5110e Safari\/601.1"
   },
-  "id": "eb1ad568-7352-48fe-9e65-356da7f89572",
+  "id": "fc5082eb-c78c-4368-8dce-abb83e8859b7",
   "imp": [
     {
       "ext": {},
@@ -1112,7 +1001,7 @@
             "asi": "adingo.jp",
             "ext": {},
             "hp": 1,
-            "rid": "eb1ad568-7352-48fe-9e65-356da7f89572",
+            "rid": "fc5082eb-c78c-4368-8dce-abb83e8859b7",
             "sid": "234"
           }
         ],
@@ -1121,13 +1010,13 @@
       "stype": ""
     },
     "fd": 0,
-    "tid": "eb1ad568-7352-48fe-9e65-356da7f89572"
+    "tid": "fc5082eb-c78c-4368-8dce-abb83e8859b7"
   },
   "tmax": 120,
   "user": {
     "buyeruid": "synced-buyeruid",
     "ext": {},
-    "id": "bc9e1e5d-01b1-4029-9642-c1e84214b20d"
+    "id": "8ac6b76d-c4fa-4ffc-8a05-8096967af285"
   },
   "wseat": []
 }
@@ -1138,34 +1027,16 @@
 ```json
 {
   "at": 1,
-  "badv": [
-    "blocked-advertiser1.com",
-    "blocked-advertiser2.com",
-    "blocked-advertiser3.com"
-  ],
+  "badv": [],
   "bapp": [],
   "bcat": [
     "IAB23",
-    "IAB23-1",
-    "IAB23-10",
-    "IAB23-2",
-    "IAB23-3",
-    "IAB23-4",
-    "IAB23-5",
-    "IAB23-6",
-    "IAB23-7",
-    "IAB23-8",
-    "IAB23-9",
     "IAB24",
     "IAB25-2",
     "IAB25-3",
     "IAB25-4",
     "IAB25-5",
-    "IAB26",
-    "IAB26-1",
-    "IAB26-2",
-    "IAB26-3",
-    "IAB26-4"
+    "IAB26"
   ],
   "cur": [
     "JPY",
@@ -1175,6 +1046,7 @@
     "connectiontype": 2,
     "devicetype": 2,
     "dnt": 0,
+    "ext": {},
     "geo": {
       "city": "Shibuya",
       "country": "JPN",
@@ -1198,7 +1070,7 @@
     "pxratio": 0.0,
     "ua": "Mozilla \/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit\/601.1.46 (KHTML, like Gecko) Version\/9.0 Mobile\/13B5110e Safari\/601.1"
   },
-  "id": "aa27ab96-96ca-4f11-8b07-46ae48dbdb07",
+  "id": "793f7eee-7bcf-4e99-83f7-dc797ba1ac63",
   "imp": [
     {
       "banner": {
@@ -1289,7 +1161,7 @@
             "asi": "adingo.jp",
             "ext": {},
             "hp": 1,
-            "rid": "aa27ab96-96ca-4f11-8b07-46ae48dbdb07",
+            "rid": "793f7eee-7bcf-4e99-83f7-dc797ba1ac63",
             "sid": "234"
           }
         ],
@@ -1298,13 +1170,13 @@
       "stype": ""
     },
     "fd": 0,
-    "tid": "aa27ab96-96ca-4f11-8b07-46ae48dbdb07"
+    "tid": "793f7eee-7bcf-4e99-83f7-dc797ba1ac63"
   },
   "tmax": 120,
   "user": {
     "buyeruid": "synced-buyeruid",
     "ext": {},
-    "id": "8e1807cf-e825-4d63-b1a8-d006b98a7916"
+    "id": "9048bda0-90aa-457c-abc6-23b996c532b3"
   },
   "wseat": []
 }
@@ -1317,34 +1189,16 @@ Google Open Bidding transaction example.
 ```json
 {
   "at": 1,
-  "badv": [
-    "blocked-advertiser1.com",
-    "blocked-advertiser2.com",
-    "blocked-advertiser3.com"
-  ],
+  "badv": [],
   "bapp": [],
   "bcat": [
     "IAB23",
-    "IAB23-1",
-    "IAB23-10",
-    "IAB23-2",
-    "IAB23-3",
-    "IAB23-4",
-    "IAB23-5",
-    "IAB23-6",
-    "IAB23-7",
-    "IAB23-8",
-    "IAB23-9",
     "IAB24",
     "IAB25-2",
     "IAB25-3",
     "IAB25-4",
     "IAB25-5",
-    "IAB26",
-    "IAB26-1",
-    "IAB26-2",
-    "IAB26-3",
-    "IAB26-4"
+    "IAB26"
   ],
   "cur": [
     "JPY",
@@ -1354,6 +1208,7 @@ Google Open Bidding transaction example.
     "connectiontype": 2,
     "devicetype": 2,
     "dnt": 0,
+    "ext": {},
     "geo": {
       "city": "Portland",
       "country": "USA",
@@ -1377,7 +1232,7 @@ Google Open Bidding transaction example.
     "pxratio": 0.0,
     "ua": "Mozilla \/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit\/601.1.46 (KHTML, like Gecko) Version\/9.0 Mobile\/13B5110e Safari\/601.1"
   },
-  "id": "c4da6e09-b172-4439-ba5e-e852e55e5f53",
+  "id": "211db062-4ed0-468e-bf62-b5c02cc95f28",
   "imp": [
     {
       "banner": {
@@ -1446,7 +1301,7 @@ Google Open Bidding transaction example.
             "asi": "adingo.jp",
             "ext": {},
             "hp": 1,
-            "rid": "c4da6e09-b172-4439-ba5e-e852e55e5f53",
+            "rid": "211db062-4ed0-468e-bf62-b5c02cc95f28",
             "sid": "234"
           }
         ],
@@ -1455,13 +1310,13 @@ Google Open Bidding transaction example.
       "stype": "EB"
     },
     "fd": 1,
-    "tid": "3dc5d724-c639-43fe-9ab4-61398d14ec48"
+    "tid": "4978d39b-f1df-4c86-9933-fbbe8dba45c5"
   },
   "tmax": 120,
   "user": {
     "buyeruid": "synced-buyeruid",
     "ext": {},
-    "id": "a6b67747-e72e-4ba0-a721-0ce68c4f3b4e"
+    "id": "ed31e9e9-8ae8-4189-aca6-db2514e8562b"
   },
   "wseat": []
 }
@@ -1499,26 +1354,12 @@ Google Open Bidding transaction example.
   ],
   "bcat": [
     "IAB23",
-    "IAB23-1",
-    "IAB23-10",
-    "IAB23-2",
-    "IAB23-3",
-    "IAB23-4",
-    "IAB23-5",
-    "IAB23-6",
-    "IAB23-7",
-    "IAB23-8",
-    "IAB23-9",
     "IAB24",
     "IAB25-2",
     "IAB25-3",
     "IAB25-4",
     "IAB25-5",
-    "IAB26",
-    "IAB26-1",
-    "IAB26-2",
-    "IAB26-3",
-    "IAB26-4"
+    "IAB26"
   ],
   "cur": [
     "JPY",
@@ -1528,6 +1369,7 @@ Google Open Bidding transaction example.
     "connectiontype": 2,
     "devicetype": 2,
     "dnt": 0,
+    "ext": {},
     "geo": {
       "city": "Shibuya",
       "country": "JPN",
@@ -1538,7 +1380,7 @@ Google Open Bidding transaction example.
       "zip": "150-0043"
     },
     "hwv": "",
-    "ifa": "78f5db2d-3a3f-4497-af96-b80421bd9897",
+    "ifa": "2c9e51d4-34ef-4009-9901-f91cb6fafbf8",
     "ip": "210.168.46.254",
     "ipv6": "",
     "js": 1,
@@ -1551,7 +1393,7 @@ Google Open Bidding transaction example.
     "pxratio": 0.0,
     "ua": "Mozilla \/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit\/601.1.46 (KHTML, like Gecko) Version\/9.0 Mobile\/13B5110e Safari\/601.1"
   },
-  "id": "73a2e7ef-fcdf-4922-bc95-de002b2b5250",
+  "id": "98aa28c0-c24b-4b96-8cb1-16565e4b09e4",
   "imp": [
     {
       "banner": {
@@ -1602,7 +1444,7 @@ Google Open Bidding transaction example.
             "asi": "adingo.jp",
             "ext": {},
             "hp": 1,
-            "rid": "73a2e7ef-fcdf-4922-bc95-de002b2b5250",
+            "rid": "98aa28c0-c24b-4b96-8cb1-16565e4b09e4",
             "sid": "234"
           }
         ],
@@ -1611,16 +1453,15 @@ Google Open Bidding transaction example.
       "stype": ""
     },
     "fd": 0,
-    "tid": "73a2e7ef-fcdf-4922-bc95-de002b2b5250"
+    "tid": "98aa28c0-c24b-4b96-8cb1-16565e4b09e4"
   },
   "tmax": 120,
   "user": {
     "buyeruid": "",
     "ext": {},
-    "id": "78f5db2d-3a3f-4497-af96-b80421bd9897"
+    "id": "2c9e51d4-34ef-4009-9901-f91cb6fafbf8"
   },
   "wseat": []
 }
 ```
-
 
