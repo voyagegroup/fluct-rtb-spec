@@ -851,7 +851,7 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
   <tr>
     <td>request</td>
     <td>string; required</td>
-    <td><a href="native-ads-v1.en.md">Native Ad Request Markup Object</a></td>
+    <td><a href="native-ads-v1.en.md">fluct Native Ads Spec</a></td>
   </tr>
   <tr>
     <td>ver</td>
