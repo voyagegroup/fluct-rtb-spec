@@ -13,7 +13,7 @@
   * [Image Request Object](#image-request-object)
   * [Video Request Object](#video-request-object)
   * [Data Request Object](#data-request-object)
-  * [Event Trackers Request Object](#event-trackers--request-object)
+  * [Event Trackers Request Object](#event-trackers-request-object)
 * [Native Markup Response Object](#native-markup-response-object)
   * [Asset Response Object](#asset-response-object)
   * [Title Response Object](#title-response-object)
