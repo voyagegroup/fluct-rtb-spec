@@ -137,7 +137,9 @@
   "user": {
     "buyeruid": "synced-buyeruid",
     "ext": {},
-    "id": "478ebd42-2ecb-402f-8044-02a4c7452843"
+    "id": "478ebd42-2ecb-402f-8044-02a4c7452843",
+    "gender": "M",
+    "yob": 2000
   },
   "wseat": []
 }
@@ -271,7 +273,9 @@
   "user": {
     "buyeruid": "",
     "ext": {},
-    "id": "8d22f439-ac2b-4684-85e1-be3dc5857b9d"
+    "id": "8d22f439-ac2b-4684-85e1-be3dc5857b9d",
+    "gender": "M",
+    "yob": 200
   },
   "wseat": []
 }
@@ -541,7 +545,9 @@
   "user": {
     "buyeruid": "synced-buyeruid",
     "ext": {},
-    "id": "7ff12f69-f671-4d01-b556-c152c17ebbf2"
+    "id": "7ff12f69-f671-4d01-b556-c152c17ebbf2",
+    "gender": "M",
+    "yob": 2000
   },
   "wseat": []
 }
@@ -704,7 +710,9 @@
   "user": {
     "buyeruid": "",
     "ext": {},
-    "id": "178638ef-0387-4c6c-97dc-f60656cd4763"
+    "id": "178638ef-0387-4c6c-97dc-f60656cd4763",
+    "gender": "M",
+    "yob": 2000
   },
   "wseat": []
 }
@@ -844,7 +852,9 @@
   "user": {
     "buyeruid": "synced-buyeruid",
     "ext": {},
-    "id": "52d365a4-d389-4a3d-98dc-544890278b9c"
+    "id": "52d365a4-d389-4a3d-98dc-544890278b9c",
+    "gender": "M",
+    "yob": 2000
   },
   "wseat": []
 }
@@ -1016,7 +1026,9 @@
   "user": {
     "buyeruid": "synced-buyeruid",
     "ext": {},
-    "id": "8ac6b76d-c4fa-4ffc-8a05-8096967af285"
+    "id": "8ac6b76d-c4fa-4ffc-8a05-8096967af285",
+    "gender": "M",
+    "yob": 2000
   },
   "wseat": []
 }
@@ -1176,7 +1188,9 @@
   "user": {
     "buyeruid": "synced-buyeruid",
     "ext": {},
-    "id": "9048bda0-90aa-457c-abc6-23b996c532b3"
+    "id": "9048bda0-90aa-457c-abc6-23b996c532b3",
+    "gender": "M",
+    "yob": 2000
   },
   "wseat": []
 }
@@ -1316,7 +1330,9 @@ Google Open Bidding transaction example.
   "user": {
     "buyeruid": "synced-buyeruid",
     "ext": {},
-    "id": "ed31e9e9-8ae8-4189-aca6-db2514e8562b"
+    "id": "ed31e9e9-8ae8-4189-aca6-db2514e8562b",
+    "gender": "M",
+    "yob": 2000
   },
   "wseat": []
 }
@@ -1459,7 +1475,9 @@ Google Open Bidding transaction example.
   "user": {
     "buyeruid": "",
     "ext": {},
-    "id": "2c9e51d4-34ef-4009-9901-f91cb6fafbf8"
+    "id": "2c9e51d4-34ef-4009-9901-f91cb6fafbf8",
+    "gender": "M",
+    "yob": 2000
   },
   "wseat": []
 }

@@ -419,6 +419,16 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
     <td>string</td>
     <td></td>
   </tr>
+  <tr>
+    <td>gender</td>
+    <td>string</td>
+    <td>"M" or "F"</td>
+  </tr>
+  <tr>
+    <td>yob</td>
+    <td>integer</td>
+    <td></td>
+  </tr>
 </table>
 
 * When "ifa" is sent, “user.buyeruid” is not sent and “user.id” is set to be the value of “device.ifa”.
