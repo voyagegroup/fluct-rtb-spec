@@ -1,7 +1,7 @@
 # 変更履歴
 
 * 2.2
-    * 2020/12/XX
+    * 2021/01/21
         * Change rewarded-video request signal from `imp.video.ext.videotype="rewarded"` to `imp.video.ext.rewarded=1`
         * Add a section "Bid Request Throttling"
     * 2020/09/28
