@@ -12,17 +12,20 @@ Moreover, this specification does not contain description of general RTB protoco
 
 ## Table of Contents
 
-* [1. cookie sync](#1-cookie-sync)
-* [2. Request/Response encoding](#2-requestresponse-encoding)
-  * [a. Request encoding](#a-request-encoding)
-  * [b. Response encoding](#b-response-encoding)
-* [3. Request specification](#3-request-specification)
+* [1. Cookie Sync](#1-cookie-sync)
+* [2. Request/Response Encoding](#2-requestresponse-encoding)
+  * [a. Request Encoding](#a-request-encoding)
+  * [b. Response Encoding](#b-response-encoding)
+* [3. Request Specification](#3-request-specification)
   * [a. Endpoint URL](#a-endpoint-url)
   * [b. OpenRTB Version HTTP Header](#b-openrtb-version-http-header)
-  * [c. Bid request parameters](#c-bid-request-parameters)
+  * [c. Bid Request Throttling](#c-bid-request-throttling)
+  * [d. Bid Request parameters](#d-bid-request-parameters)
     * [Bid Request Object (Top Level)](#bid-request-object-top-level)
     * [imp Object](#imp-object)
+    * [imp.ext Object](#impext-object)
     * [source Object](#source-object)
+    * [source.ext Object](#sourceext-object)
     * [site Object](#site-object)
     * [app Object](#app-object)
     * [publisher Object](#publisher-object)
@@ -32,29 +35,31 @@ Moreover, this specification does not contain description of general RTB protoco
     * [banner Object](#banner-object)
     * [format Object](#format-object)
     * [video Object](#video-object)
+    * [video.ext Object](#videoext-object)
     * [audio Object](#audio-object)
     * [native Object](#native-object)
     * [pmp Object](#pmp-object)
     * [deal Object](#deal-object)
     * [skadn Request Object](#skadn-request-object)
-* [4. Response specification](#4-response-specification)
-  * [a. Bid response parameters](#a-bid-response-parameters)
+* [4. Response Specification](#4-response-specification)
+  * [a. Bid Response Parameters](#a-bid-response-parameters)
     * [Bid Response Object (Top Level)](#bid-response-object-top-level)
     * [seatbid Object](#seatbid-object)
     * [bid Object](#bid-object)
+    * [bid.ext Object](#bidext-object)
     * [skadn Response Object](#skadn-response-object)
-  * [b. impression/click beacon](#b-impressionclick-beacon)
-    * [endpoint for impression beacon](#endpoint-for-impression-beacon)
+  * [b. Impression/Click Beacon](#b-impressionclick-beacon)
+    * [Endpoint for Impression Beacon](#endpoint-for-impression-beacon)
     * [fluct transmits according to the following conditions (imp beacon):](#fluct-transmits-according-to-the-following-conditions-imp-beacon)
-    * [endpoint for click beacon](#endpoint-for-click-beacon)
+    * [Endpoint for Click Beacon](#endpoint-for-click-beacon)
     * [fluct transmits according to the following conditions (click beacon):](#fluct-transmits-according-to-the-following-conditions-click-beacon)
-  * [c. Macro substitution](#c-macro-substitution)
+  * [c. Macro Substitution](#c-macro-substitution)
   * [d. End of CLICK_URL_ENC Macro Support](#d-end-of-click_url_enc-macro-support)
-* [5. Code table](#5-code-table)
+* [5. Code Table](#5-code-table)
 * [6. Bid Request/Response Examples](#6-bid-requestresponse-examples)
 
 
-## 1. cookie sync
+## 1. Cookie Sync
 
 Usually the following sync will be performed, however we are also able to provide specified flows separately.
 
@@ -76,11 +81,11 @@ The expiry date of sync is default to 30 days, however it can also be customized
 
     https://cs.adingo.jp/sync/?from=your_dsp&id=XXXXXX&expire=90
 
-## 2. Request/Response encoding
+## 2. Request/Response Encoding
 
 To minimize HTTP traffic exchanged between DSP and Fluct, it is **recommended** to have **both** bid request and response bodies **compressed**.
 
-### a. Request encoding
+### a. Request Encoding
 
 Bid requests can be gzip-compressed.
 If DSPs wish to receive gzip-compressed bid requests, contact an alliance representative.
@@ -89,7 +94,7 @@ Following header is added to a request when its body is gzip-compressed:
 
     Content-Encoding: gzip
 
-### b. Response encoding
+### b. Response Encoding
 
 A response body can be compressed when its request has a header similar to:
 
@@ -99,7 +104,7 @@ When returning a compressed response body, such response should have a header si
 
     Content-Encoding: gzip
 
-## 3. Request specification
+## 3. Request Specification
 
 ### a. Endpoint URL
 
@@ -123,9 +128,15 @@ The version is in format `<major>.<minor>`, and patch version is not included.
 
 Fluct will follow backward-compatible OpenRTB 2 minor version updates, and the version in HTTP header will be updated, accordingly.
 
-### c. Bid request parameters
+### c. Bid Request Throttling
 
-Serialize format: JSON only.
+Bid request QPS is controlled based on the ratio of response errors (HTTP status code 500 or above, or receive timeout) per unit time.
+
+As error responses increase, the bid request QPS will be gradually decreased.  Contrarily, as such responses decrease, the QPS will be gradually increased.
+
+### d. Bid Request Parameters
+
+Serialization format: JSON only.
 
 
 #### Bid Request Object (Top Level)
@@ -133,8 +144,8 @@ Serialize format: JSON only.
 <table>
   <tr>
     <th>Field</th>
-    <th>type</th>
-    <th>description</th>
+    <th>Type</th>
+    <th>Description</th>
   </tr>
   <tr>
     <td>id</td>
@@ -206,8 +217,8 @@ Serialize format: JSON only.
 <table>
   <tr>
     <th>Field</th>
-    <th>type</th>
-    <th>description</th>
+    <th>Type</th>
+    <th>Description</th>
   </tr>
   <tr>
     <td>id</td>
@@ -260,12 +271,28 @@ Serialize format: JSON only.
     <td>Floor price currency</td>
   </tr>
   <tr>
-    <td>ext.dfp_ad_unit_code</td>
+    <td>ext</td>
+    <td>imp.ext object</td>
+    <td>imp extension object</td>
+  </tr>
+</table>
+
+
+#### imp.ext Object
+
+<table>
+  <tr>
+    <th>Field</th>
+    <th>Type</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>dfp_ad_unit_code</td>
     <td>string; experimental</td>
     <td>Google AdManager Ad unit full path</td>
   </tr>
   <tr>
-    <td>ext.skadn</td>
+    <td>skadn</td>
     <td>skadn Request object</td>
     <td>SKAdNetwork request object</td>
   </tr>
@@ -274,15 +301,11 @@ Serialize format: JSON only.
 
 #### source Object
 
-Both [Sellers.json](https://iabtechlab.com/sellers-json/) and [OpenRTB SupplyChain](https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/supplychainobject.md) are available.
-
-Refer to https://adingo.jp/sellers.json for sellers available through fluct.
-
 <table>
   <tr>
     <th>Field</th>
-    <th>type</th>
-    <th>description</th>
+    <th>Type</th>
+    <th>Description</th>
   </tr>
   <tr>
     <td>fd</td>
@@ -295,25 +318,44 @@ Refer to https://adingo.jp/sellers.json for sellers available through fluct.
     <td>Transaction ID that is issued by upstream. Otherwise, same as BidRequest.id.</td>
   </tr>
   <tr>
-    <td>ext.stype</td>
+    <td>ext</td>
+    <td>source.ext object</td>
+    <td>source extension object</td>
+  </tr>
+</table>
+
+
+#### source.ext Object
+
+Both [Sellers.json](https://iabtechlab.com/sellers-json/) and [OpenRTB SupplyChain](https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/supplychainobject.md) are available.
+
+Refer to https://adingo.jp/sellers.json for sellers available through fluct.
+
+<table>
+  <tr>
+    <th>Field</th>
+    <th>Type</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>stype</td>
     <td>string; experimental</td>
     <td>Header Bidding type. Contact us for details.</td>
   </tr>
   <tr>
-    <td>ext.schain</td>
+    <td>schain</td>
     <td>supply-chain object</td>
     <td><a href="https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/supplychainobject.md">OpenRTB SupplyChain object</a></td>
   </tr>
 </table>
-
 
 #### site Object
 
 <table>
   <tr>
     <th>Field</th>
-    <th>type</th>
-    <th>description</th>
+    <th>Type</th>
+    <th>Description</th>
   </tr>
   <tr>
     <td>id</td>
@@ -353,8 +395,8 @@ Refer to https://adingo.jp/sellers.json for sellers available through fluct.
 <table>
   <tr>
     <th>Field</th>
-    <th>type</th>
-    <th>description</th>
+    <th>Type</th>
+    <th>Description</th>
   </tr>
   <tr>
     <td>id</td>
@@ -390,8 +432,8 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
 <table>
   <tr>
     <th>Field</th>
-    <th>type</th>
-    <th>description</th>
+    <th>Type</th>
+    <th>Description</th>
   </tr>
   <tr>
     <td>id</td>
@@ -406,8 +448,8 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
 <table>
   <tr>
     <th>Field</th>
-    <th>type</th>
-    <th>description</th>
+    <th>Type</th>
+    <th>Description</th>
   </tr>
   <tr>
     <td>id</td>
@@ -439,8 +481,8 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
 <table>
   <tr>
     <th>Field</th>
-    <th>type</th>
-    <th>description</th>
+    <th>Type</th>
+    <th>Description</th>
   </tr>
   <tr>
     <td>ua</td>
@@ -504,8 +546,8 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
 <table>
   <tr>
     <th>Field</th>
-    <th>type</th>
-    <th>description</th>
+    <th>Type</th>
+    <th>Description</th>
   </tr>
   <tr>
     <td>lat</td>
@@ -518,7 +560,7 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
     <td>Longitude; -180.0~180.0 where negative is west</td>
   </tr>
   <tr>
-    <td>type</td>
+    <td>Type</td>
     <td>integer</td>
     <td>Source of location data; 1=GPS, 2=IP address, 3=User provided</td>
   </tr>
@@ -570,8 +612,8 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
 <table>
   <tr>
     <th>Field</th>
-    <th>type</th>
-    <th>description</th>
+    <th>Type</th>
+    <th>Description</th>
   </tr>
   <tr>
     <td>format</td>
@@ -610,8 +652,8 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
 <table>
   <tr>
     <th>Field</th>
-    <th>type</th>
-    <th>description</th>
+    <th>Type</th>
+    <th>Description</th>
   </tr>
   <tr>
     <td>h</td>
@@ -631,8 +673,8 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
 <table>
   <tr>
     <th>Field</th>
-    <th>type</th>
-    <th>description</th>
+    <th>Type</th>
+    <th>Description</th>
   </tr>
   <tr>
     <td>mimes</td>
@@ -730,7 +772,7 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
   </tr>
   <tr>
     <td>ext</td>
-    <td>video-ext object</td>
+    <td>video.ext object</td>
     <td>
       video extension object
     </td>
@@ -738,19 +780,19 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
 </table>
 
 
-#### video-ext Object
+#### video.ext Object
 
 <table>
   <tr>
     <th>Field</th>
-    <th>type</th>
-    <th>description</th>
+    <th>Type</th>
+    <th>Description</th>
   </tr>
   <tr>
-    <td>videotype</td>
-    <td>string</td>
+    <td>rewarded</td>
+    <td>integer</td>
     <td>
-      rewarded=rewarded-video impression
+      0=no, 1=yes
     </td>
   </tr>
 </table>
@@ -761,8 +803,8 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
 <table>
   <tr>
     <th>Field</th>
-    <th>type</th>
-    <th>description</th>
+    <th>Type</th>
+    <th>Description</th>
   </tr>
   <tr>
     <td>mimes</td>
@@ -850,13 +892,13 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
 </table>
 
 
-#### Native Object
+#### native Object
 
 <table>
   <tr>
     <th>Field</th>
-    <th>type</th>
-    <th>description</th>
+    <th>Type</th>
+    <th>Description</th>
   </tr>
   <tr>
     <td>request</td>
@@ -886,8 +928,8 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
 <table>
   <tr>
     <th>Field</th>
-    <th>type</th>
-    <th>description</th>
+    <th>Type</th>
+    <th>Description</th>
   </tr>
   <tr>
     <td>private_auction</td>
@@ -907,8 +949,8 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
 <table>
   <tr>
     <th>Field</th>
-    <th>type</th>
-    <th>description</th>
+    <th>Type</th>
+    <th>Description</th>
   </tr>
   <tr>
     <td>id</td>
@@ -942,6 +984,7 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
   </tr>
 </table>
 
+
 #### skadn Request Object
 
 [SKAdNetwork Request Object](https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/extensions/community_extensions/skadnetwork.md#bid-request)
@@ -949,8 +992,8 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
 <table>
   <tr>
     <th>Field</th>
-    <th>type</th>
-    <th>description</th>
+    <th>Type</th>
+    <th>Description</th>
   </tr>
   <tr>
     <td>version</td>
@@ -972,9 +1015,10 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
   </tr>
 </table>
 
-## 4. Response specification
 
-### a. Bid response parameters
+## 4. Response Specification
+
+### a. Bid Response Parameters
 
 DSP should serialize bid information with the JSON format.
 
@@ -986,8 +1030,8 @@ HTTP 204 No Content is expected for no bid.
 <table>
   <tr>
     <th>Field</th>
-    <th>type</th>
-    <th>description</th>
+    <th>Type</th>
+    <th>Description</th>
   </tr>
   <tr>
     <td>id</td>
@@ -1012,8 +1056,8 @@ HTTP 204 No Content is expected for no bid.
 <table>
   <tr>
     <th>Field</th>
-    <th>type</th>
-    <th>description</th>
+    <th>Type</th>
+    <th>Description</th>
   </tr>
   <tr>
     <td>bid</td>
@@ -1036,8 +1080,8 @@ HTTP 204 No Content is expected for no bid.
 <table>
   <tr>
     <th>Field</th>
-    <th>type</th>
-    <th>description</th>
+    <th>Type</th>
+    <th>Description</th>
   </tr>
   <tr>
     <td>impid</td>
@@ -1133,16 +1177,33 @@ HTTP 204 No Content is expected for no bid.
     </td>
   </tr>
   <tr>
-    <td>ext.skadn</td>
+    <td>ext</td>
+    <td>bid.ext Object</td>
+    <td>bid extension object</td>
+  </tr>
+</table>
+
+
+#### bid.ext Object
+
+<table>
+  <tr>
+    <th>Field</th>
+    <th>Type</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>skadn</td>
     <td>skadn Response object</td>
     <td>SKAdNetwork response object</td>
   </tr>
   <tr>
-    <td>ext.clicktrackers</td>
+    <td>clicktrackers</td>
     <td>array of strings</td>
-    <td>Click trackers for MoPub iOS 14 support proposal</td>
+    <td>Click trackers for SKAdnetwork response object</td>
   </tr>
 </table>
+
 
 #### skadn Response Object
 
@@ -1151,8 +1212,8 @@ HTTP 204 No Content is expected for no bid.
 <table>
   <tr>
     <th>Field</th>
-    <th>type</th>
-    <th>description</th>
+    <th>Type</th>
+    <th>Description</th>
   </tr>
   <tr>
     <td>version</td>
@@ -1200,11 +1261,11 @@ HTTP 204 No Content is expected for no bid.
 </table>
 
 
-### b. impression/click beacon
+### b. Impression/Click Beacon
 
 The following assumptions are made about URLs which serve beacons:
 
-#### endpoint for impression beacon
+#### Endpoint for Impression Beacon
 
 * GET method support
 
@@ -1223,7 +1284,7 @@ The following assumptions are made about URLs which serve beacons:
   </tr>
 </table>
 
-#### endpoint for click beacon
+#### Endpoint for Click Beacon
 
 * HTTPS (TLS version 1.2 or above) support
 * POST support
@@ -1258,12 +1319,12 @@ The following assumptions are made about URLs which serve beacons:
 * It is assumed that transmission is done from the browser which delivers the advertisement; hence Cross-Origin XMLHttpRequest is used.
 * For some environments navigator.sendBeacon() (as defined at http://www.w3.org/TR/beacon/) is also transmitted.
 
-### c. Macro substitution
+### c. Macro Substitution
 
 <table>
   <tr>
-    <th>macro</th>
-    <th>description</th>
+    <th>Macro</th>
+    <th>Description</th>
     <th>adm</th>
     <th>nurl</th>
     <th>lurl</th>
@@ -1380,7 +1441,7 @@ After the date, the ad click-through may not navigate viewer browser to the land
 In order to prevent unexpected click behavior, please remove the macro completely before the date.
 
 
-## 5. Code table
+## 5. Code Table
 
 
 ## 6. Bid Request/Response Examples
