@@ -1,6 +1,10 @@
 # 変更履歴
 
 * 2.2
+    * 2021/01/27
+        * Bid Request User Object
+            * `gender` 追加
+            * `yob` 追加
     * 2021/01/21
         * Change rewarded-video request signal from `imp.video.ext.videotype="rewarded"` to `imp.video.ext.rewarded=1`
         * Add a section "Bid Request Throttling"
