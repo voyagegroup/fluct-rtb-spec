@@ -1,7 +1,7 @@
 # 変更履歴
 
 * 2.2
-    * 2021/01/26
+    * 2021/01/27
         * Bid Request User Object
             * `gender` 追加
             * `yob` 追加 
