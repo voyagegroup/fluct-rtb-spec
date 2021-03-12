@@ -57,7 +57,7 @@ Moreover, this specification does not contain description of general RTB protoco
   * [d. End of CLICK_URL_ENC Macro Support](#d-end-of-click_url_enc-macro-support)
 * [5. Code Table](#5-code-table)
 * [6. Bid Request/Response Examples](#6-bid-requestresponse-examples)
-
+* [7. iOS 14 Click Logic](#7-ios-14-click-logic)
 
 ## 1. Cookie Sync
 
@@ -1454,3 +1454,13 @@ See [version2.req-examples.md](./version2.req-examples.md) for details.
 
 See [version2.res-examples.md](./version2.res-examples.md) for details.
 
+## 7. iOS 14 Click Logic
+When DSP returns skadn object with a valid itunesitem, fluct's iOS SDK supports below special click logic in addition to regular click logic. Please also see [clicktrackers in bid.ext](#bidext-object).
+
+### Video
+- Fluct supports click tracking through the VAST `<ClickThrough>`, and we stop redirecting once we reach non-redirect response.
+- Fluct supports click tracking through the VAST `<CompanionClickThrough>`, and we stop redirecting once we reach non-redirect response.
+- The same logic applies for static, iFrame and HTML end cards.
+
+### Display
+- Fluct supports click tracking through click through URL, and we stop redirecting once we reach non-redirect response. 

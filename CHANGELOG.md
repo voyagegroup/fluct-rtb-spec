@@ -1,10 +1,12 @@
 # 変更履歴
 
 * 2.2
+    * 2021/03/12
+        * Add a section "iOS 14 Click Logic"
     * 2021/01/27
         * Bid Request User Object
-            * `gender` 追加
-            * `yob` 追加
+            * Add `gender`
+            * Add `yob`
     * 2021/01/21
         * Change rewarded-video request signal from `imp.video.ext.videotype="rewarded"` to `imp.video.ext.rewarded=1`
         * Add a section "Bid Request Throttling"
