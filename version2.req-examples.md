@@ -9,7 +9,8 @@
 * [PMP Deal Only](#pmp-deal-only)
 * [PMP Deal or Open Auction](#pmp-deal-or-open-auction)
 * [Supply Chain in Google Open Bidding](#supply-chain-in-google-open-bidding)
-* [SKAdNetwork Request Object](#skadnetwork-request-object)
+* [With SKAdNetwork Request Object](#with-skadnetwork-request-object)
+* [With Extended User Identifications](#with-extended-user-identifications)
 
 ### Web
 
@@ -48,7 +49,6 @@
     "hwv": "",
     "ifa": "",
     "ip": "210.168.46.254",
-    "ipv6": "",
     "js": 1,
     "language": "ja",
     "lmt": 0,
@@ -59,7 +59,7 @@
     "pxratio": 0.0,
     "ua": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/51.0.2704.79 Safari\/537.36 Edge\/14.14393"
   },
-  "id": "bb980a85-a862-4a49-9ca6-e34fb48d13c9",
+  "id": "ab61a452-a4e2-4bf0-9518-06ff369e549f",
   "imp": [
     {
       "banner": {
@@ -122,7 +122,7 @@
             "asi": "adingo.jp",
             "ext": {},
             "hp": 1,
-            "rid": "bb980a85-a862-4a49-9ca6-e34fb48d13c9",
+            "rid": "ab61a452-a4e2-4bf0-9518-06ff369e549f",
             "sid": "234"
           }
         ],
@@ -131,13 +131,13 @@
       "stype": ""
     },
     "fd": 0,
-    "tid": "bb980a85-a862-4a49-9ca6-e34fb48d13c9"
+    "tid": "ab61a452-a4e2-4bf0-9518-06ff369e549f"
   },
-  "tmax": 120,
+  "tmax": 280,
   "user": {
     "buyeruid": "synced-buyeruid",
     "ext": {},
-    "id": "0827ded3-e538-4bbf-abe0-9685998a9ec6"
+    "id": "07d99b8b-1e2b-4c38-9a20-6af7eca2d681"
   },
   "wseat": []
 }
@@ -201,9 +201,8 @@
       "zip": "150-0043"
     },
     "hwv": "",
-    "ifa": "97ef5d0d-d414-4d34-b07e-7895f4a11285",
+    "ifa": "5dfa3b1c-0471-4b17-8dcf-8c33e9d91ada",
     "ip": "210.168.46.254",
-    "ipv6": "",
     "js": 1,
     "language": "ja",
     "lmt": 0,
@@ -214,7 +213,7 @@
     "pxratio": 0.0,
     "ua": "Mozilla \/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit\/601.1.46 (KHTML, like Gecko) Version\/9.0 Mobile\/13B5110e Safari\/601.1"
   },
-  "id": "8fac4440-3477-4c7c-866f-dfdce6f0f508",
+  "id": "0ae306f1-dc01-4d5e-b648-5f486f42fb25",
   "imp": [
     {
       "banner": {
@@ -256,7 +255,7 @@
             "asi": "adingo.jp",
             "ext": {},
             "hp": 1,
-            "rid": "8fac4440-3477-4c7c-866f-dfdce6f0f508",
+            "rid": "0ae306f1-dc01-4d5e-b648-5f486f42fb25",
             "sid": "234"
           }
         ],
@@ -265,13 +264,13 @@
       "stype": ""
     },
     "fd": 0,
-    "tid": "8fac4440-3477-4c7c-866f-dfdce6f0f508"
+    "tid": "0ae306f1-dc01-4d5e-b648-5f486f42fb25"
   },
-  "tmax": 120,
+  "tmax": 280,
   "user": {
     "buyeruid": "",
     "ext": {},
-    "id": "97ef5d0d-d414-4d34-b07e-7895f4a11285"
+    "id": "5dfa3b1c-0471-4b17-8dcf-8c33e9d91ada"
   },
   "wseat": []
 }
@@ -314,7 +313,6 @@
     "hwv": "",
     "ifa": "",
     "ip": "210.168.46.254",
-    "ipv6": "",
     "js": 1,
     "language": "ja",
     "lmt": 0,
@@ -325,7 +323,7 @@
     "pxratio": 0.0,
     "ua": "Mozilla\/5.0 (Linux; Android 9; SOV39 Build\/52.0.C.1.119) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/68.0.3440.91 Mobile Safari\/537.36"
   },
-  "id": "950ff5d7-aad8-42ad-a8ce-a7d5afde6ee8",
+  "id": "69ea56d7-e2cb-4282-9aa9-e083ba9b24d9",
   "imp": [
     {
       "bidfloor": 300.0,
@@ -380,7 +378,7 @@
             "asi": "adingo.jp",
             "ext": {},
             "hp": 1,
-            "rid": "950ff5d7-aad8-42ad-a8ce-a7d5afde6ee8",
+            "rid": "69ea56d7-e2cb-4282-9aa9-e083ba9b24d9",
             "sid": "234"
           }
         ],
@@ -389,13 +387,13 @@
       "stype": ""
     },
     "fd": 0,
-    "tid": "950ff5d7-aad8-42ad-a8ce-a7d5afde6ee8"
+    "tid": "69ea56d7-e2cb-4282-9aa9-e083ba9b24d9"
   },
-  "tmax": 120,
+  "tmax": 280,
   "user": {
     "buyeruid": "synced-buyeruid",
     "ext": {},
-    "id": "5e5aaf3c135c0ab230eb8dfe1d3f8758382fe103"
+    "id": "4414f45984274866cefdd604797c8d01d7961623"
   },
   "wseat": []
 }
@@ -438,7 +436,6 @@
     "hwv": "",
     "ifa": "",
     "ip": "210.168.46.254",
-    "ipv6": "",
     "js": 1,
     "language": "ja",
     "lmt": 0,
@@ -449,7 +446,7 @@
     "pxratio": 0.0,
     "ua": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/51.0.2704.79 Safari\/537.36 Edge\/14.14393"
   },
-  "id": "fd4068f0-ce10-4f10-a1f7-18c72b7fe838",
+  "id": "590dc128-c3ef-4b5b-95d6-b7dbe314b98f",
   "imp": [
     {
       "bidfloor": 2.430134,
@@ -526,7 +523,7 @@
             "asi": "adingo.jp",
             "ext": {},
             "hp": 1,
-            "rid": "fd4068f0-ce10-4f10-a1f7-18c72b7fe838",
+            "rid": "590dc128-c3ef-4b5b-95d6-b7dbe314b98f",
             "sid": "234"
           }
         ],
@@ -535,13 +532,13 @@
       "stype": ""
     },
     "fd": 0,
-    "tid": "fd4068f0-ce10-4f10-a1f7-18c72b7fe838"
+    "tid": "590dc128-c3ef-4b5b-95d6-b7dbe314b98f"
   },
-  "tmax": 120,
+  "tmax": 280,
   "user": {
     "buyeruid": "synced-buyeruid",
     "ext": {},
-    "id": "e398b074-c8de-4218-820d-8281fb977bd1"
+    "id": "2cf19e1f-8eec-4126-bb1c-1f49da5465c0"
   },
   "wseat": []
 }
@@ -606,9 +603,8 @@
     },
     "h": 1334,
     "hwv": "",
-    "ifa": "4835aa3c-3e3d-4a8d-bb90-3e8e67a7e4ba",
+    "ifa": "f5dc1860-70a4-45c8-a0fa-43af9e6140d8",
     "ip": "210.168.46.254",
-    "ipv6": "",
     "js": 1,
     "language": "ja",
     "lmt": 0,
@@ -620,7 +616,7 @@
     "ua": "Mozilla \/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit\/601.1.46 (KHTML, like Gecko) Version\/9.0 Mobile\/13B5110e Safari\/601.1",
     "w": 750
   },
-  "id": "206eaf9b-f28b-4b5b-8e48-1d3a57c0a1c3",
+  "id": "90a5ea00-8b0b-4fb1-a7a3-f9738079f954",
   "imp": [
     {
       "bidfloor": 2.430134,
@@ -689,7 +685,7 @@
             "asi": "adingo.jp",
             "ext": {},
             "hp": 1,
-            "rid": "206eaf9b-f28b-4b5b-8e48-1d3a57c0a1c3",
+            "rid": "90a5ea00-8b0b-4fb1-a7a3-f9738079f954",
             "sid": "234"
           }
         ],
@@ -698,14 +694,14 @@
       "stype": ""
     },
     "fd": 0,
-    "tid": "206eaf9b-f28b-4b5b-8e48-1d3a57c0a1c3"
+    "tid": "90a5ea00-8b0b-4fb1-a7a3-f9738079f954"
   },
   "tmax": 300,
   "user": {
     "buyeruid": "",
     "ext": {},
     "gender": "M",
-    "id": "4835aa3c-3e3d-4a8d-bb90-3e8e67a7e4ba",
+    "id": "f5dc1860-70a4-45c8-a0fa-43af9e6140d8",
     "yob": 2000
   },
   "wseat": []
@@ -749,7 +745,6 @@
     "hwv": "",
     "ifa": "",
     "ip": "210.168.46.254",
-    "ipv6": "",
     "js": 1,
     "language": "ja",
     "lmt": 0,
@@ -760,7 +755,7 @@
     "pxratio": 0.0,
     "ua": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/51.0.2704.79 Safari\/537.36 Edge\/14.14393"
   },
-  "id": "3142ddf4-88c2-47c4-afa0-7eae2dfcdaf0",
+  "id": "553c6fc4-79fb-403f-84c5-0f00fe31d1fe",
   "imp": [
     {
       "audio": {
@@ -831,7 +826,7 @@
             "asi": "adingo.jp",
             "ext": {},
             "hp": 1,
-            "rid": "3142ddf4-88c2-47c4-afa0-7eae2dfcdaf0",
+            "rid": "553c6fc4-79fb-403f-84c5-0f00fe31d1fe",
             "sid": "234"
           }
         ],
@@ -840,13 +835,13 @@
       "stype": ""
     },
     "fd": 0,
-    "tid": "3142ddf4-88c2-47c4-afa0-7eae2dfcdaf0"
+    "tid": "553c6fc4-79fb-403f-84c5-0f00fe31d1fe"
   },
-  "tmax": 120,
+  "tmax": 280,
   "user": {
     "buyeruid": "synced-buyeruid",
     "ext": {},
-    "id": "4c839848-0ec4-4eed-95df-2af7b3184ee2"
+    "id": "aadce372-776f-4c6d-86f6-0bb61a6c3467"
   },
   "wseat": []
 }
@@ -889,7 +884,6 @@
     "hwv": "",
     "ifa": "",
     "ip": "210.168.46.254",
-    "ipv6": "",
     "js": 1,
     "language": "ja",
     "lmt": 0,
@@ -900,7 +894,7 @@
     "pxratio": 0.0,
     "ua": "Mozilla \/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit\/601.1.46 (KHTML, like Gecko) Version\/9.0 Mobile\/13B5110e Safari\/601.1"
   },
-  "id": "0b79882d-1df5-4e01-b59f-9bffc6d2dc79",
+  "id": "3cd4521f-b89a-4655-96a0-e91b76fffc6d",
   "imp": [
     {
       "ext": {},
@@ -1003,7 +997,7 @@
             "asi": "adingo.jp",
             "ext": {},
             "hp": 1,
-            "rid": "0b79882d-1df5-4e01-b59f-9bffc6d2dc79",
+            "rid": "3cd4521f-b89a-4655-96a0-e91b76fffc6d",
             "sid": "234"
           }
         ],
@@ -1012,13 +1006,13 @@
       "stype": ""
     },
     "fd": 0,
-    "tid": "0b79882d-1df5-4e01-b59f-9bffc6d2dc79"
+    "tid": "3cd4521f-b89a-4655-96a0-e91b76fffc6d"
   },
-  "tmax": 120,
+  "tmax": 280,
   "user": {
     "buyeruid": "synced-buyeruid",
     "ext": {},
-    "id": "5affb755-92ac-43ca-9fe0-746a797d6368"
+    "id": "551faef3-6025-489c-945e-f5499a70b581"
   },
   "wseat": []
 }
@@ -1061,7 +1055,6 @@
     "hwv": "",
     "ifa": "",
     "ip": "210.168.46.254",
-    "ipv6": "",
     "js": 1,
     "language": "ja",
     "lmt": 0,
@@ -1072,7 +1065,7 @@
     "pxratio": 0.0,
     "ua": "Mozilla \/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit\/601.1.46 (KHTML, like Gecko) Version\/9.0 Mobile\/13B5110e Safari\/601.1"
   },
-  "id": "093e275b-32ea-46e5-a864-fb10f0c9b5d6",
+  "id": "7924cce8-cbb9-4633-b821-69891bee02dd",
   "imp": [
     {
       "banner": {
@@ -1163,7 +1156,7 @@
             "asi": "adingo.jp",
             "ext": {},
             "hp": 1,
-            "rid": "093e275b-32ea-46e5-a864-fb10f0c9b5d6",
+            "rid": "7924cce8-cbb9-4633-b821-69891bee02dd",
             "sid": "234"
           }
         ],
@@ -1172,13 +1165,13 @@
       "stype": ""
     },
     "fd": 0,
-    "tid": "093e275b-32ea-46e5-a864-fb10f0c9b5d6"
+    "tid": "7924cce8-cbb9-4633-b821-69891bee02dd"
   },
-  "tmax": 120,
+  "tmax": 280,
   "user": {
     "buyeruid": "synced-buyeruid",
     "ext": {},
-    "id": "5844fa13-857b-4d6d-bf0b-1cb6724457b8"
+    "id": "12b97303-1c0d-489e-9103-120bd1dd2519"
   },
   "wseat": []
 }
@@ -1223,7 +1216,6 @@ Google Open Bidding transaction example.
     "hwv": "",
     "ifa": "",
     "ip": "210.168.46.254",
-    "ipv6": "",
     "js": 1,
     "language": "ja",
     "lmt": 0,
@@ -1234,7 +1226,7 @@ Google Open Bidding transaction example.
     "pxratio": 0.0,
     "ua": "Mozilla \/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit\/601.1.46 (KHTML, like Gecko) Version\/9.0 Mobile\/13B5110e Safari\/601.1"
   },
-  "id": "da80cad9-4773-4838-b3d6-6812ece5d857",
+  "id": "16af79bc-1d90-4d05-ba70-efb74f0c6094",
   "imp": [
     {
       "banner": {
@@ -1303,7 +1295,7 @@ Google Open Bidding transaction example.
             "asi": "adingo.jp",
             "ext": {},
             "hp": 1,
-            "rid": "da80cad9-4773-4838-b3d6-6812ece5d857",
+            "rid": "16af79bc-1d90-4d05-ba70-efb74f0c6094",
             "sid": "234"
           }
         ],
@@ -1312,19 +1304,19 @@ Google Open Bidding transaction example.
       "stype": "EB"
     },
     "fd": 1,
-    "tid": "c22b101d-b8ef-4db3-adb3-15ff1fe0c9fe"
+    "tid": "69c22274-f93e-4b93-a64a-243929a0f03d"
   },
-  "tmax": 120,
+  "tmax": 280,
   "user": {
     "buyeruid": "synced-buyeruid",
     "ext": {},
-    "id": "d7d8fee6-8bd0-42af-941b-066115e70bfd"
+    "id": "876e7332-4865-4c58-a3da-bd5148de8dd7"
   },
   "wseat": []
 }
 ```
 
-### SKAdNetwork Request Object
+### With SKAdNetwork Request Object
 
 ```json
 {
@@ -1382,9 +1374,8 @@ Google Open Bidding transaction example.
       "zip": "150-0043"
     },
     "hwv": "",
-    "ifa": "0451c05b-41c0-4198-8bf7-5fdf945b7c55",
+    "ifa": "0d6a55c5-be04-4294-a332-6abb5888270e",
     "ip": "210.168.46.254",
-    "ipv6": "",
     "js": 1,
     "language": "ja",
     "lmt": 0,
@@ -1395,7 +1386,7 @@ Google Open Bidding transaction example.
     "pxratio": 0.0,
     "ua": "Mozilla \/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit\/601.1.46 (KHTML, like Gecko) Version\/9.0 Mobile\/13B5110e Safari\/601.1"
   },
-  "id": "c73adf17-e565-4224-9f74-0498fe599df5",
+  "id": "faab36d7-50f6-4f5c-bfca-2758f365ebb2",
   "imp": [
     {
       "banner": {
@@ -1446,7 +1437,7 @@ Google Open Bidding transaction example.
             "asi": "adingo.jp",
             "ext": {},
             "hp": 1,
-            "rid": "c73adf17-e565-4224-9f74-0498fe599df5",
+            "rid": "faab36d7-50f6-4f5c-bfca-2758f365ebb2",
             "sid": "234"
           }
         ],
@@ -1455,13 +1446,178 @@ Google Open Bidding transaction example.
       "stype": ""
     },
     "fd": 0,
-    "tid": "c73adf17-e565-4224-9f74-0498fe599df5"
+    "tid": "faab36d7-50f6-4f5c-bfca-2758f365ebb2"
   },
-  "tmax": 120,
+  "tmax": 280,
   "user": {
     "buyeruid": "",
     "ext": {},
-    "id": "0451c05b-41c0-4198-8bf7-5fdf945b7c55"
+    "id": "0d6a55c5-be04-4294-a332-6abb5888270e"
+  },
+  "wseat": []
+}
+```
+
+### With Extended User Identifications
+
+```json
+{
+  "app": {
+    "bundle": "1234567890",
+    "cat": [
+      "IAB1"
+    ],
+    "ext": {},
+    "id": "123",
+    "name": "Example App",
+    "pagecat": [],
+    "publisher": {
+      "cat": [],
+      "domain": "",
+      "ext": {},
+      "id": "234",
+      "name": ""
+    },
+    "sectioncat": [],
+    "storeurl": "https:\/\/apps.apple.com\/jp\/app\/hogehoge-app\/id1234567890"
+  },
+  "at": 1,
+  "badv": [],
+  "bapp": [
+    "12345",
+    "23456",
+    "34567"
+  ],
+  "bcat": [
+    "IAB23",
+    "IAB24",
+    "IAB25-2",
+    "IAB25-3",
+    "IAB25-4",
+    "IAB25-5",
+    "IAB26"
+  ],
+  "cur": [
+    "JPY",
+    "USD"
+  ],
+  "device": {
+    "connectiontype": 2,
+    "devicetype": 2,
+    "dnt": 0,
+    "ext": {},
+    "geo": {
+      "city": "Shibuya",
+      "country": "JPN",
+      "ipservice": 3,
+      "region": "JP-13",
+      "type": 2,
+      "utcoffset": 540,
+      "zip": "150-0043"
+    },
+    "hwv": "",
+    "ifa": "6d62699c-df4e-402d-87bc-171e674b38b0",
+    "ip": "210.168.46.254",
+    "js": 1,
+    "language": "ja",
+    "lmt": 0,
+    "make": "Apple",
+    "model": "iPhone",
+    "os": "iOS",
+    "osv": "9.1",
+    "pxratio": 0.0,
+    "ua": "Mozilla \/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit\/601.1.46 (KHTML, like Gecko) Version\/9.0 Mobile\/13B5110e Safari\/601.1"
+  },
+  "id": "293331b6-90e8-4de6-8ef3-fb3c7b15ed96",
+  "imp": [
+    {
+      "banner": {
+        "api": [],
+        "battr": [],
+        "btype": [],
+        "ext": {},
+        "format": [
+          {
+            "h": 250,
+            "w": 300
+          }
+        ],
+        "h": 250,
+        "pos": 1,
+        "w": 300
+      },
+      "bidfloor": 2.430134,
+      "bidfloorcur": "USD",
+      "ext": {},
+      "id": "",
+      "instl": 0,
+      "metric": [],
+      "pmp": {
+        "deals": [],
+        "ext": {},
+        "private_auction": 0
+      },
+      "secure": 1,
+      "tagid": "1111:22222222"
+    }
+  ],
+  "source": {
+    "ext": {
+      "schain": {
+        "complete": 1,
+        "nodes": [
+          {
+            "asi": "adingo.jp",
+            "ext": {},
+            "hp": 1,
+            "rid": "293331b6-90e8-4de6-8ef3-fb3c7b15ed96",
+            "sid": "234"
+          }
+        ],
+        "ver": "1.0"
+      },
+      "stype": ""
+    },
+    "fd": 0,
+    "tid": "293331b6-90e8-4de6-8ef3-fb3c7b15ed96"
+  },
+  "tmax": 280,
+  "user": {
+    "buyeruid": "",
+    "ext": {
+      "eids": [
+        {
+          "source": "intimatemerger.com",
+          "uids": [
+            {
+              "ext": {},
+              "id": "h.661ce02c1b33a7e6"
+            }
+          ]
+        },
+        {
+          "source": "liveramp.com",
+          "uids": [
+            {
+              "ext": {},
+              "id": "ad13b541-92d2-4bb1-9bbb-a55dc9989dd3"
+            }
+          ]
+        },
+        {
+          "source": "adserver.org",
+          "uids": [
+            {
+              "ext": {
+                "rtiPartner": "TDID"
+              },
+              "id": "5f284ada-a54f-4a94-8574-43b64941ffab"
+            }
+          ]
+        }
+      ]
+    },
+    "id": "6d62699c-df4e-402d-87bc-171e674b38b0"
   },
   "wseat": []
 }
