@@ -1,6 +1,9 @@
 # 変更履歴
 
 * 2.2
+    * 2021/06/16
+        * Bid Request User Object
+            * Add Extended User Identification Object (`eids`)
     * 2021/03/12
         * Add a section "iOS 14 Click Logic"
     * 2021/01/27
