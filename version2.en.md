@@ -30,6 +30,7 @@ Moreover, this specification does not contain description of general RTB protoco
     * [app Object](#app-object)
     * [publisher Object](#publisher-object)
     * [user Object](#user-object)
+    * [user.ext Object](#userext-object)
     * [device Object](#device-object)
     * [geo Object](#geo-object)
     * [banner Object](#banner-object)
@@ -41,6 +42,8 @@ Moreover, this specification does not contain description of general RTB protoco
     * [pmp Object](#pmp-object)
     * [deal Object](#deal-object)
     * [skadn Request Object](#skadn-request-object)
+    * [Extended User Identification Object](#extended-user-identification-object)
+    * [User ID Object](#user-id-object)
 * [4. Response Specification](#4-response-specification)
   * [a. Bid Response Parameters](#a-bid-response-parameters)
     * [Bid Response Object (Top Level)](#bid-response-object-top-level)
@@ -471,9 +474,30 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
     <td>integer</td>
     <td></td>
   </tr>
+  <tr>
+    <td>ext</td>
+    <td>object</td>
+    <td>User extension object</td>
+  </tr>
 </table>
 
 * When "ifa" is sent, “user.buyeruid” is not sent and “user.id” is set to be the value of “device.ifa”.
+
+
+#### user.ext Object
+
+<table>
+  <tr>
+    <th>Field</th>
+    <th>Type</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>eids</td>
+    <td>array of eid objects</td>
+    <td>[Extended User Identification Objects](#extended-user-identification-object)</td>
+  </tr>
+</table>
 
 
 #### device Object
@@ -1012,6 +1036,49 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
     <td>skadnetids</td>
     <td>array of strings; required</td>
     <td>SKAdNetworkItem entries in the publisher app's info.plist</td>
+  </tr>
+</table>
+
+
+#### Extended User Identification Object
+
+<table>
+  <tr>
+    <th>Field</th>
+    <th>Type</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>source</td>
+    <td>string</td>
+    <td>Ad system identifier</td>
+  </tr>
+  <tr>
+    <td>uids</td>
+    <td>array of objects</td>
+    <td>[User ID Object](#user-id-object)</td>
+  </tr>
+</table>
+
+Supported ad system identifiers:
+
+* `adserver.org`
+* `intimatemerger.com`
+* `liveramp.com`
+
+
+#### User ID Object
+
+<table>
+  <tr>
+    <th>Field</th>
+    <th>Type</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>string</td>
+    <td></td>
   </tr>
 </table>
 
