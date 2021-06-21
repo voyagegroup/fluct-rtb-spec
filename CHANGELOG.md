@@ -1,6 +1,8 @@
 # 変更履歴
 
 * 2.2
+    * 2021/06/21
+        * Remove deprecated position `9` (overlay) in Banner and Video objects
     * 2021/06/16
         * Bid Request User Object
             * Add Extended User Identification Object (`eids`)
