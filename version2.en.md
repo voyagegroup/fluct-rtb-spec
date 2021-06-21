@@ -495,7 +495,9 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
   <tr>
     <td>eids</td>
     <td>array of eid objects</td>
-    <td>[Extended User Identification Objects](#extended-user-identification-object)</td>
+    <td>
+      <a href="#extended-user-identification-object">Extended User Identification Objects</a>
+    </td>
   </tr>
 </table>
 
