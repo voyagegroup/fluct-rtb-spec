@@ -495,7 +495,9 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
   <tr>
     <td>eids</td>
     <td>array of eid objects</td>
-    <td>[Extended User Identification Objects](#extended-user-identification-object)</td>
+    <td>
+      <a href="#extended-user-identification-object">Extended User Identification Objects</a>
+    </td>
   </tr>
 </table>
 
@@ -657,7 +659,11 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
   <tr>
     <td>pos</td>
     <td>integer; required</td>
-    <td>overlay ad = 9</td>
+    <td>
+      0=unknown,
+      1=above the fold,
+      3=below the fold
+    </td>
   </tr>
   <tr>
     <td>vcm</td>
@@ -710,7 +716,11 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
   <tr>
     <td>pos</td>
     <td>integer</td>
-    <td>overlay ad = 9</td>
+    <td>
+      0=unknown,
+      1=above the fold,
+      3=below the fold
+    </td>
   </tr>
   <tr>
     <td>minduration</td>
