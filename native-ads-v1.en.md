@@ -40,6 +40,8 @@
 | plcmtcnt       |     | integer            | 1     | The number of placements in the layout |
 | seq            |     | integer            | 0     | 0: the first ad, 1: the second ad, ... |
 | assets         | Yes | array of objects   | -     | See [Asset Request Object](#asset-request-object) |
+| aurlsupport    |     | integer            | 0     | Whether or not the assets URL is supported |
+| durlsupport    |     | integer            | 0     | Whether or not the DCO URL is supported |
 | eventtrackers  |     | array of objects   | -     | See [Event Trackers Request Object](#event-trackers-request-object) |
 | privacy        |     | integer            | 0     | Set to 1 when buyer-specific privacy notice is supported |
 
@@ -111,6 +113,8 @@
 |---------------|----------|------|---------|-------------|
 | ver           | Yes | string           | 1.2 | Version of the Native Markup Response |
 | assets        | Yes | array of objects | -   | List of native ad assets. Required when no assetsurl.  Recommended even when assetsurl is present |
+| assetsurl     |     | string           | -   | URL of an alternate source for the assets object |
+| dcourl        |     | string           | -   | URL of a dynamic creative spec source |
 | link          | Yes | object           | -   | See [Link Response Object](#link-response-object) |
 | eventtrackers |     | array of objects | -   | See [Event Trackers Response Object](#event-trackers-response-object) |
 | privacy       |     | string           | -   | URL of the buyer's targeting activity information |
