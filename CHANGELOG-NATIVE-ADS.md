@@ -1,6 +1,11 @@
 # 変更履歴
 
 * 1.2
+  * 2021/06/22
+    * Native Markup Request Object
+      * Add `aurlsupport` and `durlsupport`
+    * Native Markup Response Object
+      * Add `assetsurl` and `dcourl`
   * 2020/12/10
     * Initial version
 * 1.0
