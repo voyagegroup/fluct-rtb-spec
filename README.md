@@ -1,6 +1,6 @@
 # fluct Specification
 
-## RTB Spec v2.x
+## RTB Spec for a buyer partner v2.x
 
 * [English](version2.en.md)
 * [CHANGELOG](CHANGELOG.md)
@@ -9,6 +9,10 @@ Bid Request/Response Examples:
 
 * [Bid Request Examples](version2.req-examples.md)
 * [Bid Response Examples](version2.res-examples.md)
+
+## RTB Spec for a supplier partner
+
+* [English](for-suppliers.md) <sup>beta</sup>
 
 ## VAST Spec v1.x
 
