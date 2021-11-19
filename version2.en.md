@@ -805,6 +805,11 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
     </td>
   </tr>
   <tr>
+    <td>delivery</td>
+    <td>array of integers</td>
+    <td></td>
+  </tr>
+  <tr>
     <td>ext</td>
     <td>video.ext object</td>
     <td>
@@ -884,6 +889,7 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
   <tr>
     <td>battr</td>
     <td>array of integers</td>
+    <td></td>
   </tr>
   <tr>
     <td>minbitrate</td>
