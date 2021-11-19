@@ -1,6 +1,8 @@
 # 変更履歴
 
 * 2.2
+    * 2021/11/19
+        * Add Fluct UID to Extended User Identification Object in example "With Extended User Identifications"
     * 2021/06/21
         * Remove deprecated position `9` (overlay) in Banner and Video objects
     * 2021/06/16
