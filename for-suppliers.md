@@ -283,7 +283,7 @@ Bid Request (Partner => Fluct)
 
 ```
 POST /bid.json?sid=xxx HTTP/1.1
-Host: bid-apac.adingo.jp:443
+Host: fb.adingo.jp:443
 Content-Type: application/json
 X-OpenRTB-Version: 2.5
 ```
@@ -307,14 +307,16 @@ X-OpenRTB-Version: 2.5
       "tagid": "22222222",
       "bidfloor": 2.430134,
       "bidfloorcur": "USD",
-      "secure": true,
-      "metric": []
+      "secure": 1
     }
   ],
   "site": {
-    "id": "12345",
+    "id": "11111",
     "name": "fluct Magazine",
     "page": "https://magazine.fluct.jp/category/news",
+    "publisher": {
+      "id": "12345"
+    },
     "content": {
       "language": "ja"
     }
@@ -328,8 +330,7 @@ X-OpenRTB-Version: 2.5
     },
     "os": "Windows",
     "pxratio": 1,
-    "devicetype": 2,
-    "lmt": false
+    "devicetype": 2
   },
   "user": {
     "id": "e5ae5329-280e-4cbd-bf5d-a3b06059cd81",
