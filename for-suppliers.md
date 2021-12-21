@@ -6,7 +6,7 @@ This document is a technical integration guide for supplier (publisher) partners
 
 The integration will proceed in the following steps. You can always ask your Fluct account manager.
 
-1. Gather and check technical requirements. Please review this document and fill out the [Fluct RTB Questionnaire Form](https://forms.gle/m7REbmwqZP78HsCg9).
+1. Gather and check technical requirements. Please review this document (note the "Required" fields) and fill out the [Fluct RTB Questionnaire Form](https://forms.gle/m7REbmwqZP78HsCg9).
 2. Fluct will issue the following:
   - Publisher account and ads.txt line
   - RTB bidding endpoint
@@ -19,6 +19,26 @@ The integration will proceed in the following steps. You can always ask your Flu
 Fluct supports [IAB's OpenRTB 2.5](https://www.iab.com/wp-content/uploads/2016/03/OpenRTB-API-Specification-Version-2-5-FINAL.pdf ). Here are some special notes and which fields are supported. See also examples at the end.
 
 ### Request
+
+```
+POST /bid.json?sid={sid}
+```
+
+Parameters
+
+Parameter | Required | Description
+--- | --- | ---
+sid | Yes | The ID that Fluct identifies partner. Fluct will provide this with RTB endpoint hostname in step 2.
+
+HTTP Headers
+
+Header | Required | Description
+--- | --- | ---
+Content-Type | Yes | We support body payload in JSON format. This value should always be `application/json`
+Accept-Encoding | | Optional. gzip is supported.
+Connection | | Optional. Keep-Alive is recommended.
+X-OpenRTB-Version | | Optional. Currently, only value `2.5` is supported.
+
 
 #### BidRequest object
 
@@ -227,6 +247,15 @@ regs.ext.gdpr | Yes |   |  
 
 ### Response
 
+HTTP Status
+
+Status code | Description
+--- | ---
+200 | Returns the bid response.
+204 | Returns this status in case of a no-bid. The body is empty.
+400 | Invalid parameter/format
+500 | Internal error (e.g., high load)
+
 #### BidResponse object
 
 Fields ([JSON path](https://github.com/json-path/JSONPath)) | Supported | Always passed | Description
@@ -283,7 +312,7 @@ Bid Request (Partner => Fluct)
 
 ```
 POST /bid.json?sid=xxx HTTP/1.1
-Host: bid-apac.adingo.jp:443
+Host: fb.adingo.jp:443
 Content-Type: application/json
 X-OpenRTB-Version: 2.5
 ```
@@ -307,14 +336,16 @@ X-OpenRTB-Version: 2.5
       "tagid": "22222222",
       "bidfloor": 2.430134,
       "bidfloorcur": "USD",
-      "secure": true,
-      "metric": []
+      "secure": 1
     }
   ],
   "site": {
-    "id": "12345",
+    "id": "11111",
     "name": "fluct Magazine",
     "page": "https://magazine.fluct.jp/category/news",
+    "publisher": {
+      "id": "12345"
+    },
     "content": {
       "language": "ja"
     }
@@ -328,8 +359,7 @@ X-OpenRTB-Version: 2.5
     },
     "os": "Windows",
     "pxratio": 1,
-    "devicetype": 2,
-    "lmt": false
+    "devicetype": 2
   },
   "user": {
     "id": "e5ae5329-280e-4cbd-bf5d-a3b06059cd81",
@@ -380,7 +410,8 @@ HTTP/1.1 200 OK
           "crid": "00_40734",
           "w": 320,
           "h": 50,
-          "burl": "https://i.adingo.jp/?...&_ep=${AUCTION_PRICE}"
+          "burl": "https://i.adingo.jp/?...&_ep=${AUCTION_PRICE}",
+          "ext": {}
         }
       ]
     }
