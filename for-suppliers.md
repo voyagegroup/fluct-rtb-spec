@@ -381,7 +381,8 @@ HTTP/1.1 200 OK
           "crid": "00_40734",
           "w": 320,
           "h": 50,
-          "burl": "https://i.adingo.jp/?...&_ep=${AUCTION_PRICE}"
+          "burl": "https://i.adingo.jp/?...&_ep=${AUCTION_PRICE}",
+          "ext": {}
         }
       ]
     }
