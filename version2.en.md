@@ -1022,8 +1022,27 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
     <td>array of strings</td>
     <td>Whitelist of advertiser domains</td>
   </tr>
+  <tr>
+    <td>ext</td>
+    <td>deal.ext object</td>
+    <td>deal extension object</td>
+  </tr>
 </table>
 
+#### deal extension Object
+
+<table>
+  <tr>
+    <th>Field</th>
+    <th>Type</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>publisher_blocks_overridden</td>
+    <td>int</td>
+    <td>Ignore bcat when "publisher_blocks_overridden" is 1</td>
+  </tr>
+</table>
 
 #### skadn Request Object
 
