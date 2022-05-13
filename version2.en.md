@@ -1041,7 +1041,7 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
   <tr>
     <td>publisher_blocks_overridden</td>
     <td>int</td>
-    <td>Ignore bcat when "publisher_blocks_overridden" is 1</td>
+    <td>whether this deal ignores bcat in PA. 0=false, 1=true </td>
   </tr>
 </table>
 
