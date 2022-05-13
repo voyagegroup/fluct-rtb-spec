@@ -41,7 +41,7 @@ Moreover, this specification does not contain description of general RTB protoco
     * [native Object](#native-object)
     * [pmp Object](#pmp-object)
     * [deal Object](#deal-object)
-    * [deal extension Object](#deal-extension-object)
+    * [deal extension Object](#dealext-object)
     * [skadn Request Object](#skadn-request-object)
     * [Extended User Identification Object](#extended-user-identification-object)
     * [User ID Object](#user-id-object)
@@ -1030,7 +1030,7 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
   </tr>
 </table>
 
-#### deal extension Object
+#### deal.ext object
 
 <table>
   <tr>
