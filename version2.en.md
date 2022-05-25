@@ -41,6 +41,7 @@ Moreover, this specification does not contain description of general RTB protoco
     * [native Object](#native-object)
     * [pmp Object](#pmp-object)
     * [deal Object](#deal-object)
+    * [deal.ext Object](#dealext-object)
     * [skadn Request Object](#skadn-request-object)
     * [Extended User Identification Object](#extended-user-identification-object)
     * [User ID Object](#user-id-object)
@@ -1022,8 +1023,27 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
     <td>array of strings</td>
     <td>Whitelist of advertiser domains</td>
   </tr>
+  <tr>
+    <td>ext</td>
+    <td>deal.ext object</td>
+    <td>deal extension object</td>
+  </tr>
 </table>
 
+#### deal.ext object
+
+<table>
+  <tr>
+    <th>Field</th>
+    <th>Type</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>publisher_blocks_overridden</td>
+    <td>int</td>
+    <td>whether this deal ignores bcat in PA. 0=false, 1=true </td>
+  </tr>
+</table>
 
 #### skadn Request Object
 
