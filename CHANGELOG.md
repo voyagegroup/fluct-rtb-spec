@@ -1,5 +1,12 @@
 # 変更履歴
 
+* 2.6
+    * 2022/06/01
+        * Update base version to OpenRTB 2.6.
+        * Add `device.sua` for Structured User-Agent
+        * Replace `imp.video.ext.rewarded` with `imp.rwdd`
+        * Replace `source.ext.schain` with `source.schain`
+        * Replace `user.ext.eids` with `user.eids`
 * 2.2
     * 2021/11/19
         * Add Fluct UID to Extended User Identification Object in example "With Extended User Identifications"

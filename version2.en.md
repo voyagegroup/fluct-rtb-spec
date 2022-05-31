@@ -1,8 +1,8 @@
-# fluct RTB Specification ver 2.2
+# fluct RTB Specification ver 2.6
 
-This specification complies with OpenRTB Version 2.5.
+This specification complies with OpenRTB Version 2.6.
 
-See [IAB OpenRTB API Specification Version 2.5](https://www.iab.com/wp-content/uploads/2016/03/OpenRTB-API-Specification-Version-2-5-FINAL.pdf) for details.
+See [IAB OpenRTB API Specification Version 2.6](https://iabtechlab.com/wp-content/uploads/2022/04/OpenRTB-2-6_FINAL.pdf) for details.
 
 ### Attention
 
@@ -30,7 +30,6 @@ Moreover, this specification does not contain description of general RTB protoco
     * [app Object](#app-object)
     * [publisher Object](#publisher-object)
     * [user Object](#user-object)
-    * [user.ext Object](#userext-object)
     * [device Object](#device-object)
     * [geo Object](#geo-object)
     * [banner Object](#banner-object)
@@ -275,6 +274,11 @@ Serialization format: JSON only.
     <td>Floor price currency</td>
   </tr>
   <tr>
+    <td>rwdd</td>
+    <td>integer</td>
+    <td>0=no, 1=yes</td>
+  </tr>
+  <tr>
     <td>ext</td>
     <td>imp.ext object</td>
     <td>imp extension object</td>
@@ -305,6 +309,10 @@ Serialization format: JSON only.
 
 #### source Object
 
+Both [Sellers.json](https://iabtechlab.com/sellers-json/) and [OpenRTB SupplyChain](https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/supplychainobject.md) are available.
+
+Refer to https://adingo.jp/sellers.json for sellers available through fluct.
+
 <table>
   <tr>
     <th>Field</th>
@@ -322,6 +330,11 @@ Serialization format: JSON only.
     <td>Transaction ID that is issued by upstream. Otherwise, same as BidRequest.id.</td>
   </tr>
   <tr>
+    <td>schain</td>
+    <td>supply-chain object</td>
+    <td><a href="https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/supplychainobject.md">OpenRTB SupplyChain object</a></td>
+  </tr>
+  <tr>
     <td>ext</td>
     <td>source.ext object</td>
     <td>source extension object</td>
@@ -330,10 +343,6 @@ Serialization format: JSON only.
 
 
 #### source.ext Object
-
-Both [Sellers.json](https://iabtechlab.com/sellers-json/) and [OpenRTB SupplyChain](https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/supplychainobject.md) are available.
-
-Refer to https://adingo.jp/sellers.json for sellers available through fluct.
 
 <table>
   <tr>
@@ -346,12 +355,8 @@ Refer to https://adingo.jp/sellers.json for sellers available through fluct.
     <td>string; experimental</td>
     <td>Header Bidding type. Contact us for details.</td>
   </tr>
-  <tr>
-    <td>schain</td>
-    <td>supply-chain object</td>
-    <td><a href="https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/supplychainobject.md">OpenRTB SupplyChain object</a></td>
-  </tr>
 </table>
+
 
 #### site Object
 
@@ -476,24 +481,6 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
     <td></td>
   </tr>
   <tr>
-    <td>ext</td>
-    <td>object</td>
-    <td>User extension object</td>
-  </tr>
-</table>
-
-* When "ifa" is sent, “user.buyeruid” is not sent and “user.id” is set to be the value of “device.ifa”.
-
-
-#### user.ext Object
-
-<table>
-  <tr>
-    <th>Field</th>
-    <th>Type</th>
-    <th>Description</th>
-  </tr>
-  <tr>
     <td>eids</td>
     <td>array of eid objects</td>
     <td>
@@ -501,6 +488,8 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
     </td>
   </tr>
 </table>
+
+* When "ifa" is sent, “user.buyeruid” is not sent and “user.id” is set to be the value of “device.ifa”.
 
 
 #### device Object
@@ -515,6 +504,13 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
     <td>ua</td>
     <td>string; required</td>
     <td></td>
+  </tr>
+  <tr>
+    <td>sua</td>
+    <td>object</td>
+    <td>
+      <a href="#useragent">UserAgent Object</a>
+    </td>
   </tr>
   <tr>
     <td>geo</td>
@@ -1115,6 +1111,54 @@ Supported ad system identifiers:
     <td>id</td>
     <td>string</td>
     <td></td>
+  </tr>
+</table>
+
+
+#### UserAgent Object
+
+<table>
+  <tr>
+    <td>Field</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>browsers</td>
+    <td>array of objects</td>
+    <td>
+      <a href="#">BrandVersion Object</a>
+    </td>
+  </tr>
+  <tr>
+    <td>platform</td>
+    <td>object</td>
+    <td>
+      <a href="#">BrandVersion Object</a>
+    </td>
+  </tr>
+</table>
+
+
+#### BrandVersion Object
+
+<table>
+  <tr>
+    <td>Field</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>brand</td>
+    <td>string</td>
+    <td>
+    </td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>array of strings</td>
+    <td>
+    </td>
   </tr>
 </table>
 
