@@ -1139,7 +1139,9 @@
             "at": 1,
             "bidfloor": 4.050223,
             "bidfloorcur": "USD",
-            "ext": {},
+            "ext": {
+              "publisher_blocks_overridden": 1
+            },
             "id": "example-deal-private-auction-at-1"
           },
           {
