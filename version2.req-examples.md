@@ -34,7 +34,6 @@
   ],
   "device": {
     "connectiontype": 0,
-    "devicetype": 2,
     "dnt": 0,
     "ext": {},
     "geo": {
@@ -46,20 +45,29 @@
       "utcoffset": 540,
       "zip": "150-0043"
     },
-    "hwv": "",
-    "ifa": "",
     "ip": "210.168.46.254",
     "language": "ja",
     "lmt": 0,
-    "make": "",
-    "model": "",
     "os": "Windows NT",
     "osv": "10.0",
-    "pxratio": 0.0,
-    "ua": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/51.0.2704.79 Safari\/537.36 Edge\/14.14393"
+    "sua": {
+      "browsers": [
+        {
+          "brand": "Google Chrome",
+          "version": [
+            "51"
+          ]
+        }
+      ],
+      "platform": {
+        "brand": "Windows"
+      },
+      "source": 3
+    },
+    "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.79 Safari/537.36 Edge/14.14393"
   },
   "ext": {},
-  "id": "bbabe931-d82e-4390-8a68-7ef1b6ac0a95",
+  "id": "da9a70db-1d3a-4b03-9caf-b71f2529c5f4",
   "imp": [
     {
       "banner": {
@@ -100,13 +108,13 @@
     "id": "123",
     "mobile": 1,
     "name": "Example Site",
-    "page": "https:\/\/magazine.fluct.jp\/category\/news",
+    "page": "https://magazine.fluct.jp/category/news",
     "pagecat": [],
     "publisher": {
       "ext": {},
       "id": "234"
     },
-    "ref": "https:\/\/google.com\/search?"
+    "ref": "https://google.com/search?"
   },
   "source": {
     "ext": {
@@ -120,19 +128,19 @@
           "asi": "adingo.jp",
           "ext": {},
           "hp": 1,
-          "rid": "bbabe931-d82e-4390-8a68-7ef1b6ac0a95",
+          "rid": "da9a70db-1d3a-4b03-9caf-b71f2529c5f4",
           "sid": "234"
         }
       ],
       "ver": "1.0"
     },
-    "tid": "bbabe931-d82e-4390-8a68-7ef1b6ac0a95"
+    "tid": "da9a70db-1d3a-4b03-9caf-b71f2529c5f4"
   },
   "tmax": 280,
   "user": {
     "buyeruid": "synced-buyeruid",
     "ext": {},
-    "id": "1af2d7af-9e0c-464c-8e00-c3d7bfedc366"
+    "id": "bef1c69b-9779-4763-a0c3-db82060d26b0"
   }
 }
 ```
@@ -154,7 +162,7 @@
       "ext": {},
       "id": "234"
     },
-    "storeurl": "https:\/\/apps.apple.com\/jp\/app\/hogehoge-app\/id1234567890"
+    "storeurl": "https://apps.apple.com/jp/app/hogehoge-app/id1234567890"
   },
   "at": 1,
   "badv": [],
@@ -178,7 +186,6 @@
   ],
   "device": {
     "connectiontype": 2,
-    "devicetype": 2,
     "dnt": 0,
     "ext": {},
     "geo": {
@@ -190,8 +197,7 @@
       "utcoffset": 540,
       "zip": "150-0043"
     },
-    "hwv": "",
-    "ifa": "c04e0c44-e1d1-4d8a-8e54-aa22318609ec",
+    "ifa": "cf13f2c1-6035-44c3-a706-4fbe6adbdb66",
     "ip": "210.168.46.254",
     "language": "ja",
     "lmt": 0,
@@ -199,11 +205,25 @@
     "model": "iPhone",
     "os": "iOS",
     "osv": "9.1",
-    "pxratio": 0.0,
-    "ua": "Mozilla \/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit\/601.1.46 (KHTML, like Gecko) Version\/9.0 Mobile\/13B5110e Safari\/601.1"
+    "sua": {
+      "browsers": [
+        {
+          "brand": "Safari",
+          "version": [
+            "9"
+          ]
+        }
+      ],
+      "mobile": 1,
+      "platform": {
+        "brand": "iOS"
+      },
+      "source": 3
+    },
+    "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B5110e Safari/601.1"
   },
   "ext": {},
-  "id": "31ad7976-6061-4388-880b-7562cf0b9af5",
+  "id": "3412c5b5-abff-4423-898c-12b8c2a3918d",
   "imp": [
     {
       "banner": {
@@ -247,19 +267,19 @@
           "asi": "adingo.jp",
           "ext": {},
           "hp": 1,
-          "rid": "31ad7976-6061-4388-880b-7562cf0b9af5",
+          "rid": "3412c5b5-abff-4423-898c-12b8c2a3918d",
           "sid": "234"
         }
       ],
       "ver": "1.0"
     },
-    "tid": "31ad7976-6061-4388-880b-7562cf0b9af5"
+    "tid": "3412c5b5-abff-4423-898c-12b8c2a3918d"
   },
   "tmax": 280,
   "user": {
     "buyeruid": "",
     "ext": {},
-    "id": "c04e0c44-e1d1-4d8a-8e54-aa22318609ec"
+    "id": "cf13f2c1-6035-44c3-a706-4fbe6adbdb66"
   }
 }
 ```
@@ -286,7 +306,6 @@
   ],
   "device": {
     "connectiontype": 2,
-    "devicetype": 2,
     "dnt": 0,
     "ext": {},
     "geo": {
@@ -298,8 +317,6 @@
       "utcoffset": 540,
       "zip": "150-0043"
     },
-    "hwv": "",
-    "ifa": "",
     "ip": "210.168.46.254",
     "language": "ja",
     "lmt": 0,
@@ -307,11 +324,25 @@
     "model": "SOV39",
     "os": "Android",
     "osv": "9",
-    "pxratio": 0.0,
-    "ua": "Mozilla\/5.0 (Linux; Android 9; SOV39 Build\/52.0.C.1.119) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/68.0.3440.91 Mobile Safari\/537.36"
+    "sua": {
+      "browsers": [
+        {
+          "brand": "Google Chrome",
+          "version": [
+            "68"
+          ]
+        }
+      ],
+      "mobile": 1,
+      "platform": {
+        "brand": "Android"
+      },
+      "source": 3
+    },
+    "ua": "Mozilla/5.0 (Linux; Android 9; SOV39 Build/52.0.C.1.119) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.91 Mobile Safari/537.36"
   },
   "ext": {},
-  "id": "d8211dc0-5838-437d-9916-7e39305807dd",
+  "id": "ca0ef591-927a-41e2-bdbe-fc549a72e04a",
   "imp": [
     {
       "bidfloor": 2.430134,
@@ -345,13 +376,13 @@
     "id": "123",
     "mobile": 1,
     "name": "Example Site",
-    "page": "https:\/\/magazine.fluct.jp\/category\/news",
+    "page": "https://magazine.fluct.jp/category/news",
     "pagecat": [],
     "publisher": {
       "ext": {},
       "id": "234"
     },
-    "ref": "https:\/\/google.com\/search?"
+    "ref": "https://google.com/search?"
   },
   "source": {
     "ext": {
@@ -365,19 +396,19 @@
           "asi": "adingo.jp",
           "ext": {},
           "hp": 1,
-          "rid": "d8211dc0-5838-437d-9916-7e39305807dd",
+          "rid": "ca0ef591-927a-41e2-bdbe-fc549a72e04a",
           "sid": "234"
         }
       ],
       "ver": "1.0"
     },
-    "tid": "d8211dc0-5838-437d-9916-7e39305807dd"
+    "tid": "ca0ef591-927a-41e2-bdbe-fc549a72e04a"
   },
   "tmax": 280,
   "user": {
     "buyeruid": "synced-buyeruid",
     "ext": {},
-    "id": "ccd69576e8589e5c80c4a32ea7bad7cc08d7ad00"
+    "id": "e6785bde4e52889ea7c8e7f87c0b7583c364594e"
   }
 }
 ```
@@ -404,7 +435,6 @@
   ],
   "device": {
     "connectiontype": 0,
-    "devicetype": 2,
     "dnt": 0,
     "ext": {},
     "geo": {
@@ -416,20 +446,29 @@
       "utcoffset": 540,
       "zip": "150-0043"
     },
-    "hwv": "",
-    "ifa": "",
     "ip": "210.168.46.254",
     "language": "ja",
     "lmt": 0,
-    "make": "",
-    "model": "",
     "os": "Windows NT",
     "osv": "10.0",
-    "pxratio": 0.0,
-    "ua": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/51.0.2704.79 Safari\/537.36 Edge\/14.14393"
+    "sua": {
+      "browsers": [
+        {
+          "brand": "Google Chrome",
+          "version": [
+            "51"
+          ]
+        }
+      ],
+      "platform": {
+        "brand": "Windows"
+      },
+      "source": 3
+    },
+    "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.79 Safari/537.36 Edge/14.14393"
   },
   "ext": {},
-  "id": "f22067d4-2043-4f0c-aaf9-20565d655c70",
+  "id": "033d407e-2800-4cf5-b1c3-f174a8c13fa4",
   "imp": [
     {
       "bidfloor": 2.430134,
@@ -457,12 +496,12 @@
         "maxbitrate": 2000,
         "maxduration": 15,
         "mimes": [
-          "video\/mp4",
-          "video\/x-m4v",
-          "video\/quicktime",
-          "video\/avi",
-          "video\/3gpp2",
-          "video\/3gpp"
+          "video/mp4",
+          "video/x-m4v",
+          "video/quicktime",
+          "video/avi",
+          "video/3gpp2",
+          "video/3gpp"
         ],
         "minbitrate": 0,
         "minduration": 0,
@@ -487,13 +526,13 @@
     "id": "123",
     "mobile": 1,
     "name": "Example Site",
-    "page": "https:\/\/magazine.fluct.jp\/category\/news",
+    "page": "https://magazine.fluct.jp/category/news",
     "pagecat": [],
     "publisher": {
       "ext": {},
       "id": "234"
     },
-    "ref": "https:\/\/google.com\/search?"
+    "ref": "https://google.com/search?"
   },
   "source": {
     "ext": {
@@ -507,19 +546,19 @@
           "asi": "adingo.jp",
           "ext": {},
           "hp": 1,
-          "rid": "f22067d4-2043-4f0c-aaf9-20565d655c70",
+          "rid": "033d407e-2800-4cf5-b1c3-f174a8c13fa4",
           "sid": "234"
         }
       ],
       "ver": "1.0"
     },
-    "tid": "f22067d4-2043-4f0c-aaf9-20565d655c70"
+    "tid": "033d407e-2800-4cf5-b1c3-f174a8c13fa4"
   },
   "tmax": 280,
   "user": {
     "buyeruid": "synced-buyeruid",
     "ext": {},
-    "id": "01cfe94e-87d1-4ab4-a6b3-3d438c422e80"
+    "id": "da755a20-5ab2-42fa-90c5-5a3d7ef2460f"
   }
 }
 ```
@@ -541,7 +580,7 @@
       "ext": {},
       "id": "234"
     },
-    "storeurl": "https:\/\/apps.apple.com\/jp\/app\/hogehoge-app\/id1234567890"
+    "storeurl": "https://apps.apple.com/jp/app/hogehoge-app/id1234567890"
   },
   "at": 1,
   "badv": [],
@@ -565,7 +604,6 @@
   ],
   "device": {
     "connectiontype": 2,
-    "devicetype": 2,
     "dnt": 0,
     "ext": {},
     "geo": {
@@ -578,8 +616,7 @@
       "zip": "150-0043"
     },
     "h": 1334,
-    "hwv": "",
-    "ifa": "3c2c9ccc-1b35-4424-8581-abc935955a7f",
+    "ifa": "bb157f59-9295-476a-a4c8-9fae55d87431",
     "ip": "210.168.46.254",
     "language": "ja",
     "lmt": 0,
@@ -587,12 +624,26 @@
     "model": "iPhone",
     "os": "iOS",
     "osv": "9.1",
-    "pxratio": 0.0,
-    "ua": "Mozilla \/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit\/601.1.46 (KHTML, like Gecko) Version\/9.0 Mobile\/13B5110e Safari\/601.1",
+    "sua": {
+      "browsers": [
+        {
+          "brand": "Safari",
+          "version": [
+            "9"
+          ]
+        }
+      ],
+      "mobile": 1,
+      "platform": {
+        "brand": "iOS"
+      },
+      "source": 3
+    },
+    "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B5110e Safari/601.1",
     "w": 750
   },
   "ext": {},
-  "id": "e226737d-49e2-4d9c-ae35-8459eac43f0f",
+  "id": "8b5dd57f-a687-4f88-bd19-b258dcb74319",
   "imp": [
     {
       "bidfloor": 2.430134,
@@ -632,12 +683,12 @@
         "maxbitrate": 2000,
         "maxduration": 30,
         "mimes": [
-          "video\/mp4",
-          "video\/x-m4v",
-          "video\/quicktime",
-          "video\/avi",
-          "video\/3gpp2",
-          "video\/3gpp"
+          "video/mp4",
+          "video/x-m4v",
+          "video/quicktime",
+          "video/avi",
+          "video/3gpp2",
+          "video/3gpp"
         ],
         "minbitrate": 0,
         "minduration": 0,
@@ -665,20 +716,20 @@
           "asi": "adingo.jp",
           "ext": {},
           "hp": 1,
-          "rid": "e226737d-49e2-4d9c-ae35-8459eac43f0f",
+          "rid": "8b5dd57f-a687-4f88-bd19-b258dcb74319",
           "sid": "234"
         }
       ],
       "ver": "1.0"
     },
-    "tid": "e226737d-49e2-4d9c-ae35-8459eac43f0f"
+    "tid": "8b5dd57f-a687-4f88-bd19-b258dcb74319"
   },
   "tmax": 300,
   "user": {
     "buyeruid": "",
     "ext": {},
     "gender": "M",
-    "id": "3c2c9ccc-1b35-4424-8581-abc935955a7f",
+    "id": "bb157f59-9295-476a-a4c8-9fae55d87431",
     "yob": 2000
   }
 }
@@ -706,7 +757,6 @@
   ],
   "device": {
     "connectiontype": 0,
-    "devicetype": 2,
     "dnt": 0,
     "ext": {},
     "geo": {
@@ -718,20 +768,29 @@
       "utcoffset": 540,
       "zip": "150-0043"
     },
-    "hwv": "",
-    "ifa": "",
     "ip": "210.168.46.254",
     "language": "ja",
     "lmt": 0,
-    "make": "",
-    "model": "",
     "os": "Windows NT",
     "osv": "10.0",
-    "pxratio": 0.0,
-    "ua": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/51.0.2704.79 Safari\/537.36 Edge\/14.14393"
+    "sua": {
+      "browsers": [
+        {
+          "brand": "Google Chrome",
+          "version": [
+            "51"
+          ]
+        }
+      ],
+      "platform": {
+        "brand": "Windows"
+      },
+      "source": 3
+    },
+    "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.79 Safari/537.36 Edge/14.14393"
   },
   "ext": {},
-  "id": "b25404ff-64a6-4634-80a0-a66537aea029",
+  "id": "4a28fffa-fb4a-4e27-9f05-c976fb5c18ac",
   "imp": [
     {
       "audio": {
@@ -743,8 +802,8 @@
         "maxbitrate": 2000,
         "maxduration": 15,
         "mimes": [
-          "audio\/mp3",
-          "audio\/mpeg"
+          "audio/mp3",
+          "audio/mpeg"
         ],
         "minbitrate": 0,
         "minduration": 0,
@@ -783,13 +842,13 @@
     "id": "123",
     "mobile": 1,
     "name": "Example Site",
-    "page": "https:\/\/magazine.fluct.jp\/category\/news",
+    "page": "https://magazine.fluct.jp/category/news",
     "pagecat": [],
     "publisher": {
       "ext": {},
       "id": "234"
     },
-    "ref": "https:\/\/google.com\/search?"
+    "ref": "https://google.com/search?"
   },
   "source": {
     "ext": {
@@ -803,19 +862,19 @@
           "asi": "adingo.jp",
           "ext": {},
           "hp": 1,
-          "rid": "b25404ff-64a6-4634-80a0-a66537aea029",
+          "rid": "4a28fffa-fb4a-4e27-9f05-c976fb5c18ac",
           "sid": "234"
         }
       ],
       "ver": "1.0"
     },
-    "tid": "b25404ff-64a6-4634-80a0-a66537aea029"
+    "tid": "4a28fffa-fb4a-4e27-9f05-c976fb5c18ac"
   },
   "tmax": 280,
   "user": {
     "buyeruid": "synced-buyeruid",
     "ext": {},
-    "id": "bd85501a-0c3c-460b-80ba-0915c57e2d33"
+    "id": "09dba6c0-c48e-4601-bf6e-7e8061ec1446"
   }
 }
 ```
@@ -842,7 +901,6 @@
   ],
   "device": {
     "connectiontype": 2,
-    "devicetype": 2,
     "dnt": 0,
     "ext": {},
     "geo": {
@@ -854,8 +912,6 @@
       "utcoffset": 540,
       "zip": "150-0043"
     },
-    "hwv": "",
-    "ifa": "",
     "ip": "210.168.46.254",
     "language": "ja",
     "lmt": 0,
@@ -863,11 +919,25 @@
     "model": "iPhone",
     "os": "iOS",
     "osv": "9.1",
-    "pxratio": 0.0,
-    "ua": "Mozilla \/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit\/601.1.46 (KHTML, like Gecko) Version\/9.0 Mobile\/13B5110e Safari\/601.1"
+    "sua": {
+      "browsers": [
+        {
+          "brand": "Safari",
+          "version": [
+            "9"
+          ]
+        }
+      ],
+      "mobile": 1,
+      "platform": {
+        "brand": "iOS"
+      },
+      "source": 3
+    },
+    "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B5110e Safari/601.1"
   },
   "ext": {},
-  "id": "426cf741-2fea-4727-a20e-a4c849d41ca6",
+  "id": "179a3350-3169-4356-aadc-a0537e586e3c",
   "imp": [
     {
       "ext": {},
@@ -915,12 +985,12 @@
         "maxbitrate": 2000,
         "maxduration": 15,
         "mimes": [
-          "video\/mp4",
-          "video\/x-m4v",
-          "video\/quicktime",
-          "video\/avi",
-          "video\/3gpp2",
-          "video\/3gpp"
+          "video/mp4",
+          "video/x-m4v",
+          "video/quicktime",
+          "video/avi",
+          "video/3gpp2",
+          "video/3gpp"
         ],
         "minbitrate": 0,
         "minduration": 0,
@@ -945,13 +1015,13 @@
     "id": "123",
     "mobile": 1,
     "name": "Example Site",
-    "page": "https:\/\/magazine.fluct.jp\/category\/news",
+    "page": "https://magazine.fluct.jp/category/news",
     "pagecat": [],
     "publisher": {
       "ext": {},
       "id": "234"
     },
-    "ref": "https:\/\/google.com\/search?"
+    "ref": "https://google.com/search?"
   },
   "source": {
     "ext": {
@@ -965,19 +1035,19 @@
           "asi": "adingo.jp",
           "ext": {},
           "hp": 1,
-          "rid": "426cf741-2fea-4727-a20e-a4c849d41ca6",
+          "rid": "179a3350-3169-4356-aadc-a0537e586e3c",
           "sid": "234"
         }
       ],
       "ver": "1.0"
     },
-    "tid": "426cf741-2fea-4727-a20e-a4c849d41ca6"
+    "tid": "179a3350-3169-4356-aadc-a0537e586e3c"
   },
   "tmax": 280,
   "user": {
     "buyeruid": "synced-buyeruid",
     "ext": {},
-    "id": "268882d2-f7be-467b-8a58-a56a0b01c06b"
+    "id": "2d2f0d0f-775a-44ac-8c05-e8621922baf9"
   }
 }
 ```
@@ -1004,7 +1074,6 @@
   ],
   "device": {
     "connectiontype": 2,
-    "devicetype": 2,
     "dnt": 0,
     "ext": {},
     "geo": {
@@ -1016,8 +1085,6 @@
       "utcoffset": 540,
       "zip": "150-0043"
     },
-    "hwv": "",
-    "ifa": "",
     "ip": "210.168.46.254",
     "language": "ja",
     "lmt": 0,
@@ -1025,11 +1092,25 @@
     "model": "iPhone",
     "os": "iOS",
     "osv": "9.1",
-    "pxratio": 0.0,
-    "ua": "Mozilla \/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit\/601.1.46 (KHTML, like Gecko) Version\/9.0 Mobile\/13B5110e Safari\/601.1"
+    "sua": {
+      "browsers": [
+        {
+          "brand": "Safari",
+          "version": [
+            "9"
+          ]
+        }
+      ],
+      "mobile": 1,
+      "platform": {
+        "brand": "iOS"
+      },
+      "source": 3
+    },
+    "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B5110e Safari/601.1"
   },
   "ext": {},
-  "id": "b1ac934c-4b7f-4883-b5f7-a22ca9f3930d",
+  "id": "8d27bcdd-733d-4a35-a966-148b5e09471a",
   "imp": [
     {
       "banner": {
@@ -1092,13 +1173,13 @@
     "id": "123",
     "mobile": 1,
     "name": "Example Site",
-    "page": "https:\/\/magazine.fluct.jp\/category\/news",
+    "page": "https://magazine.fluct.jp/category/news",
     "pagecat": [],
     "publisher": {
       "ext": {},
       "id": "234"
     },
-    "ref": "https:\/\/google.com\/search?"
+    "ref": "https://google.com/search?"
   },
   "source": {
     "ext": {
@@ -1112,19 +1193,19 @@
           "asi": "adingo.jp",
           "ext": {},
           "hp": 1,
-          "rid": "b1ac934c-4b7f-4883-b5f7-a22ca9f3930d",
+          "rid": "8d27bcdd-733d-4a35-a966-148b5e09471a",
           "sid": "234"
         }
       ],
       "ver": "1.0"
     },
-    "tid": "b1ac934c-4b7f-4883-b5f7-a22ca9f3930d"
+    "tid": "8d27bcdd-733d-4a35-a966-148b5e09471a"
   },
   "tmax": 280,
   "user": {
     "buyeruid": "synced-buyeruid",
     "ext": {},
-    "id": "090bc4dd-bb06-4aeb-9212-d1986ff81a25"
+    "id": "c21d36db-6701-4ec8-bd26-5f631248e120"
   }
 }
 ```
@@ -1153,7 +1234,6 @@ Google Open Bidding transaction example.
   ],
   "device": {
     "connectiontype": 2,
-    "devicetype": 2,
     "dnt": 0,
     "ext": {},
     "geo": {
@@ -1165,8 +1245,6 @@ Google Open Bidding transaction example.
       "utcoffset": -480,
       "zip": "97218"
     },
-    "hwv": "",
-    "ifa": "",
     "ip": "210.168.46.254",
     "language": "ja",
     "lmt": 0,
@@ -1174,11 +1252,25 @@ Google Open Bidding transaction example.
     "model": "iPhone",
     "os": "iOS",
     "osv": "9.1",
-    "pxratio": 0.0,
-    "ua": "Mozilla \/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit\/601.1.46 (KHTML, like Gecko) Version\/9.0 Mobile\/13B5110e Safari\/601.1"
+    "sua": {
+      "browsers": [
+        {
+          "brand": "Safari",
+          "version": [
+            "9"
+          ]
+        }
+      ],
+      "mobile": 1,
+      "platform": {
+        "brand": "iOS"
+      },
+      "source": 3
+    },
+    "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B5110e Safari/601.1"
   },
   "ext": {},
-  "id": "3fa8d8a3-3ab4-4804-9f21-b301cc88ed79",
+  "id": "7b445a34-cdc9-4568-8ce2-01445326ca09",
   "imp": [
     {
       "banner": {
@@ -1219,13 +1311,13 @@ Google Open Bidding transaction example.
     "id": "123",
     "mobile": 1,
     "name": "Example Site",
-    "page": "https:\/\/magazine.fluct.jp\/category\/news",
+    "page": "https://magazine.fluct.jp/category/news",
     "pagecat": [],
     "publisher": {
       "ext": {},
       "id": "234"
     },
-    "ref": "https:\/\/google.com\/search?"
+    "ref": "https://google.com/search?"
   },
   "source": {
     "ext": {
@@ -1245,19 +1337,19 @@ Google Open Bidding transaction example.
           "asi": "adingo.jp",
           "ext": {},
           "hp": 1,
-          "rid": "3fa8d8a3-3ab4-4804-9f21-b301cc88ed79",
+          "rid": "7b445a34-cdc9-4568-8ce2-01445326ca09",
           "sid": "234"
         }
       ],
       "ver": "1.0"
     },
-    "tid": "705b5742-29e0-46b4-a1b0-a903b085ea8a"
+    "tid": "daf79fb0-d976-4b83-bb34-a45610776842"
   },
   "tmax": 280,
   "user": {
     "buyeruid": "synced-buyeruid",
     "ext": {},
-    "id": "cd59015e-d5e6-422c-95bf-fcab7800bdc1"
+    "id": "35bac0a1-e35a-494e-b16e-e0985c557a39"
   }
 }
 ```
@@ -1279,7 +1371,7 @@ Google Open Bidding transaction example.
       "ext": {},
       "id": "234"
     },
-    "storeurl": "https:\/\/apps.apple.com\/jp\/app\/hogehoge-app\/id1234567890"
+    "storeurl": "https://apps.apple.com/jp/app/hogehoge-app/id1234567890"
   },
   "at": 1,
   "badv": [],
@@ -1303,7 +1395,6 @@ Google Open Bidding transaction example.
   ],
   "device": {
     "connectiontype": 2,
-    "devicetype": 2,
     "dnt": 0,
     "ext": {},
     "geo": {
@@ -1315,8 +1406,7 @@ Google Open Bidding transaction example.
       "utcoffset": 540,
       "zip": "150-0043"
     },
-    "hwv": "",
-    "ifa": "44d8da17-33ff-4ace-adfe-02a490e2fffd",
+    "ifa": "c9718afc-54f0-44c0-bfab-db6e4c4aeafc",
     "ip": "210.168.46.254",
     "language": "ja",
     "lmt": 0,
@@ -1324,11 +1414,25 @@ Google Open Bidding transaction example.
     "model": "iPhone",
     "os": "iOS",
     "osv": "9.1",
-    "pxratio": 0.0,
-    "ua": "Mozilla \/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit\/601.1.46 (KHTML, like Gecko) Version\/9.0 Mobile\/13B5110e Safari\/601.1"
+    "sua": {
+      "browsers": [
+        {
+          "brand": "Safari",
+          "version": [
+            "9"
+          ]
+        }
+      ],
+      "mobile": 1,
+      "platform": {
+        "brand": "iOS"
+      },
+      "source": 3
+    },
+    "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B5110e Safari/601.1"
   },
   "ext": {},
-  "id": "d4e97e3b-e050-4387-a37a-7c6fe9fd0669",
+  "id": "fb14f38d-0fbb-44c5-a6ff-c9f9e90dcc42",
   "imp": [
     {
       "banner": {
@@ -1381,19 +1485,19 @@ Google Open Bidding transaction example.
           "asi": "adingo.jp",
           "ext": {},
           "hp": 1,
-          "rid": "d4e97e3b-e050-4387-a37a-7c6fe9fd0669",
+          "rid": "fb14f38d-0fbb-44c5-a6ff-c9f9e90dcc42",
           "sid": "234"
         }
       ],
       "ver": "1.0"
     },
-    "tid": "d4e97e3b-e050-4387-a37a-7c6fe9fd0669"
+    "tid": "fb14f38d-0fbb-44c5-a6ff-c9f9e90dcc42"
   },
   "tmax": 280,
   "user": {
     "buyeruid": "",
     "ext": {},
-    "id": "44d8da17-33ff-4ace-adfe-02a490e2fffd"
+    "id": "c9718afc-54f0-44c0-bfab-db6e4c4aeafc"
   }
 }
 ```
@@ -1415,7 +1519,7 @@ Google Open Bidding transaction example.
       "ext": {},
       "id": "234"
     },
-    "storeurl": "https:\/\/apps.apple.com\/jp\/app\/hogehoge-app\/id1234567890"
+    "storeurl": "https://apps.apple.com/jp/app/hogehoge-app/id1234567890"
   },
   "at": 1,
   "badv": [],
@@ -1439,7 +1543,6 @@ Google Open Bidding transaction example.
   ],
   "device": {
     "connectiontype": 2,
-    "devicetype": 2,
     "dnt": 0,
     "ext": {},
     "geo": {
@@ -1451,8 +1554,7 @@ Google Open Bidding transaction example.
       "utcoffset": 540,
       "zip": "150-0043"
     },
-    "hwv": "",
-    "ifa": "94398a04-a1b9-4f6e-ac30-67563c83bd24",
+    "ifa": "ee9c882b-9431-433d-82b3-261797bd481b",
     "ip": "210.168.46.254",
     "language": "ja",
     "lmt": 0,
@@ -1460,11 +1562,25 @@ Google Open Bidding transaction example.
     "model": "iPhone",
     "os": "iOS",
     "osv": "9.1",
-    "pxratio": 0.0,
-    "ua": "Mozilla \/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit\/601.1.46 (KHTML, like Gecko) Version\/9.0 Mobile\/13B5110e Safari\/601.1"
+    "sua": {
+      "browsers": [
+        {
+          "brand": "Safari",
+          "version": [
+            "9"
+          ]
+        }
+      ],
+      "mobile": 1,
+      "platform": {
+        "brand": "iOS"
+      },
+      "source": 3
+    },
+    "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B5110e Safari/601.1"
   },
   "ext": {},
-  "id": "5ad1bd7e-202c-4d56-b3fa-9e61d28b5af2",
+  "id": "fd6703f5-0784-40a3-9c51-0b83c7cd962b",
   "imp": [
     {
       "banner": {
@@ -1508,13 +1624,13 @@ Google Open Bidding transaction example.
           "asi": "adingo.jp",
           "ext": {},
           "hp": 1,
-          "rid": "5ad1bd7e-202c-4d56-b3fa-9e61d28b5af2",
+          "rid": "fd6703f5-0784-40a3-9c51-0b83c7cd962b",
           "sid": "234"
         }
       ],
       "ver": "1.0"
     },
-    "tid": "5ad1bd7e-202c-4d56-b3fa-9e61d28b5af2"
+    "tid": "fd6703f5-0784-40a3-9c51-0b83c7cd962b"
   },
   "tmax": 280,
   "user": {
@@ -1560,7 +1676,145 @@ Google Open Bidding transaction example.
       }
     ],
     "ext": {},
-    "id": "94398a04-a1b9-4f6e-ac30-67563c83bd24"
+    "id": "ee9c882b-9431-433d-82b3-261797bd481b"
+  }
+}
+```
+
+### With User-Agent Client Hints
+
+```json
+{
+  "at": 1,
+  "badv": [],
+  "bapp": [],
+  "bcat": [
+    "IAB23",
+    "IAB24",
+    "IAB25-2",
+    "IAB25-3",
+    "IAB25-4",
+    "IAB25-5",
+    "IAB26"
+  ],
+  "cur": [
+    "JPY",
+    "USD"
+  ],
+  "device": {
+    "connectiontype": 0,
+    "dnt": 0,
+    "ext": {},
+    "geo": {
+      "city": "Shibuya",
+      "country": "JPN",
+      "ipservice": 3,
+      "region": "JP-13",
+      "type": 2,
+      "utcoffset": 540,
+      "zip": "150-0043"
+    },
+    "ip": "210.168.46.254",
+    "language": "ja",
+    "lmt": 0,
+    "os": "macOS",
+    "sua": {
+      "browsers": [
+        {
+          "brand": "Google Chrome",
+          "version": [
+            "101"
+          ]
+        },
+        {
+          "brand": "Chromium",
+          "version": [
+            "101"
+          ]
+        }
+      ],
+      "mobile": 0,
+      "platform": {
+        "brand": "macOS"
+      },
+      "source": 1
+    }
+  },
+  "ext": {},
+  "id": "95faae68-e99e-4434-bc2e-03703aee0a20",
+  "imp": [
+    {
+      "banner": {
+        "api": [],
+        "battr": [],
+        "ext": {},
+        "format": [
+          {
+            "h": 250,
+            "w": 300
+          }
+        ],
+        "h": 250,
+        "pos": 1,
+        "w": 300
+      },
+      "bidfloor": 2.430134,
+      "bidfloorcur": "USD",
+      "ext": {},
+      "id": "",
+      "instl": 0,
+      "metric": [],
+      "pmp": {
+        "deals": [],
+        "ext": {},
+        "private_auction": 0
+      },
+      "secure": 1,
+      "tagid": "1111:22222222"
+    }
+  ],
+  "site": {
+    "cat": [
+      "IAB1"
+    ],
+    "domain": "magazine.fluct.jp",
+    "ext": {},
+    "id": "123",
+    "mobile": 1,
+    "name": "Example Site",
+    "page": "https://magazine.fluct.jp/category/news",
+    "pagecat": [],
+    "publisher": {
+      "ext": {},
+      "id": "234"
+    },
+    "ref": "https://google.com/search?"
+  },
+  "source": {
+    "ext": {
+      "stype": ""
+    },
+    "fd": 0,
+    "schain": {
+      "complete": 1,
+      "nodes": [
+        {
+          "asi": "adingo.jp",
+          "ext": {},
+          "hp": 1,
+          "rid": "95faae68-e99e-4434-bc2e-03703aee0a20",
+          "sid": "234"
+        }
+      ],
+      "ver": "1.0"
+    },
+    "tid": "95faae68-e99e-4434-bc2e-03703aee0a20"
+  },
+  "tmax": 280,
+  "user": {
+    "buyeruid": "synced-buyeruid",
+    "ext": {},
+    "id": "ff9efc95-fe7e-4379-be66-33974f449758"
   }
 }
 ```
