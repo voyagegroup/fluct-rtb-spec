@@ -29,6 +29,7 @@
           "id": "0",
           "impid": "00007d85-89e3-41e9-9e09-96e3a5000000",
           "language": "ja",
+          "mtype": 1,
           "price": 0.014828,
           "w": 300
         }
@@ -58,6 +59,7 @@
           "crid": "9Kfj2l",
           "id": "201912",
           "impid": "0000b361-02ce-4a93-873e-02d943000000",
+          "mtype": 4,
           "price": 16.281675070724084
         }
       ]
@@ -83,6 +85,7 @@
           "cid": "1001",
           "crid": "66027",
           "impid": "0000d491-84a5-49b3-8e33-52b2e1000000",
+          "mtype": 3,
           "price": 975.52
         }
       ]
@@ -113,6 +116,7 @@
           "id": "0",
           "impid": "00007d85-89e3-41e9-9e09-96e3a5000000",
           "language": "ja",
+          "mtype": 1,
           "price": 0.014828,
           "w": 300
         }
@@ -145,6 +149,7 @@
           "language": "ja",
           "lurl": "https://example.net/loss?code=${AUCTION_LOSS}&auction_id=${AUCTION_ID}&clearing_price=${AUCTION_PRICE}",
           "nurl": "https://example.net/win?code=${AUCTION_LOSS}&auction_id=${AUCTION_ID}&clearing_price=${AUCTION_PRICE}",
+          "mtype": 1,
           "price": 0.014828,
           "w": 300
         }
@@ -178,6 +183,7 @@
           "crid": "1124",
           "id": "000073f8-0000-4e07-b81f-7c7fc0000000",
           "impid": "0000fc8d-0000-4b6c-902a-3eae57000000",
+          "mtype": 2,
           "price": 100
         }
       ]
@@ -207,6 +213,7 @@
           "h": 250,
           "id": "1",
           "impid": "00005cbf-0000-41a6-8a36-3c0492000000",
+          "mtype": 1,
           "price": 17.9217,
           "w": 300
         }
@@ -233,6 +240,7 @@
           "cid": "1001",
           "crid": "66027",
           "impid": "0000d491-84a5-49b3-8e33-52b2e1000000",
+          "mtype": 2,
           "price": 975.52,
           "ext": {
             "skadn": {

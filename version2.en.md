@@ -1327,6 +1327,19 @@ HTTP 204 No Content is expected for no bid.
     </td>
   </tr>
   <tr>
+    <td>dur</td>
+    <td>integer</td>
+    <td>Duration of the video or audio creative in seconds.</td>
+  </tr>
+  <tr>
+    <td>mtype</td>
+    <td>integer; recommended</td>
+    <td>
+      Type of the creative markup.
+      1=Banner, 2=Video, 3=Audio, 4=Native
+    </td>
+  </tr>
+  <tr>
     <td>ext</td>
     <td>bid.ext Object</td>
     <td>bid extension object</td>
