@@ -42,8 +42,9 @@ Moreover, this specification does not contain description of general RTB protoco
     * [deal Object](#deal-object)
     * [deal.ext Object](#dealext-object)
     * [skadn Request Object](#skadn-request-object)
-    * [Extended User Identification Object](#extended-user-identification-object)
-    * [User ID Object](#user-id-object)
+    * [EIDs Object](#eids-object)
+    * [UID Object](#uid-object)
+    * [UserAgent Object](#useragent-object)
 * [4. Response Specification](#4-response-specification)
   * [a. Bid Response Parameters](#a-bid-response-parameters)
     * [Bid Response Object (Top Level)](#bid-response-object-top-level)
@@ -482,9 +483,9 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
   </tr>
   <tr>
     <td>eids</td>
-    <td>array of eid objects</td>
+    <td>array of objects</td>
     <td>
-      <a href="#extended-user-identification-object">Extended User Identification Objects</a>
+      <a href="#eids-object">EIDs Objects</a>
     </td>
   </tr>
 </table>
@@ -509,7 +510,7 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
     <td>sua</td>
     <td>object</td>
     <td>
-      <a href="#useragent">UserAgent Object</a>
+      <a href="#useragent-object">UserAgent Object</a>
     </td>
   </tr>
   <tr>
@@ -1072,7 +1073,7 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
 </table>
 
 
-#### Extended User Identification Object
+#### EIDs Object
 
 <table>
   <tr>
@@ -1088,7 +1089,9 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
   <tr>
     <td>uids</td>
     <td>array of objects</td>
-    <td>[User ID Object](#user-id-object)</td>
+    <td>
+      <a href="#uid-object">UID Object</a>
+    </td>
   </tr>
 </table>
 
@@ -1099,7 +1102,7 @@ Supported ad system identifiers:
 * `liveramp.com`
 
 
-#### User ID Object
+#### UID Object
 
 <table>
   <tr>
@@ -1127,14 +1130,14 @@ Supported ad system identifiers:
     <td>browsers</td>
     <td>array of objects</td>
     <td>
-      <a href="#">BrandVersion Object</a>
+      See <a href="#brandversion-object">BrandVersion Object</a>
     </td>
   </tr>
   <tr>
     <td>platform</td>
     <td>object</td>
     <td>
-      <a href="#">BrandVersion Object</a>
+      See <a href="#brandversion-object">BrandVersion Object</a>
     </td>
   </tr>
 </table>
