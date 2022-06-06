@@ -1,8 +1,8 @@
-# fluct RTB Specification ver 2.2
+# fluct RTB Specification ver 2.6
 
-This specification complies with OpenRTB Version 2.5.
+This specification complies with OpenRTB Version 2.6.
 
-See [IAB OpenRTB API Specification Version 2.5](https://www.iab.com/wp-content/uploads/2016/03/OpenRTB-API-Specification-Version-2-5-FINAL.pdf) for details.
+See [IAB OpenRTB API Specification Version 2.6](https://iabtechlab.com/wp-content/uploads/2022/04/OpenRTB-2-6_FINAL.pdf) for details.
 
 ### Attention
 
@@ -30,7 +30,6 @@ Moreover, this specification does not contain description of general RTB protoco
     * [app Object](#app-object)
     * [publisher Object](#publisher-object)
     * [user Object](#user-object)
-    * [user.ext Object](#userext-object)
     * [device Object](#device-object)
     * [geo Object](#geo-object)
     * [banner Object](#banner-object)
@@ -43,8 +42,9 @@ Moreover, this specification does not contain description of general RTB protoco
     * [deal Object](#deal-object)
     * [deal.ext Object](#dealext-object)
     * [skadn Request Object](#skadn-request-object)
-    * [Extended User Identification Object](#extended-user-identification-object)
-    * [User ID Object](#user-id-object)
+    * [EIDs Object](#eids-object)
+    * [UID Object](#uid-object)
+    * [UserAgent Object](#useragent-object)
 * [4. Response Specification](#4-response-specification)
   * [a. Bid Response Parameters](#a-bid-response-parameters)
     * [Bid Response Object (Top Level)](#bid-response-object-top-level)
@@ -275,6 +275,11 @@ Serialization format: JSON only.
     <td>Floor price currency</td>
   </tr>
   <tr>
+    <td>rwdd</td>
+    <td>integer</td>
+    <td>0=no, 1=yes</td>
+  </tr>
+  <tr>
     <td>ext</td>
     <td>imp.ext object</td>
     <td>imp extension object</td>
@@ -305,6 +310,10 @@ Serialization format: JSON only.
 
 #### source Object
 
+Both [Sellers.json](https://iabtechlab.com/sellers-json/) and [OpenRTB SupplyChain](https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/supplychainobject.md) are available.
+
+Refer to https://adingo.jp/sellers.json for sellers available through fluct.
+
 <table>
   <tr>
     <th>Field</th>
@@ -322,6 +331,11 @@ Serialization format: JSON only.
     <td>Transaction ID that is issued by upstream. Otherwise, same as BidRequest.id.</td>
   </tr>
   <tr>
+    <td>schain</td>
+    <td>supply-chain object</td>
+    <td><a href="https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/supplychainobject.md">OpenRTB SupplyChain object</a></td>
+  </tr>
+  <tr>
     <td>ext</td>
     <td>source.ext object</td>
     <td>source extension object</td>
@@ -330,10 +344,6 @@ Serialization format: JSON only.
 
 
 #### source.ext Object
-
-Both [Sellers.json](https://iabtechlab.com/sellers-json/) and [OpenRTB SupplyChain](https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/supplychainobject.md) are available.
-
-Refer to https://adingo.jp/sellers.json for sellers available through fluct.
 
 <table>
   <tr>
@@ -346,12 +356,8 @@ Refer to https://adingo.jp/sellers.json for sellers available through fluct.
     <td>string; experimental</td>
     <td>Header Bidding type. Contact us for details.</td>
   </tr>
-  <tr>
-    <td>schain</td>
-    <td>supply-chain object</td>
-    <td><a href="https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/supplychainobject.md">OpenRTB SupplyChain object</a></td>
-  </tr>
 </table>
+
 
 #### site Object
 
@@ -476,31 +482,15 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
     <td></td>
   </tr>
   <tr>
-    <td>ext</td>
-    <td>object</td>
-    <td>User extension object</td>
+    <td>eids</td>
+    <td>array of objects</td>
+    <td>
+      <a href="#eids-object">EIDs Objects</a>
+    </td>
   </tr>
 </table>
 
 * When "ifa" is sent, “user.buyeruid” is not sent and “user.id” is set to be the value of “device.ifa”.
-
-
-#### user.ext Object
-
-<table>
-  <tr>
-    <th>Field</th>
-    <th>Type</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>eids</td>
-    <td>array of eid objects</td>
-    <td>
-      <a href="#extended-user-identification-object">Extended User Identification Objects</a>
-    </td>
-  </tr>
-</table>
 
 
 #### device Object
@@ -515,6 +505,13 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
     <td>ua</td>
     <td>string; required</td>
     <td></td>
+  </tr>
+  <tr>
+    <td>sua</td>
+    <td>object</td>
+    <td>
+      <a href="#useragent-object">UserAgent Object</a>
+    </td>
   </tr>
   <tr>
     <td>geo</td>
@@ -1041,7 +1038,7 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
   <tr>
     <td>publisher_blocks_overridden</td>
     <td>int</td>
-    <td>whether this deal ignores bcat in PA. 0=false, 1=true </td>
+    <td>Whether bid to the deal should ignore bcat. 0=false, 1=true </td>
   </tr>
 </table>
 
@@ -1076,7 +1073,7 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
 </table>
 
 
-#### Extended User Identification Object
+#### EIDs Object
 
 <table>
   <tr>
@@ -1092,7 +1089,9 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
   <tr>
     <td>uids</td>
     <td>array of objects</td>
-    <td>[User ID Object](#user-id-object)</td>
+    <td>
+      <a href="#uid-object">UID Object</a>
+    </td>
   </tr>
 </table>
 
@@ -1103,7 +1102,7 @@ Supported ad system identifiers:
 * `liveramp.com`
 
 
-#### User ID Object
+#### UID Object
 
 <table>
   <tr>
@@ -1115,6 +1114,54 @@ Supported ad system identifiers:
     <td>id</td>
     <td>string</td>
     <td></td>
+  </tr>
+</table>
+
+
+#### UserAgent Object
+
+<table>
+  <tr>
+    <td>Field</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>browsers</td>
+    <td>array of objects</td>
+    <td>
+      See <a href="#brandversion-object">BrandVersion Object</a>
+    </td>
+  </tr>
+  <tr>
+    <td>platform</td>
+    <td>object</td>
+    <td>
+      See <a href="#brandversion-object">BrandVersion Object</a>
+    </td>
+  </tr>
+</table>
+
+
+#### BrandVersion Object
+
+<table>
+  <tr>
+    <td>Field</td>
+    <td>Type</td>
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>brand</td>
+    <td>string</td>
+    <td>
+    </td>
+  </tr>
+  <tr>
+    <td>version</td>
+    <td>array of strings</td>
+    <td>
+    </td>
   </tr>
 </table>
 
@@ -1277,6 +1324,19 @@ HTTP 204 No Content is expected for no bid.
     <td>
       Loss notice URL to be called if the bid loses the auction.
       Substituting macros may be included.
+    </td>
+  </tr>
+  <tr>
+    <td>dur</td>
+    <td>integer</td>
+    <td>Duration of the video or audio creative in seconds.</td>
+  </tr>
+  <tr>
+    <td>mtype</td>
+    <td>integer; recommended</td>
+    <td>
+      Type of the creative markup.
+      1=Banner, 2=Video, 3=Audio, 4=Native
     </td>
   </tr>
   <tr>
