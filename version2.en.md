@@ -647,12 +647,12 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
   <tr>
     <td>h</td>
     <td>integer</td>
-    <td></td>
+    <td>Specified only when exactly 1 object exists in format array.</td>
   </tr>
   <tr>
     <td>w</td>
     <td>integer</td>
-    <td></td>
+    <td>Specified only when exactly 1 object exists in format array.</td>
   </tr>
   <tr>
     <td>pos</td>
@@ -803,6 +803,15 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
     </td>
   </tr>
   <tr>
+    <td>companiontype</td>
+    <td>array of integers</td>
+    <td>
+      1=static resource,
+      2=HTML resource,
+      3=iframe resource
+    </td>
+  </tr>
+  <tr>
     <td>delivery</td>
     <td>array of integers</td>
     <td></td>
@@ -925,6 +934,22 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
     <td>
       0=no,
       1=yes
+    </td>
+  </tr>
+  <tr>
+    <td>companionad</td>
+    <td>array of banner objects</td>
+    <td>
+      Array of banner objects when supported.
+    </td>
+  </tr>
+  <tr>
+    <td>companiontype</td>
+    <td>array of integers</td>
+    <td>
+      1=static resource,
+      2=HTML resource,
+      3=iframe resource
     </td>
   </tr>
 </table>
