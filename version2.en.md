@@ -35,7 +35,6 @@ Moreover, this specification does not contain description of general RTB protoco
     * [banner Object](#banner-object)
     * [format Object](#format-object)
     * [video Object](#video-object)
-    * [video.ext Object](#videoext-object)
     * [audio Object](#audio-object)
     * [native Object](#native-object)
     * [pmp Object](#pmp-object)
@@ -277,7 +276,7 @@ Serialization format: JSON only.
   <tr>
     <td>rwdd</td>
     <td>integer</td>
-    <td>0=no, 1=yes</td>
+    <td>Whether the viewer receives a reward for viewing the ad. 0=no, 1=yes</td>
   </tr>
   <tr>
     <td>ext</td>
@@ -815,31 +814,6 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
     <td>delivery</td>
     <td>array of integers</td>
     <td></td>
-  </tr>
-  <tr>
-    <td>ext</td>
-    <td>video.ext object</td>
-    <td>
-      video extension object
-    </td>
-  </tr>
-</table>
-
-
-#### video.ext Object
-
-<table>
-  <tr>
-    <th>Field</th>
-    <th>Type</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>rewarded</td>
-    <td>integer</td>
-    <td>
-      0=no, 1=yes
-    </td>
   </tr>
 </table>
 
