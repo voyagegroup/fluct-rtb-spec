@@ -41,8 +41,8 @@ Moreover, this specification does not contain description of general RTB protoco
     * [deal Object](#deal-object)
     * [deal.ext Object](#dealext-object)
     * [skadn Request Object](#skadn-request-object)
-    * [EIDs Object](#eids-object)
-    * [UID Object](#uid-object)
+    * [User EID Object](#user-eid-object)
+    * [User Data Object](#user-data-object)
     * [UserAgent Object](#useragent-object)
 * [4. Response Specification](#4-response-specification)
   * [a. Bid Response Parameters](#a-bid-response-parameters)
@@ -304,6 +304,11 @@ Serialization format: JSON only.
     <td>skadn Request object</td>
     <td>SKAdNetwork request object</td>
   </tr>
+  <tr>
+    <td>gpid</td>
+    <td>string</td>
+    <td>Global Placement ID</td>
+  </tr>
 </table>
 
 
@@ -484,7 +489,14 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
     <td>eids</td>
     <td>array of objects</td>
     <td>
-      <a href="#eids-object">EIDs Objects</a>
+      <a href="#user-eid-object">User EID Objects</a>
+    </td>
+  </tr>
+  <tr>
+    <td>data</td>
+    <td>array or objects</td>
+    <td>
+      <a href="#user-data-object">User Data Objects</a>
     </td>
   </tr>
 </table>
@@ -815,6 +827,36 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
     <td>array of integers</td>
     <td></td>
   </tr>
+  <tr>
+    <td>podseq</td>
+    <td>integer</td>
+    <td>
+      -1=Last pod in the content stream,
+      0=Any pod in the content stream,
+      1=First pod in the content stream
+    </td>
+  </tr>
+  <tr>
+    <td>poddur</td>
+    <td>integer</td>
+    <td>
+      Duration of the pod in seconds for a dynamic ad pod.
+    </td>
+  </tr>
+  <tr>
+    <td>maxseq</td>
+    <td>integer</td>
+    <td>
+      Maximum number of ads served in a dynamic ad pod.
+    </td>
+  </tr>
+  <tr>
+    <td>rqddurs</td>
+    <td>array of integers</td>
+    <td>
+      Acceptable creative durations in seconds for a dynamic ad pod.
+    </td>
+  </tr>
 </table>
 
 
@@ -924,6 +966,36 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
       1=static resource,
       2=HTML resource,
       3=iframe resource
+    </td>
+  </tr>
+  <tr>
+    <td>podseq</td>
+    <td>integer</td>
+    <td>
+      -1=Last pod in the content stream,
+      0=Any pod in the content stream,
+      1=First pod in the content stream
+    </td>
+  </tr>
+  <tr>
+    <td>poddur</td>
+    <td>integer</td>
+    <td>
+      Duration of the pod in seconds for a dynamic ad pod.
+    </td>
+  </tr>
+  <tr>
+    <td>maxseq</td>
+    <td>integer</td>
+    <td>
+      Maximum number of ads served in a dynamic ad pod.
+    </td>
+  </tr>
+  <tr>
+    <td>rqddurs</td>
+    <td>array of integers</td>
+    <td>
+      Acceptable creative durations in seconds for a dynamic ad pod.
     </td>
   </tr>
 </table>
@@ -1072,7 +1144,9 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
 </table>
 
 
-#### EIDs Object
+#### User EID Object
+
+[Extended Identifiers](https://github.com/InteractiveAdvertisingBureau/openrtb/blob/master/extensions/2.x_official_extensions/eids.md)
 
 <table>
   <tr>
@@ -1089,19 +1163,73 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
     <td>uids</td>
     <td>array of objects</td>
     <td>
-      <a href="#uid-object">UID Object</a>
+      <a href="#user-uid-object">User UID Object</a>
     </td>
   </tr>
 </table>
 
-Supported ad system identifiers:
 
-* `adserver.org`
-* `intimatemerger.com`
-* `liveramp.com`
+#### User UID Object
+
+<table>
+  <tr>
+    <th>Field</th>
+    <th>Type</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>string</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>atype</td>
+    <td>integer</td>
+    <td>
+      1=tied to web browser or device (cookie-based, probabilistic, or other),
+      2=in-app impression typically containing device ID,
+      3=person-based ID
+    </td>
+  </tr>
+  <tr>
+    <td>ext</td>
+    <td>object</td>
+    <td></td>
+  </tr>
+</table>
 
 
-#### UID Object
+#### User Data Object
+
+<table>
+  <tr>
+    <th>Field</th>
+    <th>Type</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>name</td>
+    <td>string</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>segment</td>
+    <td>array of objects</td>
+    <td>
+      <a href="#user-data-segment-object">User Data Segment Object</a>
+    </td>
+  </tr>
+  <tr>
+    <td>ext</td>
+    <td>object</td>
+    <td>
+      <a href="#user-data-ext-object">User Data Ext Object</a>
+    </td>
+  </tr>
+</table>
+
+
+#### User Data Segment Object
 
 <table>
   <tr>
@@ -1117,13 +1245,29 @@ Supported ad system identifiers:
 </table>
 
 
+#### User Data Ext Object
+
+<table>
+  <tr>
+    <th>Field</th>
+    <th>Type</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>segtax</td>
+    <td>integer</td>
+    <td></td>
+  </tr>
+</table>
+
+
 #### UserAgent Object
 
 <table>
   <tr>
-    <td>Field</td>
-    <td>Type</td>
-    <td>Description</td>
+    <th>Field</th>
+    <th>Type</th>
+    <th>Description</th>
   </tr>
   <tr>
     <td>browsers</td>
@@ -1146,9 +1290,9 @@ Supported ad system identifiers:
 
 <table>
   <tr>
-    <td>Field</td>
-    <td>Type</td>
-    <td>Description</td>
+    <th>Field</th>
+    <th>Type</th>
+    <th>Description</th>
   </tr>
   <tr>
     <td>brand</td>

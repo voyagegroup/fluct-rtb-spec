@@ -1,6 +1,10 @@
 # 変更履歴
 
 * 2.6
+    * 2023/08/17
+        * Bid Request:
+            * Add dynamic pod bidding fields `{video,audio}.{podseq,poddur,maxseq,rqddurs}`
+            * Add `user.data`
     * 2022/06/01
         * Update base version to OpenRTB 2.6.
         * Bid Request:
