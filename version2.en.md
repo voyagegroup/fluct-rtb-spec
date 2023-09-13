@@ -1472,7 +1472,10 @@ HTTP 204 No Content is expected for no bid.
   <tr>
     <td>dur</td>
     <td>integer</td>
-    <td>Duration of the video or audio creative in seconds.</td>
+    <td>
+      Duration of the video or audio creative in seconds.
+      Required when bidding on a dynamic ad pod.
+    </td>
   </tr>
   <tr>
     <td>mtype</td>
