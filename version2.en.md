@@ -264,7 +264,7 @@ Serialization format: JSON only.
     <td>0=no, 1=yes</td>
   </tr>
   <tr>
-    <td>bidfloor</td>
+    <td>bidfloor</td>x
     <td>float</td>
     <td>Floor price</td>
   </tr>
@@ -1470,6 +1470,13 @@ HTTP 204 No Content is expected for no bid.
     </td>
   </tr>
   <tr>
+    <td>burl</td>
+    <td>string</td>
+    <td>
+      Billing notice URL called by the server if the bid wins the auction and imp records. Auction price macros ( {$AUCTION_PRICE} ) must be included.
+    </td>
+  </tr>
+  <tr>
     <td>dur</td>
     <td>integer</td>
     <td>
@@ -1637,6 +1644,7 @@ The following assumptions are made about URLs which serve beacons:
     <th>adm</th>
     <th>nurl</th>
     <th>lurl</th>
+    <th>burl</th>
   </tr>
   <tr>
     <td><code>${CLICK_URL_ENC}</code></td>
@@ -1692,6 +1700,7 @@ The following assumptions are made about URLs which serve beacons:
       Encryption is optional.
       Substituted to <code>AUDIT</code> in the creative review process.
     </td>
+    <td>Yes</td>
     <td>Yes</td>
     <td>Yes</td>
     <td>Yes</td>
