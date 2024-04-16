@@ -264,7 +264,7 @@ Serialization format: JSON only.
     <td>0=no, 1=yes</td>
   </tr>
   <tr>
-    <td>bidfloor</td>x
+    <td>bidfloor</td>
     <td>float</td>
     <td>Floor price</td>
   </tr>
