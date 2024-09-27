@@ -181,11 +181,6 @@ Serialization format: JSON only.
     <td></td>
   </tr>
   <tr>
-    <td>badv</td>
-    <td>array of strings</td>
-    <td></td>
-  </tr>
-  <tr>
     <td>tmax</td>
     <td>integer</td>
     <td>auction timeout in msec</td>
