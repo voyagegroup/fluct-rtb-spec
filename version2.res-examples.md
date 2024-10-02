@@ -5,6 +5,7 @@
 * [Video/Audio](#videoaudio)
 * [With dealid](#with-dealid)
 * [With nurl and lurl](#with-nurl-and-lurl)
+* [With_burl](#with-burl)
 * [With bundle](#with-bundle)
 * [With SKAdNetwork Response Object](#with-skadnetwork-response-object)
 
@@ -150,6 +151,38 @@
           "language": "ja",
           "lurl": "https://example.net/loss?code=${AUCTION_LOSS}&auction_id=${AUCTION_ID}&clearing_price=${AUCTION_PRICE}",
           "nurl": "https://example.net/win?code=${AUCTION_LOSS}&auction_id=${AUCTION_ID}&clearing_price=${AUCTION_PRICE}",
+          "mtype": 1,
+          "price": 0.014828,
+          "w": 300
+        }
+      ]
+    }
+  ]
+}
+```
+
+### With burl
+
+```json
+{
+  "cur": "USD",
+  "id": "0000fbb5-0000-4218-8551-4ea553000000",
+  "seatbid": [
+    {
+      "bid": [
+        {
+          "adid": "40734",
+          "adm": "<script>(function(){var e=this||self;})()</script><div><img src=\"https://adsystem/?q=eD3TPt6ibXC7FHb5U3gXH6ylGqZ5kc355we1OGn87GXzNth1O7M1hYDg&pr=${AUCTION_PRICE}\" border=0 width=1 height=1 alt=\"\" style=\"display:none\"></div>",
+          "adomain": [
+            "ecnavi.jp"
+          ],
+          "cid": "75580",
+          "crid": "40734",
+          "h": 250,
+          "id": "0",
+          "impid": "00007d85-89e3-41e9-9e09-96e3a5000000",
+          "language": "ja",
+          "burl": "https://example.com/?clearing_price=${AUCTION_PRICE}",
           "mtype": 1,
           "price": 0.014828,
           "w": 300
