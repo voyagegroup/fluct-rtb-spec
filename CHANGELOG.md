@@ -1,6 +1,20 @@
 # 変更履歴
 
 * 2.6
+    * 2026/02/02
+        * Bid Request:
+            * Add `omidpn`, `omidpv` to source Object
+            * Add `name`, `pagecat`, `ref` to site Object
+            * Add `name`, `pagecat` to app Object
+            * Add `language`, `make`, `model`, `os`, `hwv`, `pxratio`, `connectiontype`, `devicetype` to device Object
+            * Add `mobile`, `architecture`, `bitness`, `model`, `source` to UserAgent Object
+            * Add `displaymanager`, `displaymanagerver` to imp Object
+            * Add `api` to banner Object
+            * Add `maxextended`, `playbackmethod`, `playbackend` to video Object
+            * Add `versions` to skadn Request Object
+        * Bid Response:
+            * Add `nbr` to Bid Response Object
+            * Add `burl` to bid Object
     * 2023/08/17
         * Bid Request:
             * Add dynamic pod bidding fields `{video,audio}.{podseq,poddur,maxseq,rqddurs}`
