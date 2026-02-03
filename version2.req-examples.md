@@ -2167,6 +2167,11 @@ Google Open Bidding transaction example.
     },
     "tid": "281f1a48-a88b-4813-a7ec-2bb5095bcdae"
   },
+  "regs": {
+    "coppa": 1,
+    "gpp": "gppstring",
+    "gpp_sid": [1, 2]
+  },
   "tmax": 280,
   "user": {
     "buyeruid": "synced-buyeruid",

@@ -44,6 +44,7 @@ Moreover, this specification does not contain description of general RTB protoco
     * [User EID Object](#user-eid-object)
     * [User Data Object](#user-data-object)
     * [UserAgent Object](#useragent-object)
+    * [regs Object](#regs-object)
 * [4. Response Specification](#4-response-specification)
   * [a. Bid Response Parameters](#a-bid-response-parameters)
     * [Bid Response Object (Top Level)](#bid-response-object-top-level)
@@ -204,6 +205,11 @@ Serialization format: JSON only.
     <td>cur</td>
     <td>array of strings</td>
     <td>a list of accepted currencies</td>
+  </tr>
+  <tr>
+    <td>regs</td>
+    <td>regs object</td>
+    <td>Regulatory conditions in effect</td>
   </tr>
 </table>
 
@@ -1435,6 +1441,32 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
     <td>array of strings</td>
     <td>
     </td>
+  </tr>
+</table>
+
+
+#### regs Object
+
+<table>
+  <tr>
+    <th>Field</th>
+    <th>Type</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>coppa</td>
+    <td>integer</td>
+    <td>Flag indicating if COPPA regulations apply. 0=no, 1=yes</td>
+  </tr>
+  <tr>
+    <td>gpp</td>
+    <td>string</td>
+    <td>IAB Global Privacy Platform consent string</td>
+  </tr>
+  <tr>
+    <td>gpp_sid</td>
+    <td>array of integers</td>
+    <td>GPP section IDs</td>
   </tr>
 </table>
 
