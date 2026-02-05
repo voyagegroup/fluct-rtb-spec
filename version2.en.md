@@ -44,6 +44,7 @@ Moreover, this specification does not contain description of general RTB protoco
     * [User EID Object](#user-eid-object)
     * [User Data Object](#user-data-object)
     * [UserAgent Object](#useragent-object)
+    * [regs Object](#regs-object)
 * [4. Response Specification](#4-response-specification)
   * [a. Bid Response Parameters](#a-bid-response-parameters)
     * [Bid Response Object (Top Level)](#bid-response-object-top-level)
@@ -205,9 +206,14 @@ Serialization format: JSON only.
     <td>array of strings</td>
     <td>a list of accepted currencies</td>
   </tr>
+  <tr>
+    <td>regs</td>
+    <td>regs object</td>
+    <td>Regulatory conditions in effect</td>
+  </tr>
 </table>
 
-* Only one of the "site" and “app” sections will be necessary.
+* Only one of the "site" and "app" sections will be necessary.
 
 
 #### imp Object
@@ -272,6 +278,16 @@ Serialization format: JSON only.
     <td>rwdd</td>
     <td>integer</td>
     <td>Whether the viewer receives a reward for viewing the ad. 0=no, 1=yes</td>
+  </tr>
+  <tr>
+    <td>displaymanager</td>
+    <td>string</td>
+    <td>SDK rendering partner name</td>
+  </tr>
+  <tr>
+    <td>displaymanagerver</td>
+    <td>string</td>
+    <td>SDK version</td>
   </tr>
   <tr>
     <td>ext</td>
@@ -339,6 +355,16 @@ Refer to https://adingo.jp/sellers.json for sellers available through fluct.
     <td>source.ext object</td>
     <td>source extension object</td>
   </tr>
+  <tr>
+    <td>omidpn</td>
+    <td>string</td>
+    <td>OM SDK partner name</td>
+  </tr>
+  <tr>
+    <td>omidpv</td>
+    <td>string</td>
+    <td>OM SDK partner version</td>
+  </tr>
 </table>
 
 
@@ -372,9 +398,19 @@ Refer to https://adingo.jp/sellers.json for sellers available through fluct.
     <td></td>
   </tr>
   <tr>
+    <td>name</td>
+    <td>string; required</td>
+    <td>Site name</td>
+  </tr>
+  <tr>
     <td>cat</td>
     <td>array of strings</td>
     <td></td>
+  </tr>
+  <tr>
+    <td>pagecat</td>
+    <td>array of strings; required</td>
+    <td>Page categories</td>
   </tr>
   <tr>
     <td>domain</td>
@@ -385,6 +421,11 @@ Refer to https://adingo.jp/sellers.json for sellers available through fluct.
     <td>page</td>
     <td>string; required</td>
     <td></td>
+  </tr>
+  <tr>
+    <td>ref</td>
+    <td>string; required</td>
+    <td>Referrer URL</td>
   </tr>
   <tr>
     <td>mobile</td>
@@ -413,9 +454,19 @@ Refer to https://adingo.jp/sellers.json for sellers available through fluct.
     <td></td>
   </tr>
   <tr>
+    <td>name</td>
+    <td>string; required</td>
+    <td>App name</td>
+  </tr>
+  <tr>
     <td>cat</td>
     <td>array of strings</td>
     <td></td>
+  </tr>
+  <tr>
+    <td>pagecat</td>
+    <td>array of strings; required</td>
+    <td>Page categories</td>
   </tr>
   <tr>
     <td>storeurl</td>
@@ -564,6 +615,46 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
     <td>integer</td>
     <td>screen width in pixels</td>
   </tr>
+  <tr>
+    <td>language</td>
+    <td>string</td>
+    <td>Language code (ISO 639-1)</td>
+  </tr>
+  <tr>
+    <td>make</td>
+    <td>string</td>
+    <td>Device manufacturer</td>
+  </tr>
+  <tr>
+    <td>model</td>
+    <td>string</td>
+    <td>Device model</td>
+  </tr>
+  <tr>
+    <td>os</td>
+    <td>string</td>
+    <td>Operating system</td>
+  </tr>
+  <tr>
+    <td>hwv</td>
+    <td>string</td>
+    <td>Hardware version</td>
+  </tr>
+  <tr>
+    <td>pxratio</td>
+    <td>float</td>
+    <td>Pixel ratio</td>
+  </tr>
+  <tr>
+    <td>connectiontype</td>
+    <td>integer</td>
+    <td>Network connection type</td>
+  </tr>
+  <tr>
+    <td>devicetype</td>
+    <td>integer</td>
+    <td>Device type</td>
+  </tr>
 </table>
 
 * When device.w and device.h are available, screen orientation can be determined as:
@@ -677,6 +768,11 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
       0=concurrent,
       1=end-card
     </td>
+  </tr>
+  <tr>
+    <td>api</td>
+    <td>array of integers</td>
+    <td>Supported API frameworks</td>
   </tr>
 </table>
 
@@ -851,6 +947,21 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
     <td>
       Acceptable creative durations in seconds for a dynamic ad pod.
     </td>
+  </tr>
+  <tr>
+    <td>maxextended</td>
+    <td>integer</td>
+    <td>Maximum extended ad duration in seconds. -1=allow without limit, 0=not allowed</td>
+  </tr>
+  <tr>
+    <td>playbackmethod</td>
+    <td>array of integers</td>
+    <td>Playback methods</td>
+  </tr>
+  <tr>
+    <td>playbackend</td>
+    <td>integer</td>
+    <td>Playback cessation mode</td>
   </tr>
 </table>
 
@@ -1121,7 +1232,12 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
   <tr>
     <td>version</td>
     <td>string; required</td>
-    <td>Version of SKAdNetwork supported. Always "2.0" or higher.</td>
+    <td>Version of SKAdNetwork supported. Deprecated in favor of <code>versions</code>.</td>
+  </tr>
+  <tr>
+    <td>versions</td>
+    <td>array of strings</td>
+    <td>Supported SKAdNetwork versions</td>
   </tr>
   <tr>
     <td>sourceapp</td>
@@ -1278,6 +1394,31 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
       See <a href="#brandversion-object">BrandVersion Object</a>
     </td>
   </tr>
+  <tr>
+    <td>mobile</td>
+    <td>integer</td>
+    <td>1 if mobile device</td>
+  </tr>
+  <tr>
+    <td>architecture</td>
+    <td>string</td>
+    <td>CPU architecture</td>
+  </tr>
+  <tr>
+    <td>bitness</td>
+    <td>string</td>
+    <td>CPU bitness</td>
+  </tr>
+  <tr>
+    <td>model</td>
+    <td>string</td>
+    <td>Device model</td>
+  </tr>
+  <tr>
+    <td>source</td>
+    <td>integer</td>
+    <td>Source of data: 1=UA-CH High Entropy, 2=UA-CH Low Entropy, 3=Parsed UA</td>
+  </tr>
 </table>
 
 
@@ -1300,6 +1441,32 @@ ex) Android: "com.foo.mygame", iOS: "1234567890"</td>
     <td>array of strings</td>
     <td>
     </td>
+  </tr>
+</table>
+
+
+#### regs Object
+
+<table>
+  <tr>
+    <th>Field</th>
+    <th>Type</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>coppa</td>
+    <td>integer</td>
+    <td>Flag indicating if COPPA regulations apply. 0=no, 1=yes</td>
+  </tr>
+  <tr>
+    <td>gpp</td>
+    <td>string</td>
+    <td>IAB Global Privacy Platform consent string</td>
+  </tr>
+  <tr>
+    <td>gpp_sid</td>
+    <td>array of integers</td>
+    <td>GPP section IDs</td>
   </tr>
 </table>
 
@@ -1335,6 +1502,11 @@ HTTP 204 No Content is expected for no bid.
     <td>seatbid</td>
     <td>array of seatbid objects; required</td>
     <td>1+ seatbid objects</td>
+  </tr>
+  <tr>
+    <td>nbr</td>
+    <td>integer</td>
+    <td>No-bid reason code</td>
   </tr>
 </table>
 
@@ -1479,6 +1651,11 @@ HTTP 204 No Content is expected for no bid.
       Type of the creative markup.
       1=Banner, 2=Video, 3=Audio, 4=Native
     </td>
+  </tr>
+  <tr>
+    <td>burl</td>
+    <td>string</td>
+    <td>Billing notice URL</td>
   </tr>
   <tr>
     <td>ext</td>
